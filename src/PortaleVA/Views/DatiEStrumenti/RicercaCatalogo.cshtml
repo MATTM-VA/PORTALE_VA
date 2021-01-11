@@ -1,0 +1,166 @@
+﻿@model VAPortale.Models.DatiEStrumentiRicercaCatalogoModel
+@using VALib.Domain.Entities.DatiAmbientali
+
+@{
+    ViewBag.Title = Model.VoceMenu.GetNome();
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml"; 
+}
+
+<div class="corpo">
+    <div class="line_small_title">
+        <h2>@Model.VoceMenu.GetNome()</h2>
+    </div>
+    <div class="clear"></div>
+
+    @if (CultureHelper.GetCurrentCultureShortName().Equals("it", StringComparison.InvariantCultureIgnoreCase))
+    {
+        <p>I <strong class="evidenza">dati ambientali</strong> di livello nazionale e regionale, sono direttamente collegati alla fonte e sono stati selezionati in base a criteri che ne garantiscono la qualità in coerenza con le disposizioni comunitarie e nazionali</p>
+    }
+    else
+    {
+        <p>A selection of <strong class="evidenza">environmental data</strong> at national and regional level - strictly connected to the source- is available. Data have been chosen with criteria aimed at ensuring quality in line with national and EU regulations.</p>
+    }
+
+    <div class="areaRicerca modelloEsteso">
+       @using (Html.BeginForm("RicercaCatalogo", "DatiEStrumenti", FormMethod.Get))
+       {
+            <div class="bgInput">
+
+                <div class="tema ie9">
+                    <label for="TemaID">@DizionarioService.RICERCA_LabelSceltaTema</label>
+                    @*<select class="cerca" data-val="true" data-val-number="The field TemaID must be a number." id="TemaID" name="TemaID">
+                        <option value="">[tutti]</option>
+                        <option value="1">Territorio e attività antropiche</option>
+                        <option value="2">Aria</option>
+                        <option value="3">Acqua</option>
+                        <option value="4">Suolo</option>
+                        <option value="5">Rumore, vibrazioni e radiazioni</option>
+                        <option value="6">Biodiversità</option>
+                        <option value="7">Beni culturali e paesaggio</option>
+                    </select>*@
+                    @Html.DropDownListFor(m => m.TemaID, Model.TemiSelectList)
+                </div>
+
+                <div class="testo_ricerca ie9">
+                    <label for="Testo">@DizionarioService.RICERCA_LabelTesto</label>
+                    @*<input id="Testo" name="Testo" type="text" value="" class="cerca">*@
+                    @Html.TextBoxFor(m => m.Testo)
+                    <input type="image" class="btn-search" alt="@DizionarioService.RICERCA_BottoneEsegui" src="@Url.VAContent("button_search.png")" />
+                </div>
+
+                <div class="crea_mappa ie9"><a href="#"> Crea la tua mappa <img src="@Url.VAContent("img_sezioni_crea_mappa.png")" title="Crea la tua mappa" align="absmiddle"></a></div>
+            </div>
+       }
+    </div>
+ 
+
+<h3 class="risultati">@DizionarioService.RICERCA_TitoloRisultatiDatiAmbientali (@Model.TotaleRisultati)</h3>
+<div class="table-responsive">
+    <table class="table" border="0">
+		<thead>
+			<tr>           
+                <th>@DizionarioService.GRIGLIA_ColonnaTitolo</th>
+                <th>@DizionarioService.GRIGLIA_ColonnaTema</th>
+                <th>@DizionarioService.GRIGLIA_ColonnaScala</th>
+                <th>Info</th>
+                <th>@DizionarioService.GRIGLIA_ColonnaServizi</th>
+			</tr>
+		</thead>
+        <tbody>
+
+            @foreach (RisorsaElenco r in Model.Risorse)
+            {
+                string visualizzaRisorsaCssClass = DatiAmbientaliUtils.CssClassForIDTipoContenutoRisorsa(r.TipoContenuto.ID);
+                string visualizzaRisorsaToolTip = DatiAmbientaliUtils.VisualizzaRisorsaToolTip(r.TipoContenuto.ID);
+                string visualizzaRisorsaTesto = DatiAmbientaliUtils.VisualizzaRisorsaTesto(r.TipoContenuto.ID);
+
+                //TODO: una volta messe le traduzioni spostare in DatiAmbientaliUtils
+                string urlMetadato = "";
+                switch (r.Tipo.ToLower())
+                {
+                    case "strato":
+                        urlMetadato = Url.Action("MetadatoStrato", "DatiEStrumenti", new { id = r.ID });
+                        break;
+                    case "documento":
+                        urlMetadato = Url.Action("MetadatoRisorsa", "DatiEStrumenti", new { id = r.ID });
+                        break;
+                    case "risorsacondivisione":
+                        urlMetadato = Url.Action("MetadatoRisorsaCondivisione", "DatiEStrumenti", new { id = r.ID });
+                        break;
+                    default:
+                        urlMetadato = "";
+                        break;
+                }
+                <tr>                   
+                    <td>
+                        <div>
+                            @r.Titolo
+                        </div>
+                    </td>
+                    <td>@r.Tema.Nome</td>
+                    <td>@r.Scala</td>
+                    <td>
+                        <a href="@urlMetadato" title="@DizionarioService.TOOLTIP_Metadato" class="icona-info-progetto"></a>
+                    </td>
+                    <td>
+                        <div class="icone">
+                            @if (!string.IsNullOrEmpty(r.Url))
+                            {
+                                <a title="@visualizzaRisorsaToolTip" href="@r.Url"  target="_blank" class="icona-mappa-interattiva"></a>                                
+                            }                            
+                            
+                            @if (!string.IsNullOrWhiteSpace(r.UrlWms))
+                            {
+                                <a href="@r.UrlWms" title="WMS/WFS" target="_blank" class="icona-wms-wfs"></a>
+                            }
+                            
+                            @if (!string.IsNullOrWhiteSpace(r.UrlGoogleEarth))
+                            {
+                                <a title="Google Earth" target="_blank" href="@r.UrlGoogleEarth" class="icona-google-earth"></a>                                
+                            }                            
+                        </div>
+                        
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>
+    
+    <div class="area_sotto_tabella">
+        <div class="buttonBackground">
+        
+            @Html.VaEsporta(x => Url.Action("RicercaCatalogo", x))
+            @*<a class="button esportaButton external" href="" target="_blank">Esporta</a>*@
+        </div>
+        <div class="paginatore">
+            @*<ul class="pagination">
+                <li><a href="#"><strong>Previous</strong></a></li>
+                <li><a class="current" href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">6</a></li>
+                <li><a href="#">7</a></li>
+                <li><a href="#"><strong>Next</strong></a></li>
+            </ul>*@
+            @Html.VaPaginatore(Model.Pagina, Model.DimensionePagina, Model.TotaleRisultati, "pagina", x => Url.Action("RicercaCatalogo", x))
+        </div>
+    
+        <div class="visualizza_pagina">
+            @*<label>
+                Visualizza
+                <select name="example_length" class="">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                </select>
+                progetti per pagina
+            </label>*@
+        </div>
+    </div>
+  
+
+</div>

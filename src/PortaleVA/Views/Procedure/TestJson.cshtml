@@ -1,0 +1,46 @@
+﻿@using VAPortale.Models.Support
+@using Newtonsoft.Json
+@{
+    Layout = null;
+
+    HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.UTF8;
+    HttpContext.Current.Response.ContentType = "application/json";
+    
+    string jsonResult = "";
+
+    GoogleChartTable table = new GoogleChartTable();
+
+    table.Cols.Add(new GoogleChartColumn() { Label = "Data", Type = "string", Pattern = "" });
+    table.Cols.Add(new GoogleChartColumn() { Label = "Valore", Type = "string", Pattern = "" });
+    table.Cols.Add(new GoogleChartColumn() { Label = "Massimo (50 mg-l)", Type = "string", Pattern = "" });
+    table.Cols.Add(new GoogleChartColumn() { Label = "Colore", Type = "string", Pattern = "" });
+
+    GoogleChartRow row = new GoogleChartRow();
+    row.Cells.Add(new GoogleChartCell() { Value = "19-04-16" });
+    row.Cells.Add(new GoogleChartCell() { Value = "4.7" });
+    row.Cells.Add(new GoogleChartCell() { Value = "50" });
+    row.Cells.Add(new GoogleChartCell() { Value = "red" });
+    table.Rows.Add(row);
+
+    row = new GoogleChartRow();
+    row.Cells.Add(new GoogleChartCell() { Value = "17-05-16" });
+    row.Cells.Add(new GoogleChartCell() { Value = "2.8" });
+    row.Cells.Add(new GoogleChartCell() { Value = "50" });
+    row.Cells.Add(new GoogleChartCell() { Value = "silver" });
+    table.Rows.Add(row);
+
+    row = new GoogleChartRow();
+    row.Cells.Add(new GoogleChartCell() { Value = "21-06-16" });
+    row.Cells.Add(new GoogleChartCell() { Value = "3,6" });
+    row.Cells.Add(new GoogleChartCell() { Value = "50" });
+    row.Cells.Add(new GoogleChartCell() { Value = "gold" });
+    table.Rows.Add(row);
+
+    jsonResult = JsonConvert.SerializeObject(table, new JsonSerializerSettings() { StringEscapeHandling = StringEscapeHandling.EscapeHtml, TypeNameHandling = TypeNameHandling.None });
+
+    jsonResult = jsonResult.Replace("\"cols\"", "cols").Replace("\"rows\"", "rows");
+    
+    HttpContext.Current.Response.Output.Write(jsonResult);
+
+    HttpContext.Current.Response.Output.Flush();
+}

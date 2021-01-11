@@ -1,0 +1,83 @@
+﻿@model VAPortale.Models.HomeIconeModel
+@{
+    var links = new[]{
+        new {pos = "sx",  id = 89, icon = "icon_procedureCorso.png", text = "", ord = 1},
+        new {pos = "sx",  id = 81, icon = "icon_provvedimenti.png", text = "", ord = 2},
+        new {pos = "sx",  id = 121, icon = "icon_avvisoAlPubblico.png", text = DizionarioService.MENU_Avvisi, ord = 3},
+        new {pos = "dx",  id = 32, icon = "icon_spazioPerIlCittadino.png", text = "", ord = 1 },
+        new {pos = "dx",  id = 38, icon = "icon_spazioProponente.png", text = "", ord = 2 },
+        new {pos = "dx",  id = 23, icon = "icon_specificheTecnicheModulstiche.png", text = "", ord = 3 }
+    };
+    var vmls = Model.VociMenu.Join(links, vm => vm.ID, l => l.id, (vm, l) => new { VoceMenu = vm, Link = l });
+}
+
+<div class="col_50_fl">
+    @foreach (var vml in vmls.Where(x => x.Link.pos.Equals("sx")).OrderBy(x => x.Link.ord))
+    {
+        String url = vml.VoceMenu.Editabile ?
+            Url.RouteUrl("PaginaStatica", new { nomeSezione = vml.VoceMenu.Sezione, nomeVoce = vml.VoceMenu.Voce }) :
+            Url.Action(vml.VoceMenu.Voce, vml.VoceMenu.Sezione);
+
+        <a class="clearfix" href="@url">
+            <div class="fl icons f-dc-jc-ac"><img src="@Url.VAContent(@vml.Link.icon)?v=4" alt="@(vml.Link.text != "" ? vml.Link.text : vml.VoceMenu.GetNome())"></div>
+            <div class="fl voice_sez_icon f-dc-jc">@(vml.Link.text != "" ? vml.Link.text : vml.VoceMenu.GetNome())</div>
+        </a>
+    }
+</div>
+
+<div class="col_50_fl_2">
+    @foreach (var vml in vmls.Where(x => x.Link.pos.Equals("dx")).OrderBy(x => x.Link.ord))
+    {
+        String url = vml.VoceMenu.Editabile ?
+            Url.RouteUrl("PaginaStatica", new { nomeSezione = vml.VoceMenu.Sezione, nomeVoce = vml.VoceMenu.Voce }) :
+            Url.Action(vml.VoceMenu.Voce, vml.VoceMenu.Sezione);
+
+        <a class="clearfix" href="@url">
+            <div class="fl icons f-dc-jc-ac"><img src="@Url.VAContent(@vml.Link.icon)?v=4" alt="@(vml.Link.text != "" ? vml.Link.text : vml.VoceMenu.GetNome())"></div>
+            <div class="fl voice_sez_icon f-dc-jc">@(vml.Link.text != "" ? vml.Link.text : vml.VoceMenu.GetNome())</div>
+        </a>
+    }
+</div>
+
+<!-- colonna con prime tre icone -->
+@*
+    <div class="col_50_fl">
+
+        <a class="clearfix" href="@Url.Action("ViaVasInCorso", "Procedure")">
+            <div class="fl icons f-dc-jc-ac"><img src="@Url.VAContent("icon_procedureCorso.png")"></div>
+            <div class="fl voice_sez_icon f-dc-jc">@DizionarioService.MENU_Procedure</div>
+        </a>
+
+        <a class="clearfix" href="@Url.Action("UltimiProvvedimenti", "Comunicazione")">
+            <div class="fl icons f-dc-jc-ac"><img class="myIMG" src="@Url.VAContent("icon_provvedimenti.png")"></div>
+            <div class="fl voice_sez_icon f-dc-jc">@DizionarioService.MENU_Provvedimenti</div>
+        </a>
+
+        <a class="clearfix" href="@Url.Action("AvvisiAssoggettabilitaVia", "Procedure")">
+            <div class="fl icons f-dc-jc-ac"><img class="myIMG" src="@Url.VAContent("icon_avvisoAlPubblico.png")"></div>
+            <div class="fl voice_sez_icon f-dc-jc">@DizionarioService.MENU_Avvisi</div>
+        </a>
+
+    </div>
+
+    <!-- colonna con seconde tre icone -->
+    <div class="col_50_fl_2">
+
+        <a class="clearfix" href="@Url.Action("Cittadino", "Comunicazione")">
+            <div class="fl icons f-dc-jc-ac"><img src="@Url.VAContent("icon_spazioPerIlCittadino.png")"></div>
+            <div class="fl voice_sez_icon f-dc-jc">@DizionarioService.MENU_SpazioCittadino</div>
+        </a>
+
+        <a class="clearfix" href="@Url.Action("Proponente", "Comunicazione")">
+            <div class="fl icons f-dc-jc-ac"><img class="myIMG" src="@Url.VAContent("icon_spazioProponente.png")"></div>
+            <div class="fl voice_sez_icon f-dc-jc">@DizionarioService.MENU_SpazioProponente</div>
+        </a>
+
+        <a class="clearfix" href="@Url.Action("SpecificheTecnicheELineeGuida", "ps/DatiEStrumenti")">
+            <div class="fl icons f-dc-jc-ac"><img class="myIMG" src="@Url.VAContent("icon_specificheTecnicheModulstiche.png")"></div>
+            <div class="fl voice_sez_icon f-dc-jc">@DizionarioService.MENU_Modulistica</div>
+        </a>
+
+    </div>
+*@
+<div class="clear"></div>

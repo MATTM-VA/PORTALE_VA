@@ -1,0 +1,196 @@
+﻿@model VAPortale.Areas.Admin.Models.DocumentoPortaleEditaModel
+
+@{
+    ViewBag.Title = "Edita";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section head{
+    <link href="@Url.Content("~/Scripts/plupload/jquery.plupload.queue/css/jquery.plupload.queue.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/plupload/plupload.full.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/plupload/jquery.plupload.queue/jquery.plupload.queue.js")"></script>
+    <script src="@Url.Content("~/Scripts/plupload/i18n/it.js")"></script>
+}
+<div id="corpo" class="contenuto">
+    <h2>
+        @Html.ActionLink("Documento Portale", "Index", "DocumentoPortale", null, new { @class = "sezione" }) /
+        <span>
+        @if (Model.ID != 0)
+        {
+            @Model.EditaNome_IT
+        }
+        else
+        {
+            <text>Nuovo Documento Portale</text>
+        }
+        </span>
+    </h2>
+    @if (Model.ID != 0)
+    {
+        <div>
+            @Html.ActionLink("Scheda", "Edita", "DocumentoPortale", new { id = Model.ID }, new { @class = "pulsante attivo" })
+        </div>
+        <div class="riepilogo">
+
+
+     <div class="boxData">
+        <p> Inserimento:  @Model.Documento.DataInserimento.ToString("dd/MM/yyyy HH:mm")</p>
+        <p> Ultima Modifica: @Model.Documento.DataUltimaModifica.ToString("dd/MM/yyyy HH:mm")</p>
+    </div>
+
+
+        </div>
+    }
+    @using (Html.BeginForm("Edita", "DocumentoPortale", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.HiddenFor(m => m.EditaNomeFileOriginale, new { @id = "hidden-nomeFileOriginale" });
+        @Html.HiddenFor(m => m.EditaDimensione, new { @id = "hidden-dimensione" });
+        @Html.HiddenFor(m => m.EditaNuovoFile, new { @id = "hidden-nuovoFile" });
+
+        <table class="edita principale">
+            <tr>
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.EditaNome_IT)
+                </th>
+                <td class="titolo">
+                    @Html.TextBoxFor(m => m.EditaNome_IT, new { @class = "larghezza-max" })
+                </td>
+            </tr>
+            <tr>
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.EditaNome_EN)
+                </th>
+                <td class="titolo">
+                    @Html.TextBoxFor(m => m.EditaNome_EN, new { @class = "larghezza-max" })
+                </td>
+            </tr>
+            <tr>
+                <th class="obbligatorio">
+                    File (Max 25MB)
+                </th>
+                <td id="td-infoFile">
+                    @if (Model.Documento != null)
+                    {
+                        @Html.Raw(string.Format("{0} - ({1} MB)", Model.Documento.NomeFileOriginale, (Model.Documento.Dimensione / 1024) / 1024))
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td id="td-uploader" colspan="2">
+                </td>
+            </tr>
+        </table>
+        <script>
+            $(function () {
+
+
+                $("#td-uploader").pluploadQueue({
+                    runtimes: 'html5,html4',
+                    url: '@Url.Action("DocumentoPortaleUpload")',
+                    max_file_size: '25mb',
+                    chunk_size: '2mb',
+                    prevent_duplicates: true,
+                    unique_names: false,
+                    // Specify what files to browse for
+                    filters: [{ title: "Immagini", extensions: "jpg,jpeg,gif,png,mp4,mp3,pdf" },
+                              { title: "Video/Audio", extensions: "mp4,mp3" },
+                              { title: "Documenti", extensions: "pdf,doc,docx,xls,xlsx" },
+                              { title: "Archivi", extensions: "zip,rar,7z" }
+                    ],
+                    flash_swf_url: null,
+                    silverlight_xap_url: null,
+                    multiple_queues: false
+                });
+
+                // get uploader instance
+                uploader = $("#td-uploader").pluploadQueue();
+
+                uploader.bind("FilesAdded", function (up, filesToBeAdded) {
+                    if (up.files.length > 1) {
+                        up.files.splice(0, up.files.length - 1);
+                        uploader.refresh();
+                        alert("Massimo 1 file per caricamento. I file in più sono stati rimossi.");
+
+                        return false;
+                    }
+
+                    return true;
+                });
+
+                uploader.bind('FileUploaded', function (up, file, response) {
+                    $("#td-infoFile").text(file.name + ' (' + (file.size / 1024) / 1024 + ' MB)');
+                    $("#hidden-nomeFileOriginale").val(file.name);
+                    $("#hidden-dimensione").val(file.size);
+                    $("#hidden-nuovoFile").val(true);
+                })
+            });
+        </script>
+        <div class="side">
+            <div class="publishing">
+                @Html.ValidationSummary()
+                <input type="submit" name="EditaSalva" value="Salva" />
+                @if (Model.ID != 0)
+                {
+                    @Html.ActionLink("Annulla", "Edita", null, new { @class = "pulsante" })
+                    <input type="button" class="shared-dialog-elimina-button" value="Elimina" />
+                }
+                <p class="avviso">
+                    I campi in rosso sono obbligatori</p>
+            </div>
+            @if (Model.ID != 0)
+            {
+            <table class="edita">
+                    <tr>
+                        <th>
+                            File corrente
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="@Url.VADocumentoPortale(Model.ID)" target="_blank"> @Model.Documento.NomeFileOriginale</a>
+                        </td>
+                    </tr>
+            </table>
+            }
+        </div>
+        
+    }
+    @if (Model.ID != 0)
+    {
+        <div id="shared-elimina-dialog" title="Eliminazione Immagine">
+            @using (Html.BeginForm("Elimina", "DocumentoPortale", new { id = Model.ID }, FormMethod.Post))
+            {
+                <text>Il documento verrà eliminato definitivamente e non sarà recuperabile.
+                Procedere con l'eliminazione?</text>
+            }
+        </div>
+
+        <script>
+            $(function () {
+                $("#shared-elimina-dialog").dialog({
+                    autoOpen: false,
+                    height: 200,
+                    width: 400,
+                    modal: true,
+                    buttons: {
+                        "Conferma": function () {
+                            var dlg = $(this);
+
+                            dlg.find("form").submit();
+
+                            dlg.dialog("close");
+                        },
+                        "Annulla": function () {
+                            var dlg = $(this);
+                            dlg.dialog("close");
+                        }
+                    }
+                });
+
+                $(".shared-dialog-elimina-button").click(function () {
+                    $("#shared-elimina-dialog").dialog("open");
+                });
+            });
+
+        </script>
+    }
+</div>

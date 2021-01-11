@@ -1,0 +1,51 @@
+C:\Users\officine\Documents\Visual Studio 2013\Projects\SINVA_sln\VALib\bin\Release\VALib.dll
+C:\Users\officine\Documents\Visual Studio 2013\Projects\SINVA_sln\VALib\bin\Release\VALib.pdb
+C:\Users\officine\Documents\Visual Studio 2013\Projects\SINVA_sln\VALib\bin\Release\ElogToolkit.dll
+C:\Users\officine\Documents\Visual Studio 2013\Projects\SINVA_sln\VALib\bin\Release\ElogToolkit.pdb
+C:\Users\officine\Documents\Visual Studio 2013\Projects\SINVA_sln\VALib\bin\Release\ElogToolkit.xml
+C:\Users\officine\Documents\Visual Studio 2013\Projects\SINVA_sln\VALib\obj\Release\VALib.dll
+C:\Users\officine\Documents\Visual Studio 2013\Projects\SINVA_sln\VALib\obj\Release\VALib.pdb
+C:\Users\officine\Documents\Visual Studio 2013\Projects\SINVA_sln\VALib\obj\Release\VALib.csprojResolveAssemblyReference.cache
+C:\Users\officine\Documents\Visual Studio 2013\Projects\SINVA_sln\VALib\bin\Release\System.Web.Mvc.dll
+C:\Users\officine\Documents\Visual Studio 2013\Projects\SINVA_sln\VALib\bin\Release\System.Web.Mvc.xml
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Release\VALib.dll
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Release\VALib.pdb
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Release\ElogToolkit.dll
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Release\Microsoft.Web.Infrastructure.dll
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Release\System.Web.Helpers.dll
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Release\System.Web.Mvc.dll
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Release\System.Web.Razor.dll
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Release\System.Web.WebPages.Deployment.dll
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Release\System.Web.WebPages.dll
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Release\System.Web.WebPages.Razor.dll
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Release\ElogToolkit.pdb
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Release\ElogToolkit.xml
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Release\System.Web.Helpers.xml
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Release\System.Web.Mvc.xml
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Release\System.Web.Razor.xml
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Release\System.Web.WebPages.xml
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Release\System.Web.WebPages.Deployment.xml
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Release\System.Web.WebPages.Razor.xml
+C:\inetpub\wwwroot\VA_SVIL\VALib\obj\Release\VALib.csprojResolveAssemblyReference.cache
+C:\inetpub\wwwroot\VA_SVIL\VALib\obj\Release\VALib.dll
+C:\inetpub\wwwroot\VA_SVIL\VALib\obj\Release\VALib.pdb
+C:\inetpub\wwwroot\VA\VALib\bin\Release\VALib.dll
+C:\inetpub\wwwroot\VA\VALib\bin\Release\VALib.pdb
+C:\inetpub\wwwroot\VA\VALib\bin\Release\ElogToolkit.dll
+C:\inetpub\wwwroot\VA\VALib\bin\Release\Microsoft.Web.Infrastructure.dll
+C:\inetpub\wwwroot\VA\VALib\bin\Release\System.Web.Helpers.dll
+C:\inetpub\wwwroot\VA\VALib\bin\Release\System.Web.Mvc.dll
+C:\inetpub\wwwroot\VA\VALib\bin\Release\System.Web.Razor.dll
+C:\inetpub\wwwroot\VA\VALib\bin\Release\System.Web.WebPages.Deployment.dll
+C:\inetpub\wwwroot\VA\VALib\bin\Release\System.Web.WebPages.dll
+C:\inetpub\wwwroot\VA\VALib\bin\Release\System.Web.WebPages.Razor.dll
+C:\inetpub\wwwroot\VA\VALib\bin\Release\ElogToolkit.pdb
+C:\inetpub\wwwroot\VA\VALib\bin\Release\ElogToolkit.xml
+C:\inetpub\wwwroot\VA\VALib\bin\Release\System.Web.Helpers.xml
+C:\inetpub\wwwroot\VA\VALib\bin\Release\System.Web.Mvc.xml
+C:\inetpub\wwwroot\VA\VALib\bin\Release\System.Web.Razor.xml
+C:\inetpub\wwwroot\VA\VALib\bin\Release\System.Web.WebPages.xml
+C:\inetpub\wwwroot\VA\VALib\bin\Release\System.Web.WebPages.Deployment.xml
+C:\inetpub\wwwroot\VA\VALib\bin\Release\System.Web.WebPages.Razor.xml
+C:\inetpub\wwwroot\VA\VALib\obj\Release\VALib.dll
+C:\inetpub\wwwroot\VA\VALib\obj\Release\VALib.pdb

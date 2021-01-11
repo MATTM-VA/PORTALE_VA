@@ -1,0 +1,79 @@
+﻿@model VAPortale.Models.ProcedureAttributiModel
+@using VALib.Web.Mvc
+
+@{
+    ViewBag.Title = Model.VoceMenu.GetNome();
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+
+}
+
+<div class="line_small_title">
+    <h2>@Model.VoceMenu.GetNome()</h2>
+</div>
+<div class="clear"></div>
+
+<br />
+
+
+@{ Html.RenderAction("PartialTab", "Procedure", new { attributoID = Model.Attributo.ID, voce = Model.VoceMenu.Voce }); }
+
+<div class="tab-content sezioneTabelle">
+
+     
+    <div class="areaRicerca modelloEsteso">
+        @using (Html.BeginForm("ConsultazioniTransfrontaliere", "Procedure", new { nomeAttributo = Model.Attributo.GetNome(CultureHelper._it) }, FormMethod.Get))
+            {
+            @Html.AntiForgeryToken()
+            <div class="bgInput">
+                <div class="testo_ricerca ie9">
+                    <label for="Testo">@DizionarioService.RICERCA_LabelTesto</label>
+                    @Html.TextBoxFor(m => m.Testo, new { @class = "cerca" })
+                    <input type="image" class="btn-search" alt="@DizionarioService.RICERCA_BottoneEsegui" src="@Url.VAContent("button_search.png?v=4")" />&nbsp;
+                </div>
+            </div>
+        }
+    </div>
+    <br />
+    <h3>@Model.TitoloGriglia (@Model.TotaleRisultati)</h3>
+    <div class="table-responsive">
+        <table class="table ConsultazioniTransfrontaliere">
+            <tr>
+                <th>@Model.NomeColonnaOggetto</th>
+               @if (Model.Attributo.MacroTipoOggetto.Enum != MacroTipoOggettoEnum.Aia)
+               {
+                <th>@DizionarioService.GRIGLIA_ColonnaProponente</th>
+               }
+               else
+               {
+                <th>@DizionarioService.GRIGLIA_ColonnaGestore</th>
+               }
+
+                <th><span class="hidden">Info</span></th>
+                <th><span class="hidden">Doc</span></th>
+            </tr>
+            @foreach (OggettoElenco oggetto in Model.Oggetti)
+               {
+                <tr>
+                    <td>@oggetto.GetNome()</td>
+                    <td>@oggetto.Proponente</td>
+                    <td><a href="@Url.VAOggettoInfo(oggetto.ID)" class="icona-info-progetto" title="@string.Format(DizionarioService.TOOLTIP_InfoOggetto, oggetto.TipoOggetto.GetNome())">info</a></td>
+                    <td><a href="@Url.VAOggettoDocumentazione(oggetto.ID, oggetto.OggettoProceduraID)" class="icona-documentazione-tecnico-amm" 
+                           title="@string.Format(DizionarioService.TOOLTIP_Documentazione, "")">
+                            @string.Format(DizionarioService.TOOLTIP_Documentazione, ""))</a></td>
+                </tr>
+
+            }
+        </table>
+    </div>
+
+    <div class="area_sotto_tabella">
+        <div class="buttonBackground">
+            @Html.VaEsporta(x => Url.Action("ConsultazioniTransfrontaliere", x))
+        </div>
+        <div class="paginatore">
+            @Html.VaPaginatore(Model.Pagina, Model.DimensionePagina, Model.TotaleRisultati, "pagina", x => Url.Action("ConsultazioniTransfrontaliere", x))
+        </div>
+        <div class="visualizza_pagina"></div>
+    </div>
+
+</div>

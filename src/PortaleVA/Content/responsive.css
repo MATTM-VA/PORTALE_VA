@@ -1,0 +1,404 @@
+﻿@charset "utf-8";
+/*---- responsive ----*/
+
+@media screen and (min-width:1200px){
+    .carosello .testo .titolo { font-size:17px;}
+    .carosello .testo p { font-size:13px;}
+    .elenco .media-heading a { font-size: 15px; }
+    .elenco .elenco-footer { font-size: 14px; }
+    .box .titolo { font-size:18px;}
+    .box .data { font-size:13px; }
+    .box .media-heading { font-size:13px; }
+	#menuPrincipale .navbar-nav>li>span, 
+    #menuPrincipale .navbar-nav>li>a {display: block; padding: 9px 22px;}
+	.cercaWidgetBox .form-control {width: 150px;}
+	
+    .carosello { overflow:auto; margin-bottom:0; border-bottom: 5px solid #e9e8e8; }
+	.bx-viewport{height:330px !important;}
+	/*.bx-wrapper img{height:265px;}*/
+	.bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{width:100%; position: absolute;z-index: 999; bottom: 10px;}
+	.col-md-3{padding-left: 10px;padding-right: 20px;}
+	.interna .col-md-9 {padding: 0 0 0 10px;}
+	.content{min-height:700px;}
+}
+
+@media screen and (min-width:1200px){
+
+#menuFooter.navbar-default .navbar-collapse, #menuFooter.navbar-default .navbar-form {}
+}
+
+@media screen and (min-width:992px) and (max-width: 1200px)
+{
+    .content{min-height:700px;}
+    .carosello{margin-bottom:0;}
+    .interna .servizio .foto.pull-left, .interna .servizio .media-body { }
+    .interna .servizio .foto .media-object { margin: 0 auto 10px auto;}
+    #menuPrincipale .lang a { margin-top:7px;}
+	.bx-viewport{height:280px !important;}
+	.cercaWidgetBox .form-control { width: 88px;}
+	.carosello { height:280px; overflow:auto;}
+	.carosello .testo{padding:15px;}
+	.carosello .testo .titolo{font-size:14px;}
+	.bx-wrapper .bx-pager{width:100% }
+	.col-md-3{padding-left: 10px;padding-right: 20px;}
+	.interna .col-md-9 {padding: 0 0 0 10px;}
+	
+	#menuFooter li {padding: 0 7px;}
+	#menuFooter.footerEN .navbar-nav>li ul li {width: 147px;}
+	#menuFooter .navbar-nav>li ul li{  padding: 3px 8px;}
+	
+	.ricercaOrizzontale input#ricercaOrizzontale {min-width: 275px;}
+	.cercaWidget .btn-cerca {margin-left: 4px;}
+	
+	 #map_canvas{width:100%; max-width:559px;}
+	 .mappaTerritori .coordinate input {width: 56px;}
+	 
+	 .areaRicerca.modelloEsteso span.infoSeleziona {width: 105px; }
+    
+    .corpo .table-date .col-sm-6 .table-date-text {margin: 20px 0 0 2px;}
+}
+
+@media screen and (max-width: 991px) 
+{
+
+   h1 { position: static; margin-left: 30px;}
+   #menuPrincipale { font-size: 11px;}
+  #menuPrincipale .navbar-nav>li>span { padding:16px 18px; }
+  #menuServizio li:first-child a::before{padding:0;}
+  #footer .imgValidator{float:none; margin:0 auto}
+ .corpo img{max-width: 100%;height: auto;}
+ .bx-wrapper img{height: 100%;max-width: none;}
+ 
+ .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{/*top:53%;*/}
+ 
+ .corpo .TabForm img{width:inherit; max-width:inherit;}
+ 
+ .cercaWidget .form-group{width: 100%;}
+ .cercaWidget .form-group input.vipera{width:90%;}
+ 
+ .widget.ricerca-codice{background-color: #ececec;padding: 0 0 2px 0; margin-bottom: 10px; }
+
+ 
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px)
+{
+    .cerca {margin: 10px auto !important; float: none !important; width: 285px;}
+	.cercaWidgetBox .cerca {width: 100%;}
+    #menuServizio .nav {float: none; margin: 0 auto; width: 90%;}
+    #menuPrincipaleLinks >ul>li>a { padding: 14px;}
+    .carosello{margin-bottom:0;}
+    .carosello { height:350px; overflow:auto; /*margin-bottom:25px;*/}
+    .carosello .testo .titolo{font-size:13px;}
+    .carosello .testo {top: 30%;}
+    .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{/*bottom: 280px;*/}
+    .bx-wrapper .bx-controls-direction a {top:30%;}
+	.bx-viewport{height:350px !important;}
+	.content.home .col-md-8{padding-right:15px;}
+	
+	#menuFooter .navbar-nav>li ul li {width: 115px;}
+	#menuFooter.footerEN .navbar-nav>li ul li {width: 95px;}
+	#menuFooter li {padding: 0 10px;}
+	
+	.ricercaOrizzontale input#ricercaOrizzontale {min-width: 365px;}
+	
+	 #map_canvas{width:100%; max-width:582px;}
+	 .mappaTerritori .coordinate input {width: 61px;}
+	 
+	 .areaRicerca.modelloEsteso span.infoSeleziona {width: 105px; }
+	 .areaRicerca.modelloEsteso .pulsantiCoordinate input{margin:10px 0 0 0;}
+}
+
+
+
+
+@media screen and (max-width: 767px){
+	.azioni{position:inherit;}
+    .logo a { background:url(img/minLogo-mobile.png) no-repeat; width:300px; height:39px; margin: 10px;}
+    h1 { font-size: 16px;}
+	.navbar-brand {font-size: 14px;}
+	.sf-menu ul {position: inherit; display:inherit; top:0; }
+	.sf-menu ul li a, #menuPrincipaleLinks .sf-menu>li>a{font-size:13px; padding:13px 15px;}
+
+    .carosello { height:350px; overflow:auto; /*margin-bottom:25px;*/}
+    .carosello .testo .titolo{font-size:12px;}
+    .carosello .testo {top: 28%;}
+
+    .bx-wrapper .bx-controls-direction a {top:25%;}
+	.bx-wrapper img{height: 100%;max-width: none;width: auto;}
+    .bx-viewport{height:350px !important;}
+
+    
+	#menuPrincipaleLinks .sf-menu>li:hover{background-color:transparent;}
+    #menuPrincipaleLinks .sf-menu>li>a { margin-top:5px;}
+    #menuPrincipaleLinks .navbar-nav>li>a:hover {background-color: #093e62; text-decoration:underline; }
+    #menuPrincipale .navbar-nav.lang>li>a {float: left; border:none; background-color:transparent;}
+    #menuPrincipale .navbar-nav.lang {width: 90px; margin: 10px auto;}
+    #menuServizio li a::before, #menuServizio li:first-child a::before {content: ""; padding:10px;}
+    #menuServizio .navbar-nav {margin: 0 -15px;}
+    #menuServizio .navbar-nav a:hover { text-decoration:underline; background-color:#F0F0F0;}
+    #menuServizio .navbar-nav li {border-bottom: 1px solid #E7E7E7;}
+    #menuServizio .navbar-form { border: none;}
+    #menuServizio .navbar-form .form-group { margin-bottom: 5px; margin-right:10px; float: left; }
+    #menuServizio .cerca .form-control {height: 30px;}
+    #menuServizio .btn-cerca {margin-top: 0;}
+    #menuServizio .collapsed .navbar-toggle {background-color: #999;}
+    .mapResponsive{display:none;}
+    .menuRegioni{position:relative !important; left:0 !important;border:2px dotted #ccc; padding:25px;}
+    .sf-menu ul {background-color: #D9E5EB;}
+    #menuPrincipale{margin:0;}
+    #menuPrincipale .sf-menu ul li a{color:#093e62}
+    #menuPrincipaleLinks .sf-menu>li>a{background-color: #D9E5EB; color:#093e62; text-transform:capitalize;}
+    #menuPrincipale .sf-menu>li.active > a,  #menuPrincipale .sf-menu>li.active > a:hover{background: #B6CBD3; text-decoration:none;}
+    #menuPrincipaleLinks .sf-menu ul li{border-bottom: 1px solid #0C5785;}
+    #menuPrincipale li.active span{background-color:transparent; color:#fff;}
+    #menuPrincipaleLinks.navbar-collapse{padding-top:20px; padding-bottom:20px;}
+    #menuPrincipale .navbar-nav>li>span {padding: 25px 0 5px 5px;font-weight: bold;}
+    #menuPrincipaleLinks .sf-menu ul li a:hover, #menuPrincipale .sf-menu ul li:hover, #menuPrincipaleLinks .navbar-nav>li>a:hover{background: #B6CBD3;}
+    .pagination>li>a, .pagination>li>span{padding:6px;}
+	
+	#menuFooter{padding:0; font-size:11px; display:none;}
+	#menuFooterLinks li{padding:0;}
+	#menuFooterLinks li:hover{background-color:transparent;}
+    #menuFooterLinks li a{ display: block; position: relative; padding: 13px 25px; font-size: 12px;}
+	#menuFooterLinks ul {list-style:none; margin:0; padding:0; }
+	#menuFooterLinks >ul>li>a {padding:10px 30px;  line-height: inherit; }
+	#menuFooterLinks.navbar-collapse {max-height: none; }
+	#menuFooterLinks .navbar-nav>li>span>a:hover{background-color:#0D4663; text-decoration: underline;}
+	#menuFooter .navbar-nav>li ul li{padding:0; border-bottom: 1px solid #0E3E59;}
+	#menuFooter ul li a{color: #093e62;background-color:#D9E5EB}
+	#menuFooterLinks ul li {float: none;}
+	#menuFooter li.active > a, #menuFooter li.active > a:hover {color: #093e62;text-transform: capitalize;}
+	#menuFooter .navbar-nav>li>span {padding: 25px 0 5px 5px;font-weight: bold;}
+	#menuFooterLinks ul li a:hover  {background-color: #B6CBD3;}
+	#menuFooter.navbar-default .navbar-collapse, #menuFooter.navbar-default .navbar-form{padding:20px;}
+	#menuFooter.navbar-default .navbar-nav>.active>a, #menuFooter.navbar-default .navbar-nav>.active>a:focus, #menuFooter.navbar-default .navbar-nav>.active>a:hover, #menuFooter.navbar-default .navbar-nav>li>ul>.active>a, #menuFooter.navbar-default .navbar-nav>li>ul>.active>a:focus, #menuFooter.navbar-default .navbar-nav>li>ul>.active>a:hover{background-color:#0d4663; color:#fff; text-decoration:none; text-transform:uppercase;}
+    #menuFooter .navbar-nav>li>a{ color:#093e62;}
+    
+    #menuPrincipale .lang a{margin: 2px 5px 0 0;}
+    
+    .ricercaOrizzontale input#ricercaOrizzontale{min-width: 192px; width: auto;}
+     .cercaWidget .form-group input.vipera {width: 60%;}
+    
+    .table-responsive.TabForm{padding:10px;}
+    
+     .areaRicerca.modelloEsteso span.infoSeleziona {width: 100%; }
+     
+    .corpo .table-date .col-sm-6 {width: 99%;height: 55px;}
+    }
+
+@media screen and (min-width: 767px){
+    .form-group {display: inline-block;}
+}
+
+@media screen and (min-width: 767px) and (max-width: 991px){
+
+   h1 { position: static;   float: right; margin: 35px 20px 0 20px; font-size:18px;}
+   #menuPrincipale { font-size: 11px;}
+  #menuPrincipale .navbar-nav>li>span { padding:15px 15px; }
+  #menuServizio li:first-child a::before{padding:0;}
+  .bx-viewport{height:  350px !important;}
+  .interna .sezione{margin-bottom:10px;}
+  .corpo{padding:0;}
+  .interna .col-md-9 {padding: 15px;}
+  /* .bx-wrapper .bx-pager {text-align: center;top:40%;left: 0;}*/
+}
+
+@media screen and (max-width: 705px)
+{
+   .corpo .inputInline .pulsante-archivio {float: none;}
+}
+
+@media screen and (max-width: 700px)
+{
+    .corpo .tab-vertical.tab-spazio-cittadino .colonna-VIA, .corpo .tab-vertical.tab-spazio-cittadino .colonna-VAS{width:100%; float:none;}
+}
+
+@media screen and (max-width: 767px)
+{
+    h1 { position: static;   float: right; margin: 28px 20px 0 20px; font-size:16px;}
+    .corpo h2{font-size:19px;}
+    .table-responsive>.table>tbody>tr>td, .table-responsive>.table>tbody>tr>th, .table-responsive>.table>tfoot>tr>td, .table-responsive>.table>tfoot>tr>th, .table-responsive>.table>thead>tr>td, .table-responsive>.table>thead>tr>th{white-space: normal;}
+    .corpo .barraVisualizza ul li{float:none; margin: 10px 0 0 0px;}
+    .corpo .barraVisualizza p{float:none;}
+    .interna .sezione{margin-bottom:10px;}
+    .corpo{padding:0;}
+    .interna .col-md-9 {padding: 15px;}
+  
+	 #map_canvas{width:100%; max-width:100%;}
+	 .areaRicerca.modelloEsteso.ricercaSpaziale #ricercaSpaziale .coordinate p{margin:10px 0;}
+     .mappaTerritori .coordinate input {width: 131px;}
+     .mappaTerritori .coordinate{padding-top:0;}
+     
+     .invioOsservazioniAvvisi{float:none;}
+}
+
+@media screen and (min-width: 580px) and (max-width: 767px){
+    #map_canvas{width:100%; max-width:483px;}
+    .mappaTerritori .coordinate input {width: 116px;}
+    .mappaTerritori .coordinate {width: 415px; padding-top: 10px;}
+    .areaRicerca.modelloEsteso.ricercaSpaziale #ricercaSpaziale .coordinate p{margin:10px 0;}
+}
+
+@media screen and (max-width: 570px)
+{
+ #header h1 { position: static;   float: none; margin: 15px 20px 0 20px; font-size:16px; position: absolute; top:45%;   left: 0;   width: 100%;}
+    #header {text-align:center; height:80px;}
+    h2.logo{display:inline-block; margin:5px 0; position: absolute;top: -10px;   left: 0; width:100%;}
+    .logo a {width: 100%;background-position: center;}
+    
+    .corpo .tab-vertical .nav-tabs{float:none;width:100%;}
+    .corpo .tab-vertical .nav-tabs>li.active{margin-right:0;}
+    .corpo .tab-vertical .nav-tabs>li.active>a{border-right: 1px solid #dadad9;}
+    .corpo .tab-vertical .nav-tabs>li{padding:0 0 4px;}
+    .corpo .table-date {overflow: initial;}
+    .corpo .inputInline .selezioneRicerca {display: block; margin: 0;}
+}
+
+
+@media screen and (min-width: 500px) and (max-width: 570px){
+	.nav-tabs > li {float: none;}
+}
+
+@media screen and (min-width: 458px) and (max-width: 500px){
+	.nav-tabs > li {float: none;}
+}
+
+
+@media screen and (max-width: 665px)
+{
+ .mappaTerritori .pulsantiCoordinate{padding-top: 10px;clear: both;}  
+}
+
+
+@media screen and (min-width: 560px) and (max-width: 603px)
+{
+	.bx-viewport{height:390px !important;}
+	  #map_canvas{width:100%; max-width:378px;}
+	 .areaRicerca.modelloEsteso.ricercaSpaziale #ricercaSpaziale .coordinate p{margin:10px 0;}
+	 .mappaTerritori .coordinate input {width: 116px;}
+	 .mappaTerritori .coordinate {padding-top: 10px;}
+	 .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{top:41%;}
+}
+
+
+@media screen and (min-width: 762px) and (max-width: 768px)
+{
+     .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{/*top: 48%;*/}
+}
+
+@media screen and (min-width: 690px) and (max-width: 761px)
+{
+     .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{/*top: 52%;*/}
+}
+
+@media screen and (min-width: 632px) and (max-width: 689px)
+{
+     .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{/*top: 48%;*/}
+}
+
+@media screen and (min-width: 575px) and (max-width: 631px)
+{
+     .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{/*top: 44%;*/}
+}
+
+@media screen and (max-width: 560px){
+	.nav-tabs > li {float: none;}
+	.localizzatore{float:none !important; margin:0 7px 7px 0;}	
+	.bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{top:37%;}
+	.ricercaOrizzontale .titolo{float:none;}
+	.ricercaOrizzontale input#ricercaOrizzontale{margin-left:10px;}
+	#map_canvas{width:100%; max-width:100%;}
+    .areaRicerca.modelloEsteso.ricercaSpaziale #ricercaSpaziale .coordinate strong {display:inline-block; width:75px;}
+    .mappaTerritori .coordinate input {width: 164px;}
+    .mappaTerritori .pulsantiCoordinate{padding-top: 10px;clear: both;}
+}
+
+
+
+@media screen and (min-width: 520px) and (max-width: 560px){
+ .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{top: 39%;}
+}
+
+@media screen and (min-width: 456px) and (max-width: 500px){
+ .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{top: 35%;}
+  .areaRicerca.modelloEsteso .campoRicercaEsteso{ width: 100%;}
+}
+
+@media screen and (max-width: 460px){
+    .bx-wrapper .bx-controls-direction a {top:20%;}
+    .corpo h2{font-size:19px;}
+	.bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{top: 27%;}
+	 .areaRicerca.modelloEsteso .campoRicercaEsteso{ width: 100%;}
+	 
+	 .corpo .table-date .col-sm-6{height:105px;}
+	 .corpo .table-date .col-sm-6 .single-date{height:55px; width:100%; padding: 19px 50px 5px;}
+	 .corpo .table-date .col-sm-6.table-date-1 .single-date{background-color:#0e6345;}
+	 .corpo .table-date .col-sm-6.table-date-2 .single-date{background-color:#7e3811;}
+	 .corpo .table-date .col-sm-6.table-date-3 .single-date{background-color:#751e60;}
+	 .corpo .table-date .col-sm-6.table-date-4 .single-date{background-color:#3e424c;}
+	 .corpo .table-date .col-sm-6 .single-date .single-date-giorno{margin-right:6px;}
+}
+
+@media screen and (min-width: 448px) and (max-width: 460px){
+ .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{top: 32%;}
+}
+
+@media screen and (min-width: 442px) and (max-width: 447px){
+ .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{top: 31%;}
+}
+
+@media screen and (min-width: 421px) and (max-width: 441px){
+ .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{top: 30%;}
+}
+
+@media screen and (min-width: 416px) and (max-width: 420px){
+ .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{top: 27%;}
+}
+
+@media screen and (max-width: 390px){
+    .bx-wrapper .bx-controls-direction a {top:13%;}
+	.ricerca-codice .titolo{float:none;}
+	#header{text-align:left;}
+	.logo a{background-position:left;}
+}
+
+
+@media screen and (min-width: 320px) and (max-width: 766px){
+
+ .content .col-md-8{padding-right:15px;}
+}
+
+@media screen and (min-width: 381px) and (max-width: 390px){
+ .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{top: 25%;}
+}
+
+
+@media screen and (min-width: 362px) and (max-width: 380px){
+ .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{top: 25%;}
+}
+
+@media screen and (min-width: 350px) and (max-width: 361px){
+
+ .ricercaOrizzontale .titolo{font-size:13px;}
+ .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{top: 23%;}
+}
+
+@media screen and (min-width: 320px) and (max-width: 349px){
+ .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{top: 21%;}
+}
+
+
+@media screen and (max-width:315px){
+	
+body, html{width:320px;}
+/* .bx-wrapper .bx-pager {text-align: center;top:15%;left: 0;}*/
+.bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{top:21%;}
+.ricercaOrizzontale .titolo{font-size:13px;}
+
+.areaRicerca.modelloEsteso .campoRicercaEsteso {min-width: 142px;}
+
+}
+
+/* CSS Document */
+

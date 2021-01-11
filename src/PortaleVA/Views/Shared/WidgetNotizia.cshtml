@@ -1,0 +1,64 @@
+﻿@model VAPortale.Models.SharedWidgetNotiziaModel
+@{ int c = 1; }
+<div class="widget">
+    <h4 class="titolo">
+    @if (Model.VoceMenu != null)
+    {
+        string anno = "";
+        
+        if (Model.CategoriaNotizie.Enum == CategoriaNotiziaEnum.UltimiProvvedimenti && Model.Notizie.Count > 0)
+        {
+            anno = Model.Notizie.OrderByDescending(x => x.Data).First().Data.ToString("yyyy");
+        }
+
+        <a href="@Url.Action(Model.VoceMenu.Voce, Model.VoceMenu.Sezione)">@Model.CategoriaNotizie.GetNome() 
+        @if (!string.IsNullOrEmpty(anno))
+        {
+            <text> - @DizionarioService.SITO_Anno @anno</text>
+        }
+        </a>
+
+    }
+    else
+    {
+        @Model.CategoriaNotizie.GetNome()
+    }
+    </h4>
+    <div class="box">
+    @foreach (Notizia n in Model.Notizie)
+    {
+        string titolo = "";
+        string cssClass = "media";
+        Immagine img = null;
+
+        if (Model.Home)
+        {
+            img = n.Immagini.FirstOrDefault(x => x.FormatoImmagine.Enum == FormatoImmagineEnum.WidgetHome);
+            titolo = n.GetTitoloBreve();
+        }
+        else
+        {
+            titolo = n.GetTitolo();
+        }
+
+        if (c == Model.NumeroElementi)
+        {
+            cssClass = "media ultimo";
+        }
+        <div class="@Html.Raw(cssClass)">
+            @if (img != null && Model.Home)
+            {
+            <a href="@Url.VANotizia(n)" title="@n.GetTitolo()" class="foto pull-left">
+                <img width="99" height="71" alt="@img.GetNome()" src="@Url.VAImmagine(img.ID)" class="media-object" />
+            </a>
+            }
+            <div class="media-body">
+                <span class="data">@n.Data.ToString(CultureHelper.GetDateFormat())</span>
+                <h4 class="media-heading">
+                    <a href="@Url.VANotizia(n)" title="@n.GetTitolo()">@titolo</a></h4>
+            </div>
+        </div>
+        c++;
+    }
+    </div>
+</div>

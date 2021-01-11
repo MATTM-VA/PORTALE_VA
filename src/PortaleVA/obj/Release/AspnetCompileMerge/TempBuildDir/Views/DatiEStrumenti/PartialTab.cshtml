@@ -1,0 +1,19 @@
+﻿@model VAPortale.Models.DatiEStrumentiPartialTabModel
+@using VALib.Domain.Entities.DatiAmbientali
+
+<ul class="nav nav-tabs">
+    @foreach (Elenco e in Model.Voci)
+    {
+        string cssClass = "";
+
+        if (e.ID == Model.ElencoSelezionatoID)
+        {
+            cssClass = "active";
+        }
+        <li class="@Html.Raw(cssClass)">
+            <a title="@e.GetNome()" href="@Url.Action(Model.Voce, "DatiEStrumenti", new { nomeElenco = e.GetNome("IT") })">
+            @e.GetNome()
+            </a>
+        </li>
+    }
+</ul>

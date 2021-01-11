@@ -1,0 +1,26 @@
+﻿Portale VIA-VAS-AIA - Portale delle valutazioni e autorizzazioni ambientali
+
+Copyright Ministero dell'Ambiente e della Tutela del Territorio e del Mare
+
+
+Concesso in licenza a norma dell'EUPL (la "Licenza"), versione 1.2;
+
+
+Non è possibile utilizzare l'opera salvo nel rispetto
+ della Licenza.
+
+
+È possibile ottenere una copia della Licenza al seguente 
+indirizzo: https://joinup.ec.europa.eu/software/page/eupl
+
+
+Salvo diversamente indicato dalla legge applicabile o
+concordato per iscritto, il software distribuito secondo
+ i termini della Licenza è distribuito "TAL QUALE", 
+SENZA GARANZIE O CONDIZIONI DI ALCUN TIPO, 
+esplicite o implicite.
+
+ 
+Si veda la Licenza per la lingua specifica che disciplina
+le autorizzazioni e le limitazioni secondo i termini della 
+Licenza.

@@ -1,0 +1,303 @@
+﻿@model VAPortale.Models.ProcedureGraficiModel
+@{
+    System.Web.Script.Serialization.JavaScriptSerializer serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+
+    List<object> data = new List<object>();
+
+    data.Add(new { });
+
+    string jsonOutput = serializer.Serialize("");
+
+
+
+    ViewBag.Title = Model.VoceMenu.GetNome();
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+
+<div class="corpo">
+    <div class="line_small_title">
+        <h2>@Model.Oggetto.GetNome()</h2>
+    </div>
+    <div class="clear"></div>
+
+    
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+
+    <div>
+        <table>
+            <tr>
+                <td>
+                    <div id="bar_div" class="chartContainer"
+                         data-url="@Url.Action("GetDataBarChart", "Procedure")"
+                         data-charttype="BarChart"
+                         data-options="{&quot;width&quot;: 700,&quot;height&quot;: 800, &quot;animation&quot;: {&quot;duration&quot;: 1500, &quot;startup&quot;: true}, &quot;legend&quot;: { &quot;position&quot;: &quot;top&quot;, &quot;maxLines&quot;: 3 }, &quot;bar&quot;: { &quot;groupWidth&quot;: &quot;75%&quot; }}"
+                </div>
+                </td>
+                <td>
+                    <div id="partial_div" class="chartContainer"
+                         data-url="@Url.Action("GetDataPartialTortaVIA", "Procedure")"
+                         data-charttype="PieChart"
+                         data-options="{&quot;width&quot;: 300,&quot;height&quot;: 200, &quot;legend&quot;: { &quot;position&quot;: &quot;top&quot;, &quot;maxLines&quot;: 3 }}">
+
+                    </div>
+                    <div id="partial_div2" class="chartContainer"
+                         data-url="@Url.Action("GetDataPartialTortaVIALO", "Procedure")"
+                         data-charttype="PieChart"
+                         data-options="{&quot;width&quot;: 300,&quot;height&quot;: 200,  &quot;legend&quot;: { &quot;position&quot;: &quot;top&quot;, &quot;maxLines&quot;: 3 }}"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="chart_div" class="chartContainer"
+         data-url="@Url.Action("GetDataColumnChart", "Procedure")"
+         data-charttype="ColumnChart"
+         data-options="{&quot;width&quot;: 1000,&quot;height&quot;: 800, &quot;animation&quot;: {&quot;duration&quot;: 1500, &quot;startup&quot;: true}, &quot;legend&quot;: { &quot;position&quot;: &quot;top&quot;, &quot;maxLines&quot;: 3 }, &quot;bar&quot;: { &quot;groupWidth&quot;: &quot;75%&quot; },&quot;isStacked&quot;: true }">
+    </div>
+
+    <div>
+        <table>
+            <tr>
+                <td>
+                    <div id="pie_div" class="chartContainer"
+                         data-url="@Url.Action("GetDataTortaEsitiVIA", "Procedure")"
+                         data-charttype="PieChart"
+                         data-options="{&quot;width&quot;: 500,&quot;height&quot;: 400}">
+                    </div>
+                </td>
+                <td>
+                    <div id="pieVia_div" class="chartContainer"
+                         data-url="@Url.Action("GetDataTortaEsitiVIALO", "Procedure")"
+                         data-charttype="PieChart"
+                         data-options="{&quot;width&quot;: 500,&quot;height&quot;: 400}"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+    <script type="text/javascript">
+        google.charts.load("visualization", "1.1", { 'packages': ['corechart', 'bar'] });
+        google.charts.setOnLoadCallback(drawCharts);
+
+        function drawCharts() {
+
+            $(".chartContainer").each(function () {
+                var container = $(this);
+                var id = container.attr("id");
+                var url = container.data("url");
+                var chartType = container.data("charttype");
+                //alert(container.data("options"));
+                var options = eval(container.data("options"));
+
+                drawChart(id, url, chartType, options);
+            });
+        }
+
+        function drawChart(divId, url, chartType, options) {
+            var jsonData = $.ajax({
+                url: url,
+                dataType: "json",
+                async: false
+            }).responseText;
+
+            var chart = new google.visualization.ChartWrapper({
+                chartType: chartType,
+                containerId: divId,
+                dataTable: jsonData,
+                options: options
+            });
+            chart.draw();
+        }
+    </script>
+
+
+    @*drawChart("chart_div", '@Url.Action("GetDataColumnChart", "Procedure")', "ColumnChart", {
+            width: 1000,
+            height: 800,
+            animation: {
+                duration: 1500,
+                startup: true,
+            },
+            legend: { position: 'top', maxLines: 3 },
+            bar: { groupWidth: '75%' },
+            isStacked: true
+        });
+
+        drawChart("bar_div", '@Url.Action("GetDataBarChart", "Procedure")', "BarChart", {
+            width: 800,
+            height: 800,
+            animation: {
+                duration: 1500,
+                startup: true,
+            },
+            legend: { position: 'top', maxLines: 3 },
+            bar: { groupWidth: '100%' },
+            //animation: {
+            //    duration: 1500,
+            //    startup: true
+            //}
+        });*@
+
+
+    @*<script>
+            google.charts.load("visualization", "1.1", { 'packages': ['corechart', 'bar'] });
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+                var jsonData = $.ajax({
+                    url: '@Url.Action("GetDataColumnChart", "Procedure")',
+                    dataType: "json",
+                    async: false
+                }).responseText;
+
+                var data = new google.visualization.DataTable(jsonData);
+                var view = new google.visualization.DataView(data);
+
+                var options = {
+                    width: 1000,
+                    height: 800,
+                    animation:{
+                        duration: 1500,
+                        startup: true,
+                    },
+                    legend: { position: 'top', maxLines: 3 },
+                    bar: { groupWidth: '75%' },
+                    isStacked: true,
+                };
+
+                var chart = new google.visualization.ColumnChart(document.getElementById("chart_div"));
+                chart.draw(view, options);
+
+
+                google.charts.setOnLoadCallback(drawChart1("param"));
+
+                function drawChart1(param1) {
+                    alert(param1);
+                    var jsonData1 = $.ajax({
+                        url: '@Url.Action("GetDataBarChart","Procedure")',
+                        dataType: "json",
+                        async: false
+                    }).responseText;
+
+                    var data1 = new google.visualization.DataTable(jsonData1);
+                    var view1 = new google.visualization.DataView(data1);
+
+                    var options1 = {
+                        width: 800,
+                        height: 800,
+                        animation: {
+                            duration: 1500,
+                            startup: true,
+                        },
+                        legend: { position: 'top', maxLines: 3 },
+                        bar: { groupWidth: '100%' },
+                        //animation: {
+                        //    duration: 1500,
+                        //    startup: true
+                        //}
+                    };
+                    var chart = new google.visualization.BarChart(document.getElementById("bar_div"));
+                    chart.draw(view1, options1);
+
+                    google.charts.setOnLoadCallback(drawChartPartial);
+
+                    function drawChartPartial() {
+                        var jsonDataPart = $.ajax({
+                            url: '@Url.Action("GetDataPartialTortaVIA", "Procedure")',
+                            dataType: "json",
+                            async: false
+                        }).responseText;
+
+                        var dataPartial = new google.visualization.DataTable(jsonDataPart);
+                        var viewPartial = new google.visualization.DataView(dataPartial);
+
+                        var options1 = {
+                            width: 300,
+                            height: 200,
+                            legend: { position: 'top', maxLines: 3 },
+                            bar: { groupWidth: '100%' },
+                            //animation: {
+                            //    duration: 1500,
+                            //    startup: true
+                            //}
+                        };
+                        var chart = new google.visualization.PieChart(document.getElementById("partial_div"));
+                        chart.draw(viewPartial, options1);
+
+                        google.charts.setOnLoadCallback(drawChartPartial1);
+
+                        function drawChartPartial1() {
+                            var jsonDataPart1 = $.ajax({
+                                url: '@Url.Action("GetDataPartialTortaVIALO", "Procedure")',
+                                dataType: "json",
+                                async: false
+                            }).responseText;
+
+                            var dataPartial1 = new google.visualization.DataTable(jsonDataPart1);
+                            var viewPartial1 = new google.visualization.DataView(dataPartial1);
+
+                            var options1 = {
+                                width: 300,
+                                height: 200,
+                                legend: { position: 'top', maxLines: 3 },
+                                bar: { groupWidth: '100%' },
+                                //animation: {
+                                //    duration: 1500,
+                                //    startup: true
+                                //}
+                            };
+                            var chart = new google.visualization.PieChart(document.getElementById("partial_div2"));
+                            chart.draw(viewPartial1, options1);
+
+                        google.charts.setOnLoadCallback(drawChart2);
+
+                        function drawChart2() {
+                            var jsonData2 = $.ajax({
+                                url: '@Url.Action("GetDataTortaEsitiVIA", "Procedure")',
+                                dataType: "json",
+                                async: false
+                            }).responseText;
+
+                            var data2 = new google.visualization.DataTable(jsonData2);
+                            var view2 = new google.visualization.DataView(data2);
+
+                            var options2 = {
+                                width: 500,
+                                height: 400,
+                                legend: { position: 'top', maxLines: 3 },
+                                bar: { groupWidth: '100%' },
+                                //animation: {
+                                //    duration: 1500,
+                                //    startup: true
+                                //}
+                            };
+                            var chart = new google.visualization.PieChart(document.getElementById("pie_div"));
+                            chart.draw(view2, options2);
+
+                            google.charts.setOnLoadCallback(drawChart3);
+
+                            function drawChart3() {
+                                var jsonData3 = $.ajax({
+                                    url: '@Url.Action("GetDataTortaEsitiVIALO", "Procedure")',
+                                    dataType: "json",
+                                    async: false
+                                }).responseText;
+
+                                var data3 = new google.visualization.DataTable(jsonData3);
+                                var view3 = new google.visualization.DataView(data3);
+
+
+
+                                var chart = new google.visualization.PieChart(document.getElementById("pieVia_div"));
+                                chart.draw(view3, options2);
+                            }
+                            }
+                        }
+                    }
+                }
+            }
+        </script>*@
+

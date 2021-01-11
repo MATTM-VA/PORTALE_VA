@@ -1,0 +1,76 @@
+﻿@model VAPortale.Models.DatiEstrumentiTabModel
+@using VALib.Domain.Entities.DatiAmbientali
+
+@{
+    ViewBag.Title = Model.VoceMenu.GetNome();
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+
+<div class="line_small_title">
+    <h2>@Model.VoceMenu.GetNome()</h2>
+</div>
+<div class="clear"></div>
+
+@{ Html.RenderAction("StudiIndaginiPS", "DatiEStrumenti", new { nomeSezione = "DatiEStrumenti", nomeVoce = "StudiEIndaginiDiSettore" });}
+<div class="sezioneTabelle">
+    <!--<h3>@DizionarioService.RICERCA_TitoloRicerca</h3>-->
+    <div class="areaRicerca modelloEsteso">
+        @using (Html.BeginForm("StudiEIndaginiDiSettore", "DatiEStrumenti", FormMethod.Get))
+        {
+            @Html.AntiForgeryToken()
+             
+            @Html.HiddenFor(m => m.NomeElenco)
+            <div class="bgInput">
+                <div class="testo_ricerca ie9">
+                    <label for="Testo">@DizionarioService.RICERCA_LabelTesto</label>
+                    @Html.TextBoxFor(m => m.Testo, new { @class = "cerca" })
+                    <input type="image" class="btn-search" alt="@DizionarioService.RICERCA_BottoneEsegui" src="@Url.VAContent("button_search.png?v=4")" />
+                </div>
+            </div>
+        }
+    </div>
+
+    <h3 class="risultati">@DizionarioService.RICERCA_TitoloRisultatiDatiAmbientali</h3>
+    <div class="table-responsive">
+        <table class="table IndaginiSettore2">
+            <thead>
+                <tr>
+                    <th>@DizionarioService.GRIGLIA_ColonnaTitolo</th>
+                    <th>@DizionarioService.GRIGLIA_ColonnaArgomento</th>
+                    <th>@DizionarioService.GRIGLIA_ColonnaDimensione</th>
+                    <th><span class="hidden">@DizionarioService.TOOLTIP_Metadato</span></th>
+                    <th><span class="hidden">@DizionarioService.TOOLTIP_ScaricaDocumento</span></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (DocumentoCondivisione d in Model.Risorse)
+                {
+                    <tr>
+                        <td>@d.Titolo</td>
+                        <td>@d.Soggetto</td>
+                        <td>
+                            @Html.Raw(d.Dimensione.HasValue ? string.Format("{0} kB", d.Dimensione.Value) : "-")
+                        </td>
+                        <td>
+                            <a title="@DizionarioService.TOOLTIP_Metadato" href="@Url.Action("MetadatoRisorsaCondivisione", new { id = d.ID } )" class="icona-metadato"></a>
+                        </td>
+                        <td>
+                            <a class="@DatiAmbientaliUtils.CssClassForIDTipoContenutoRisorsa(d.TipoContenutoRisorsa.ID)" title="download @d.Titolo" href="@d.GetUrl()">@d.TipoContenutoRisorsa.Nome</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="area_sotto_tabella">
+        <div class="buttonBackground">
+            @Html.VaEsporta(x => Url.Action("StudiEIndaginiDiSettore", x))
+        </div>
+        <div class="paginatore">
+            @Html.VaPaginatore(Model.Pagina, Model.DimensionePagina, Model.TotaleRisultati, "pagina", x => Url.Action("StudiEIndaginiDiSettore", x))
+        </div>
+        <div class="visualizza_pagina"></div>
+    </div>
+</div>

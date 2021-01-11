@@ -1,0 +1,51 @@
+﻿@model VAPortale.Areas.Admin.Models.DatoAmbientaleHomeIndexModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="contenuto">
+    <h2>
+        @Html.ActionLink("Dati ambientali home", "Index", null, new { @class = "sezione" })/
+        <span>Elenco Dati ambientali home</span>
+    </h2>
+    <div>
+        @Html.ActionLink("Nuovo Elemento", "Crea", null, new { @class = "pulsante" })
+    </div>
+    <div class="cerca">
+        @using (Html.BeginForm("Index", "DatoAmbientaleHome", FormMethod.Get))
+        {
+            <span>
+                @Html.LabelFor(m => m.Pubblicato)
+                @Html.DropDownListFor(m => m.Pubblicato, Model.BooleanSelectList)
+            </span>
+            <span>
+                @Html.LabelFor(m => m.Testo)
+                @Html.TextBoxFor(m => m.Testo)
+            </span>
+            <input type="submit" value="Cerca" />
+        }
+
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Titolo</th>
+                <th>Pubblicato</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (DatoAmbientaleHome dato in Model.DatiAmbientaliHome)
+            {
+                <tr>
+                    <td>@Html.ActionLink(dato.Titolo_IT, "Edita", new { id = dato.ID })</td>
+                    <td>@Html.BooleanToString(dato.Pubblicato, "si", "no")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="corpo">
+        @Html.VaPaginatore(Model.Pagina, Model.DimensionePagina, Model.TotaleRisultati, "pagina", x => Url.Action("Index", x))
+    </div>
+</div>

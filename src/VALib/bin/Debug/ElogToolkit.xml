@@ -1,0 +1,1394 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ElogToolkit</name>
+    </assembly>
+    <members>
+        <member name="T:ElogToolkit.Web.Management.CustomWebErrorEvent">
+            <summary>
+            Rappresenta un errore personalizzato che può essere gestito dal sistema Health Monitoring di Asp.Net. Eredita da System.Web.Management.WebRequestErrorEvent.
+            </summary>
+        </member>
+        <member name="T:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSourceCommandEventArgs">
+            <summary>
+            Provides data for the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource.Selecting event
+            of the Silos.Web.UI.WebControls.SqlHierarchicalDataSource control.
+            </summary>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSourceCommandEventArgs.#ctor(System.Data.Common.DbCommand)">
+            <summary>
+            Initializes a new instance of the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSourceCommandEventArgs class,
+            using the specified database command object.
+            </summary>
+            <param name="command">
+            An System.Data.Common.DbCommand object that represents the cancelable
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource select command.
+            </param>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSourceCommandEventArgs.Command">
+            <summary>
+            Gets the pending database command.
+            </summary>
+            <returns>
+            An System.Data.Common.DbCommand object that represents the pending
+            database command.
+            </returns>
+        </member>
+        <member name="T:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSourceFilteringEventArgs">
+            <summary>
+            Provides data for the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource.Filtering event
+            of the Silos.Web.UI.WebControls.SqlHierarchicalDataSource control.
+            </summary>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSourceFilteringEventArgs.#ctor(System.Collections.Specialized.IOrderedDictionary)">
+            <summary>
+            Initializes a new instance of the 
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSourceFilteringEventArgs class by using
+            the specified object.
+            </summary>
+            <param name="parameterValues">
+            An System.Collections.Specialized.IOrderedDictionary of
+            System.Web.UI.WebControls.Parameter objects.
+            </param>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSourceFilteringEventArgs.ParameterValues">
+            <summary>
+            Gets an System.Collections.Specialized.IOrderedDictionary object that provides
+            access to the System.Web.UI.WebControls.Parameter objects of the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource class.
+            </summary>
+            <returns>
+            An System.Collections.Specialized.IOrderedDictionary of
+            System.Web.UI.WebControls.Parameter objects.
+            </returns>
+        </member>
+        <member name="T:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSourceSelectingEventArgs">
+            <summary>
+            Provides data for the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource.Selecting event of
+            the Silos.Web.UI.WebControls.SqlHierarchicalDataSource control.
+            </summary>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSourceSelectingEventArgs.#ctor(System.Data.Common.DbCommand)">
+            <summary>
+            Initializes a new instance of the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSourceSelectingEventArgs class,
+            using the specified System.Data.Common.DbCommand.
+            </summary>
+            <param name="command">
+            An System.Data.Common.DbCommand object that represents the cancelable
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource command.
+            </param>
+        </member>
+        <member name="T:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSourceStatusEventArgs">
+            <summary>
+            Provides data for an event that is raised by the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource control after a data
+            operation has completed.
+            </summary>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSourceStatusEventArgs.#ctor(System.Data.Common.DbCommand,System.Exception)">
+            <summary>
+            Initializes a new instance of the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSourceStatusEventArgs class,
+            using the specified System.Data.Common.DbCommand affected by the database
+            operation.
+            </summary>
+            <param name="command">
+            The System.Data.Common.DbCommand that represents the database query,
+            command, or stored procedure that is submitted to the database by
+            the Silos.Web.UI.WebControls.SqlHierarchicalDataSource control.
+            </param>
+            <param name="exception">
+            An System.Exception thrown by the database operation, if applicable.
+            </param>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSourceStatusEventArgs.Exception">
+            <summary>
+            Gets a wrapper for any exceptions thrown by the database during
+            a data operation.
+            </summary>
+            <returns>
+            A System.Exception that wraps any exceptions thrown by the database in its
+            System.Exception.InnerException property.
+            </returns>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSourceStatusEventArgs.ExceptionHandled">
+            <summary>
+            Gets or sets a value indicating whether an exception thrown by the
+            database has been handled.
+            </summary>
+            <returns>
+            true if an exception thrown by the database has been handled and
+            should not be thrown by the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource control;
+            otherwise, false.
+            </returns>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSourceStatusEventArgs.Command">
+            <summary>
+            Gets the database command submitted to the database.
+            </summary>
+            <returns>
+            The System.Data.Common.DbCommand object that represents the database command
+            submitted to the database.
+            </returns>
+        </member>
+        <member name="T:ElogToolkit.Web.UI.WebControls.BooleanFieldDisplay">
+            <summary>
+            Specifies the display behavior in a <see cref="T:ElogToolkit.Web.UI.WebControls.BooleanField"/>.
+            </summary>
+        </member>
+        <member name="F:ElogToolkit.Web.UI.WebControls.BooleanFieldDisplay.Image">
+            <summary>
+            Display image.
+            </summary>
+        </member>
+        <member name="F:ElogToolkit.Web.UI.WebControls.BooleanFieldDisplay.Text">
+            <summary>
+            Display text.
+            </summary>
+        </member>
+        <member name="T:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSource">
+            <summary>
+            Represents an SQL database to hierarchical data-bound controls.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSource.ConnectionString">
+            <summary>
+            Gets or sets the ADO.NET provider–specific connection string that the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource control uses to connect
+            to an underlying database.
+            </summary>
+            <returns>
+            A .NET Framework data provider–specific string that the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource uses to connect to the
+            SQL database that it represents. The default is an empty string ("").
+            </returns>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSource.DataIdField">
+            <summary>
+            Gets or sets the name of the field that the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource control uses to identify
+            data records.
+            </summary>
+            <returns>
+            The name that the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource uses to identify
+            data root records.
+            </returns>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSource.DataMemberField">
+            <summary>
+            Gets or sets the name of the field that the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource control uses to identify
+            the data member of data records.
+            </summary>
+            <returns>
+            The name that the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource uses to identify
+            the data member of data records.
+            </returns>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSource.DataParentIdField">
+            <summary>
+            Gets or sets the name of the field that the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource control uses to identify
+            parent data records.
+            </summary>
+            <returns>
+            The name that the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource uses to identify
+            parent data root records.
+            </returns>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSource.DataRootMode">
+            <summary>
+            Gets or sets the mode that the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource control uses
+            to identify data root records.
+            </summary>
+            <returns>
+            One of the Silos.Web.UI.WebControls.SqlHierarchicalDataSourceDataRootMode values.
+            The default is the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSourceDataRootMode.Auto value.
+            </returns>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSource.DataRootParentIdValue">
+            <summary>
+            Gets or sets the string value that the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource control uses to identify
+            data root records.
+            </summary>
+            <returns>
+            The string value that the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource uses to identify
+            data root records.
+            </returns>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSource.FilterExpression">
+            <summary>
+            Gets or sets a filtering expression that is applied after the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource retrieves the data.
+            </summary>
+            <returns>
+            A string that represents a filtering expression applied when data is retrieved using the Silos.Web.UI.WebControls.SqlDataSource.
+            </returns>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSource.FilterParameters">
+            <summary>
+            Gets a collection of parameters that are associated with any parameter
+            placeholders that are in the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource.FilterExpression string.
+            </summary>
+            <returns>
+            A System.Web.UI.WebControls.ParameterCollection that contains a set of parameters
+            associated with any parameter placeholders found in the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource.FilterExpression property.
+            </returns>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSource.EnableCaching">
+            <summary>
+            Gets or sets a value indicating whether the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource control has data
+            caching enabled.
+            </summary>
+            <returns>
+            true if data caching is enabled for the data source control;
+            otherwise, false. The default is false.
+            </returns>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSource.SelectCommand">
+            <summary>
+            Gets or sets the SQL string that the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource control uses to retrieve
+            data from the underlying database.
+            </summary>
+            <returns>
+            An SQL string or the name of a stored procedure that the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource uses to retrieve data.
+            </returns>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSource.SelectCommandType">
+            <summary>
+            Gets or sets a value indicating whether the text in the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource.SelectCommand property is
+            an SQL query or the name of a stored procedure.
+            </summary>
+            <returns>
+            One of the Silos.Web.UI.WebControls.SqlHierarchicalDataSourceCommandType values.
+            The default is the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSourceCommandType.Text value.
+            </returns>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSource.SelectParameters">
+            <summary>
+            Gets the parameters collection that contains the parameters that are used
+            by the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource.SelectCommand property
+            to retrieve data from the underlying database.
+            </summary>
+            <returns>
+            A System.Web.UI.WebControls.ParameterCollection that contains the
+            parameters used by the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource.SelectCommand property.
+            </returns>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSource.SortExpression">
+            <summary>
+            Gets or sets a sort expression that is applied after the
+            Silos.Web.UI.WebControls.SqlHierarchicalDataSource retrieves the data.
+            </summary>
+            <returns>
+            A string that represents a sorting expression applied when data is retrieved using the Silos.Web.UI.WebControls.SqlDataSource.
+            </returns>
+        </member>
+        <member name="E:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSource.Filtering">
+            <summary>
+            Occurs before a filter operation.
+            </summary>
+        </member>
+        <member name="E:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSource.Selected">
+            <summary>
+            Occurs when a data retrieval operation has completed.
+            </summary>
+        </member>
+        <member name="E:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSource.Selecting">
+            <summary>
+            Occurs before a data retrieval operation.
+            </summary>
+        </member>
+        <member name="T:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSourceView">
+            <summary>
+            Represents a data view on a node or collection of nodes in a hierarchical
+            data structure for a Silos.Web.UI.SqlHierarchicalDataSource control.
+            </summary>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.SqlHierarchicalDataSourceView.Select">
+            <summary>
+            Gets a list of all the data items in the view.
+            </summary>
+            <returns>
+            An System.Web.UI.IHierarchicalEnumerable collection of data items.
+            </returns>
+        </member>
+        <member name="T:ElogToolkit.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.TableView_SelectionByDataKey_MissingDataKeyNames">
+            <summary>
+              Looks up a localized string similar to Selection by data key is enabled but data key names have not been specified..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebCategory_Paging">
+            <summary>
+              Looks up a localized string similar to Paging.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebCategory_Selecting">
+            <summary>
+              Looks up a localized string similar to Selecting.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebCategory_Sorting">
+            <summary>
+              Looks up a localized string similar to Sorting.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebCategory_Styles">
+            <summary>
+              Looks up a localized string similar to Styles.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_AllowMultipleRowSelection">
+            <summary>
+              Looks up a localized string similar to Whether to turn on multiple row selection functionality..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_AllowPaging">
+            <summary>
+              Looks up a localized string similar to Whether to turn on paging functionality..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_AllowSorting">
+            <summary>
+              Looks up a localized string similar to Whether to turn on sorting functionality..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_AlternatingRowStyle">
+            <summary>
+              Looks up a localized string similar to The style applied to alternating data rows..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_Caption">
+            <summary>
+              Looks up a localized string similar to The descriptive text associated with the control..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_CellPadding">
+            <summary>
+              Looks up a localized string similar to The padding between cells..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_CellSpacing">
+            <summary>
+              Looks up a localized string similar to The spacing between cells..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_Columns">
+            <summary>
+              Looks up a localized string similar to The columns to be shown in the control..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_DataKeyNames">
+            <summary>
+              Looks up a localized string similar to A comma-separated list of key fields..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_EmptyDataRowStyle">
+            <summary>
+              Looks up a localized string similar to The style applied to the empty data row..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_EmptyDataText">
+            <summary>
+              Looks up a localized string similar to The text to show in the empty data row..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_EnableCustomPaging">
+            <summary>
+              Looks up a localized string similar to Whether to enable custom paging functionality. The developer is responsible of paging the data. The developer must assign the DataVirtualCount property..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_EnableCustomSorting">
+            <summary>
+              Looks up a localized string similar to Whether to enable custom sorting functionality. The developer is responsible of sorting the data..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_EnableMultipleColumnSorting">
+            <summary>
+              Looks up a localized string similar to Whether to enable multiple column sorting functionality..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_EnableSelectByDataKey">
+            <summary>
+              Looks up a localized string similar to Whether to enable selecting rows by data key instead of by index..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_FooterRowStyle">
+            <summary>
+              Looks up a localized string similar to The style applied to the footer row..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_GridLines">
+            <summary>
+              Looks up a localized string similar to The settings for rules between cells..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_HeaderRowStyle">
+            <summary>
+              Looks up a localized string similar to The style applied to the header row..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_HorizontalAlign">
+            <summary>
+              Looks up a localized string similar to The horizontal alignment of the control..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_PagerRowStyle">
+            <summary>
+              Looks up a localized string similar to The style applied to the pager row..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_PagerSettings">
+            <summary>
+              Looks up a localized string similar to The settings of the pager UI..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_PageSize">
+            <summary>
+              Looks up a localized string similar to The maximum number of rows to display per page..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_RowStyle">
+            <summary>
+              Looks up a localized string similar to The style applied to data rows..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_SelectedRowStyle">
+            <summary>
+              Looks up a localized string similar to The style applied to the selected rows..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_ShowFooter">
+            <summary>
+              Looks up a localized string similar to Whether to show the footer row..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_ShowHeader">
+            <summary>
+              Looks up a localized string similar to Whether to show the header row..
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Properties.Resources.WebDescription_TableView_SorterSettings">
+            <summary>
+              Looks up a localized string similar to The settings of the sorter UI..
+            </summary>
+        </member>
+        <member name="T:ElogToolkit.Web.UI.WebControls.HyperLinkField">
+            <summary>
+            Represents a field that is displayed as a hyperlink in a data-bound control. Enhances <see cref="T:System.Web.UI.WebControls.HyperLinkField"/>.
+            </summary> 
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.HyperLinkField.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ElogToolkit.Web.UI.WebControls.HyperLinkField"/> class.
+            </summary>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.HyperLinkField.CopyProperties(System.Web.UI.WebControls.DataControlField)">
+            <summary>
+            Copies the properties of the current HyperLinkField object to the specified DataControlField object.
+            </summary>
+            <param name="newField">The <see cref="T:System.Web.UI.WebControls.DataControlField"/> to copy the properties of the current
+            <see cref="T:ElogToolkit.Web.UI.WebControls.BooleanField"/> to.
+            </param>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.HyperLinkField.CreateField">
+            <summary>
+            Creates an empty <see cref="T:ElogToolkit.Web.UI.WebControls.HyperLinkField"/> object.
+            </summary>
+            <returns>An empty <see cref="T:ElogToolkit.Web.UI.WebControls.HyperLinkField"/></returns>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.HyperLinkField.InitializeCell(System.Web.UI.WebControls.DataControlFieldCell,System.Web.UI.WebControls.DataControlCellType,System.Web.UI.WebControls.DataControlRowState,System.Int32)">
+            <summary>
+            Initializes the cell representing this field with the contained hyperlink.
+            </summary>
+            <param name="cell">
+            A <see cref="T:System.Web.UI.WebControls.DataControlFieldCell"/> that contains the text or
+            controls of the <see cref="T:ElogToolkit.Web.UI.WebControls.HyperLinkField"/>.
+            </param>
+            <param name="cellType">One of the <see cref="T:System.Web.UI.WebControls.DataControlCellType"/> values.</param>
+            <param name="rowState">
+            One of the <see cref="T:System.Web.UI.WebControls.DataControlRowState"/> values that specifies the state of the row
+            containing the <see cref="T:ElogToolkit.Web.UI.WebControls.HyperLinkField"/>.
+            </param>
+            <param name="rowIndex">The index of the row in the table.</param>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.HyperLinkField.ImageUrl">
+            <summary>
+            Gets or sets the URL reference to an image to display as an alternative to plain text for the hyperlink.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.HyperLinkField.ToolTip">
+            <summary>
+            Gets or sets the tool tip for the hyperlink to be displayed when the mouse cursor is over it.
+            </summary>
+        </member>
+        <member name="T:ElogToolkit.Web.UI.WebControls.TableView">
+            <summary>
+            Mostra in una tabella i valori di un'origine dati. Ogni colonna rappresenta un campo e ogni record una riga. Permette di selezionare, paginare e ordinare i dati. 
+            </summary>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.TableView.#ctor">
+            <summary>
+            Inizializza un’istanza della classe TableView senza argomenti.
+            </summary>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.TableView.ClearSelection">
+            <summary>
+            Annulla la selezione delle righe.
+            </summary>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.TableView.GetSelectedDataKeys">
+            <summary>
+            Ottiene l’insieme di oggetti DataKey che rappresentano i valori della chiave primaria associati alle righe selezionate.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.TableView.GetSelectedIndexes">
+            <summary>
+            Ottiene l’insieme degli inidici delle righe selezionate. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="E:ElogToolkit.Web.UI.WebControls.TableView.PageIndexChanging">
+            <summary>
+            Si verifica quando sta per cambiare l’indice di pagina.
+            </summary>
+        </member>
+        <member name="E:ElogToolkit.Web.UI.WebControls.TableView.RowCommand">
+            <summary>
+            Si verifica quando un evento Command viene generato all’interno del controllo. 
+            </summary>
+        </member>
+        <member name="E:ElogToolkit.Web.UI.WebControls.TableView.SelectIndexChanging">
+            <summary>
+            Si verifica quando sta per cambiare l’indice di riga selezionato.
+            </summary>
+        </member>
+        <member name="E:ElogToolkit.Web.UI.WebControls.TableView.SelectIndexChanged">
+            <summary>
+            Si verifica dopo che è cambiato l’indice di riga selezionato.
+            </summary>
+        </member>
+        <member name="E:ElogToolkit.Web.UI.WebControls.TableView.SortExpressionChanging">
+            <summary>
+            Si verifica quando sta per cambiare l’espressione di ordinamento.
+            </summary>
+        </member>
+        <member name="E:ElogToolkit.Web.UI.WebControls.TableView.RowDataBound">
+            <summary>
+            Si verifica dopo che un riga è stata associata ai dati.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.TableView.DataKeyNames">
+            <summary>
+            Ottiene o imposta l’elenco contenente i nomi dei campi di chiave primaria.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.TableView.DataVirtualCount">
+            <summary>
+            Ottiene o imposta il numero delle righe totali di dati. Utilizzato nel caso di paginazione personalizzata.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.TableView.Columns">
+            <summary>
+            Ottiene l’insieme di oggetti DataControlField che rappresentano le colonne in un controllo TableView.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.TableView.AllowPaging">
+            <summary>
+            Ottiene o imposta un valore che indica se la paginazione di dati è permessa.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.TableView.EnableCustomPaging">
+            <summary>
+            Ottiene o imposta un valore che indica se la paginazione dei dati è personalizzata. Il codice client si occupa di paginare i dati.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.TableView.PageIndex">
+            <summary>
+            Ottiene o imposta l’indice della pagina di dati da visualizzare.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.TableView.PagerSettings">
+            <summary>
+            Ottiene un oggetto PagerSettings attraverso cui modificare le impostazioni dell’interfaccia di paginazione.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.TableView.PageSize">
+            <summary>
+            Ottiene o imposta il numero di righe di dati da visualizzare.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.TableView.Rows">
+            <summary>
+            Ottiene l’insieme di oggetti TableViewRow che rappresentano le righe in un controllo TableView.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.TableView.AllowMultipleRowSelection">
+            <summary>
+            Ottiene o imposta un valore che indica se è permessa la selezione di più righe.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.TableView.EnableSelectByDataKey">
+            <summary>
+            Ottiene o imposta un valore che indica se il mantenimento della selezione avviene tramite associazione con il campo chiave primaria o tramite l’indice di riga.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.TableView.SelectedIndex">
+            <summary>
+            Ottiene o imposta la riga selezionata tramite l’indice di riga.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.TableView.SelectedDataKey">
+            <summary>
+            Ottiene l’oggetto DataKey che rappresenta il valore del campo chiave primaria associato alla riga selezionata.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.TableView.AllowSorting">
+            <summary>
+            Ottiene o imposta un valore che indica se l’ordinamento dei dati è permesso.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.TableView.EnableCustomSorting">
+            <summary>
+            Ottiene o imposta un valore che indica se l’ordinamento dei dati è personalizzato. Il codice client si occupa di ordinare i dati.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.TableView.EnableMultipleColumnSorting">
+            <summary>
+            Ottiene o imposta un valore che indica se l’ordinamento su più colonne è abilitato.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.TableView.SorterSettings">
+            <summary>
+            Ottiene un oggetto SorterSettings attraverso cui modificare le impostazioni dell’interfaccia di ordinamento.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.TableView.SortExpression">
+            <summary>
+            Ottiene o imposta l’espressione di ordinamento.
+            </summary>
+        </member>
+        <member name="T:ElogToolkit.Web.UI.WebControls.BooleanField">
+            <summary>
+            Represents a field bounded to a boolean data field in a <see cref="T:System.Web.UI.WebControls.DataBoundControl"/>.
+            </summary>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.BooleanField.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ElogToolkit.Web.UI.WebControls.BooleanField"/> class.
+            </summary>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.BooleanField.CopyProperties(System.Web.UI.WebControls.DataControlField)">
+            <summary>
+            Copies the properties of the current BooleanField object to the specified DataControlField object.
+            </summary>
+            <param name="newField">The <see cref="T:System.Web.UI.WebControls.DataControlField"/> to copy the properties of the current
+            <see cref="T:ElogToolkit.Web.UI.WebControls.BooleanField"/> to.
+            </param>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.BooleanField.CreateField">
+            <summary>
+            Creates an empty <see cref="T:ElogToolkit.Web.UI.WebControls.BooleanField"/> object.
+            </summary>
+            <returns>An empty <see cref="T:ElogToolkit.Web.UI.WebControls.BooleanField"/></returns>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.BooleanField.Initialize(System.Boolean,System.Web.UI.Control)">
+            <summary>
+            Initialize the <see cref="T:ElogToolkit.Web.UI.WebControls.BooleanField"/> object.
+            </summary>
+            <param name="sortingEnabled">true if sorting is supported; otherwise, false.</param>
+            <param name="control">The data control that owns the <see cref="T:ElogToolkit.Web.UI.WebControls.BooleanField"/>.</param>
+            <returns>false in all cases.</returns>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.BooleanField.InitializeCell(System.Web.UI.WebControls.DataControlFieldCell,System.Web.UI.WebControls.DataControlCellType,System.Web.UI.WebControls.DataControlRowState,System.Int32)">
+            <summary>
+            Initializes the specified <see cref="T:System.Web.UI.WebControls.DataControlFieldCell"/> object to the specified row state.
+            </summary>
+            <param name="cell">The <see cref="T:System.Web.UI.WebControls.DataControlFieldCell"/> to initialize.</param>
+            <param name="cellType">One of the <see cref="T:System.Web.UI.WebControls.DataControlCellType"/> values.</param>
+            <param name="rowState">One of the <see cref="T:System.Web.UI.WebControls.DataControlRowState"/> values.</param>
+            <param name="rowIndex">The zero-based index of the row.</param>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.BooleanField.ValidateSupportsCallback">
+            <summary>
+            Determines whether the controls contained in a <see cref="T:ElogToolkit.Web.UI.WebControls.BooleanField"/> object support callbacks.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.BooleanField.DataField">
+            <summary>
+             Gets or sets the boolean field name from the data model bound to this field.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.BooleanField.Display">
+            <summary>
+            Gets or sets the display behavior of the boolean field.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.BooleanField.FalseDisplayText">
+            <summary>
+            Gets or sets the text to be displayed if the value of the field is false.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.BooleanField.FalseImageUrl">
+            <summary>
+            Gets or sets the url of the image to be displayed if the value of the field is false.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.BooleanField.NullDisplayText">
+            <summary>
+            Gets or sets the text to be displayed if the value of the field is null.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.BooleanField.NullImageUrl">
+            <summary>
+            Gets or sets the url of the image to be displayed if the value of the field is null.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.BooleanField.TrueDisplayText">
+            <summary>
+            Gets or sets the text to be displayed if the value of the field is true.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.BooleanField.TrueImageUrl">
+            <summary>
+            Gets or sets the url of the image to be displayed if the value of the field is true.
+            </summary>
+        </member>
+        <member name="T:ElogToolkit.Parse">
+            <summary>
+            Converts the string representation of a base data type to the equivalent base data type.
+            </summary>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToDateTimeOrDefault(System.String,System.DateTime)">
+            <summary>
+            Converts the specified string representation of a date and time to its DateTime equivalent or returns the specified default value if the conversion fails.
+            </summary>
+            <param name="input">A string containing a date and time to convert.</param>
+            <param name="defaultValue">A date and time to be returned if the conversion fails.</param>
+            <returns>A DateTime structure that contains the value that was parsed or the specified default value if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToDateTimeOrDefault(System.String,System.DateTime,System.Globalization.DateTimeStyles)">
+            <summary>
+            Converts the specified string representation of a date and time to its DateTime equivalent using the specified formatting styles,
+            or returns the specified default value if the conversion fails.
+            </summary>
+            <param name="input">A string containing a date and time to convert.</param>
+            <param name="defaultValue">A date and time to be returned if the conversion fails.</param>
+            <param name="styles">
+            A bitwise combination of enumeration values that defines how to interpret the parsed date in relation to the current time zone or the current date.
+            </param>
+            <returns>A DateTime structure that contains the value that was parsed or the specified default value if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToDateTimeOrDefault(System.String,System.DateTime,System.IFormatProvider)">
+            <summary>
+            Converts the specified string representation of a date and time to its DateTime equivalent using the specified culture-specific format information,
+            or returns the specified default value if the conversion fails.
+            </summary>
+            <param name="input">A string containing a date and time to convert.</param>
+            <param name="defaultValue">A date and time to be returned if the conversion fails.</param>
+            <param name="provider">An object that supplies culture-specific formatting information about the input string.</param>
+            <returns>A DateTime structure that contains the value that was parsed or the specified default value if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToDateTimeOrDefault(System.String,System.DateTime,System.Globalization.DateTimeStyles,System.IFormatProvider)">
+            <summary>
+            Converts the specified string representation of a date and time to its DateTime equivalent using the specified formatting styles
+            and culture-specific format information, or returns the specified default value if the conversion fails.
+            </summary>
+            <param name="input">A string containing a date and time to convert.</param>
+            <param name="defaultValue">A date and time to be returned if the conversion fails.</param>
+            <param name="styles">
+            A bitwise combination of enumeration values that defines how to interpret the parsed date in relation to the current time zone or the current date.
+            </param>
+            <param name="provider">An object that supplies culture-specific formatting information about the input string.</param>
+            <returns>A DateTime structure that contains the value that was parsed or the specified default value if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToDateTimeOrDefault(System.String,System.DateTime,System.String)">
+            <summary>
+            Converts the specified string representation of a date and time to its DateTime equivalent using the specified format
+            or returns the specified default value if the conversion fails.
+            </summary>
+            <param name="input">A string containing a date and time to convert.</param>
+            <param name="defaultValue">A date and time to be returned if the conversion fails.</param>
+            <param name="format">The required format of the input string.</param>
+            <returns>A DateTime structure that contains the value that was parsed or the specified default value if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToDateTimeOrDefault(System.String,System.DateTime,System.String,System.Globalization.DateTimeStyles)">
+            <summary>
+            Converts the specified string representation of a date and time to its DateTime equivalent using the specified format and formatting styles,
+            or returns the specified default value if the conversion fails.
+            </summary>
+            <param name="input">A string containing a date and time to convert.</param>
+            <param name="defaultValue">A date and time to be returned if the conversion fails.</param>
+            <param name="format">The required format of the input string.</param>
+            <param name="styles">
+            A bitwise combination of enumeration values that defines how to interpret the parsed date in relation to the current time zone or the current date.
+            </param>
+            <returns>A DateTime structure that contains the value that was parsed or the specified default value if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToDateTimeOrDefault(System.String,System.DateTime,System.String,System.IFormatProvider)">
+            <summary>
+            Converts the specified string representation of a date and time to its DateTime equivalent using the specified format and culture-specific format information,
+            or returns the specified default value if the conversion fails.
+            </summary>
+            <param name="input">A string containing a date and time to convert.</param>
+            <param name="defaultValue">A date and time to be returned if the conversion fails.</param>
+            <param name="format">The required format of the input string.</param>
+            <param name="provider">An object that supplies culture-specific formatting information about the input string.</param>
+            <returns>A DateTime structure that contains the value that was parsed or the specified default value if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToDateTimeOrDefault(System.String,System.DateTime,System.String,System.Globalization.DateTimeStyles,System.IFormatProvider)">
+            <summary>
+            Converts the specified string representation of a date and time to its DateTime equivalent using the specified format, formatting styles
+            and culture-specific format information, or returns the specified default value if the conversion fails.
+            </summary>
+            <param name="input">A string containing a date and time to convert.</param>
+            <param name="defaultValue">A date and time to be returned if the conversion fails.</param>
+            <param name="format">The required format of the input string.</param>
+            <param name="styles">
+            A bitwise combination of enumeration values that defines how to interpret the parsed date in relation to the current time zone or the current date.
+            </param>
+            <param name="provider">An object that supplies culture-specific formatting information about the input string.</param>
+            <returns>A DateTime structure that contains the value that was parsed or the specified default value if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToDateTimeOrDefault(System.String,System.DateTime,System.String[])">
+            <summary>
+            Converts the specified string representation of a date and time to its DateTime equivalent using the specified array of formats
+            or returns the specified default value if the conversion fails.
+            </summary>
+            <param name="input">A string containing a date and time to convert.</param>
+            <param name="defaultValue">A date and time to be returned if the conversion fails.</param>
+            <param name="formats">An array of allowable formats of the input string.</param>
+            <returns>A DateTime structure that contains the value that was parsed or the specified default value if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToDateTimeOrDefault(System.String,System.DateTime,System.String[],System.Globalization.DateTimeStyles)">
+            <summary>
+            Converts the specified string representation of a date and time to its DateTime equivalent using the specified array of formats and formatting styles,
+            or returns the specified default value if the conversion fails.
+            </summary>
+            <param name="input">A string containing a date and time to convert.</param>
+            <param name="defaultValue">A date and time to be returned if the conversion fails.</param>
+            <param name="formats">An array of allowable formats of the input string.</param>
+            <param name="styles">
+            A bitwise combination of enumeration values that defines how to interpret the parsed date in relation to the current time zone or the current date.
+            </param>
+            <returns>A DateTime structure that contains the value that was parsed or the specified default value if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToDateTimeOrDefault(System.String,System.DateTime,System.String[],System.IFormatProvider)">
+            <summary>
+            Converts the specified string representation of a date and time to its DateTime equivalent using the specified array of formats and culture-specific format information,
+            or returns the specified default value if the conversion fails.
+            </summary>
+            <param name="input">A string containing a date and time to convert.</param>
+            <param name="defaultValue">A date and time to be returned if the conversion fails.</param>
+            <param name="formats">An array of allowable formats of the input string.</param>
+            <param name="provider">An object that supplies culture-specific formatting information about the input string.</param>
+            <returns>A DateTime structure that contains the value that was parsed or the specified default value if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToDateTimeOrDefault(System.String,System.DateTime,System.String[],System.Globalization.DateTimeStyles,System.IFormatProvider)">
+            <summary>
+            Converts the specified string representation of a date and time to its DateTime equivalent using the specified array of formats, formatting styles
+            and culture-specific format information, or returns the specified default value if the conversion fails.
+            </summary>
+            <param name="input">A string containing a date and time to convert.</param>
+            <param name="defaultValue">A date and time to be returned if the conversion fails.</param>
+            <param name="formats">An array of allowable formats of the input string.</param>
+            <param name="styles">
+            A bitwise combination of enumeration values that defines how to interpret the parsed date in relation to the current time zone or the current date.
+            </param>
+            <param name="provider">An object that supplies culture-specific formatting information about the input string.</param>
+            <returns>A DateTime structure that contains the value that was parsed or the specified default value if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToDateTimeOrNull(System.String)">
+            <summary>
+            Converts the specified string representation of a date and time to its DateTime equivalent or null if the conversion fails.
+            </summary>
+            <param name="input">A string containing a date and time to convert.</param>
+            <returns>A Nullable DateTime structure that contains the value that was parsed or null if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToDateTimeOrNull(System.String,System.Globalization.DateTimeStyles)">
+            <summary>
+            Converts the specified string representation of a date and time to its DateTime equivalent using the specified formatting styles,
+            or returns null if the conversion fails.
+            </summary>
+            <param name="input">A string containing a date and time to convert.</param>
+            <param name="styles">
+            A bitwise combination of enumeration values that defines how to interpret the parsed date in relation to the current time zone or the current date.
+            </param>
+            <returns>A Nullable DateTime structure that contains the value that was parsed or null if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToDateTimeOrNull(System.String,System.IFormatProvider)">
+            <summary>
+            Converts the specified string representation of a date and time to its DateTime equivalent using the specified culture-specific format information,
+            or returns null if the conversion fails.
+            </summary>
+            <param name="input">A string containing a date and time to convert.</param>
+            <param name="provider">An object that supplies culture-specific formatting information about the input string.</param>
+            <returns>A Nullable DateTime structure that contains the value that was parsed or null if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToDateTimeOrNull(System.String,System.Globalization.DateTimeStyles,System.IFormatProvider)">
+            <summary>
+            Converts the specified string representation of a date and time to its DateTime equivalent using the specified formatting styles
+            and culture-specific format information, or null if the conversion fails.
+            </summary>
+            <param name="input">A string containing a date and time to convert.</param>
+            <param name="styles">
+            A bitwise combination of enumeration values that defines how to interpret the parsed date in relation to the current time zone or the current date.
+            </param>
+            <param name="provider">An object that supplies culture-specific formatting information about the input string.</param>
+            <returns>A Nullable DateTime structure that contains the value that was parsed or null if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToDateTimeOrNull(System.String,System.String)">
+            <summary>
+            Converts the specified string representation of a date and time to its DateTime equivalent using the specified format
+            or returns null if the conversion fails.
+            </summary>
+            <param name="input">A string containing a date and time to convert.</param>
+            <param name="format">The required format of the input string.</param>
+            <returns>A Nullable DateTime structure that contains the value that was parsed or null if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToDateTimeOrNull(System.String,System.String,System.Globalization.DateTimeStyles)">
+            <summary>
+            Converts the specified string representation of a date and time to its DateTime equivalent using the specified format and formatting styles,
+            or returns null if the conversion fails.
+            </summary>
+            <param name="input">A string containing a date and time to convert.</param>
+            <param name="format">The required format of the input string.</param>
+            <param name="styles">
+            A bitwise combination of enumeration values that defines how to interpret the parsed date in relation to the current time zone or the current date.
+            </param>
+            <returns>A Nullable DateTime structure that contains the value that was parsed or null if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToDateTimeOrNull(System.String,System.String,System.IFormatProvider)">
+            <summary>
+            Converts the specified string representation of a date and time to its DateTime equivalent using the specified format and culture-specific format information,
+            or returns null if the conversion fails.
+            </summary>
+            <param name="input">A string containing a date and time to convert.</param>
+            <param name="format">The required format of the input string.</param>
+            <param name="provider">An object that supplies culture-specific formatting information about the input string.</param>
+            <returns>A Nullable DateTime structure that contains the value that was parsed or null if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToDateTimeOrNull(System.String,System.String,System.Globalization.DateTimeStyles,System.IFormatProvider)">
+            <summary>
+            Converts the specified string representation of a date and time to its DateTime equivalent using the specified format, formatting styles
+            and culture-specific format information, or returns null if the conversion fails.
+            </summary>
+            <param name="input">A string containing a date and time to convert.</param>
+            <param name="format">The required format of the input string.</param>
+            <param name="styles">
+            A bitwise combination of enumeration values that defines how to interpret the parsed date in relation to the current time zone or the current date.
+            </param>
+            <param name="provider">An object that supplies culture-specific formatting information about the input string.</param>
+            <returns>A Nullable DateTime structure that contains the value that was parsed or null if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToDateTimeOrNull(System.String,System.String[])">
+            <summary>
+            Converts the specified string representation of a date and time to its DateTime equivalent using the specified array of formats
+            or returns null if the conversion fails.
+            </summary>
+            <param name="input">A string containing a date and time to convert.</param>
+            <param name="formats">An array of allowable formats of the input string.</param>
+            <returns>A Nullable DateTime structure that contains the value that was parsed or null if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToDateTimeOrNull(System.String,System.String[],System.Globalization.DateTimeStyles)">
+            <summary>
+            Converts the specified string representation of a date and time to its DateTime equivalent using the specified array of formats and formatting styles,
+            or returns null if the conversion fails.
+            </summary>
+            <param name="input">A string containing a date and time to convert.</param>
+            <param name="formats">An array of allowable formats of the input string.</param>
+            <param name="styles">
+            A bitwise combination of enumeration values that defines how to interpret the parsed date in relation to the current time zone or the current date.
+            </param>
+            <returns>A Nullable DateTime structure that contains the value that was parsed or null if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToDateTimeOrNull(System.String,System.String[],System.IFormatProvider)">
+            <summary>
+            Converts the specified string representation of a date and time to its DateTime equivalent using the specified array of formats and culture-specific format information,
+            or returns null if the conversion fails.
+            </summary>
+            <param name="input">A string containing a date and time to convert.</param>
+            <param name="formats">An array of allowable formats of the input string.</param>
+            <param name="provider">An object that supplies culture-specific formatting information about the input string.</param>
+            <returns>A Nullable DateTime structure that contains the value that was parsed or null if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToDateTimeOrNull(System.String,System.String[],System.Globalization.DateTimeStyles,System.IFormatProvider)">
+            <summary>
+            Converts the specified string representation of a date and time to its DateTime equivalent using the specified array of formats, formatting styles
+            and culture-specific format information, or returns null if the conversion fails.
+            </summary>
+            <param name="input">A string containing a date and time to convert.</param>
+            <param name="formats">An array of allowable formats of the input string.</param>
+            <param name="styles">
+            A bitwise combination of enumeration values that defines how to interpret the parsed date in relation to the current time zone or the current date.
+            </param>
+            <param name="provider">An object that supplies culture-specific formatting information about the input string.</param>
+            <returns>A Nullable DateTime structure that contains the value that was parsed or null if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToGuidOrDefault(System.String,System.Guid)">
+            <summary>
+            Converts the specified string representation of a GUID to its Guid equivalent or returns the specified default value if the conversion fails.
+            </summary>
+            <param name="input">A string containing a GUID to convert.</param>
+            <param name="defaultValue">A GUID to be returned if the conversion fails.</param>
+            <returns>A Guid structure that contains the value that was parsed or the specified default value if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToGuidOrDefault(System.String,System.Guid,System.String)">
+            <summary>
+            Converts the specified string representation of a GUID to its Guid equivalent using the specified format,
+            or returns the specified default value if the conversion fails.
+            </summary>
+            <param name="input">A string containing a GUID to convert.</param>
+            <param name="defaultValue">A GUID to be returned if the conversion fails.</param>
+            <param name="format">One of the specifiers that indicates the exact format to use when interpreting input.</param>
+            <returns>A Guid structure that contains the value that was parsed or the specified default value if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToGuidOrNull(System.String)">
+            <summary>
+            Converts the specified string representation of a GUID to its Guid equivalent or returns null if the conversion fails.
+            </summary>
+            <param name="input">A string containing a GUID to convert.</param>
+            <returns>A Nullable Guid structure that contains the value that was parsed or null if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToGuidOrNull(System.String,System.String)">
+            <summary>
+            Converts the specified string representation of a GUID to its Guid equivalent using the specified format,
+            or returns null if the conversion fails.
+            </summary>
+            <param name="input">A string containing a GUID to convert.</param>
+            <param name="format">One of the specifiers that indicates the exact format to use when interpreting input.</param>
+            <returns>A Nullable Guid structure that contains the value that was parsed or null if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToInt32OrDefault(System.String,System.Int32)">
+            <summary>
+            Converts the specified string representation of a number to its Int32 equivalent or returns the specified default value if the conversion fails.
+            </summary>
+            <param name="input">A string containing a number to convert.</param>
+            <param name="defaultValue">A number to be returned if the conversion fails.</param>
+            <returns>A Int32 structure that contains the value that was parsed or the specified default value if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToInt32OrDefault(System.String,System.Int32,System.Globalization.NumberStyles)">
+            <summary>
+            Converts the specified string representation of a number to its Int32 equivalent using the specified formatting styles,
+            or returns the specified default value if the conversion fails.
+            </summary>
+            <param name="input">A string containing a number to convert.</param>
+            <param name="defaultValue">A number to be returned if the conversion fails.</param>
+            <param name="styles">A bitwise combination of the enumeration values that indicates the style elements that can be present in input.</param>
+            <returns>A Int32 structure that contains the value that was parsed or the specified default value if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToInt32OrDefault(System.String,System.Int32,System.IFormatProvider)">
+            <summary>
+            Converts the specified string representation of a number to its Int32 equivalent using the specified culture-specific format,
+            or returns the specified default value if the conversion fails.
+            </summary>
+            <param name="input">A string containing a number to convert.</param>
+            <param name="defaultValue">A number to be returned if the conversion fails.</param>
+            <param name="provider">An object that supplies culture-specific formatting information about input.</param>
+            <returns>A Int32 structure that contains the value that was parsed or the specified default value if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToInt32OrDefault(System.String,System.Int32,System.Globalization.NumberStyles,System.IFormatProvider)">
+            <summary>
+            Converts the specified string representation of a number to its Int32 equivalent using the specified formatting styles and culture-specific format,
+            or returns the specified default value if the conversion fails.
+            </summary>
+            <param name="input">A string containing a number to convert.</param>
+            <param name="defaultValue">A number to be returned if the conversion fails.</param>
+            <param name="styles">A bitwise combination of the enumeration values that indicates the style elements that can be present in input.</param>
+            <param name="provider">An object that supplies culture-specific formatting information about input.</param>
+            <returns>A Int32 structure that contains the value that was parsed or the specified default value if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToInt32OrNull(System.String)">
+            <summary>
+            Converts the specified string representation of a number to its Int32 equivalent or returns null if the conversion fails.
+            </summary>
+            <param name="input">A string containing a number to convert.</param>
+            <returns>A Nullable Int32 structure that contains the value that was parsed or null if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToInt32OrNull(System.String,System.Globalization.NumberStyles)">
+            <summary>
+            Converts the specified string representation of a number to its Int32 equivalent using the specified formatting styles,
+            or returns null if the conversion fails.
+            </summary>
+            <param name="input">A string containing a number to convert.</param>
+            <param name="styles">A bitwise combination of the enumeration values that indicates the style elements that can be present in input.</param>
+            <returns>A Nullable Int32 structure that contains the value that was parsed or null if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToInt32OrNull(System.String,System.IFormatProvider)">
+            <summary>
+            Converts the specified string representation of a number to its Int32 equivalent using the specified culture-specific format,
+            or returns null if the conversion fails.
+            </summary>
+            <param name="input">A string containing a number to convert.</param>
+            <param name="provider">An object that supplies culture-specific formatting information about input.</param>
+            <returns>A Nullable Int32 structure that contains the value that was parsed or null if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToInt32OrNull(System.String,System.Globalization.NumberStyles,System.IFormatProvider)">
+            <summary>
+            Converts the specified string representation of a number to its Int32 equivalent using the specified formatting styles and culture-specific format,
+            or returns null if the conversion fails.
+            </summary>
+            <param name="input">A string containing a number to convert.</param>
+            <param name="styles">A bitwise combination of the enumeration values that indicates the style elements that can be present in input.</param>
+            <param name="provider">An object that supplies culture-specific formatting information about input.</param>
+            <returns>A Nullable Int32 structure that contains the value that was parsed or null if the conversion failed.</returns>
+        </member>
+        <member name="M:ElogToolkit.Parse.ToInt64OrDefault(System.String,System.Int64,System.IFormatProvider)">
+            <summary>
+            Converts the specified string representation of a number to its Int64 equivalent using the specified culture-specific format,
+            or returns the specified default value if the conversion fails.
+            </summary>
+            <param name="input">A string containing a number to convert.</param>
+            <param name="defaultValue">A number to be returned if the conversion fails.</param>
+            <param name="provider">An object that supplies culture-specific formatting information about input.</param>
+            <returns>A Int32 structure that contains the value that was parsed or the specified default value if the conversion failed.</returns>
+        </member>
+        <member name="T:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSource">
+            <summary>
+            Represents a data source control that provides data to data-bound controls through events to be handled by the client code.
+            </summary>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSource.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSource"/> class.
+            </summary>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSource.GetView(System.String)">
+            <summary>
+            Retrieves the named data source view that is associated with the data source control.
+            </summary>
+            <param name="viewName">
+            The name of the view to retrieve. Because the <see cref="T:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSource"/>
+            supports only one view, viewName is ignored.
+            </param>
+            <returns>
+            The <see cref="T:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSourceView"/> named DefaultView
+            that is associated with the <see cref="T:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSource"/>.
+            </returns>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSource.GetViewNames">
+            <summary>
+            Retrieves a collection of names representing the list of view objects that are associated
+            with the <see cref="T:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSource"/> object.
+            </summary>
+            <returns>
+            An <see cref="T:System.Collections.ICollection"/> that contains the names of the views associated 
+            with the <see cref="T:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSource"/>.
+            </returns>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSource.CanPage">
+            <summary>
+            Gets or sets a value indicating whether the client code will handle paging through the data rows.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSource.CanRetrieveTotalRowCount">
+            <summary>
+            Gets or sets a value indicating whether the client code will handle retrieving the total number of data rows.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSource.CanSort">
+            <summary>
+            Gets or sets a value indicating whether the client code will handle sorting through the data.
+            </summary>
+        </member>
+        <member name="E:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSource.SelectData">
+            <summary>
+            Occurs when a select operation is requested.
+            </summary>
+        </member>
+        <member name="T:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSourceView">
+            <summary>
+            Supports the <see cref="T:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSource"/> control.
+            Represents a single data view.
+            </summary>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSourceView.#ctor(ElogToolkit.Web.UI.WebControls.SimpleObjectDataSource,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSourceView"/> class.
+            </summary>
+            <param name="owner">
+            The <see cref="T:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSource"/>
+            that the <see cref="T:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSourceView"/> is associated with.
+            </param>
+            <param name="viewName">
+            A unique name for the data source view, within the scope of the data source control that owns it.
+            </param>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSourceView.ExecuteSelect(System.Web.UI.DataSourceSelectArguments)">
+            <summary>
+            Retrieves data by raising the SelectData event of the associated <see cref="T:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSource"/> control.
+            </summary>
+            <param name="arguments">
+            A <see cref="T:System.Web.UI.DataSourceSelectArguments"/> used to request operations on the data beyond basic data retrieval.
+            </param>
+            <returns>A <see cref="T:System.Collections.IEnumerable"/> list of data rows.</returns>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSourceView.CanPage">
+            <summary>
+            Gets a value indicating whether the <see cref="T:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSourceView"/>
+            object supports paging through data.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSourceView.CanRetrieveTotalRowCount">
+            <summary>
+            Gets a value indicating whether the <see cref="T:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSourceView"/>
+            object supports retrieving the total number of data rows.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSourceView.CanSort">
+            <summary>
+            Gets a value indicating whether the <see cref="T:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSourceView"/>
+            object supports sorting through data.
+            </summary>
+        </member>
+        <member name="T:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSourceSelectDataEventArgs">
+            <summary>
+            Provides data for the SelectData event of the <see cref="T:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSource"/> control.
+            </summary>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSourceSelectDataEventArgs.#ctor(System.Web.UI.DataSourceSelectArguments)">
+            <summary>
+            Initializes new instance of the <see cref="T:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSourceSelectDataEventArgs"/> class
+            </summary>
+            <param name="arguments">
+            A <see cref="T:System.Web.UI.DataSourceSelectArguments"/> that specifies which additional data-related operations
+            the client code handling the associated event should perform, such as sorting the data or returning a specific subset of data.
+            </param>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSourceSelectDataEventArgs.Arguments">
+            <summary>
+            Provides a mechanism that the <see cref="T:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSource"/> object can use
+            to request data-related operations when data is retrieved.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSourceSelectDataEventArgs.DataSource">
+            <summary>
+            Provides a mechanism for the client code handling the associated event to pass the retrieved data back to the
+            <see cref="T:ElogToolkit.Web.UI.WebControls.SimpleObjectDataSource"/> object.
+            </summary>
+        </member>
+        <member name="T:ElogToolkit.Web.UI.WebControls.GridViewPager">
+            <summary>
+            Provides paging UI for <see cref="T:System.Web.UI.WebControls.GridView"/> control.
+            </summary>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.GridViewPager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:ElogToolkit.Web.UI.WebControls.GridViewPager"/> class.
+            </summary>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.GridViewPager.CreateChildControls">
+            <summary>
+            Infrastructure. Creates the control hierarchy that is used to render the <see cref="T:ElogToolkit.Web.UI.WebControls.GridViewPager"/> control.
+            </summary>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.GridViewPager.OnInit(System.EventArgs)">
+            <summary>
+            Raises the Init event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"/> that contains event data.</param>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.GridViewPager.RenderContents(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Renders the contents of the control to the specified writer.
+            </summary>
+            <param name="writer">A <see cref="T:System.Web.UI.HtmlTextWriter"/> that represents the output stream to render HTML content on the client.</param>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.GridViewPager.LoadViewState(System.Object)">
+            <summary>
+            Loads the previously saved view state of the <see cref="T:ElogToolkit.Web.UI.WebControls.GridViewPager"/> control.
+            </summary>
+            <param name="savedState">An <see cref="T:System.Object"/> that contains the saved view state values for the control. </param>
+        </member>
+        <member name="M:ElogToolkit.Web.UI.WebControls.GridViewPager.SaveViewState">
+            <summary>
+            Saves the view state of the <see cref="T:ElogToolkit.Web.UI.WebControls.GridViewPager"/> control.
+            </summary>
+            <returns>A <see cref="T:System.Object"/> that contains the saved view state values for the control.</returns>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.GridViewPager.AllowPageSizeSelection">
+            <summary>
+            Gets or sets a value indicating whether the page size selection feature is enabled.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.GridViewPager.PageSizeLabelText">
+            <summary>
+            Gets or sets the text to display as a label for the page size selection control.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.GridViewPager.NumericPageControlStyle">
+            <summary>
+            Gets or sets the CSS style for numeric page controls.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.GridViewPager.PageControlStyle">
+            <summary>
+            Gets or sets the CSS style for non-numeric page controls such as Next, Previous, Last, First page.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.GridViewPager.PageSizeControlStyle">
+            <summary>
+            Gets or sets the CSS style for the page size control.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.GridViewPager.PageSizeLabelControlStyle">
+            <summary>
+            Gets or sets the CSS style for the label associated to the page size control.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.GridViewPager.SelectedPageControlStyle">
+            <summary>
+            Gets or sets the CSS style for the selected page control.
+            </summary>
+        </member>
+        <member name="P:ElogToolkit.Web.UI.WebControls.GridViewPager.TagKey">
+            <summary>
+            Gets the <see cref="T:System.Web.UI.HtmlTextWriterTag"/> value for the <see cref="T:ElogToolkit.Web.UI.WebControls.GridViewPager"/> control.
+            </summary>
+        </member>
+        <member name="T:ElogToolkit.Web.Management.FileLogWebEventProvider">
+            <summary>
+            Rappresenta un provider per la registrazione di errori su file di testo utilizzazbile dal sistema HealthMonitoring di Asp .Net. Eredita da System.Web.Management.BufferedWebEventProvider.
+            </summary>
+        </member>
+    </members>
+</doc>

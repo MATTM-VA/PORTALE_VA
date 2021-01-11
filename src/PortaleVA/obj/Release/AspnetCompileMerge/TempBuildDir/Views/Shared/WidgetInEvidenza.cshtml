@@ -1,0 +1,76 @@
+﻿@model VAPortale.Models.SharedWidgetInEvidenzaModel
+
+@{
+    string voce = "";
+} 
+
+@foreach (Notizia n in Model.Notizie)
+{
+
+    <li>
+        <div class="size_box">
+
+            @if (n.Immagini.FirstOrDefault(x => x.FormatoImmagine.Enum == FormatoImmagineEnum.WidgeHPEvidenza) != null)
+            {
+                Immagine img = n.Immagini.FirstOrDefault(x => x.FormatoImmagine.Enum == FormatoImmagineEnum.WidgeHPEvidenza);
+                <img alt="@img.GetNome()" src="@Url.VAImmagine(img.ID)" class="size_bg" />
+            }
+            else
+            {
+                <img alt="" src="@Url.VAContent("spacer.gif?v=4")" class="nofoto" />
+            }
+            <div class="circleSez f-dc-jc-ac">
+                @switch (n.Categoria.Enum)
+                {
+                    case CategoriaNotiziaEnum.Nessuna:
+                        break;
+                    case CategoriaNotiziaEnum.EventiENotizie:
+                        <img src="@Url.VAContent("img_sez_evidenza_eventi.png?v=4")" class="pad_img_sez_evidenza" alt="@DizionarioService.SITO_CategoriaNotiziaEventiENotizie">
+                        voce = "EventiNotizie";
+                        break;
+                    case CategoriaNotiziaEnum.LaDirezioneInforma:
+                        <img src="@Url.VAContent("img_sez_evidenza_informa.png?v=4")" class="pad_img_sez_evidenza" alt="@DizionarioService.SITO_CategoriaNotiziaLaDirezioneInforma">
+                        voce = "DirezioneInforma";
+                        break;
+                    case CategoriaNotiziaEnum.AreaGiuridica:
+                        <img src="@Url.VAContent("img_sez_evidenza_area_giuridica.png?v=4")" class="pad_img_sez_evidenza" alt="@DizionarioService.SITO_CategoriaNotiziaAreaGiuridica">
+                        voce = "AreaGiuridica";
+                        break;
+                    case CategoriaNotiziaEnum.UltimiProvvedimenti:
+                        <img src="@Url.VAContent("img_sez_evidenza_provvedimenti.png?v=4")" class="pad_img_sez_evidenza" alt="@DizionarioService.SITO_CategoriaNotiziaUltimiProvvedimenti">
+                        voce = "UltimiProvvedimenti";
+                        break;
+                    default:
+                        break;
+                }
+
+            </div>
+            <div class="area_text">
+                <h2>@Html.ActionLink(n.Categoria.Nome, voce, "Comunicazione",null,null)</h2>
+                <h3>@n.Data.ToString("d MMMM yyyy", CultureHelper.GetCurrentCultureInfo())</h3>
+                <p class="titolo">@Html.TruncateAtWord(n.GetTitoloBreve(), 95)</p>
+                <div class="position_button">
+                    <a href="@Url.VANotizia(n)" class="btn">@DizionarioService.HOME_LeggiTutto</a>
+                </div>
+            </div>
+
+        </div>
+    </li>
+
+}
+
+@*@helper TruncateAtWord(string input, int length)
+    {
+    if (input == null || input.Length <= length)
+    {
+            @input
+    }
+    else
+    {
+        int iNextSpace = input.LastIndexOf(" ", length, StringComparison.Ordinal);
+        var testo = string.Format("{0}...", input.Substring(0, (iNextSpace > 0) ? iNextSpace : length).Trim());
+            @testo
+    }
+    }*@
+
+

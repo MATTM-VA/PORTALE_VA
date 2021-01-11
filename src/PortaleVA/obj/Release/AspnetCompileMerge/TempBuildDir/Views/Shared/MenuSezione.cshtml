@@ -1,0 +1,35 @@
+﻿@model VAPortale.Models.SharedMenuSezioneModel
+@{
+    int c = 0;
+}
+@if (Model.VociMenu.Count() > 0)
+{
+<div class="menu-laterale">
+    <ul class="nav">
+        @foreach (VoceMenu voce in Model.VociMenu)
+        {
+            c++;
+            string cssClass = "";
+
+            if (voce.Voce.Equals(Model.NomeVoce, StringComparison.OrdinalIgnoreCase))
+            {
+                cssClass = "active";
+            }
+
+            if (c == Model.VociMenu.Count())
+            {
+                cssClass = string.IsNullOrWhiteSpace(cssClass) ? "last" : cssClass + " last";
+            }
+
+            if (voce.Editabile)
+            {
+            <li class="@cssClass"><a title="@voce.GetDescrizione()" href="@Url.RouteUrl("PaginaStatica", new { nomeSezione = voce.Sezione, nomeVoce = voce.Voce })">@voce.GetNome()</a></li>
+            }
+            else
+            {
+            <li class="@cssClass"><a title="@voce.GetDescrizione()" href="@Url.Action(voce.Voce, voce.Sezione)">@voce.GetNome()</a></li>
+            }
+        }
+    </ul>
+</div>
+}

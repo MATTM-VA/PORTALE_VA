@@ -1,0 +1,22 @@
+﻿@model VAPortale.Models.PagineVoceModel
+
+@{
+    ViewBag.Title = Model.VoceMenu.GetNome();
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+
+ 
+    
+
+    @if (!Model.VoceMenu.Voce.Equals("Modulistica"))
+    {        
+        <div class="line_small_title">
+            <h2>@Model.VoceMenu.GetNome()</h2>
+        </div>
+        <div class="clear"></div>
+    }
+
+    @Html.Raw(VALib.Web.UrlUtility.VAHtmlReplacePseudoUrls(Model.PaginaStatica.GetTesto()))
+
+ 
+    

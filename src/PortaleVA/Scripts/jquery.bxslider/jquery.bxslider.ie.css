@@ -1,0 +1,10 @@
+.bx-wrapper {
+	*zoom: 1;
+}
+.bx-wrapper .bx-controls-auto .bx-controls-auto-item {
+	*zoom: 1;
+	*display: inline;
+}
+.bx-wrapper .bx-caption {
+	background: #666\9;
+}

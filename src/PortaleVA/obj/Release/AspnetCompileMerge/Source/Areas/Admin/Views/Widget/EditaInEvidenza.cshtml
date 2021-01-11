@@ -1,0 +1,173 @@
+﻿@model VAPortale.Areas.Admin.Models.WidgetInEvidenzaEditaModel
+@{
+    ViewBag.Title = "Widget";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div id="corpo" class="contenuto">
+    <h2>
+        @Html.ActionLink("Widget", "Index", "Widget", null, new { @class = "sezione" }) /
+
+        <span>
+            @if (Model.ID != 0)
+            {
+                @Model.Widget.Nome_IT
+            }
+            else
+            {
+                <text>Nuovo Widget</text>
+            }
+        </span>
+    </h2>
+    @if (Model.ID != 0)
+    {
+        <div class="riepilogo">
+
+            <div class="boxData">
+                <p> Inserimento:  @Model.Widget.DataInserimento.ToString("dd/MM/yyyy HH:mm")</p>
+                <p> Ultima Modifica: @Model.Widget.DataUltimaModifica.ToString("dd/MM/yyyy HH:mm")</p>
+            </div>
+
+
+        </div>
+    }
+
+
+    @using (Html.BeginForm("EditaInEvidenza", "Widget", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.ID)
+
+        <table class="edita principale">
+            <tr>
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.EditaNome)
+                </th>
+                <th>
+                    @Html.TextBoxFor(m => m.EditaNome)
+                </th>
+            </tr>
+            <tr>
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.EditaCategoriaNotiziaID)
+                </th>
+                <th align="left">
+                    @Html.DropDownListFor(m => m.EditaCategoriaNotiziaID, Model.CategorieSelectList, "- Selezionare la categoria -")
+                </th>
+            </tr>
+            <tr>
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.NotizieSelectList)
+                </th>
+                <th>
+                    @Html.DropDownListFor(m => m.EditaNotiziaInEvidenza,
+                                        Model.NotizieSelectList,
+                                         "- Selezionare la notizia -")
+                </th>
+            </tr>
+
+        </table>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var currentNotiziaID = '@Model.EditaNotiziaInEvidenza';
+                $("SELECT#EditaNotiziaInEvidenza").change(function () {
+                    $("IMG#Anteprima, A.editaformato").css('display', this.value != currentNotiziaID ? 'none' : '');
+                })
+            })
+
+            $(document).ready(function () {
+                //Dropdownlist Selectedchange event
+                $("#EditaCategoriaNotiziaID").change(function () {
+                    $("#EditaNotiziaInEvidenza").empty();
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("GetNotizieByCategoriaId")',
+                        dataType: 'json',
+                        data: { id: $("#EditaCategoriaNotiziaID").val() || 0 },
+                        success: function (notizie) {
+                            // states contains the JSON formatted list
+                            // of states passed from the controller
+                            $.each(notizie, function (i, notizia) {
+                                $("#EditaNotiziaInEvidenza").append('<option value="'
+                                + notizia.Value + '">'
+                                + notizia.Text + '</option>');
+                            });
+                            $("#EditaNotiziaInEvidenza").trigger('change');
+                        },
+                        error: function (ex) {
+                            alert('Errore nel caricamento notizie per categoria selezionata.' + ex);
+                        }
+                    });
+                    return false;
+                })
+            });
+        </script>
+
+
+        <div class="side">
+            <div class="publishing">
+                @Html.ValidationSummary()
+                <input type="submit" name="EditaSalva" value="Salva" />
+                @if (Model.ID != 0)
+                {
+                    @Html.ActionLink("Annulla", "EditaInEvidenza", null, new { @class = "pulsante" })
+                    <input type="button" class="shared-dialog-elimina-button" value="Elimina" />
+                }
+                <p class="avviso">
+                    I campi in rosso sono obbligatori
+                </p>
+
+            </div>
+            <div style="text-align:center">
+                @{String ImgLink = Model.ImmagineID != null ? Url.VAImmagine((int)Model.ImmagineID) : "";}
+                <img id="Anteprima" src="@ImgLink" width="297" />
+
+                @if (Model.EditaNotiziaInEvidenza != null && Model.ImmagineID != null)
+                {
+                    <br>
+                    <a href="@Url.Action("EditaFormati", "Immagine", new { id = Model.ImmagineID, formatoImmagineID = (int)FormatoImmagineEnum.WidgeHPEvidenza })" class="pulsante attivo editaformato">Edita immagine della notizia</a>
+                }
+
+                <a href="@Url.Action("EditaWidget", "Pagina", new { id = 1 })" class="pulsante attivo">Gestisci il widget nella home</a>
+            </div>
+        </div>
+
+                    }
+    @if (Model.ID != 0)
+            {
+        <div id="shared-elimina-dialog" title="Eliminazione Widget">
+            @using (Html.BeginForm("Elimina", "Widget", new { id = Model.ID }, FormMethod.Post))
+            {
+                <text>Il widget verrà eliminato e non sarà più recuperabile.
+                    Procedere con l'eliminazione?</text>
+            }
+        </div>
+
+        <script type="text/javascript">
+            $(function () {
+                $("#shared-elimina-dialog").dialog({
+                    autoOpen: false,
+                    height: 200,
+                    width: 400,
+                    modal: true,
+                    buttons: {
+                        "Conferma": function () {
+                            var dlg = $(this);
+
+                            dlg.find("form").submit();
+
+                            dlg.dialog("close");
+                        },
+                        "Annulla": function () {
+                            var dlg = $(this);
+                            dlg.dialog("close");
+                        }
+                    }
+                });
+
+                $(".shared-dialog-elimina-button").click(function () {
+                    $("#shared-elimina-dialog").dialog("open");
+                });
+            });
+        </script>
+    }
+</div>

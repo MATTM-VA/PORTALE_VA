@@ -1,0 +1,44 @@
+﻿@model VAPortale.Models.HomeCercaSitoModel
+@{
+    ViewBag.Title = Model.VoceMenu.GetDescrizione();
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+
+<h2>@Model.VoceMenu.GetNome()</h2>
+<div class="cercaSito">
+    @foreach (PaginaStaticaElenco pagina in Model.Pagine)
+    {
+        
+        if (pagina.VoceMenu.Link)
+        {
+            int maxChars = 300;
+            string descrizione = pagina.GetNome().Trim();
+
+            if (descrizione.Length > maxChars)
+            {
+                descrizione = descrizione.Substring(0, maxChars);
+            }
+    <div class="boxCercaSito">
+    <h3>
+            @if (pagina.VoceMenu.Editabile)
+            {
+            <a href="@Url.RouteUrl("PaginaStatica", new { nomeSezione = pagina.VoceMenu.Sezione, nomeVoce = pagina.VoceMenu.Voce })" title="@pagina.VoceMenu.GetDescrizione()">@pagina.VoceMenu.GetNome()</a>
+            }
+            else
+            {
+            <a href="@Url.Action(pagina.VoceMenu.Voce, pagina.VoceMenu.Sezione)" title="@pagina.VoceMenu.GetDescrizione()">@pagina.VoceMenu.GetNome()</a>
+            }
+       </h3>  
+        
+        <p>@descrizione [...]</p>
+    </div>
+       }
+    }
+</div>
+    @Html.VaPaginatore(Model.Pagina, Model.DimensionePagina, Model.TotaleRisultati, "pagina", x => Url.Action("CercaSito", x))
+@section WidgetColumn {
+    @foreach (WidgetCorrelato widget in Model.Widget)
+    {
+        Html.RenderAction("Widget", "Shared", new { widget = widget.Widget });
+    }
+}

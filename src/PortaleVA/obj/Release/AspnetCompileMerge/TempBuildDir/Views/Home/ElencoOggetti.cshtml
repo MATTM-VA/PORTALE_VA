@@ -1,0 +1,108 @@
+﻿@model VAPortale.Models.HomeElencoOggettiModel
+
+@if (Model.Oggetti.Count > 0)
+{
+
+    <div class="area_quattro_box f-dr-fw">
+
+        @foreach (OggettoHome oggetto in Model.Oggetti.OrderBy(n => n.DataScadenzaPresentazione).Take(40))
+        {
+            <div class="size_box">
+
+                <div class="TopCircleSez  f-dc-jc-ac">
+                    @if (oggetto.TipoOggetto.MacroTipoOggetto.Enum == MacroTipoOggettoEnum.Via    )
+                    {
+                        if (oggetto.Tipologia != null && !string.IsNullOrWhiteSpace(oggetto.Tipologia.FileIcona))
+                        {
+                            <img class=""
+                                 alt="@oggetto.Tipologia.GetNome()"
+                                 src="@Url.VAContent(string.Format("cat-icon/{0}?v=4", oggetto.Tipologia.FileIcona))">
+                        }
+                        else
+                        {
+                            <img class=""
+                                 alt="@oggetto.Tipologia.GetNome()"
+                                 src="@Url.VAContent("cat-icon/via.png?v=4")">
+                        }
+
+                    }
+                    else if (oggetto.TipoOggetto.MacroTipoOggetto.Enum == MacroTipoOggettoEnum.Aia)
+                    {
+                        if (oggetto.CategoriaImpianto != null && !string.IsNullOrWhiteSpace(oggetto.CategoriaImpianto.FileIcona))
+                        {
+                            <img class=""
+                                 alt="@oggetto.CategoriaImpianto.GetNome()"
+                                 src="@Url.VAContent(string.Format("cat-icon/{0}?v=4", oggetto.CategoriaImpianto.FileIcona))">
+                        }
+                        else
+                        {
+                            <img class=""
+                                 alt="@oggetto.CategoriaImpianto.GetNome()"
+                                 src="@Url.VAContent("cat-icon/aia.png?v=4")">
+                        }
+
+                    }
+                    else if (oggetto.TipoOggetto.MacroTipoOggetto.Enum == MacroTipoOggettoEnum.Vas)
+                    {
+                        <img class="" src="@Url.VAContent("cat-icon/vas.png?v=4")" alt="VAS" />
+                    }
+                </div>
+
+
+                <h3 style="text-align:center;">
+                    @StringUtils.GetNomeElenco(oggetto.TipoElenco)
+                </h3>
+                <p>
+                    <a href="@Url.VAOggettoInfo(oggetto.ID)" 
+                       title="@string.Format(DizionarioService.TOOLTIP_InfoOggetto, oggetto.TipoOggetto.GetNome())">
+                        @Html.TruncateAtWord(oggetto.GetNome(), 95)
+                        @if (oggetto.TipoOggetto.MacroTipoOggetto.Enum == MacroTipoOggettoEnum.Aia)
+                        {
+                            <br>@oggetto.ProponenteGestore
+                        }
+                    </a>
+                    
+                </p>
+                <div class="scadenza">
+                    @DizionarioService.OGGETTO_LabelScadenzaOsservazioni:&nbsp;
+                    <strong>@oggetto.DataScadenzaPresentazione.ToString(CultureHelper.GetDateFormat())</strong>
+                </div>
+                <ul class="icons">
+                    @if (!string.IsNullOrWhiteSpace(oggetto.GetDescrizione()))
+                    {
+                        <li>
+                            <a href="@Url.VAOggettoInfo(oggetto.ID)" class="icona-descrizione-progetto toolTipDialog"
+                                title="@oggetto.GetDescrizione()">
+                                <img src="@Url.VAContent("sez_consultazione_icon_info.png?v=4")" alt="@oggetto.GetDescrizione()">
+                            </a>
+                        </li>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(oggetto.LinkLocalizzazione))
+                    {
+                        <li>
+                            <a href="@oggetto.LinkLocalizzazione" class="icona-localizzatore external "
+                               title="@DizionarioService.TOOLTIP_TooltipLocalizzazione">
+                                <img src="@Url.VAContent("sez_consultazione_icon_map.png?v=4")" alt="@DizionarioService.TOOLTIP_TooltipLocalizzazione">
+                            </a>
+                        </li>
+                    }
+                    @if (oggetto.DocumentoID > 0)
+                    {
+                        <li>
+                            <a href="@Url.VADocumentoViaVas(oggetto.DocumentoID)"
+                               title="@DizionarioService.TOOLTIP_TooltipSintesiNonTecnica" class="icona-sintesi-non-tecnica external">
+                                <img src="@Url.VAContent("sez_consultazione_icon_download.png?v=4")" alt="@DizionarioService.TOOLTIP_TooltipSintesiNonTecnica">
+                            </a>
+                        </li>
+                    }
+
+                </ul>
+
+            </div>
+
+
+        }
+    </div>
+}
+
+

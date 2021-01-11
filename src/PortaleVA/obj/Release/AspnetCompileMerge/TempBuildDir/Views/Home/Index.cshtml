@@ -1,0 +1,279 @@
+﻿@model VAPortale.Models.HomeIndexModel
+
+@{
+    ViewBag.Title = "Home";
+}
+
+
+<div class="container_header">
+    <div id="logo"><a href="@Url.VASite(CultureHelper.GetCurrentCultureInfo().ToString())"><img src="@Url.VAContent("logo_min_ambiente.png?v=4")" alt="Logo MATTM"></a></div>
+
+    @{ Html.RenderAction("SelezioneLingua", "Shared"); }
+    @{ Html.RenderAction("MenuNavigazione", "Shared"); }
+
+    <div style="clear:both"></div>
+
+    <div id="container_button_slider">
+        <div class="line">
+            <h1>@Html.Raw(DizionarioService.SITO_TitoloParte1): <strong>@DizionarioService.SITO_TitoloParte2</strong></h1>
+        </div>
+        @{ Html.RenderAction("Carosello", "Home"); }
+        <div class="box_icons">
+            @{ Html.RenderAction("Icone", "Home"); }
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<!-- box cerca -->
+<div class="box_ricerca">    
+    <div class="box_ricerca_full_width">
+        <div id="cerca_programma">
+
+            @using (Html.BeginForm("ViaVasAia", "Ricerca", FormMethod.Get))
+            {
+                @Html.AntiForgeryToken()
+                <label for="ricercaOrizzontale" style="display:none">@DizionarioService.HOME_LabelRicercaOrizzontale</label>
+                <input type="text" name="Testo" id="ricercaOrizzontale" class="search" placeholder="@DizionarioService.HOME_LabelRicercaOrizzontale" />
+                @*<input type="image" class="btn-search" alt="@DizionarioService.RICERCA_BottoneEsegui" src="@Url.VAContent("button_search.png")" />*@
+                <input type="image" class="btn-search" alt="@DizionarioService.RICERCA_BottoneEsegui" src="@Url.VAContent("button_search.png?v=4")" />
+            }
+
+
+        </div>
+        <div id="cerca_procedura">
+
+            @using (Html.BeginForm("CercaOggettoPerViperaAiaID", "Oggetti", FormMethod.Post, new { id = "form-cercaIdVipera", @class = "cercaWidget cerca" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <label style="display:none">@DizionarioService.RICERCA_LabelTesto</label>
+                    @if (CultureHelper.GetCurrentCultureShortName().Equals("it", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        <input type="text" name="viperaAiaID" value="@UrlData[0]" id="input-cercaIdVipera" class="search_procedure" placeholder="@DizionarioService.RICERCA_LabelCodiceProcedura" />
+                    }
+                    else
+                    {
+                        <input type="text" name="viperaAiaID" value="@UrlData[0]" id="input-cercaIdVipera" class="search_procedure vipera en" placeholder="@DizionarioService.RICERCA_LabelCodiceProcedura" />
+                    }
+                    <input type="hidden" name="macroTipoOggettoID" />
+                    @*<input type="submit" class="btn-search-codice" value="@DizionarioService.RICERCA_BottoneEsegui" />*@
+                    <input type="image" class="btn-search-codice" alt="@DizionarioService.RICERCA_BottoneEsegui" src="@Url.VAContent("button_search_binocular.png?v=4")" />
+
+
+                </div>
+
+                <p id="span-messaggio" style="display: none"></p>
+            }
+
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<!-- box in evidenza -->
+<div class="box_evidenza">
+    <div class="box_evidenza_full_width">
+        <div class="lineEvidenza">
+            <h1>
+                @Html.Raw(DizionarioService.HOME_inEvidenza)
+            </h1>
+        </div>
+        <div class="clear"></div>
+
+        <!-- area sei notizie scorrevoli -->
+
+        <div class="area_scroller_box">
+
+            <div id="main" role="main">
+                <section class="slider">
+                    <div class="flexslider carousel">
+                        <ul class="slides">
+                            @foreach (WidgetCorrelato widget in Model.Widget.Where(w => w.Widget.Tipo == TipoWidget.InEvidenza).ToList())
+                            {
+                                Html.RenderAction("Widget", "Shared", new { widget = widget.Widget });
+                            }
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <!-- FlexSlider -->
+            <script>
+                    $(document).ready(function () {
+                        var W = $(this);
+                        function getGridSize() {
+                            var w = W.width();
+                            return (w < 570) ? 1 :
+                                   (w < 950) ? 2 : 3;
+                        };
+                        $('.slider .flexslider').flexslider({
+                            animation: "slide",
+                            animationLoop: false,
+                            pauseOnAction: false,
+                            smoothHeight: false,
+                            itemWidth: 360,
+                            itemMargin: 40,
+                            minItems: getGridSize(),
+                            maxItems: getGridSize(),
+                            //move: getGridSize(),
+                            start: function (slider) {
+                                $(window).bind('resize orientationchange', function () {
+                                    var gs = slider.vars.getGridSize()
+                                    slider.vars.minItems = slider.vars.maxItems = slider.vars.move = gs;
+                                    slider.update(slider.pagingCount);
+                                    slider.slides.width(slider.computedW);
+                                });
+                            },
+                            getGridSize: getGridSize
+                        });
+                    });
+            </script>
+
+        </div>
+    </div>
+</div>
+
+<!-- box in consultazione pubblica -->
+<div class="box_consultazione">
+    <div class="box_consultazione_full_width">
+        <div class="lineConsultazione">
+            <h1>
+                @Html.Raw(DizionarioService.HOME_InConsultazionePubblica)
+            </h1>
+        </div>
+        <div class="clear"></div>
+        <h2>
+            @DizionarioService.HOME_PianiProgrammi <span>
+                <a href="@Url.Action("InvioOsservazioni", "ps/Procedure")">@DizionarioService.HOME_PianiProgrammiLink</a>
+            </span>
+        </h2>
+
+        <!-- area di quatro box -->
+        <div id="wrap">
+            @{ Html.RenderAction("ElencoOggetti", "Home", new { Oggetti = Model.Oggetti }); }
+        </div>
+
+        @*@{ Html.RenderAction("ElencoOggetti", "Home", new { Oggetti = Model.OggettiVIA, TipoElenco = TipoElencoEnum.HomeOggettiVia, MacroTipoOggetto = MacroTipoOggettoEnum.Via }); }
+            @{ Html.RenderAction("ElencoOggetti", "Home", new { Oggetti = Model.OggettiVAV, TipoElenco = TipoElencoEnum.HomeOggettiAssoggettabilitaVia, MacroTipoOggetto = MacroTipoOggettoEnum.Via }); }
+            @{ Html.RenderAction("ElencoOggetti", "Home", new { Oggetti = Model.OggettiVAS, TipoElenco = TipoElencoEnum.HomeOggettiVas, MacroTipoOggetto = MacroTipoOggettoEnum.Vas }); }*@
+
+    </div>
+    <a id="ArrowUpDown" class="Down">&nbsp;</a>
+
+    <script>
+        $(function () {
+            var titleA = '@HttpUtility.JavaScriptStringEncode(DizionarioService.HOME_OpenConsultazione)';
+            var titleC = '@HttpUtility.JavaScriptStringEncode(DizionarioService.HOME_CloseConsultazione)';
+            var slideHeight;
+            var defHeight;
+
+            $(window).bind('load resize', function () {
+                var isClose = $('#ArrowUpDown').hasClass('Down');
+                slideHeight = $('.area_quattro_box .size_box').outerHeight(true);
+                defHeight = $('.box_consultazione_full_width #wrap .area_quattro_box').outerHeight(true);
+                $('#wrap').css('height', (isClose ? slideHeight : defHeight) + 'px');
+            });
+
+            $('#ArrowUpDown').click(function () {
+                var isClose = $('#ArrowUpDown').hasClass('Down');
+                //$('#wrap').animate({ height: (isClose ? defHeight : slideHeight) }, 500)
+                $('#wrap').height(isClose ? defHeight : slideHeight);
+                $(this)
+                    .removeClass(isClose ? 'Down' : 'Up')
+                    .addClass(isClose ? 'Up' : 'Down')
+                    .attr('Title', isClose ? titleC : titleA)
+                    .attr('Alt', isClose ? titleC : titleA)
+                    .html(isClose ? titleC : titleA)
+                return false;
+            }).attr('Title', titleA).attr('Alt', titleA).html(titleA)
+
+        });
+
+    </script>
+</div>
+
+<!-- box le sezioni -->
+<div class="box_sezioni">
+    @*<div id="sfTop"></div>*@
+    <div class="box_sezioni_full_width">
+        <div class="lineEvidenza">
+            <h1>
+                @Html.Raw(DizionarioService.HOME_LeSezioni)
+            </h1>
+        </div>
+        <div class="clear"></div>
+
+        <div class="area_sezioni f-dr-fw-jsb">
+            @foreach (WidgetCorrelato widget in Model.Widget.Where(w => w.Widget.Tipo == TipoWidget.Sezione))
+            {
+                Html.RenderAction("Widget", "Shared", new { widget = widget.Widget });
+            }
+        </div>
+
+    </div>
+</div>
+
+<!-- box le sezioni -->
+
+
+<script>
+    var formCerca = null;
+    var spanMessaggio = null;
+
+    $(function () {
+        formCerca = $("#form-cercaIdVipera");
+        spanMessaggio = $("#span-messaggio");
+
+        formCerca.submit(function () {
+            $.post(formCerca.attr("action"),
+                    formCerca.serialize(),
+                    function (data) {
+                        if (data != null) {
+
+                            if (data.length > 1) {
+                                if (data[0] == 0) {
+                                    spanMessaggio.text(data[1]);
+                                    spanMessaggio.show('fast');
+                                } else {
+                                    @*var url = '@Url.Action("RicercaCodice", "Ricerca", new { ids = -1 })';
+                                    url = url.replace("-1", data);
+                                    window.top.location.href = url;*@
+                                    //$('<form action="/it-IT/Ricerca/RicercaCodice"></form>').appendTo('body').submit();
+
+                                    $('<form>', {
+                                        "id": "RicercaCodice",
+                                        "html": '<input type="hidden" id="ids" name="ids" value="' + data + '" /><input type="hidden" id="Testo" name="Testo" value="' + $("#input-cercaIdVipera").val() + '" />',
+                                        "action": '@Url.Action("RicercaCodice", "Ricerca")',
+                                        "method":'get'
+                                    }).appendTo(document.body).submit();
+                                }
+                            }
+                            if (data[0] > 0) {
+                                var url = '@Url.Action("Info", "Oggetti", new { id = -1 })';
+                                url = url.replace("-1", data[0]);
+                                window.top.location.href = url;
+                            }
+                            else {
+                                spanMessaggio.text(data[1]);
+                                spanMessaggio.show('fast');
+                            }
+                        }
+                    },
+                    "json"
+                );
+
+            return false;
+        });
+
+        formCerca.find(".btn").click(function () {
+            formCerca.submit();
+            return false;
+        });
+
+    });
+
+
+</script>
+<noscript><!--Caricamento libreria per il form Cerca --></noscript>
+

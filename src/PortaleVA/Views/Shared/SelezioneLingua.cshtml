@@ -1,0 +1,30 @@
+﻿@model VAPortale.Models.SharedSelezioneLinguaModel
+@{
+    Boolean IT = CultureHelper.IsCurrentCulture(CultureHelper._it);
+}
+@*
+    <ul class="lang nav navbar-nav navbar-right">
+        <li class="@Html.Raw(CultureHelper.IsCurrentCulture(CultureHelper._it) ? "active" : "")">
+            <a href="@Model.LinkLinguaItaliana" class="ita" title="Imposta la lingua italiana">Ita</a>
+        </li>
+        <li class="@Html.Raw(CultureHelper.IsCurrentCulture(CultureHelper._en) ? "active" : "")">
+            <a href="@Model.LinkLinguaInglese" class="eng" title="Set English language">Eng</a>
+        </li>
+    </ul>
+*@
+
+
+<div class="location_flag">
+
+    <div class="fl lang">
+        <a href="@(IT ? Model.LinkLinguaInglese:Model.LinkLinguaItaliana )"
+           class="@(IT ? "eng" : "ita")"
+           title="@(IT ? "Set English language":"Imposta la lingua italiana" )">
+            @(IT ? "EN" : "IT" )
+        </a>
+    </div>
+
+
+</div>
+
+

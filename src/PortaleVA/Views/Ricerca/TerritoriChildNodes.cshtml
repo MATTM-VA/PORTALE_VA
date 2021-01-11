@@ -1,0 +1,20 @@
+﻿@model VAPortale.Models.RicercaTerritoriTreeViewModel
+@if (Model.Territori.Exists(x => x.GenitoreID == Model.TerritorioID.Value))
+{
+<ul>
+    @foreach (Territorio r in Model.Territori.Where(x => x.GenitoreID == Model.TerritorioID))
+    {
+        <li>
+        @if (r.Selezionato)
+        {
+        <span class="selected">@Html.ActionLink(r.Nome, "RisultatiTerritori", new { id = r.ID, t = (int)Model.MacroTipoOggetto })</span>
+        }
+        else
+        {
+        <span>@r.Nome</span>
+        }
+        @{ Html.RenderAction("TerritoriChildNodes", "Ricerca", new { territori = Model.Territori, macroTipoOggetto = Model.MacroTipoOggetto, territorioID = r.ID }); }
+    </li>
+    }
+</ul>
+}

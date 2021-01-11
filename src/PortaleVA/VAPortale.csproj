@@ -1,0 +1,1100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3F4FF498-9BF5-47DF-8BF3-985CF87D567E}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VAPortale</RootNamespace>
+    <AssemblyName>VAPortale</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <IncludeIisSettings>false</IncludeIisSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="ElogToolkit, Version=0.10.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\ETK\ElogToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="FileHelpers">
+      <HintPath>..\Libs\FileHelper\FileHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\Libs\DotNetZipLib\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Joel.Net.Akismet">
+      <HintPath>..\Libs\Akismet\Joel.Net.Akismet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\Libs\NPOI\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\Libs\NPOI\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CaroselloController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DatoAmbientaleHomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DocumentoPortaleController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ImmagineController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NotiziaController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PaginaController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SharedController.cs" />
+    <Compile Include="Areas\Admin\Controllers\EventsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UtenteController.cs" />
+    <Compile Include="Areas\Admin\Controllers\VariabileController.cs" />
+    <Compile Include="Areas\Admin\Controllers\WidgetController.cs" />
+    <Compile Include="Areas\Admin\Filters\UtenteAuthorizeAttribute.cs" />
+    <Compile Include="Areas\Admin\Models\WebEventsIndexModel.cs" />
+    <Compile Include="Areas\Admin\Models\CaroselloIndexModel.cs" />
+    <Compile Include="Areas\Admin\Models\CaroselloEditaModel.cs" />
+    <Compile Include="Areas\Admin\Models\CreaUtenteModel.cs" />
+    <Compile Include="Areas\Admin\Models\GestioneRuoliModel.cs" />
+    <Compile Include="Areas\Admin\Models\HomeCambioPasswordModel.cs" />
+    <Compile Include="Areas\Admin\Models\HomeIndexModel.cs" />
+    <Compile Include="Areas\Admin\Models\HomeLoginModel.cs" />
+    <Compile Include="Areas\Admin\Models\MenuPrincipaleModel.cs" />
+    <Compile Include="Areas\Admin\Models\ModificaUtenteModel.cs" />
+    <Compile Include="Areas\Admin\Models\ResetPasswordModel.cs" />
+    <Compile Include="Areas\Admin\Models\UtenteIndexModel.cs" />
+    <Compile Include="Areas\Admin\Models\VariabileIndexModel.cs" />
+    <Compile Include="Areas\Admin\Models\PaginaEditaModel.cs" />
+    <Compile Include="Areas\Admin\Models\PaginaEditaWidgetModel.cs" />
+    <Compile Include="Areas\Admin\Models\PaginaIndexModel.cs" />
+    <Compile Include="Areas\Admin\Models\SharedEditorTestoNotiziaAvanzatoModel.cs" />
+    <Compile Include="Areas\Admin\Models\DatoAmbientaleHomeIndexModel.cs" />
+    <Compile Include="Areas\Admin\Models\DatoAmbientaleHomeEditaModel.cs" />
+    <Compile Include="Areas\Admin\Models\BarraUtenteModel.cs" />
+    <Compile Include="Areas\Admin\Models\WidgetBaseEditaModel.cs" />
+    <Compile Include="Areas\Admin\Models\WidgetIndexModel.cs" />
+    <Compile Include="Areas\Admin\Models\WidgetEmbedEditaModel.cs" />
+    <Compile Include="Areas\Admin\Models\WidgetSezioneEditaModel.cs" />
+    <Compile Include="Areas\Admin\Models\WidgetInEvidenzaEditaModel.cs" />
+    <Compile Include="Areas\Admin\Models\WidgetNotiziaEditaModel.cs" />
+    <Compile Include="Areas\Admin\Models\DocumentoPortaleEditaModel.cs" />
+    <Compile Include="Areas\Admin\Models\DocumentoPortaleIndexModel.cs" />
+    <Compile Include="Areas\Admin\Models\ImmagineEditaFormatiModel.cs" />
+    <Compile Include="Areas\Admin\Models\ImmagineEditaModel.cs" />
+    <Compile Include="Areas\Admin\Models\ImmagineIndexModel.cs" />
+    <Compile Include="Areas\Admin\Models\NotiziaEditaModel.cs" />
+    <Compile Include="Areas\Admin\Models\NotiziaIndexModel.cs" />
+    <Compile Include="Areas\Admin\Models\PaginazioneModel.cs" />
+    <Compile Include="Code\CsvUtils.cs" />
+    <Compile Include="Code\DatiAmbientaliUtils.cs" />
+    <Compile Include="Code\EsportazioneUtils.cs" />
+    <Compile Include="Code\GetError.cs" />
+    <Compile Include="Code\IPList.cs" />
+    <Compile Include="Code\MembershipUtils.cs" />
+    <Compile Include="Code\ModelUtils.cs" />
+    <Compile Include="Code\StringUtils.cs" />
+    <Compile Include="Code\TabellaStatisticheProcedure.cs" />
+    <Compile Include="Code\TabellaConteggioProvvedimenti.cs" />
+    <Compile Include="Code\VAController.cs" />
+    <Compile Include="Controllers\CollegamentiController.cs" />
+    <Compile Include="Controllers\ComunicazioneController.cs" />
+    <Compile Include="Controllers\DatiEStrumentiController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\FeedController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LegacyController.cs" />
+    <Compile Include="Controllers\EventiController.cs" />
+    <Compile Include="Controllers\OggettiController.cs" />
+    <Compile Include="Controllers\PagineController.cs" />
+    <Compile Include="Controllers\ProcedureController.cs" />
+    <Compile Include="Controllers\ProvvedimentiRegionaliController.cs" />
+    <Compile Include="Controllers\RicercaController.cs" />
+    <Compile Include="Controllers\SharedController.cs" />
+    <Compile Include="Filters\AkismetCheckAttribute.cs" />
+    <Compile Include="Areas\Admin\Filters\AuthorizeIpAttribute.cs" />
+    <Compile Include="Filters\LanguageAttribute.cs" />
+    <Compile Include="Filters\CustomAntiForgeryTokenAttribute.cs" />
+    <Compile Include="Filters\RemoveScriptAttribute.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CollegamentiVasViaRegioniModel.cs" />
+    <Compile Include="Models\Common\OggettiDocumentazioneBaseModel.cs" />
+    <Compile Include="Models\Common\DatiEStrumentiTabBaseModel.cs" />
+    <Compile Include="Models\Common\OggettiInfoBaseModel.cs" />
+    <Compile Include="Models\Common\PaginaDinamicaModel.cs" />
+    <Compile Include="Models\Common\PaginazioneModel.cs" />
+    <Compile Include="Models\ComunicazioneCittadinoModel.cs" />
+    <Compile Include="Models\ComunicazioneDettaglioModel.cs" />
+    <Compile Include="Models\ComunicazioneFormContattoModel.cs" />
+    <Compile Include="Models\ComunicazioneNotizieModel.cs" />
+    <Compile Include="Models\ComunicazioneProponenteModel.cs" />
+    <Compile Include="Models\ComunicazioneProvvedimentiModel.cs" />
+    <Compile Include="Models\HomeIconeModel.cs" />
+    <Compile Include="Models\HomeFeedModel.cs" />
+    <Compile Include="Models\EventoModel.cs" />
+    <Compile Include="Models\EventiDocumentazioneModel.cs" />
+    <Compile Include="Models\OggettiInfoAIAModel.cs" />
+    <Compile Include="Models\OggettiEventiModel.cs" />
+    <Compile Include="Models\OggettiRaggruppamentiTreeViewModel - Copia.cs" />
+    <Compile Include="Models\ProcedureAvvisiAlPubblicoModel.cs" />
+    <Compile Include="Models\ProcedureAvvisiAlPubblicoViaModel.cs" />
+    <Compile Include="Models\ProcedureAvvisiAssoggettabilitaViaModel.cs" />
+    <Compile Include="Models\ProcedureGraficiModel.cs" />
+    <Compile Include="Models\ProcedureViaVasInCorsoModel.cs" />
+    <Compile Include="Models\ProcedureReportModel.cs" />
+    <Compile Include="Models\ProcedureStatisticheModel.cs" />
+    <Compile Include="Models\RicercaAiaInstallazioneModel.cs" />
+    <Compile Include="Models\RicercaAiaModel.cs" />
+    <Compile Include="Models\RicercaViaVasModel.cs" />
+    <Compile Include="Models\RicercaViaSpazialeModel.cs" />
+    <Compile Include="Models\ProcedureAttributiPartialTabModel.cs" />
+    <Compile Include="Models\ProcedureAttributiModel.cs" />
+    <Compile Include="Models\ProcedureElencoModel.cs" />
+    <Compile Include="Models\HomeCercaSitoModel.cs" />
+    <Compile Include="Models\SharedMenuNavigazioneMobileModel.cs" />
+    <Compile Include="Models\SharedWidgetInEvidenzaModel.cs" />
+    <Compile Include="Models\Support\GoogleChartCell.cs" />
+    <Compile Include="Models\Support\GoogleChartColumn.cs" />
+    <Compile Include="Models\Support\GoogleChartRow.cs" />
+    <Compile Include="Models\Support\GoogleChartTable.cs" />
+    <Compile Include="Models\VociMenuTreeViewModel.cs" />
+    <Compile Include="Models\RicercaTerritoriTreeViewModel.cs" />
+    <Compile Include="Models\RicercaTerritorioModel.cs" />
+    <Compile Include="Models\RicercaLiberaModel.cs" />
+    <Compile Include="Models\OggettiDocumentazioneVasModel.cs" />
+    <Compile Include="Models\OggettiInfoVasModel.cs" />
+    <Compile Include="Models\RicercaVasSettoreModel.cs" />
+    <Compile Include="Models\RicercaVasProceduraModel.cs" />
+    <Compile Include="Models\RicercaVasModel.cs" />
+    <Compile Include="Models\RicercaViaTipologiaModel.cs" />
+    <Compile Include="Models\OggettiMetadatoDocumentoModel.cs" />
+    <Compile Include="Models\OggettiRicercaDocumentiModel.cs" />
+    <Compile Include="Models\OggettiDocumentazioneViaModel.cs" />
+    <Compile Include="Models\DatiEStrumentiRicercaCatalogoModel.cs" />
+    <Compile Include="Models\DatiEStrumentiMetadatoStratoModel.cs" />
+    <Compile Include="Models\DatiEStrumentiMetadatoRisorsaModel.cs" />
+    <Compile Include="Models\DatiEStrumentiDatiAmbientaliModel.cs" />
+    <Compile Include="Models\DatiEStrumentiMetadatoRisorsaCondivisioneModel.cs" />
+    <Compile Include="Models\DatiEStrumentiRisorseDatiAmbientaliEvidenzaModel.cs" />
+    <Compile Include="Models\DatiEstrumentiTabModel.cs" />
+    <Compile Include="Models\DatiEStrumentiPartialTabModel.cs" />
+    <Compile Include="Models\OggettiInfoViaModel.cs" />
+    <Compile Include="Models\EventiRaggruppamentiTreeViewModel.cs" />
+    <Compile Include="Models\ProcedureProvvedimentiElencoModel.cs" />
+    <Compile Include="Models\ProcedureProvvedimentiModel.cs" />
+    <Compile Include="Models\SharedWidgetDatoAmbientaleHomeModel.cs" />
+    <Compile Include="Models\HomeCaroselloModel.cs" />
+    <Compile Include="Models\HomeMappaModel.cs" />
+    <Compile Include="Models\OggettiDatiAmministrativiModel.cs" />
+    <Compile Include="Models\OggettiInfoModel.cs" />
+    <Compile Include="Models\OggettiTerritoriModel.cs" />
+    <Compile Include="Models\ProcedureInCorsoModel.cs" />
+    <Compile Include="Models\ProcedureOsservatoriModel.cs" />
+    <Compile Include="Models\SharedBreadcrumbsModel.cs" />
+    <Compile Include="Models\SharedMenuSezioneModel.cs" />
+    <Compile Include="Models\HomeElencoProvvedimentiModel.cs" />
+    <Compile Include="Models\HomeElencoOggettiModel.cs" />
+    <Compile Include="Models\HomeIndexModel.cs" />
+    <Compile Include="Models\PagineVoceModel.cs" />
+    <Compile Include="Models\RicercaInfoModel.cs" />
+    <Compile Include="Models\RicercaViaModel.cs" />
+    <Compile Include="Models\RicercaViaProceduraModel.cs" />
+    <Compile Include="Models\SharedMenuNavigazioneModel.cs" />
+    <Compile Include="Models\SharedSelezioneLinguaModel.cs" />
+    <Compile Include="Models\SharedWidgetAttributiModel.cs" />
+    <Compile Include="Models\SharedWidgetNotiziaModel.cs" />
+    <Compile Include="Models\Support\LinkItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\Antlr3.Runtime.pdb" />
+    <Content Include="bin\ElogToolkit.dll" />
+    <Content Include="bin\ElogToolkit.pdb" />
+    <Content Include="bin\ElogToolkit.xml" />
+    <Content Include="bin\FileHelpers.dll" />
+    <Content Include="bin\FileHelpers.xml" />
+    <Content Include="bin\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="bin\Ionic.Zip.dll" />
+    <Content Include="bin\Joel.Net.Akismet.dll" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\NPOI.dll" />
+    <Content Include="bin\NPOI.OOXML.dll" />
+    <Content Include="bin\NPOI.OpenXml4Net.dll" />
+    <Content Include="bin\NPOI.OpenXmlFormats.dll" />
+    <Content Include="bin\NPOI.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="bin\System.Net.Http.dll" />
+    <Content Include="bin\System.Net.Http.Formatting.dll" />
+    <Content Include="bin\System.Net.Http.Formatting.xml" />
+    <Content Include="bin\System.Net.Http.WebRequest.dll" />
+    <Content Include="bin\System.Net.Http.WebRequest.xml" />
+    <Content Include="bin\System.Net.Http.xml" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Helpers.xml" />
+    <Content Include="bin\System.Web.Http.dll" />
+    <Content Include="bin\System.Web.Http.WebHost.dll" />
+    <Content Include="bin\System.Web.Http.WebHost.xml" />
+    <Content Include="bin\System.Web.Http.xml" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Mvc.xml" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Optimization.xml" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.xml" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.xml" />
+    <Content Include="bin\VALib.dll" />
+    <Content Include="bin\VALib.pdb" />
+    <Content Include="bin\VAPortale.dll" />
+    <Content Include="bin\VAPortale.pdb" />
+    <Content Include="bin\WebGrease.dll" />
+    <Content Include="Content\Admin.css" />
+    <Content Include="Content\AdminIE7.css" />
+    <Content Include="Content\bootstrap-ie7.css" />
+    <Content Include="Content\bootstrap.min.w3c.css" />
+    <Content Include="Content\cartinaCSSS.css" />
+    <Content Include="Content\flexslider.css" />
+    <Content Include="Content\framework\bootstrap-3.2.0-dist\css\bootstrap-theme.css" />
+    <Content Include="Content\framework\bootstrap-3.2.0-dist\css\bootstrap-theme.min.css" />
+    <Content Include="Content\framework\bootstrap-3.2.0-dist\css\bootstrap.css" />
+    <Content Include="Content\framework\bootstrap-3.2.0-dist\css\bootstrap.min.css" />
+    <Content Include="Content\framework\bootstrap-3.2.0-dist\css\bootstrap.min.w3c.css" />
+    <Content Include="Content\framework\bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\framework\bootstrap-3.2.0-dist\js\bootstrap.js" />
+    <Content Include="Content\framework\bootstrap-3.2.0-dist\js\bootstrap.min.js" />
+    <Content Include="Content\icone.css" />
+    <Content Include="Content\ie8.css" />
+    <Content Include="Content\ie9.css" />
+    <Content Include="Content\images\7z.png" />
+    <Content Include="Content\images\aia.jpg" />
+    <Content Include="Content\images\arrow-up-down.png" />
+    <Content Include="Content\images\arrows.png" />
+    <Content Include="Content\images\arrow_bottom.png" />
+    <Content Include="Content\images\avi.png" />
+    <Content Include="Content\images\background_head.jpg" />
+    <Content Include="Content\images\bg_consultazione_pubblica.png" />
+    <Content Include="Content\images\bmp.png" />
+    <Content Include="Content\images\button_open_close.png" />
+    <Content Include="Content\images\button_search.png" />
+    <Content Include="Content\images\button_search_binocular.png" />
+    <Content Include="Content\images\cartina-regioni.png" />
+    <Content Include="Content\images\cartinaCSSS.png" />
+    <Content Include="Content\images\cartinaLight.jpg" />
+    <Content Include="Content\images\cat-icon\acciaierie.png" />
+    <Content Include="Content\images\cat-icon\aereoporti.png" />
+    <Content Include="Content\images\cat-icon\altri-impianti.png" />
+    <Content Include="Content\images\cat-icon\attivita-mineraria.png" />
+    <Content Include="Content\images\cat-icon\centrali.png" />
+    <Content Include="Content\images\cat-icon\coltivazione-idrocarburi.png" />
+    <Content Include="Content\images\cat-icon\elettrodotti.png" />
+    <Content Include="Content\images\cat-icon\eolici.png" />
+    <Content Include="Content\images\cat-icon\eolici-on-shore.png" />
+    <Content Include="Content\images\cat-icon\ferrovie.png" />
+    <Content Include="Content\images\cat-icon\hub.png" />
+    <Content Include="Content\images\cat-icon\impianti-chimici-integrati.png" />
+    <Content Include="Content\images\cat-icon\impianti-geotermici.png" />
+    <Content Include="Content\images\cat-icon\impianti-rifiuti.png" />
+    <Content Include="Content\images\cat-icon\impianti-rigassificazione.png" />
+    <Content Include="Content\images\cat-icon\interporti.png" />
+    <Content Include="Content\images\cat-icon\metanodotti.png" />
+    <Content Include="Content\images\cat-icon\opere-idrauliche.png" />
+    <Content Include="Content\images\cat-icon\ponte-stretto.png" />
+    <Content Include="Content\images\cat-icon\porti.png" />
+    <Content Include="Content\images\cat-icon\prospezione-idrocarburi.png" />
+    <Content Include="Content\images\cat-icon\raffinerie.png" />
+    <Content Include="Content\images\cat-icon\ricerca-idrocarburi.png" />
+    <Content Include="Content\images\cat-icon\risanamento-abientale.png" />
+    <Content Include="Content\images\cat-icon\smaltimento-rifiuti.png" />
+    <Content Include="Content\images\cat-icon\stoccaggio-combustibili.png" />
+    <Content Include="Content\images\cat-icon\strade.png" />
+    <Content Include="Content\images\cat-icon\terminali-marittimi.png" />
+    <Content Include="Content\images\cat-icon\vas.png" />
+    <Content Include="Content\images\cat-icon\via.png" />
+    <Content Include="Content\images\crea_mappa.jpg" />
+    <Content Include="Content\images\css_validator.png" />
+    <Content Include="Content\images\dot.gif" />
+    <Content Include="Content\images\dwf.png" />
+    <Content Include="Content\images\dwfx.png" />
+    <Content Include="Content\images\dwg.png" />
+    <Content Include="Content\images\dxf.png" />
+    <Content Include="Content\images\eng_flag.jpg" />
+    <Content Include="Content\images\esporta-bg.png" />
+    <Content Include="Content\images\favicon.gif" />
+    <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\flags.png" />
+    <Content Include="Content\images\foto_1.jpg" />
+    <Content Include="Content\images\foto_10.jpg" />
+    <Content Include="Content\images\foto_11.jpg" />
+    <Content Include="Content\images\foto_12.jpg" />
+    <Content Include="Content\images\foto_2.jpg" />
+    <Content Include="Content\images\foto_3.jpg" />
+    <Content Include="Content\images\foto_4.jpg" />
+    <Content Include="Content\images\foto_5.jpg" />
+    <Content Include="Content\images\foto_6.jpg" />
+    <Content Include="Content\images\foto_7.jpg" />
+    <Content Include="Content\images\foto_8.jpg" />
+    <Content Include="Content\images\foto_9.jpg" />
+    <Content Include="Content\images\gif.png" />
+    <Content Include="Content\images\html5_validator.png" />
+    <Content Include="Content\images\html_validator.png" />
+    <Content Include="Content\images\icon-fax.png" />
+    <Content Include="Content\images\icon-pec.png" />
+    <Content Include="Content\images\icon-posta.png" />
+    <Content Include="Content\images\icona-calendario.png" />
+    <Content Include="Content\images\icona-dettaglio-procedura.png" />
+    <Content Include="Content\images\icona-doc.png" />
+    <Content Include="Content\images\icona-documentazione-tecnico-amm-none.png" />
+    <Content Include="Content\images\icona-documentazione-tecnico-amm.png" />
+    <Content Include="Content\images\icona-excel.png" />
+    <Content Include="Content\images\icona-gelab.png" />
+    <Content Include="Content\images\icona-generica.png" />
+    <Content Include="Content\images\icona-mail.png" />
+    <Content Include="Content\images\icona-metadato.png" />
+    <Content Include="Content\images\icona-pdf.png" />
+    <Content Include="Content\images\icona-web.png" />
+    <Content Include="Content\images\icona-zip.png" />
+    <Content Include="Content\images\iconeSezioneHP\icon_areaGiuridica.png" />
+    <Content Include="Content\images\iconeSezioneHP\icon_consulatazioni.png" />
+    <Content Include="Content\images\iconeSezioneHP\icon_creaMappa.png" />
+    <Content Include="Content\images\iconeSezioneHP\icon_datiAmbientali.png" />
+    <Content Include="Content\images\iconeSezioneHP\icon_direzione.png" />
+    <Content Include="Content\images\iconeSezioneHP\icon_eventi.png" />
+    <Content Include="Content\images\iconeSezioneHP\icon_osservazioni.png" />
+    <Content Include="Content\images\iconeSezioneHP\icon_provvedimenti.png" />
+    <Content Include="Content\images\iconeSezioneHP\icon_statistiche.png" />
+    <Content Include="Content\images\iconeSezioneHP\logo_ilva.png" />
+    <Content Include="Content\images\icon_avvisoAlPubblico.png" />
+    <Content Include="Content\images\icon_google_earth.png" />
+    <Content Include="Content\images\icon_info.png" />
+    <Content Include="Content\images\icon_mappa_interattiva.png" />
+    <Content Include="Content\images\icon_wms_wfs.png" />
+    <Content Include="Content\images\icon_procedureCorso.png" />
+    <Content Include="Content\images\icon_provvedimenti.png" />
+    <Content Include="Content\images\icon_select.png" />
+    <Content Include="Content\images\icon_spazioPerIlCittadino.png" />
+    <Content Include="Content\images\icon_spazioProponente.png" />
+    <Content Include="Content\images\icon_specificheTecnicheModulstiche.png" />
+    <Content Include="Content\images\img.png" />
+    <Content Include="Content\images\imgProva_01g.jpg" />
+    <Content Include="Content\images\imgProva_02g.jpg" />
+    <Content Include="Content\images\imgProva_03.jpg" />
+    <Content Include="Content\images\imgProva_03g.jpg" />
+    <Content Include="Content\images\imgProva_04g.jpg" />
+    <Content Include="Content\images\img_sezioni_crea_area_giuridica.png" />
+    <Content Include="Content\images\img_sezioni_crea_dati_ambientali.png" />
+    <Content Include="Content\images\img_sezioni_crea_mappa.png" />
+    <Content Include="Content\images\img_sezioni_eventi.png" />
+    <Content Include="Content\images\img_sezioni_informa.png" />
+    <Content Include="Content\images\img_sezioni_osservazioni.png" />
+    <Content Include="Content\images\img_sezioni_provvedimenti.png" />
+    <Content Include="Content\images\img_sezioni_statistiche.png" />
+    <Content Include="Content\images\img_sezioni_transfrontaliere.png" />
+    <Content Include="Content\images\img_sez_evidenza_area_giuridica.png" />
+    <Content Include="Content\images\img_sez_evidenza_eventi.png" />
+    <Content Include="Content\images\img_sez_evidenza_informa.png" />
+    <Content Include="Content\images\img_sez_evidenza_procedure_corso.png" />
+    <Content Include="Content\images\img_sez_evidenza_provvedimenti.png" />
+    <Content Include="Content\images\img_sez_evidenza_specifiche_tecniche.png" />
+    <Content Include="Content\images\img_specificheTecnicheModulistiche.png" />
+    <Content Include="Content\images\immagine_vas.jpg" />
+    <Content Include="Content\images\immagine_vasInCorso.jpg" />
+    <Content Include="Content\images\immagine_via.jpg" />
+    <Content Include="Content\images\immagine_viaInCorso.jpg" />
+    <Content Include="Content\images\ita_flag.jpg" />
+    <Content Include="Content\images\jpg.png" />
+    <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\localizzatore.png" />
+    <Content Include="Content\images\loghi-dati-ambientali\carta-natura-ISPRA.png" />
+    <Content Include="Content\images\loghi-dati-ambientali\Geoportale-Nazionale.png" />
+    <Content Include="Content\images\loghi-dati-ambientali\ISTAT.png" />
+    <Content Include="Content\images\loghi-dati-ambientali\MISE.png" />
+    <Content Include="Content\images\loghi-dati-ambientali\SITAP-MIBACT.png" />
+    <Content Include="Content\images\loghi-dati-ambientali\VIA-VAS-regioni.png" />
+    <Content Include="Content\images\loghi-dati-ambientali\Vincoli-Rete-MIBACT.png" />
+    <Content Include="Content\images\logoGoverno.jpg" />
+    <Content Include="Content\images\logoMinistero.jpg" />
+    <Content Include="Content\images\logo_gov_footer.png" />
+    <Content Include="Content\images\logo_min_ambiente.png" />
+    <Content Include="Content\images\logo_min_ambiente_footer.png" />
+    <Content Include="Content\images\mdb.png" />
+    <Content Include="Content\images\mdi.png" />
+    <Content Include="Content\images\msg.png" />
+    <Content Include="Content\images\P7M.png" />
+    <Content Include="Content\images\png.png" />
+    <Content Include="Content\images\ppsx.png" />
+    <Content Include="Content\images\ppt.png" />
+    <Content Include="Content\images\procedure-via.jpg" />
+    <Content Include="Content\images\rar.png" />
+    <Content Include="Content\images\schemaproceduravas.jpg" />
+    <Content Include="Content\images\sez_consultazione_icon_download.png" />
+    <Content Include="Content\images\sez_consultazione_icon_info.png" />
+    <Content Include="Content\images\sez_consultazione_icon_map.png" />
+    <Content Include="Content\images\spacer.gif" />
+    <Content Include="Content\images\spazio_cittadino_1.png" />
+    <Content Include="Content\images\spazio_cittadino_2.png" />
+    <Content Include="Content\images\spazio_cittadino_3.png" />
+    <Content Include="Content\images\spazio_cittadino_4.png" />
+    <Content Include="Content\images\spazio_cittadino_data1.png" />
+    <Content Include="Content\images\spazio_cittadino_data2.png" />
+    <Content Include="Content\images\spazio_cittadino_data3.png" />
+    <Content Include="Content\images\spazio_cittadino_data4.png" />
+    <Content Include="Content\images\terre_rocce_da_scavo_Copertina.jpg" />
+    <Content Include="Content\images\terre_rocce_da_scavo_CopertinaInterna.png" />
+    <Content Include="Content\images\testata_gestionale.gif" />
+    <Content Include="Content\images\tif.png" />
+    <Content Include="Content\images\tiff.png" />
+    <Content Include="Content\images\treeview-default-line.gif" />
+    <Content Include="Content\images\treeview-default.gif" />
+    <Content Include="Content\images\txt.png" />
+    <Content Include="Content\images\via_aia_497x315.jpg" />
+    <Content Include="Content\images\w3c-css.png" />
+    <Content Include="Content\images\w3c-html.png" />
+    <Content Include="Content\images\w3c.jpg" />
+    <Content Include="Content\images\xlsx.png" />
+    <Content Include="Content\images\xxyy.jpg" />
+    <Content Include="Content\en.css" />
+    <Content Include="Content\jquery-treeview.css" />
+    <Content Include="Content\jquery.js" />
+    <Content Include="Content\jquery.restable.css" />
+    <Content Include="Content\RootContent\robots.txt" />
+    <Content Include="Content\StyleFront.css" />
+    <Content Include="Content\it.css" />
+    <Content Include="Content\tipTap.css" />
+    <Content Include="Content\ui-custom\images\animated-overlay.gif" />
+    <Content Include="Content\ui-custom\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\ui-custom\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\ui-custom\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\ui-custom\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\ui-custom\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\ui-custom\jquery-ui-1.10.4.custom.css" />
+    <Content Include="Content\ui-custom\jquery-ui-1.10.4.custom.min.css" />
+    <Content Include="Content\jquery.fancybox.css" />
+    <Content Include="Content\style-ie7.css" />
+    <Content Include="Content\style-ie8.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\ui-lightness\images\animated-overlay.gif" />
+    <Content Include="Content\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\ui-lightness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\ui-lightness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\ui-lightness\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\ui-lightness\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\ui-lightness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\ui-lightness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\ui-lightness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\ui-lightness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\ui-lightness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\ui-lightness\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\ui-lightness\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\ui-lightness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\ui-lightness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\ui-lightness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\ui-lightness\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\ui-lightness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\ui-lightness\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\ui-lightness\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\ui-lightness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\ui-lightness\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\ui-lightness\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\ui-lightness\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\ui-lightness\jquery-ui-1.10.4.custom.css" />
+    <Content Include="Content\ui-lightness\jquery-ui-1.10.4.custom.min.css" />
+    <Content Include="Content\ui-lightness\jquery-ui-1.10.4.custom.min.ie.css" />
+    <Content Include="Content\ui-lightness\jquery-ui-1.10.4.custom.min.w3c.css" />
+    <Content Include="Content\ui-lightness\jquery-ui.min.css" />
+    <Content Include="Content\ui-via\images\animated-overlay.gif" />
+    <Content Include="Content\ui-via\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\ui-via\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\ui-via\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\ui-via\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\ui-via\images\ui-bg_flat_75_cccccc_40x100.png" />
+    <Content Include="Content\ui-via\images\ui-bg_flat_75_dadada_40x100.png" />
+    <Content Include="Content\ui-via\images\ui-bg_flat_75_e6e6e6_40x100.png" />
+    <Content Include="Content\ui-via\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\ui-via\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\ui-via\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\ui-via\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\ui-via\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\ui-via\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\ui-via\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\ui-via\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\ui-via\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\ui-via\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\ui-via\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\ui-via\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\ui-via\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\ui-via\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\ui-via\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\ui-via\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\ui-via\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\ui-via\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\ui-via\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\ui-via\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\ui-via\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\ui-via\jquery-ui-1.10.4.custom.css" />
+    <Content Include="Content\ui-via\jquery-ui-1.10.4.custom.min.css" />
+    <Content Include="Content\ui-via\jquery-ui.min.css" />
+    <Content Include="css\img\Icone\Calendar_scheduleHS.png" />
+    <Content Include="css\img\Icone\cerca.gif" />
+    <Content Include="css\img\Icone\Collection.gif" />
+    <Content Include="css\img\Icone\DataSet.gif" />
+    <Content Include="css\img\Icone\Dataset.png" />
+    <Content Include="css\img\Icone\dett.gif" />
+    <Content Include="css\img\Icone\doc.gif" />
+    <Content Include="css\img\Icone\docx.gif" />
+    <Content Include="css\img\Icone\dwf.gif" />
+    <Content Include="css\img\Icone\dwfx.gif" />
+    <Content Include="css\img\Icone\excel.gif" />
+    <Content Include="css\img\Icone\freccia_giu.gif" />
+    <Content Include="css\img\Icone\freccia_su.gif" />
+    <Content Include="css\img\Icone\Freccie.gif" />
+    <Content Include="css\img\Icone\gelab.gif" />
+    <Content Include="css\img\Icone\gif.gif" />
+    <Content Include="css\img\Icone\IcoExcel.gif" />
+    <Content Include="css\img\Icone\icon_google_earth.png" />
+    <Content Include="css\img\Icone\icon_select.png" />
+    <Content Include="css\img\Icone\icon_WMS.png" />
+    <Content Include="css\img\Icone\icoStrato.gif" />
+    <Content Include="css\img\Icone\Image.gif" />
+    <Content Include="css\img\Icone\Image.png" />
+    <Content Include="css\img\Icone\InteractiveResource.gif" />
+    <Content Include="css\img\Icone\InteractiveResource.png" />
+    <Content Include="css\img\Icone\jpeg.gif" />
+    <Content Include="css\img\Icone\jpg.gif" />
+    <Content Include="css\img\Icone\logo.gif" />
+    <Content Include="css\img\Icone\mdb.gif" />
+    <Content Include="css\img\Icone\pdf.gif" />
+    <Content Include="css\img\Icone\ppt.gif" />
+    <Content Include="css\img\Icone\ProgettoCartografico.gif" />
+    <Content Include="css\img\Icone\risorse_web.png" />
+    <Content Include="css\img\Icone\scheda.gif" />
+    <Content Include="css\img\Icone\scheda.png" />
+    <Content Include="css\img\Icone\search.gif" />
+    <Content Include="css\img\Icone\slash.gif" />
+    <Content Include="css\img\Icone\Software.gif" />
+    <Content Include="css\img\Icone\Sound.gif" />
+    <Content Include="css\img\Icone\Sound.png" />
+    <Content Include="css\img\Icone\Text.png" />
+    <Content Include="css\img\Icone\tif.gif" />
+    <Content Include="css\img\Icone\tiff.gif" />
+    <Content Include="css\img\Icone\txt.gif" />
+    <Content Include="css\img\Icone\url.gif" />
+    <Content Include="css\img\Icone\web.png" />
+    <Content Include="css\img\Icone\word.gif" />
+    <Content Include="css\img\Icone\xls.gif" />
+    <Content Include="css\img\Icone\xsl.gif" />
+    <Content Include="css\img\Icone\zip.gif" />
+    <Content Include="Global.asax" />
+    <Content Include="maintenance.aspx" />
+    <Content Include="Scripts\bowser.min.js" />
+    <Content Include="Scripts\boxsizing.htc" />
+    <Content Include="Scripts\equal_height.js" />
+    <Content Include="Scripts\imgareaselect\css\border-anim-h.gif" />
+    <Content Include="Scripts\imgareaselect\css\border-anim-v.gif" />
+    <Content Include="Scripts\imgareaselect\css\border-h.gif" />
+    <Content Include="Scripts\imgareaselect\css\border-v.gif" />
+    <Content Include="Scripts\imgareaselect\css\imgareaselect-animated.css" />
+    <Content Include="Scripts\imgareaselect\css\imgareaselect-default.css" />
+    <Content Include="Scripts\imgareaselect\css\imgareaselect-deprecated.css" />
+    <Content Include="Scripts\imgareaselect\GPL-LICENSE.txt" />
+    <Content Include="Scripts\imgareaselect\MIT-LICENSE.txt" />
+    <Content Include="Scripts\imgareaselect\scripts\jquery.imgareaselect.js" />
+    <Content Include="Scripts\imgareaselect\scripts\jquery.imgareaselect.min.js" />
+    <Content Include="Scripts\imgareaselect\scripts\jquery.imgareaselect.pack.js" />
+    <Content Include="Scripts\imgareaselect\scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery-ui-1.10.4.custom.min.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.bxslider\html5shiv.js" />
+    <Content Include="Scripts\jquery.bxslider\images\bx_loader.gif" />
+    <Content Include="Scripts\jquery.bxslider\images\controls.png" />
+    <Content Include="Scripts\jquery.bxslider\jquery.bxslider.css" />
+    <Content Include="Scripts\jquery.bxslider\jquery.bxslider.ie.css" />
+    <Content Include="Scripts\jquery.bxslider\jquery.bxslider.js" />
+    <Content Include="Scripts\jquery.bxslider\jquery.bxslider.min.js" />
+    <Content Include="Scripts\jquery.bxslider\jquery.bxslider.w3c.css" />
+    <Content Include="Scripts\jquery.bxslider\plugins\jquery.easing.1.3.js" />
+    <Content Include="Scripts\jquery.bxslider\plugins\jquery.fitvids.js" />
+    <Content Include="Scripts\jquery.bxslider\respond.min.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
+    <Content Include="Scripts\jquery.cookiesdirective.js" />
+    <Content Include="Scripts\jquery.fancybox.js" />
+    <Content Include="Scripts\jquery.flexslider.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.restable.js" />
+    <Content Include="Scripts\jquery.tipTip.minified.js" />
+    <Content Include="Scripts\jquery.treeview.js" />
+    <Content Include="Scripts\jquery-ui-datepicker-it.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\mappa.js" />
+    <Content Include="Scripts\menu.js" />
+    <Content Include="Scripts\modernizr.min.js" />
+    <Content Include="Scripts\plupload\i18n\en.js" />
+    <Content Include="Scripts\plupload\i18n\it.js" />
+    <Content Include="Scripts\plupload\jquery.plupload.queue\css\jquery.plupload.queue.css" />
+    <Content Include="Scripts\plupload\jquery.plupload.queue\img\backgrounds.gif" />
+    <Content Include="Scripts\plupload\jquery.plupload.queue\img\buttons-disabled.png" />
+    <Content Include="Scripts\plupload\jquery.plupload.queue\img\buttons.png" />
+    <Content Include="Scripts\plupload\jquery.plupload.queue\img\delete.gif" />
+    <Content Include="Scripts\plupload\jquery.plupload.queue\img\done.gif" />
+    <Content Include="Scripts\plupload\jquery.plupload.queue\img\error.gif" />
+    <Content Include="Scripts\plupload\jquery.plupload.queue\img\throbber.gif" />
+    <Content Include="Scripts\plupload\jquery.plupload.queue\img\transp50.png" />
+    <Content Include="Scripts\plupload\jquery.plupload.queue\jquery.plupload.queue.js" />
+    <Content Include="Scripts\plupload\jquery.plupload.queue\jquery.plupload.queue.min.js" />
+    <Content Include="Scripts\plupload\jquery.ui.plupload\css\jquery.ui.plupload.css" />
+    <Content Include="Scripts\plupload\jquery.ui.plupload\img\loading.gif" />
+    <Content Include="Scripts\plupload\jquery.ui.plupload\img\plupload.png" />
+    <Content Include="Scripts\plupload\jquery.ui.plupload\jquery.ui.plupload.js" />
+    <Content Include="Scripts\plupload\jquery.ui.plupload\jquery.ui.plupload.min.js" />
+    <Content Include="Scripts\plupload\moxie.js" />
+    <Content Include="Scripts\plupload\moxie.min.js" />
+    <Content Include="Scripts\plupload\Moxie.swf" />
+    <Content Include="Scripts\plupload\Moxie.xap" />
+    <Content Include="Scripts\plupload\plupload.dev.js" />
+    <Content Include="Scripts\plupload\plupload.full.min.js" />
+    <Content Include="Scripts\plupload\plupload.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\scripts.js" />
+    <Content Include="Scripts\tinymce\jquery.tinymce.min.js" />
+    <Content Include="Scripts\tinymce\license.txt" />
+    <Content Include="Scripts\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-cool.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-cry.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-embarassed.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-foot-in-mouth.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-frown.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-innocent.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-kiss.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-laughing.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-money-mouth.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-sealed.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-smile.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-surprised.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-tongue-out.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-undecided.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-wink.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-yell.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\example\dialog.html" />
+    <Content Include="Scripts\tinymce\plugins\example\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\example_dependency\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\layer\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\media\moxieplayer.swf" />
+    <Content Include="Scripts\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="Scripts\tinymce\skins\lightgray\content.inline.min.css" />
+    <Content Include="Scripts\tinymce\skins\lightgray\content.min.css" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.dev.svg" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.svg" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.dev.svg" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.svg" />
+    <Content Include="Scripts\tinymce\skins\lightgray\img\anchor.gif" />
+    <Content Include="Scripts\tinymce\skins\lightgray\img\loader.gif" />
+    <Content Include="Scripts\tinymce\skins\lightgray\img\object.gif" />
+    <Content Include="Scripts\tinymce\skins\lightgray\img\trans.gif" />
+    <Content Include="Scripts\tinymce\skins\lightgray\skin.ie7.min.css" />
+    <Content Include="Scripts\tinymce\skins\lightgray\skin.min.css" />
+    <Content Include="Scripts\tinymce\themes\modern\theme.min.js" />
+    <Content Include="Scripts\tinymce\tinymce.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VALib\VALib.csproj">
+      <Project>{B23FD44A-AE6D-4149-8A5C-29D8AE3CB996}</Project>
+      <Name>VALib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\MenuAdmin.cshtml" />
+    <Content Include="Areas\Admin\Views\Notizia\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Notizia\Edita.cshtml" />
+    <Content Include="Areas\Admin\Views\Immagine\Edita.cshtml" />
+    <Content Include="Areas\Admin\Views\Immagine\EditaFormati.cshtml" />
+    <Content Include="Areas\Admin\Views\Immagine\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DocumentoPortale\Edita.cshtml" />
+    <Content Include="Areas\Admin\Views\DocumentoPortale\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Carosello\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Carosello\Edita.cshtml" />
+    <Content Include="Areas\Admin\Views\Widget\Edita.cshtml" />
+    <Content Include="Areas\Admin\Views\Widget\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DatoAmbientaleHome\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DatoAmbientaleHome\Edita.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\EditaTestoEditorNotiziaAvanzato.cshtml" />
+    <Content Include="Areas\Admin\Views\Pagina\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Pagina\Edita.cshtml" />
+    <Content Include="Areas\Admin\Views\Pagina\EditaWidget.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Login.cshtml" />
+    <Content Include="Views\Shared\MenuServizio.cshtml" />
+    <Content Include="Views\Shared\MenuNavigazione.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Widget\EditaEmbed.cshtml" />
+    <Content Include="Areas\Admin\Views\Variabile\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\CambioPassword.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\BarraUtente.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\GestioneRuoli.cshtml" />
+    <Content Include="Areas\Admin\Views\Utente\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Utente\GestioneRuoli.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\MenuPrincipale.cshtml" />
+    <Content Include="Areas\Admin\Views\Utente\ModificaUtente.cshtml" />
+    <Content Include="Areas\Admin\Views\Utente\CreaUtente.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\ResetPassword.cshtml" />
+    <Content Include="Areas\Admin\Views\Widget\EditaInEvidenza.cshtml" />
+    <Content Include="Areas\Admin\Views\Widget\EditaSezione.cshtml" />
+    <Content Include="Content\avian.woff" />
+    <Content Include="Content\avian.woff2" />
+    <Content Include="Content\avianb-ema.woff" />
+    <Content Include="Content\avianb-ema.woff2" />
+    <Content Include="Content\avianb-ema.ttf" />
+    <Content Include="Content\avianb.woff" />
+    <Content Include="Content\avianb.woff2" />
+    <Content Include="Areas\Admin\Views\Events\Index.cshtml" />
+    <Content Include="bin\VAPortale.dll.config" />
+    <None Include="Content\framework\bootstrap-3.2.0-dist\css\bootstrap-theme.css.map" />
+    <None Include="Content\framework\bootstrap-3.2.0-dist\css\bootstrap.css.map" />
+    <None Include="Content\framework\bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Content\framework\bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="Content\framework\bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\OpenSans-Italic-webfont.woff" />
+    <Content Include="Content\OpenSans-Regular-webfont.woff" />
+    <Content Include="Content\itc_avant_garde_gothic_lt_book_regular-webfont.woff" />
+    <Content Include="Content\itc_avant_garde_gothic_lt_book_regular-webfont.woff2" />
+    <Content Include="Content\itc_avant_garde_gothic_lt_demi_regular-webfont.woff" />
+    <Content Include="Content\itc_avant_garde_gothic_lt_demi_regular-webfont.woff2" />
+    <Content Include="Content\ui-lightness\ui-lightness - collegamento.lnk" />
+    <None Include="Properties\PublishProfiles\LocalSerio.pubxml" />
+    <None Include="Properties\PublishProfiles\Mich-INSPIRON.pubxml" />
+    <None Include="Properties\PublishProfiles\Mich-XPS.pubxml" />
+    <None Include="Properties\PublishProfiles\VA Test.pubxml" />
+    <None Include="Properties\PublishProfiles\Test Interno.pubxml" />
+    <None Include="Scripts\jquery.bxslider\readme.md" />
+    <Content Include="Views\Home\ElencoOggetti.cshtml" />
+    <Content Include="Views\Shared\SelezioneLingua.cshtml" />
+    <Content Include="Views\Shared\_LayoutInterno.cshtml" />
+    <Content Include="Views\Ricerca\Via.cshtml" />
+    <Content Include="Views\DatiEStrumenti\DatiAmbientali.cshtml" />
+    <Content Include="Views\Ricerca\ViaProcedura.cshtml" />
+    <Content Include="Views\Pagine\Voce.cshtml" />
+    <Content Include="Views\Shared\MenuSezione.cshtml" />
+    <Content Include="Views\Home\Accessibilita.cshtml" />
+    <Content Include="Views\Comunicazione\NotizieElenco.cshtml" />
+    <Content Include="Views\Comunicazione\Dettaglio.cshtml" />
+    <Content Include="Views\Procedure\Provvedimenti.cshtml" />
+    <Content Include="Views\Comunicazione\Cittadino.cshtml" />
+    <Content Include="Views\Comunicazione\FormContatto.cshtml" />
+    <Content Include="Views\Comunicazione\Proponente.cshtml" />
+    <Content Include="Views\Procedure\Osservatori.cshtml" />
+    <Content Include="Views\Shared\Breadcrumbs.cshtml" />
+    <Content Include="Views\Collegamenti\Regioni.cshtml" />
+    <Content Include="Views\Shared\WidgetAttributi.cshtml" />
+    <Content Include="Views\Home\Mappa.cshtml" />
+    <Content Include="Views\Oggetti\Territori.cshtml" />
+    <Content Include="Views\Home\Carosello.cshtml" />
+    <Content Include="Views\Shared\WidgetNotizia.cshtml" />
+    <Content Include="Views\Shared\WidgetDatoAmbientaleHome.cshtml" />
+    <Content Include="Views\DatiEStrumenti\Normativa.cshtml" />
+    <Content Include="Views\DatiEStrumenti\PartialTab.cshtml" />
+    <Content Include="Views\DatiEStrumenti\StudiEIndaginiDiSettore.cshtml" />
+    <Content Include="Views\DatiEStrumenti\MetadatoRisorsaCondivisione.cshtml" />
+    <Content Include="Views\Shared\WidgetEmbed.cshtml" />
+    <Content Include="Views\Procedure\ProvvedimentiElenco.cshtml" />
+    <Content Include="Views\DatiEStrumenti\MetadatoRisorsa.cshtml" />
+    <Content Include="Views\DatiEStrumenti\MetadatoStrato.cshtml" />
+    <Content Include="Views\Oggetti\InfoVia.cshtml" />
+    <Content Include="Views\Oggetti\RaggruppamentiRootNodes.cshtml" />
+    <Content Include="Views\Oggetti\RaggruppamentiChildNodes.cshtml" />
+    <Content Include="Views\Oggetti\MetadatoDocumento.cshtml" />
+    <Content Include="Views\Ricerca\ViaTipologia.cshtml" />
+    <Content Include="Views\Shared\GrigliaRisultatiOggetti.cshtml" />
+    <Content Include="Views\Ricerca\Vas.cshtml" />
+    <Content Include="Views\Ricerca\VasProcedura.cshtml" />
+    <Content Include="Views\Ricerca\VasSettore.cshtml" />
+    <Content Include="Views\Oggetti\InfoVas.cshtml" />
+    <Content Include="Views\Ricerca\ViaLibera.cshtml" />
+    <Content Include="Views\Ricerca\VasLibera.cshtml" />
+    <Content Include="Views\Ricerca\ViaSpaziale.cshtml" />
+    <Content Include="Views\Ricerca\TerritoriRootNodes.cshtml" />
+    <Content Include="Views\Ricerca\ViaTerritorio.cshtml" />
+    <Content Include="Views\Ricerca\TerritoriChildNodes.cshtml" />
+    <Content Include="Views\Home\CercaSito.cshtml" />
+    <Content Include="Views\Home\VociMenuRootNodes.cshtml" />
+    <Content Include="Views\Home\VociMenuChildNodes.cshtml" />
+    <Content Include="Views\Procedure\ViaElenco.cshtml" />
+    <Content Include="Views\Procedure\VasElenco.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\NotFound.cshtml" />
+    <Content Include="Views\Oggetti\DatiAmministrativiRestable.cshtml" />
+    <Content Include="Views\Shared\MenuNavigazioneFooter.cshtml" />
+    <Content Include="Views\Procedure\ConsultazioniTransfrontaliere.cshtml" />
+    <Content Include="Views\Procedure\PartialTab.cshtml" />
+    <Content Include="Views\Procedure\ProcedureIntegrateECoordinate.cshtml" />
+    <Content Include="Views\Ricerca\ViaVasAia.cshtml" />
+    <Content Include="Views\Procedure\AvvisiAssoggettabilitaVia.cshtml" />
+    <Content Include="Views\Oggetti\Documentazione.cshtml" />
+    <Content Include="Views\Shared\MenuNavigazioneMobile.cshtml" />
+    <Content Include="Views\Comunicazione\UltimiProvvedimenti.cshtml" />
+    <Content Include="Views\Comunicazione\ArchivioProvvedimenti.cshtml" />
+    <Content Include="Views\Procedure\Statistiche.cshtml" />
+    <Content Include="Views\Home\Feed.cshtml" />
+    <Content Include="Views\Procedure\TestJson.cshtml" />
+    <Content Include="Views\Shared\WidgetInEvidenza.cshtml" />
+    <Content Include="Views\Procedure\ProcedureInCorso.cshtml" />
+    <Content Include="Views\Shared\WidgetSezione.cshtml" />
+    <Content Include="Views\Procedure\AvvisiAlPubblicoVia.cshtml" />
+    <Content Include="Views\DatiEStrumenti\StudiIndaginiPS.cshtml" />
+    <Content Include="Views\Home\Icone.cshtml" />
+    <Content Include="Scripts\tinymce\langs\readme.md" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\readme.md" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.eot" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Views\Ricerca\Mappa.cshtml" />
+    <Content Include="Views\Ricerca\Aia.cshtml" />
+    <Content Include="Views\Ricerca\AiaLibera.cshtml" />
+    <Content Include="Views\Ricerca\AiaProcedura.cshtml" />
+    <Content Include="Views\Ricerca\AiaTerritorio.cshtml" />
+    <Content Include="Views\Ricerca\AiaInstallazione.cshtml" />
+    <Content Include="Views\Collegamenti\AIAregionali.cshtml" />
+    <Content Include="Views\Oggetti\InfoAIA.cshtml" />
+    <Content Include="Views\Procedure\AiaElenco.cshtml" />
+    <Content Include="Views\ProvvedimentiRegionali\ProvvedimentiElenco.cshtml" />
+    <Content Include="Views\Oggetti\InfoAiaRegionale.cshtml" />
+    <Content Include="Views\Ricerca\RicercaCodice.cshtml" />
+    <Content Include="Views\Eventi\GruppiDiLavoro.cshtml" />
+    <Content Include="Views\Eventi\InfoAIA.cshtml" />
+    <Content Include="Views\Eventi\Territori.cshtml" />
+    <Content Include="Views\Eventi\Documentazione.cshtml" />
+    <Content Include="Views\Eventi\RaggruppamentiRootNodes.cshtml" />
+    <Content Include="Views\Eventi\RaggruppamentiChildNodes.cshtml" />
+    <Content Include="Views\Procedure\AvvisiAlPubblico.cshtml" />
+    <Content Include="Views\Shared\_LayoutError.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49936</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://vatest.invitalia.it</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,117 @@
+﻿@model VAPortale.Areas.Admin.Models.ModificaUtenteModel
+
+@{
+    ViewBag.Title = "ModificaUtente";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section head {
+    <script src="@Url.VAScript("jquery.validate.min.js")"></script>
+    <script src="@Url.VAScript("jquery.validate.unobtrusive.min.js")"></script>
+}
+
+<div id="corpo" class="contenuto" >
+    <h2>Modifica Utente</h2>
+    @using (Html.BeginForm("ModificaUtente", "Utente", new { id = Model.Id }, FormMethod.Post))
+    {
+        <input type="hidden" name="Id" value=@Model.Id />
+        <table class="edita principale">
+          
+            <tr>
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.NomeUtente)
+                </th>
+                <td>
+                    @Model.NomeUtente
+    
+                </td>
+            </tr>
+            <tr>
+                <th class ="obbligatorio">
+                    @Html.LabelFor(m => m.Nome)
+                </th>
+                <th>
+                    @Html.TextBoxFor(m => m.Nome)
+                    @Html.ValidationMessageFor(m => m.Nome)
+                </th>
+            </tr>
+            <tr>
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.Cognome)
+                </th>
+                <th>
+                    @Html.TextBoxFor(m => m.Cognome)
+                    @Html.ValidationMessageFor(m => m.Cognome)
+                </th>
+            </tr>
+            <tr>
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.Email)
+                </th>
+                <th>
+                    @Html.TextBoxFor(m => m.Email)
+                    @Html.ValidationMessageFor(m => m.Email)
+                </th>
+            </tr>
+            <tr>
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.Abilitato)
+                </th>
+                <th>
+                    @if (Model.UtenteCorrente)
+                    {
+                        @Html.DisplayFor(m => m.Abilitato)
+                        @Html.HiddenFor(m => m.Abilitato)
+                    }
+                    else
+                    {
+                        @Html.CheckBoxFor(m => m.Abilitato)
+                    }
+                </th>
+            </tr>
+            <tr>
+               
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.DataUltimoLogin)
+                </th>
+                <td >
+                    @if (Model.DataUltimoLogin.HasValue)
+                    {
+                         @Model.DataUltimoLogin.Value.ToString()
+                    }
+                </td>
+               
+            </tr>
+            <tr>
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.DataUltimoCambioPassword)
+                </th>
+                <td>
+                    @if (Model.DataUltimoCambioPassword.HasValue) { 
+                        @Model.DataUltimoCambioPassword.Value.ToString();
+                    }
+                </td>
+            </tr>
+        </table>
+        <div class="side">
+            <div class="publishing">
+                @Html.ValidationSummary()
+                <input type="submit" name="Salva" value="Salva" />
+                @Html.ActionLink("Gestione Ruoli", "GestioneRuoli", new { id = Model.Id })
+               
+               @*<p>
+                   @Html.ActionLink("Reset Password", "ResetPasswordUtente", new { utenteId = Model.Id }, new { onclick = "return confirm('Attenzione!!! non sarà più possibile usare la password attuale');"})
+               </p>*@
+            </div>
+
+        </div>
+
+    }
+    @if (!Model.UtenteCorrente)
+    {
+        <form action="@Url.Action("ResetPasswordUtente")" method="post">
+            @Html.HiddenFor(m => m.Id)
+            <input type="submit" name="reset" value="Reset Password" onclick="javascript:return confirm('Attenzione!!! non sarà più possibile usare la password attuale');" />
+        </form>
+    }
+</div>

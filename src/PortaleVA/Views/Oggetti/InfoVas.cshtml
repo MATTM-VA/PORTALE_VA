@@ -1,0 +1,55 @@
+﻿@model VAPortale.Models.OggettiInfoVasModel
+@{
+    ViewBag.Title = string.Format("{0} - {1}", Model.Oggetto.GetNome(), Model.VoceMenu.GetNome());
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+
+<div class="line_small_title">
+    <h2>@Model.Oggetto.GetNome()</h2>
+</div>
+<div class="clear"></div>
+
+
+<h3>@DizionarioService.OGGETTO_TitoloInformazioniGenerali</h3>
+<p><strong>@Model.Oggetto.TipoOggetto.GetNome()</strong>: @Model.Oggetto.GetNome()</p>
+@if (Model.AutoritaProcedente != null)
+{
+    <p><strong>@Model.AutoritaProcedente.Ruolo.GetNome()</strong>: @Model.AutoritaProcedente.Entita.Nome</p>
+}
+@if (Model.Proponente != null)
+{
+    <p><strong>@Model.Proponente.Ruolo.GetNome()</strong>: @Model.Proponente.Entita.Nome</p>
+}
+<p><strong>@Html.Raw(Model.Oggetto.TipoOggetto.Enum == TipoOggettoEnum.Piano ? DizionarioService.OGGETTO_LabelSettorePiano : DizionarioService.OGGETTO_LabelSettoreProgramma)</strong>: @Model.Oggetto.Settore.GetNome()</p>
+@if (Model.AutoritaCompetente != null)
+{
+    <p><strong>@Model.AutoritaCompetente.Ruolo.GetNome()</strong>: @Model.AutoritaCompetente.Entita.Nome</p>
+}
+@if (!string.IsNullOrWhiteSpace(Model.Oggetto.GetDescrizione()))
+{
+    <p>
+        <strong>@DizionarioService.OGGETTO_LabelDescrizione</strong>: @Model.Oggetto.GetDescrizione()
+    </p>
+}
+@foreach (LinkCollegato l in Model.Oggetto.LinkCollegati)
+{
+    <p>
+        <strong>@l.Tipo.GetNome():</strong>&nbsp;<a href="@l.Link.Indirizzo" class="external" title="@l.Link.Descrizione">@l.Link.Descrizione</a>
+    </p>
+}
+@if (Model.Oggetto.ScadenzaPresentazioneOsservazioni.HasValue)
+{
+    <p>
+        <strong>@DizionarioService.OGGETTO_LabelScadenzaOsservazioni:</strong> <strong class="evidenza">@Model.Oggetto.ScadenzaPresentazioneOsservazioni.Value.ToString(CultureHelper.GetDateFormat())</strong>
+        <a href="@Url.RouteUrl("PaginaStatica", new { nomeSezione = "Procedure", nomeVoce = "InvioOsservazioni" })" class="bt icona-mail" title="@DizionarioService.TOOLTIP_TooltipInvioOsservazioni">
+            mail
+        </a>
+    </p>
+}
+
+<!-- Territori interessati -->
+@{ Html.RenderPartial("Territori", Model.TerritoriModel); }
+
+<!-- Iter amministrativi -->
+@{ Html.RenderAction("DatiAmministrativiRestable", "Oggetti", new { model = Model.DatiAmministrativiModel }); }
+

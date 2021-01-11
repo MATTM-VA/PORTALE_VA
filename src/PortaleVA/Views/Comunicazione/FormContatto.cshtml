@@ -1,0 +1,91 @@
+﻿@model VAPortale.Models.ComunicazioneFormContattoModel
+
+<div class="areaRicerca Comunic-Azione">
+  <span id="span-messaggio" style="display: none;"></span>
+  @using (Html.BeginForm("FormContatto", "Comunicazione", FormMethod.Post, new { id = "form-contatto" }))
+  {
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Tipo)
+
+    <div>
+        <div class="testo_ricerca ie9">
+            <label for="Testo" style="display:none;font-weight:bold">Message text</label>
+            @Html.TextAreaFor(m => m.Testo, new { rows = 10, cols = 20, @class = "messaggio", style = "resize:none" })                 
+        </div>
+        <div class="testo_ricerca ie9">
+            <label for="IndirizzoMail">@DizionarioService.FORM_LabelMail</label>
+            @Html.TextBoxFor(m => m.IndirizzoMail)
+            <input type="submit" class="btn-search" value="@DizionarioService.FORM_BottoneInvia" />
+        </div>
+    </div>
+  }
+</div>
+
+<script>
+    var formContatto = null;
+
+    $(function () {
+        formContatto = $("#form-contatto");
+        spanMessaggio = $("#span-messaggio");
+
+        formContatto.submit(function (e) {
+
+            e.preventDefault();           
+            var msg = "";
+
+            if ($("#Testo").val().split(" ").join("").length == 0) {
+                msg = "\nindicare il testo da inoltrare alla Direzione.";
+            }
+
+            if (!isValidEmailAddress($("#IndirizzoMail").val())) {
+                msg = msg + "\nIndirizzo e-mail non valido.";
+            }
+            
+            if (msg != ""){ alert("Attenzione:" + msg); return false };
+            
+            $.post(formContatto.attr("action"),
+                    formContatto.serialize(),
+                    function (data) {
+                        if (data != null) {
+
+                            if (data.length == 2 && data[0] == true) {
+                                if (data[0] == true) {
+                                    formContatto.toggle('fast');
+                                }
+                                else {
+
+                                    formContatto.show();
+                                }
+
+                                spanMessaggio.text(data[1]);
+                                spanMessaggio.show();
+                            }
+                            else {
+                            }
+                            spanMessaggio.text(data[1]);
+                            spanMessaggio.show();
+                        }
+                    },
+                    "json"
+                );
+
+            return false;
+        });
+
+        formContatto.find(".btn").click(function () {
+
+            formContatto.submit();
+            return true;
+        });
+
+        
+    });
+
+
+    function isValidEmailAddress(emailAddress) {
+        var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+        return pattern.test(emailAddress);
+    };
+
+</script>
+<noscript><!--Caricamento della libreria per il form contatti--></noscript>

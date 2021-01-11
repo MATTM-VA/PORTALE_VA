@@ -1,0 +1,147 @@
+﻿@model VAPortale.Models.OggettiDocumentazioneVasModel
+@{
+    ViewBag.Title = string.Format("{0} - {1}", Model.Oggetto.GetNome(), Model.VoceMenu.GetNome());
+    Layout = "~/Views/Shared/_LayoutInternoLargo.cshtml";
+}
+<h2>@Model.Oggetto.GetNome()</h2>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs tabProgetto">
+    <li><a href="@Url.VAOggettoInfo(Model.Oggetto.ID)" title="@string.Format(DizionarioService.OGGETTO_LabelTabInfo, Model.Oggetto.TipoOggetto.GetNome())"
+        class="infoProgettoTab">@string.Format(DizionarioService.OGGETTO_LabelTabInfo, Model.Oggetto.TipoOggetto.GetNome())</a></li>
+    <li class="active"><a class="documentazioneTab" title="@DizionarioService.OGGETTO_LabelTabDocumentazione">
+        @DizionarioService.OGGETTO_LabelTabDocumentazione</a></li>
+</ul>
+<!-- Tab content -->
+<div class="tab-content">
+    <h3>@DizionarioService.OGGETTO_TitoloScegliProcedura</h3>
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th>@DizionarioService.GRIGLIA_ColonnaProcedura</th>
+                <th>@DizionarioService.GRIGLIA_ColonnaDataAvvio</th>
+                <th>@DizionarioService.GRIGLIA_ColonnaStatoProcedura</th>
+            </tr>
+            @foreach (ProceduraCollegata pc in Model.ProcedureCollegate)
+            {
+                string cssClass = "";
+                if (pc.OggettoProceduraID == Model.OggettoProceduraID)
+                {
+                    cssClass = "success";
+                }
+                <tr class="@cssClass">
+                    <td>
+                        <strong><a href="@Url.Action("Documentazione", new { id = Model.Oggetto.ID, oggettoProceduraID = pc.OggettoProceduraID })">@pc.Procedura.GetNome()</a></strong>
+                    </td>
+                    <td>@pc.DataInserimento.ToString(CultureHelper.GetDateFormat())
+                    </td>
+                    <td>@pc.StatoProceduraVIPERA.GetNome()
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    @if (Model.OggettoProceduraID > 0)
+    {
+        if (Model.Oggetto.ProcedureCollegate.First(x => x.OggettoProceduraID == Model.OggettoProceduraID).NumeroDocumenti > 0)
+        {
+        <div class="ricerca">
+            <form method="get" id="form-cercaDocumentazione" action="@Url.ActionWithFragment("Documentazione", new { id = Model.ID, oggettoProceduraID = Model.OggettoProceduraID }, "form-cercaDocumentazione")">
+                <div>
+                <label for="Testo">@DizionarioService.RICERCA_LabelTesto</label>
+                @Html.TextBoxFor(m => m.Testo)
+                @Html.HiddenFor(m => m.RaggruppamentoID, new { id = "hidden-raggruppamentoid" })
+                <input type="submit" value="@DizionarioService.RICERCA_BottoneEsegui" class="btn" />
+                </div>
+            </form>
+        </div>
+        <!-- Documentazione -->
+        <h3>@DizionarioService.OGGETTO_TitoloDocumentazione</h3>
+            { Html.RenderAction("RaggruppamentiRootNodes", "Oggetti", new { oggettoProceduraID = Model.OggettoProceduraID, raggruppamentoID = Model.RaggruppamentoID }); }
+        <script type="text/javascript">
+            $(".leaf").click(function () {
+                var raggruppamentoID = $(this).data("raggruppamentoid");
+
+                $("#hidden-raggruppamentoid").val(raggruppamentoID);
+                $("#form-cercaDocumentazione").submit();
+                return false;
+            });
+        </script>
+        <!-- Risultati documenti -->
+        <h3  class="risultati">@string.Format("(n.{0})", Model.TotaleRisultati)  @string.Format(DizionarioService.RICERCA_TitoloRisultatiDocumentazione, Model.ProceduraSelezionata.Procedura.GetNome(), Model.ProceduraSelezionata.DataInserimento.ToString(CultureHelper.GetDateFormat()))</h3>
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    @*<th>
+                        <input type="checkbox" />
+                    </th>*@
+                    <th>
+                        <span class="hidden">@DizionarioService.TOOLTIP_Metadato</span>
+                    </th>
+                    <th>
+                        <span class="hidden">download</span>
+                    </th>
+                    <th>@DizionarioService.GRIGLIA_ColonnaTitolo@*<input class="pull-right" type="image" name="freccia ordinamento" title="Non ordinato - clicca per ordinare"
+                            src="css/img/frecce-ordinamento.png">*@
+                    </th>
+                    <th>
+                        @DizionarioService.GRIGLIA_ColonnaSezione@*<input class="pull-right" type="image" name="freccia ordinamento su" title="Ordinato A-Z"
+                            src="css/img/frecce-ordinamento-su.png">*@
+                    </th>
+                    <th>
+                        @DizionarioService.GRIGLIA_ColonnaCodiceElaborato@*<input class="pull-right" type="image" name="freccia ordinamento giu"
+                            title="Ordinato Z-A" src="css/img/frecce-ordinamento-giu.png">*@
+                    </th>
+                    <th>
+                        @DizionarioService.GRIGLIA_ColonnaData@*<input class="pull-right" type="image" name="freccia ordinamento" title="Non ordinato - clicca per ordinare"
+                            src="css/img/frecce-ordinamento.png">*@
+                    </th>
+                    <th>
+                        @DizionarioService.GRIGLIA_ColonnaScala@*<input class="pull-right" type="image" name="freccia ordinamento" title="Non ordinato - clicca per ordinare"
+                            src="css/img/frecce-ordinamento.png">*@
+                    </th>
+                    <th>
+                        @DizionarioService.GRIGLIA_ColonnaDimensione@*<input class="pull-right" type="image" name="freccia ordinamento" title="Non ordinato - clicca per ordinare"
+                            src="css/img/frecce-ordinamento.png">*@
+                    </th>
+                </tr>
+                @foreach (DocumentoElenco d in Model.Documenti)
+                {
+                    <tr>
+                        @*<td>
+                            <input type="checkbox" />
+                        </td>*@
+                        <td>
+                            <a href="@Url.Action("MetadatoDocumento", new { id = d.ID })" class="icona-metadato" title="@DizionarioService.TOOLTIP_Metadato">@DizionarioService.TOOLTIP_Metadato</a>
+                        </td>
+                        <td>
+                            <a href="@Url.VADocumentoViaVas(d.ID)" title="Download @d.Titolo" class="bt icona-@d.TipoFile.Estensione">Download
+                                @d.TipoFile.Estensione</a>
+                        </td>
+                        <td>@d.Titolo
+                        </td>
+                        <td>@d.Raggruppamento.GetNome()
+                        </td>
+                        <td>@d.CodiceElaborato
+                        </td>
+                        <td>@d.Data.ToString(CultureHelper.GetDateFormat())
+                        </td>
+                        <td>@d.Scala
+                        </td>
+                        <td>@string.Format("{0} kB", d.Dimensione)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    @Html.VaPaginatore(Model.Pagina, Model.DimensionePagina, Model.TotaleRisultati, "pagina", "form-cercaDocumentazione", x => Url.Action("Documentazione", x))
+        <hr />
+        <div class="buttonBackground">
+            @Html.VaEsporta(x => Url.Action("Documentazione", x))
+        </div>
+        }
+        else
+        {
+            <p>@DizionarioService.OGGETTO_TestoDocumentazioneNonDisponibile</p>
+        }
+    }
+</div>

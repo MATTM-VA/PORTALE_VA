@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/content/style.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/content/icone.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Admin.css")" rel="stylesheet" type="text/css" />
+    <!--[if lte IE 7]><link rel="stylesheet" href="@Url.Content("~/Content/AdminIE7.css")" /><![endif]-->
+    <link href="@Url.VAContent("/ui-custom/jquery-ui-1.10.4.custom.min.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.VAScript("jquery.js")"></script>
+    <script src="@Url.VAScript("jquery-ui.min.js")"></script>
+    <script src="@Url.VAScript("jquery-ui-datepicker-it.js")"></script>
+    @RenderSection("head", false)
+</head>
+<body>
+    <div class="barra-menu-principale">
+        <div class="contenitore">
+        <h1>Valutazioni Ambientali -  <em>Admin</em></h1>
+        </div>
+    </div>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div>
+                @{ Html.RenderAction("BarraUtente", "Shared");}
+            </div>
+            <div>
+                @{Html.RenderAction("MenuPrincipale", "Shared");}
+            </div>
+         @*<ul class="menu-principale">
+            <li>@Html.ActionLink("Notizie", "Index", "Notizia")</li>
+            <li>@Html.ActionLink("Immagini", "Index", "Immagine")</li>
+            <li>@Html.ActionLink("Documenti portale", "Index", "DocumentoPortale")</li>
+            <li>@Html.ActionLink("Carosello home", "Index", "Carosello")</li>
+            <li>@Html.ActionLink("Dati ambientali home", "Index", "DatoAmbientaleHome")</li>
+            <li>@Html.ActionLink("Widget", "Index", "Widget", new { tipoWidget = TipoWidget.Notizie }, null)</li>
+            <li>@Html.ActionLink("Pagine", "Index", "Pagina")</li>
+            <li>@Html.ActionLink("Variabili", "Index", "Variabile")</li>
+        </ul>*@
+        }
+        @RenderBody()
+</body>
+</html>
+

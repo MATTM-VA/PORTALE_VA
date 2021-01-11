@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="@CultureHelper.GetCurrentCultureShortName()" lang="@CultureHelper.GetCurrentCultureShortName()">
+
+<head>
+    <title>@ViewBag.Title - @DizionarioService.SITO_TitoloParte1 - @DizionarioService.SITO_TitoloParte2</title>
+    @*<meta name="viewport" content="width=device-width, initial-scale=1.0" />*@
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" href="@Url.VAContent("img/favicon.gif")" type="image/gif" />
+    <link rel="shortcut icon" href="@Url.VAContent("img/favicon.ico")" />
+   
+    <link href="@Url.VAContent("jquery-treeview.css")" rel="stylesheet" />
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/scripts/jquery.js" type="text/javascript"></script>
+   <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="/scripts/modernizr.min.js" type="text/javascript"></script>
+    <script src="/scripts/menu.js" type="text/javascript"></script>
+    <script src="/scripts/equal_height.js" type="text/javascript"></script>
+
+    <link href="@Url.VAContent("engine1/slider.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.VAContent("Style_template_smaller.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.VAContent("flexslider.css")" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+        #wrap {
+            position: relative;
+            /*padding: 10px;*/
+            overflow: hidden;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(function () {
+            var slideHeight = 335; // px
+            var defHeight = $('#wrap').height();
+            if (defHeight >= slideHeight) {
+                $('#wrap').css('height', slideHeight + 'px');
+                $('#sfTop').click(function () {
+                    var curHeight = $('#wrap').height();
+                    if (curHeight == slideHeight) {
+                        $('#wrap').animate({
+                            height: defHeight
+                        }, "normal");
+                    } else {
+                        $('#wrap').animate({
+                            height: slideHeight
+                        }, "normal");
+                    }
+                    return false;
+                });
+            }
+        });
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        @*  SharedMenuNavigazione *@
+        @*@{ Html.RenderAction("MenuNavigazione", "Shared"); }*@
+
+        @RenderBody()
+
+
+        @{ Html.RenderAction("MenuNavigazioneFooter", "Shared"); }
+
+
+    </div>
+    @{
+        string currentCulture = "it-IT";
+
+        if (CultureHelper.IsCurrentCulture(CultureHelper._en))
+        {
+            currentCulture = "en-GB";
+        }
+    }
+
+
+    <script type="text/javascript" src="@Url.VAContent("engine1/wowslider.js")"></script>
+    <script type="text/javascript" src="@Url.VAContent("engine1/script.js")"></script>
+
+
+
+   
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="@Url.VAScript("jquery.cookiesdirective.js")" type="text/javascript"></script>
+    <noscript><!--Caricamento della libreria javascript per l'alert dei cookie--></noscript>
+    <script src="/content/framework/bootstrap-3.2.0-dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <noscript><!--Caricamento della libreria di bootstrap--></noscript>
+    <script src="@Url.VAScript("/jquery.bxslider/jquery.bxslider.min.js")" type="text/javascript"></script>
+    <noscript><!--Caricamento della libreria per il carosello--></noscript>
+    <script src="@Url.VAScript("bowser.min.js")" type="text/javascript"></script>
+    <noscript><!--Caricamento della libreria per bloccare responsive--></noscript>
+    <script src="@Url.VAScript("jquery.cookie.js")" type="text/javascript"></script>
+    <noscript><!--Caricamento della libreria per la cookie persistance--></noscript>
+    <script src="@Url.VAScript("jquery.treeview.js")" type="text/javascript"></script>
+    <noscript><!--Caricamento della libreria per la navigazione ad albero--></noscript>
+    <script src="@Url.VAScript("jquery.tipTip.minified.js")" type="text/javascript"></script>
+    <noscript><!--Caricamento della libreria per i tooltip--></noscript>
+    <script src="@Url.VAScript("scripts.js")" type="text/javascript"></script>
+    <noscript><!--Caricamento della libreria javascript interna--></noscript>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.cookiesDirective({
+                privacyPolicyUri: '@Url.RouteUrl("PaginaStatica", new { nomeSezione = "Home", nomeVoce = "PrivacyPolicy", lang = currentCulture })',
+                explicitConsent: false, // false allows implied consent
+                position: 'top', // top or bottom of viewport
+                duration: 3, // display time in seconds
+                limit: 0, // limit disclosure appearances, 0 is forever
+                message: '@DizionarioService.SITO_PrivacyPolicyAlertText', // customise the disclosure message
+                cookieScripts: null, // disclose cookie settings scripts
+                scriptWrapper: function () { }, // wrapper function for cookie setting scripts
+                fontFamily: 'helvetica', // font style for disclosure panel
+                fontColor: '#fff', // font color for disclosure panel
+                fontSize: '13px', // font size for disclosure panel
+                backgroundColor: '#000', // background color of disclosure panel
+                backgroundOpacity: '80', // opacity of disclosure panel
+                linkColor: '#fff', // link color in disclosure panel
+                buttonText: '@DizionarioService.SITO_PrivacyPolicyAlertButtonText',
+                privacyPolicyLinkText: "@DizionarioService.SITO_PrivacyPolicyLinkText",
+            });
+        });
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-29600546-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+    <noscript><!--Google analytics--></noscript>
+    @*<!-- Piwik -->
+        <script type="text/javascript">
+            var pkBaseURL = (("https:" == document.location.protocol) ? "https://piwik.va.ancitel.it/" : "http://piwik.va.ancitel.it/");
+            document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+         </script><script type="text/javascript">
+                      try {
+                          var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
+                          piwikTracker.trackPageView();
+                          piwikTracker.enableLinkTracking();
+                      } catch (err) { }
+         </script><noscript><p><img src="http://piwik.va.ancitel.it/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
+         <!-- End Piwik Tracking Code -->
+            <noscript><!--piwik--></noscript>*@
+</body>
+
+</html>

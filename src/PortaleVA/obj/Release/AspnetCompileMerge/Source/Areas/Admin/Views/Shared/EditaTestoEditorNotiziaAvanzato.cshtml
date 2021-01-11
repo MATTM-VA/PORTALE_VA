@@ -1,0 +1,35 @@
+﻿@model VAPortale.Areas.Admin.Models.SharedEditorTestoNotiziaAvanzatoModel
+<script type="text/javascript">
+    //    $(function () {
+    //
+    tinymce.init({
+        selector: "textarea.@Model.SelectorClass", 
+        plugins: [
+        "paste code link image anchor"
+        ],
+        link_list: @Html.Raw(Model.ExternalLinkList),
+        image_list: @Html.Raw(Model.ExternalImageList),
+        //image_advtab: false, 
+        //image_description: false, 
+        //image_dimensions: false, 
+        toolbar: "code undo redo | paste | bold italic | bullist numlist | anchor link image  ",
+        menubar: false,
+        convert_urls: false, 
+        relative_urls: false, 
+
+
+//        toolbar_items_size: 'small',
+
+        //plugins: [
+        //"advlist autolink lists link image charmap print preview anchor ",
+        //"searchreplace visualblocks code fullscreen ",
+        //"insertdatetime media table contextmenu paste media"
+        //],
+        //external_link_list_url : "", 
+        //language : "it", 
+        //visual: false, 
+
+    });
+    //    });
+    //</script>
+

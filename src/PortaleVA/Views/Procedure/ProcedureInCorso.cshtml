@@ -1,0 +1,156 @@
+﻿@model VAPortale.Models.ProcedureViaVasInCorsoModel
+@{
+    ViewBag.Title = Model.VoceMenu.GetNome();
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+<div class="line_small_title">
+    <h2>@Model.VoceMenu.GetNome()</h2>
+</div>
+<div class="clear"></div>
+@if (CultureHelper.GetCurrentCultureShortName().Equals("it", StringComparison.InvariantCultureIgnoreCase))
+{
+    <p>La reportistica si riferisce alle <strong class="evidenza">procedure in corso</strong> aggiornate in tempo reale.</p>
+}
+else
+{
+    <p>Reports refer to <strong class="evidenza">on-going procedures</strong> updated in real time.</p>
+}
+
+<br /><br />
+<div class="table-responsive">
+    <table class="table Procedure">
+        <thead>
+            <tr>
+                <th>@Model.TotaleVas</th>
+                <th>@DizionarioService.PROCEDURE_VasInCorso</th>
+            </tr>
+        </thead>
+        @foreach (ConteggioProcedura cp in Model.RigheVas)
+        {
+            String url = Url.Action("VasElenco", new { id = cp.Procedura.ID, parametro = cp.Parametro });
+            <tr>
+                <td>@cp.Conteggio</td>
+                <td><a title="@cp.Procedura.GetNome()" href="@(cp.Conteggio != 0 ? url : "javascript:void(0)")">@cp.Procedura.GetNome()</a></td>
+            </tr>
+        }
+    </table>
+</div>
+
+
+
+
+<br /><br />
+
+
+<div class="table-responsive">
+    <table class="table Procedure">
+        <thead>
+            <tr>
+                <th>@Model.TotaleVia</th>
+                <th>@DizionarioService.PROCEDURE_ViaInCorso</th>
+            </tr>
+        </thead>
+        @foreach (ConteggioProcedura cp in Model.RigheVia)
+        {
+            String url = Url.Action("ViaElenco", new { id = cp.Procedura.ID, parametro = cp.Parametro });
+            <tr>
+                <td>@cp.Conteggio</td>
+                <td><a title="@cp.Procedura.GetNome()" href="@(cp.Conteggio != 0 ? url : "javascript:void(0)")">@cp.Procedura.GetNome()</a></td>
+            </tr>
+        }
+    </table>
+</div>
+
+
+<br /><br />
+
+
+<div class="table-responsive">
+    <table class="table Procedure">
+        <thead>
+            <tr>
+                <th>@Model.TotaleAia</th>
+                <th>@DizionarioService.PROCEDURE_Aia</th>
+            </tr>
+        </thead>
+        @foreach (ConteggioProcedura cp in Model.RigheAia)
+        {
+            String url = Url.Action("AiaElenco", new { id = cp.Procedura.ID, parametro = cp.Parametro });
+            <tr>
+                <td>@cp.Conteggio</td>
+                <td><a title="@cp.Procedura.GetNome()" href="@(cp.Conteggio != 0 ? url : "javascript:void(0)")">@cp.Procedura.GetNome()</a></td>
+            </tr>
+        }
+    </table>
+</div>
+
+
+
+<div class="boxMappe">
+
+    <div class="boxServiziWebGisVIA">
+        <table class="tabellaAdattata">
+            <tr class="success">
+                <td>
+                    <a href="@VariabileService.GetValore("ProcedureVasInCorsoUrl")"
+                       class="icona-localizzatoreViaVasCorso icona-testo external servizioWebGis" title="@DizionarioService.TOOLTIP_TooltipLocalizzazione">
+                        @string.Format(DizionarioService.PROCEDURE_TestoLinkProgettoCartografico, DizionarioService.PROCEDURE_VasInCorsoLabel)
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td class="alignCenter">
+                    <a title="@DizionarioService.TOOLTIP_TooltipLocalizzazione" href="@VariabileService.GetValore("ProcedureVasInCorsoUrl")" class="external">
+                        <img class="immagineInterna" src="~/content/images/immagine_vasInCorso.jpg" alt="@string.Format(DizionarioService.PROCEDURE_TestoLinkProgettoCartografico, Model.VoceMenu.GetNome())" />
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!--div class="table-responsive"-->
+    <div class="boxServiziWebGisVAS">
+        <table class="tabellaAdattata">
+            <tr class="success">
+                <td>
+                    <a href="@VariabileService.GetValore("ProcedureViaInCorsoUrl")"
+                       class="icona-localizzatoreViaVasCorso icona-testo external" title="@DizionarioService.TOOLTIP_TooltipLocalizzazione">
+                        @string.Format(DizionarioService.PROCEDURE_TestoLinkProgettoCartografico, DizionarioService.PROCEDURE_ViaInCorsoLabel)
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td class="alignCenter">
+                    <a title="@DizionarioService.TOOLTIP_TooltipLocalizzazione" href="@VariabileService.GetValore("ProcedureViaInCorsoUrl")" class="external servizioWebGis">
+                        <img class="immagineInterna" src="~/content/images/immagine_viaInCorso.jpg" alt="@string.Format(DizionarioService.PROCEDURE_TestoLinkProgettoCartografico, Model.VoceMenu.GetNome())" />
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!--/div-->
+    <!--div class="table-responsive"-->
+
+
+    <div class="boxServiziWebGisVIA">
+        <table class="tabellaAdattata">
+            <tr class="success">
+                <td>
+                    <a href="@VariabileService.GetValore("ProcedureAiaInCorsoUrl")"
+                       class="icona-localizzatoreViaVasCorso icona-testo external servizioWebGis" title="@DizionarioService.TOOLTIP_TooltipLocalizzazione">
+                        @string.Format(DizionarioService.PROCEDURE_TestoLinkProgettoCartografico, DizionarioService.PROCEDURE_AiaInCorso)
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td class="alignCenter">
+                    <a title="@DizionarioService.TOOLTIP_TooltipLocalizzazione" href="@VariabileService.GetValore("ProcedureAiaInCorsoUrl")" class="external">
+                        <img class="immagineInterna" src="~/content/images/aia.jpg" alt="@string.Format(DizionarioService.PROCEDURE_TestoLinkProgettoCartografico, Model.VoceMenu.GetNome())" />
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!--/div-->
+</div>
+
+

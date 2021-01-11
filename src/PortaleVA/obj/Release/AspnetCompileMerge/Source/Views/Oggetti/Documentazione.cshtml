@@ -1,0 +1,146 @@
+﻿@model VAPortale.Models.Common.OggettiDocumentazioneBaseModel
+@{
+    ViewBag.Title = string.Format("{0} - {1}", Model.Oggetto.GetNome(), Model.VoceMenu.GetNome());
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+
+<div class="line_small_title">
+    <h2>@Model.Oggetto.GetNome()</h2>
+</div>
+<div class="clear"></div>
+
+<div class="documentazione corpoDocumentazione">
+
+    <div class="tableProcedura">
+
+        @*<div class="pulsantiDocumentazione">
+                <div class="pulsanteProcedura">
+                    <a title="@DizionarioService.OGGETTO_LabelDettagliProcedura" href="#collapse">@DizionarioService.OGGETTO_LabelDettagliProcedura</a>
+                </div>
+                <div class="pulsanteInfo">
+                    <a href="@Url.Action("Info", new { id = Model.ID })" title="@string.Format(DizionarioService.TOOLTIP_InfoOggetto, Model.Oggetto.TipoOggetto.GetNome())">@string.Format(DizionarioService.TOOLTIP_InfoOggetto, Model.Oggetto.TipoOggetto.GetNome())</a>
+                </div>
+            </div>*@
+
+        <div class="modal datiAmministrativi" title="@Model.Oggetto.ProceduraCollegata.Procedura.GetNome()" tabindex="-1" role="dialog" aria-hidden="true">
+            <table class="table DatiAmministrativiModal">
+                @if (!String.IsNullOrEmpty(Model.Oggetto.ProceduraCollegata.ViperaAiaID))
+                {
+                    <tr>
+                        <td>@DizionarioService.RICERCA_LabelCodiceProcedura (ID_VIP/ID_MATTM):</td>
+                        <td>@Model.Oggetto.ProceduraCollegata.ViperaAiaID</td>
+                    </tr>
+                }
+                @foreach (ValoreDatoAmministrativo valoreDatoAmministrativo in Model.Oggetto.DatiAmministrativi)
+                {
+                    <tr>
+                        <td>@valoreDatoAmministrativo.DatoAmministrativo.GetNome():</td>
+                        <td>@valoreDatoAmministrativo.GetValore()</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+    @if (Model.OggettoProceduraID > 0)
+    {
+        if (Model.Oggetto.ProceduraCollegata.NumeroDocumenti > 0)
+        {
+            <div class="ricerca">
+                <form method="get" id="form-cercaDocumentazione" action="@Url.ActionWithFragment("Documentazione", new { id = Model.ID, oggettoProceduraID = Model.OggettoProceduraID }, "form-cercaDocumentazione")">
+                    <div class="bgInput">
+
+                        <div class="testo_ricerca ie9">
+                            <label for="Testo">@DizionarioService.RICERCA_LabelTesto</label>
+                            @Html.TextBoxFor(m => m.Testo, new { @class = "cerca" })
+                            @Html.HiddenFor(m => m.RaggruppamentoID, new { id = "hidden-raggruppamentoid" })
+                            <input type="image" class="btn-search" alt="@DizionarioService.RICERCA_BottoneEsegui" src="@Url.VAContent("button_search.png?v=4")" />
+                        </div>
+
+                        <div class="pulsanteProcedura">
+                            <a title="@DizionarioService.OGGETTO_LabelDettagliProcedura" data-toggle="modal" data-target=".datiAmministrativi" href="#collapse">@DizionarioService.OGGETTO_LabelDettagliProcedura</a>
+                        </div>
+
+                        <div class="pulsanteInfo">
+                            <a href="@Url.Action("Info", new { id = Model.ID })" title="@string.Format(DizionarioService.TOOLTIP_InfoOggetto, Model.Oggetto.TipoOggetto.GetNome())">@string.Format(DizionarioService.TOOLTIP_InfoOggetto, Model.Oggetto.TipoOggetto.GetNome())</a>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        <!-- Documentazione -->
+            <h3>@DizionarioService.OGGETTO_TitoloDocumentazione</h3>
+            { Html.RenderAction("RaggruppamentiRootNodes", "Oggetti", new { oggettoProceduraID = Model.OggettoProceduraID, raggruppamentoID = Model.RaggruppamentoID }); }
+            <script>
+                $(document).ready(function () {
+                    $(".leaf ").click(function () {
+                        var raggruppamentoID = $(this).data("raggruppamentoid");                        
+                        $("#hidden-raggruppamentoid").val(raggruppamentoID);
+                        $("#form-cercaDocumentazione").submit();
+                        return false;
+                    });
+                });
+            </script>
+        <!-- Risultati documenti -->
+            <h3 class="risultati">
+                @string.Format("(n.{0})", Model.TotaleRisultati) @string.Format(DizionarioService.RICERCA_TitoloRisultatiDocumentazione, Model.Oggetto.ProceduraCollegata.Procedura.GetNome(), Model.Oggetto.ProceduraCollegata.Data.Value.ToString(CultureHelper.GetDateFormat()))
+            </h3>
+
+                <div class="table-responsive">
+                    <table class="table Documentazione">
+                        <tr>
+                            <th>@DizionarioService.GRIGLIA_ColonnaTitolo</th>
+                            <th>@DizionarioService.GRIGLIA_ColonnaSezione</th>
+                            <th>@DizionarioService.GRIGLIA_ColonnaCodiceElaborato</th>
+                            @if (Model.Oggetto.TipoOggetto.MacroTipoOggetto.Enum != MacroTipoOggettoEnum.Aia)
+                            {
+                                <th>@DizionarioService.GRIGLIA_ColonnaData</th>
+                            }
+                            
+                            <th>@DizionarioService.GRIGLIA_ColonnaScala</th>
+                            <th>@DizionarioService.GRIGLIA_ColonnaDimensione</th>
+                            <th><span class="hidden">@DizionarioService.TOOLTIP_Metadato</span></th>
+                            <th><span class="hidden">download</span></th>
+                        </tr>
+                        @foreach (DocumentoElenco d in Model.Documenti)
+                        {                            
+                            <tr>
+                                <td>@d.Titolo</td>
+                                <td>@d.Raggruppamento.GetNome()</td>
+                                <td>@d.CodiceElaborato</td>
+                                @if (Model.Oggetto.TipoOggetto.MacroTipoOggetto.Enum != MacroTipoOggettoEnum.Aia)
+                                {
+                                    <td>@d.Data.ToString(CultureHelper.GetDateFormat())</td>
+                                }
+                                
+                                <td>@d.Scala</td>
+                                <td>@string.Format("{0} kB", d.Dimensione)</td>
+                                <td>
+                                    <a href="@Url.Action("MetadatoDocumento", new { id = d.ID })" class="icona-metadato" title="@DizionarioService.TOOLTIP_Metadato">@DizionarioService.TOOLTIP_Metadato</a>
+                                </td>
+                                <td>
+                                    <a href="@Url.VADocumentoViaVas(d.ID)" title="@DizionarioService.TOOLTIP_ScaricaDocumento" class="bt icona-@d.TipoFile.Estensione">
+                                        @DizionarioService.TOOLTIP_ScaricaDocumento
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+
+                <div class="area_sotto_tabella">
+                    <div class="buttonBackground">
+                        @Html.VaEsporta(x => Url.Action("Documentazione", x))
+                    </div>
+                    <div class="paginatore">
+                        @Html.VaPaginatore(Model.Pagina, Model.DimensionePagina, Model.TotaleRisultati, "pagina", x => Url.Action("Documentazione", x))
+                    </div>
+                    <div class="visualizza_pagina"></div>
+                </div>
+        }
+        else
+        {
+            <p>@DizionarioService.OGGETTO_TestoDocumentazioneNonDisponibile</p>
+        }
+    }
+
+</div>

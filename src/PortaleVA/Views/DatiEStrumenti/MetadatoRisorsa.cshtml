@@ -1,0 +1,104 @@
+﻿@model VAPortale.Models.DatiEStrumentiMetadatoRisorsaModel
+
+@{
+    ViewBag.Title = string.Format("{0} - {1}", Model.Risorsa.Titolo, Model.VoceMenu.GetNome());
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+
+<div class="line_small_title">
+    <h2>@Model.VoceMenu.GetNome()</h2>
+</div>
+<div class="clear"></div>
+
+<br />
+
+<div class="table-responsive">
+    @if (Model.InformazioniGenerali.Rows.Count > 0)
+    {
+        <table class="table Metadato">
+            <thead>
+                <tr>
+                    <th colspan="2">@DizionarioService.METADATO_TitoloInformazioniGenerali</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@DizionarioService.METADATO_LabelRisorsa</td>
+                    <td>
+                        
+                        <a href="@Model.Risorsa.GetUrl()" class="external">@Model.Risorsa.Titolo</a>
+
+                    </td>
+                </tr>
+                @foreach (System.Data.DataRow dr in Model.InformazioniGenerali.Rows)
+                {
+                    <tr>
+                        <td>@dr[0]</td>
+                        <td>@dr[1]</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+
+    @if (Model.Entita.Rows.Count > 0)
+    {
+        <table class="table Metadato">
+            <thead>
+                <tr>
+                    <th colspan="2">@DizionarioService.METADATO_TitoloEntitaCoinvolte</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (System.Data.DataRow dr in Model.Entita.Rows)
+                {
+                    <tr>
+                        <td>@dr[0]</td>
+                        <td>@dr[1]</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    @if (Model.InformazioniRicerca.Rows.Count > 0)
+    {
+        <table class="table Metadato">
+            <thead>
+                <tr>
+                    <th colspan="2">@DizionarioService.METADATO_TitoloInformazioniRicerca</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (System.Data.DataRow dr in Model.InformazioniRicerca.Rows)
+                {
+                    <tr>
+                        <td>@dr[0]</td>
+                        <td>@dr[1]</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    @if (Model.Date.Rows.Count > 0)
+    {
+        <table class="table Metadato">
+            <thead>
+                <tr>
+                    <th colspan="2">@DizionarioService.METADATO_TitoloDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (System.Data.DataRow dr in Model.Date.Rows)
+                {
+                    <tr>
+                        <td>@dr[0]</td>
+                        <td>@dr[1]</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

@@ -1,0 +1,8 @@
+﻿@model VAPortale.Areas.Admin.Models.BarraUtenteModel
+
+<div>
+    Utente: @Model.NomeUtente | 
+    @Html.ActionLink("Logout", "LogOut", "Home") | 
+    @Html.ActionLink("Cambio Password", "CambioPassword", "Home")
+</div>
+

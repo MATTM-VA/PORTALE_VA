@@ -1,0 +1,107 @@
+﻿@model VAPortale.Models.ProcedureAvvisiAssoggettabilitaViaModel
+
+@{
+    ViewBag.Title = Model.VoceMenu.GetNome();
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+
+<div class="line_small_title">
+    <h2>@Model.VoceMenu.GetNome()</h2>
+</div>
+<div class="clear"></div>
+
+
+@if (CultureHelper.IsCurrentCulture(CultureHelper._it))
+{
+    <p>
+        Avvisi al pubblico riferiti alle procedure di Assoggettabilità a VIA avviate prima del 16/05/2017.
+    </p>
+}
+else if (CultureHelper.IsCurrentCulture(CultureHelper._en))
+{
+    <p>
+        Notices to the public related to the EIA Screening procedures started before the 16th of May 2017.
+    </p>
+}
+
+
+<div class="areaRicerca modelloEsteso">
+    @using (Html.BeginForm("AvvisiAssoggettabilitaVia", "Procedure", FormMethod.Get))
+    {
+        @Html.AntiForgeryToken()
+        <div class="bgInput">
+            <div class="testo_ricerca ie9">
+                <label for="Testo">@DizionarioService.RICERCA_LabelTesto</label>
+                @Html.TextBoxFor(m => m.Testo, new { @class = "cerca" })
+                <input type="image" class="btn-search" alt="@DizionarioService.RICERCA_BottoneEsegui" src="@Url.VAContent("button_search.png?v=4")" />
+            </div>
+
+            <div class="crea_mappa ie9">
+                <span>
+                    <a href="@Url.RouteUrl("PaginaStatica", new { nomeSezione = "Procedure", nomeVoce = "InvioOsservazioni" })" title="@DizionarioService.TOOLTIP_TooltipInvioOsservazioni">
+                        @DizionarioService.SITO_LabelInvioOsservazioni
+                        <img src="@Url.VAContent("icona-mail.png?v=4")" title="@DizionarioService.TOOLTIP_TooltipInvioOsservazioni" alt="@DizionarioService.TOOLTIP_TooltipInvioOsservazioni" style="vertical-align: bottom;">
+                    </a>
+                </span>
+                @*<a href="@Url.RouteUrl("PaginaStatica", new { nomeSezione = "Procedure", nomeVoce = "InvioOsservazioni" })" class="icona-mail" title="@DizionarioService.TOOLTIP_TooltipInvioOsservazioni">
+                        mail
+                    </a>*@
+            </div>
+        </div>
+    }
+</div>
+
+<h3 class="risultati">@DizionarioService.RICERCA_TitoloRisultatiAvvisi (@Model.TotaleRisultati)</h3>
+<div class="table-responsive">
+    <table class="table AvvisiAlPubblico">
+        <thead>
+            <tr>
+                <th>@DizionarioService.GRIGLIA_ColonnaOggettoVia</th>
+                <th>@DizionarioService.GRIGLIA_ColonnaDataPubblicazione</th>
+                <th>@DizionarioService.OGGETTO_LabelScadenzaOsservazioni</th>
+                <th><span class="hidden">Info</span></th>
+                <th><span class="hidden">Doc</span></th>
+                <th><span class="hidden">Download</span></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (DocumentoElenco d in Model.Documenti)
+            {
+                <tr>
+                    <td>@d.GetNome()</td>
+                    <td>@d.Data.ToString(CultureHelper.GetDateFormat())</td>
+                    <td>@d.DataScadenzaPresentazioneOsservazioni.Value.ToString(CultureHelper.GetDateFormat())</td>
+                    <td>
+                        <a href="@Url.VAOggettoInfo(d.OggettoID)" class="icona-info-progetto"
+                           title="@string.Format(DizionarioService.TOOLTIP_InfoOggetto, "")">info</a>
+                    </td>
+                    <td>
+                        <a href="@Url.VAOggettoDocumentazione(d.OggettoID, d.OggettoProceduraID)"
+                           class="icona-documentazione-tecnico-amm"
+                           title="@string.Format(DizionarioService.TOOLTIP_Documentazione, "")">
+                                @string.Format(DizionarioService.TOOLTIP_Documentazione, "")</a>
+                    </td>
+                    <td>
+                        <a href="@Url.VADocumentoViaVas(d.ID)" title="@DizionarioService.TOOLTIP_ScaricaDocumento" 
+                           class="icona-@d.TipoFile.Estensione">
+                            @DizionarioService.TOOLTIP_ScaricaDocumento
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="area_sotto_tabella">
+    <div class="buttonBackground">
+        @if (Model.TotaleRisultati < 20000)
+            {
+            @Html.VaEsporta(x => Url.Action("AvvisiAssoggettabilitaVia", x))
+        }
+    </div>
+    <div class="paginatore">
+        @Html.VaPaginatore(Model.Pagina, Model.DimensionePagina, Model.TotaleRisultati, "pagina", x => Url.Action("AvvisiAssoggettabilitaVia", x))
+    </div>
+    <div class="visualizza_pagina"></div>
+</div>

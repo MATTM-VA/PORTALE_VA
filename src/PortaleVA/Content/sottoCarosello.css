@@ -1,0 +1,825 @@
+/*
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('OpenSans-Regular-webfont.eot');
+    src: url('OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('OpenSans-Regular-webfont.woff2') format('woff2'),
+         url('OpenSans-Regular-webfont.woff') format('woff'),
+         url('OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('OpenSans-Regular-webfont.svg#open_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+	font-family: 'open_sansitalic';
+    src: url('OpenSans-Italic-webfont.eot');
+    src: url('OpenSans-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('OpenSans-Italic-webfont.woff2') format('woff2'),
+         url('OpenSans-Italic-webfont.woff') format('woff'),
+         url('OpenSans-Italic-webfont.ttf') format('truetype'),
+         url('OpenSans-Italic-webfont.svg#open_sansitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+*/
+A {
+    outline: none;
+}
+
+*:FOCUS {
+    outline: none;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+DIV#boxMacroAree {
+    width: 100%;
+    padding: 15px 0 0px 0px;
+}
+
+    DIV#boxMacroAree DIV.ContainerCircle {
+        float: left;
+        width: 16.5%;
+    }
+
+        DIV#boxMacroAree DIV.ContainerCircle DIV.circle-red:hover {
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1), 0 4px 8px 0 rgba(0,0,0,0.2);
+            background-color: #8a3a3a;
+			border-color:#792626;
+        }
+		DIV#boxMacroAree DIV.ContainerCircle DIV.circle-purple:hover {
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1), 0 4px 8px 0 rgba(0,0,0,0.2);
+            background-color: #8a4078;
+			border-color:#7b2a68;
+        }
+		DIV#boxMacroAree DIV.ContainerCircle DIV.circle-blue:hover {
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1), 0 4px 8px 0 rgba(0,0,0,0.2);
+            background-color: #343d6d;
+			border-color:#344084;
+        }
+		DIV#boxMacroAree DIV.ContainerCircle DIV.circle-darkRed:hover {
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1), 0 4px 8px 0 rgba(0,0,0,0.2);
+            background-color: #74394f;
+			border-color:#63273d;
+        }
+		DIV#boxMacroAree DIV.ContainerCircle DIV.circle-ochre:hover {
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1), 0 4px 8px 0 rgba(0,0,0,0.2);
+            background-color: #d08127;
+			border-color:#b76e1a;
+        }
+		DIV#boxMacroAree DIV.ContainerCircle DIV.circle-green:hover {
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1), 0 4px 8px 0 rgba(0,0,0,0.2);
+            background-color: #396a47;
+			border-color:#2f633e;
+        }
+
+        /*DIV#boxMacroAree DIV.ContainerCircle DIV.circle {
+            cursor: pointer;
+            transition-duration: 700ms;
+            -webkit-transition-duration: 700ms;
+            transition-property: all;
+            -webkit-transition-property: all;
+            margin-top: 5px;
+        }
+		*/
+        DIV#boxMacroAree DIV.ContainerCircle DIV.circle-red {
+            background: rgb(117,23,24);
+            border: 1px solid transparent;
+            border-radius: 80px;
+            box-sizing: border-box;
+            height: 100px;
+            width: 100px;
+			 cursor: pointer;
+            transition-duration: 700ms;
+            -webkit-transition-duration: 700ms;
+            transition-property: all;
+            -webkit-transition-property: all;
+            margin-top: 5px;
+           
+        }
+		 DIV#boxMacroAree DIV.ContainerCircle DIV.circle-purple {
+            background: rgb(117,31,96);
+            border: 1px solid transparent;
+            border-radius: 80px;
+            box-sizing: border-box;
+            height: 100px;
+            width: 100px;
+			 cursor: pointer;
+            transition-duration: 700ms;
+            -webkit-transition-duration: 700ms;
+            transition-property: all;
+            -webkit-transition-property: all;
+            margin-top: 5px;
+           
+        }
+		 DIV#boxMacroAree DIV.ContainerCircle DIV.circle-blue {
+            background: rgb(39,50,96);
+            border: 1px solid transparent;
+            border-radius: 80px;
+            box-sizing: border-box;
+            height: 100px;
+            width: 100px;
+			 cursor: pointer;
+            transition-duration: 700ms;
+            -webkit-transition-duration: 700ms;
+            transition-property: all;
+            -webkit-transition-property: all;
+            margin-top: 5px;
+           
+        }
+		 DIV#boxMacroAree DIV.ContainerCircle DIV.circle-darkRed {
+            background: rgb(92,22,48);
+            border: 1px solid transparent;
+            border-radius: 80px;
+            box-sizing: border-box;
+            height: 100px;
+            width: 100px;
+			 cursor: pointer;
+            transition-duration: 700ms;
+            -webkit-transition-duration: 700ms;
+            transition-property: all;
+            -webkit-transition-property: all;
+            margin-top: 5px;
+           
+        }
+		 DIV#boxMacroAree DIV.ContainerCircle DIV.circle-ochre {
+            background: rgb(200,107,1);
+            border: 1px solid transparent;
+            border-radius: 80px;
+            box-sizing: border-box;
+            height: 100px;
+            width: 100px;
+			 cursor: pointer;
+            transition-duration: 700ms;
+            -webkit-transition-duration: 700ms;
+            transition-property: all;
+            -webkit-transition-property: all;
+            margin-top: 5px;
+           
+        }
+		 DIV#boxMacroAree DIV.ContainerCircle DIV.circle-green {
+            background: rgb(22,80,39);
+            border: 1px solid transparent;
+            border-radius: 80px;
+            box-sizing: border-box;
+            height: 100px;
+            width: 100px;
+			 cursor: pointer;
+            transition-duration: 700ms;
+            -webkit-transition-duration: 700ms;
+            transition-property: all;
+            -webkit-transition-property: all;
+            margin-top: 5px;
+           
+        }
+
+            DIV#boxMacroAree DIV.ContainerCircle DIV.circle-red DIV.circle-1 {
+                padding: 19px 0 0px 19px;
+            }
+
+            DIV#boxMacroAree DIV.ContainerCircle DIV.circle-purple DIV.circle-2 {
+                padding: 18px 0 0px 18px;
+            }
+
+            DIV#boxMacroAree DIV.ContainerCircle DIV.circle-blue DIV.circle-3 {
+                padding: 27px 0 0px 13px;
+            }
+
+            DIV#boxMacroAree DIV.ContainerCircle DIV.circle-darkRed DIV.circle-4 {
+                padding: 26px 0 0px 22px;
+            }
+
+            DIV#boxMacroAree DIV.ContainerCircle DIV.circle-ochre DIV.circle-5 {
+                padding: 22px 0 0px 14px;
+            }
+
+            DIV#boxMacroAree DIV.ContainerCircle DIV.circle-green DIV.circle-6 {
+                padding: 21px 0 0px 22px;
+            }
+
+
+        DIV#boxMacroAree DIV.ContainerCircle DIV.M-Auto {
+            margin: auto;
+        }
+
+        DIV#boxMacroAree DIV.ContainerCircle DIV.txtCircle {
+            text-align: center;
+            margin-top: 5px;
+        }
+
+            DIV#boxMacroAree DIV.ContainerCircle DIV.txtCircle A {
+                font-size: 16px;
+                color: #5d162f;
+                line-height: 16px;
+                font-weight: 600;
+                text-decoration: none;
+            }
+
+                DIV#boxMacroAree DIV.ContainerCircle DIV.txtCircle A:HOVER {
+                    text-decoration: underline;
+                }
+
+DIV.clear {
+    clear: both;
+}
+
+
+DIV.boxServiziWebGisVAS {
+    float: left;
+    width: 39%;
+}
+
+DIV.boxServiziWebGisVIA {
+    float: right;
+    width: 39%;
+}
+
+
+
+/******************************CSS Sezione IN EVIDENZA, colonna destra e sezione IN CONSULTAZIONE ****************************************/
+.container {
+    width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*.content {
+    padding: 0px 0px 0px 0px;
+}*/
+
+.col-md-cx {
+    width: 66%;
+    float: left;
+}
+
+
+
+DIV.titleSezCX {
+   font-size: 20px;
+    color: #ffffff;
+    background-color: #165027;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    height: 40px;
+    padding: 6px 0 0 10px;
+}
+
+DIV.titleInConsultazione {
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #0c5785;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    height: 40px;
+    padding: 6px 0 0 10px;
+}
+
+/*
+.blueLine {
+    border-bottom: 3px solid #0c5785;
+}
+*/
+
+.col-md-cx DIV#boxEvidenza {
+    width: 100%;
+    background-color: #f0f0f0;
+    border-right: 1px solid #ebeaea;
+    border-left: 1px solid #ebeaea;
+    border-bottom: 1px solid #ebeaea;
+}
+
+
+
+    .col-md-cx DIV#boxEvidenza DIV.boxNews {
+    	width: 342px;
+		float: left;
+		margin: 23px 0 20px 22px;
+    }
+
+        .col-md-cx DIV#boxEvidenza DIV.boxNews DIV IMG {
+            border: 1px solid #8c8c8c;
+        }
+
+        .col-md-cx DIV#boxEvidenza DIV.boxNews DIV.date {
+            font-size: 12px;
+            color: #7a7a7a;
+        }
+
+        .col-md-cx DIV#boxEvidenza DIV.boxNews A.title-news {
+            font-size: 17px;
+            color: #5d162f;
+            line-height: 17px;
+            font-weight: 600;
+            text-decoration: none;
+            height: 52px;
+            overflow: hidden;
+            display: block;
+        }
+
+            .col-md-cx DIV#boxEvidenza DIV.boxNews A.title-news:HOVER {
+                text-decoration: underline;
+            }
+
+.col-md-dx {
+	width: 32.7%;
+    float: right;
+    /*margin-top: 25px;*/
+}
+
+    .search-col-dx {
+        text-align: left;
+		background-color:#f0f0f0;
+	    padding: 20px 0 50px 18px;
+    }
+
+
+    .col-md-dx DIV.title-search {
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        color: #0c5785;
+        font-size: 16px;
+		font-weight:bold;
+		padding-left:5px;
+    }
+
+.box-sezioni-col-dx {
+    padding-top: 36px;
+}
+
+    .box-sezioni-col-dx DIV#HatSez {
+        height: 40px;
+    	padding: 7px 0 0px 10px;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        font-weight: 600;
+        font-size: 20px;
+        color: #FFFFFF;
+        background-color: #5d162f;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        text-transform: uppercase;
+    }
+
+    .box-sezioni-col-dx DIV.BgSingleSez {
+        background: #ffffff;
+        /*text-align: center;*/
+        box-shadow: inset 0 0 0 0 #e2e2e2;
+        -webkit-transition: all ease 0.8s;
+        -moz-transition: all ease 0.8s;
+        transition: all ease 0.8s;
+        height: 55px;
+        margin-bottom: 0px;
+        border-bottom: 1px dotted #484848;
+    }
+
+        .box-sezioni-col-dx DIV.BgSingleSez:hover {
+            /*box-shadow: inset 0 100px 0 0 #e2e2e2; hover da sopra a sotto*/
+            box-shadow: inset 200px 100px 0 0 #e2e2e2; /*hover in diagonale*/
+            color: #e3e1e1;
+        }
+
+        .box-sezioni-col-dx DIV.BgSingleSez DIV.BoxImg {
+            float: left;
+            padding: 5px 0px 0 4px;
+            width: 53px;
+        }
+
+        .box-sezioni-col-dx DIV.BgSingleSez .BoxImg img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .box-sezioni-col-dx DIV.BgSingleSez DIV.sezPad {
+            padding: 15px 0px 0px 5px;
+        }
+
+
+        .box-sezioni-col-dx DIV.BgSingleSez A.nameSez {
+            font-size: 17px;
+            color: #494949;
+            text-decoration: none;
+        }
+
+
+INPUT.search {
+    width: 294px;
+    border: 1px solid #cfcfcf;
+    color: #666;
+    font-size: 14px;
+    padding: 3px 0 5px 0;
+}
+
+INPUT.btn-search {
+    background: url(img/searchProject.png);
+    background-repeat: no-repeat;
+    background-position: left top;
+    margin: -2px 0px 0px -4px;
+    width: 49px;
+    height: 30px;
+    text-indent: -9999px;
+    border: 0px;
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+INPUT.btn-procedura {
+    background: url(img/searchProcedura.png);
+    background-repeat: no-repeat;
+    background-position: left top;
+    margin: 0px 0px 0px 0px;
+    width: 49px;
+    height: 30px;
+    text-indent: -9999px;
+    border: 0px;
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+DIV.BloccoConsulazionePub {
+    margin-top: 14px;
+	/*padding: 0 15px 0 15px;*/
+}
+
+    DIV.BloccoConsulazionePub DIV.boxTextVIA {
+        width: 89%;
+    }
+
+    DIV.BloccoConsulazionePub DIV.SezConsulazionePub {
+        width: 49%;
+        float: left;
+        margin: 10px 0 10px 8px;
+    }
+
+        DIV.BloccoConsulazionePub DIV.SezConsulazionePub DIV.BoxIconVIA {
+            float: left;
+            margin: 4px 5px 0px 0px;
+			background-color: #e7e7e8;
+			padding: 5px 6px 5px 5px;
+        }
+
+        DIV.BloccoConsulazionePub DIV.SezConsulazionePub DIV.titleVIA {
+            font-size: 14px;
+            color: #5d162f;
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-weight: bold;
+        }
+
+        DIV.BloccoConsulazionePub DIV.SezConsulazionePub DIV.textVIA {
+            line-height: 15px;
+        }
+
+
+            DIV.BloccoConsulazionePub DIV.SezConsulazionePub DIV.textVIA A {
+                font-size: 13px;
+                color: #0c5785;
+                text-decoration: none;
+                font-weight: bold;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+                DIV.BloccoConsulazionePub DIV.SezConsulazionePub DIV.textVIA A:HOVER {
+                    text-decoration: underline;
+                }
+
+
+        DIV.BloccoConsulazionePub DIV.SezConsulazionePub DIV.dateVIA {
+            font-size: 12px;
+            color: #3c3c3c;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+            DIV.BloccoConsulazionePub DIV.SezConsulazionePub DIV.dateVIA SPAN {
+                font-size: 11px;
+                color: #5d162f;
+            }
+
+            DIV.BloccoConsulazionePub DIV.SezConsulazionePub DIV.dateVIA UL#icons {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+
+                DIV.BloccoConsulazionePub DIV.SezConsulazionePub DIV.dateVIA UL#icons LI {
+                    float: left;
+                    padding: 0px 1px;
+                }
+
+                    DIV.BloccoConsulazionePub DIV.SezConsulazionePub DIV.dateVIA UL#icons LI A {
+                        display: block;
+                        /*text-align: center;*/
+                        padding: 0 3px 0 3px;
+                        width: 22px;
+                        height: 22px;   
+                    }
+
+/***********TOOLTIP****************/
+.tooltip {
+    position: relative;
+    display: inline-block;
+    /*border-bottom: 1px dotted black;*/
+}
+
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 332px;
+        background-color: #f4f3f3;
+        color: #474646;
+        font-size: 11px;
+        text-align: justify;
+        border-radius: 6px;
+        padding: 5px 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 17%;
+        margin-left: -60px;
+        opacity: 0;
+        transition: opacity 1s;
+        -webkit-box-shadow: -1px 6px 18px -1px rgba(0,0,0,0.75);
+        -moz-box-shadow: -1px 6px 18px -1px rgba(0,0,0,0.75);
+        box-shadow: -1px 6px 18px -1px rgba(0,0,0,0.75);
+    }
+
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #f4f3f3 transparent transparent transparent;
+        }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+
+
+
+/***********FINE TOOLTIP****************/
+
+/*********************************************************************************************/
+
+@media screen and (max-width: 767px) {
+    DIV DIV.boxServiziWebGisVAS {
+        float: none;
+        width: 100%;
+        text-align: -webkit-center;
+    }
+
+    DIV.boxServiziWebGisVIA {
+        float: none;
+        width: 100%;
+        text-align: -webkit-center;
+    }
+
+
+    .container {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    .row {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    DIV#boxMacroAree {
+        width: 100%;
+    }
+
+        DIV#boxMacroAree DIV.ContainerCircle {
+            width: 33%;
+            margin-top: 8px;
+            float: left;
+        }
+
+
+    .col-md-cx {
+        width: 100%;
+        float: none;
+    }
+
+    DIV#boxEvidenza {
+        text-align: center;
+    }
+
+    .col-md-cx DIV#boxEvidenza DIV.boxNews {
+        width: 100%;
+        float: none;
+        margin: 6px 0px 0px 0px;
+    }
+
+    .col-md-dx {
+        width: 100%;
+        float: none;
+        margin-top: 29px;
+    }
+
+    .content {
+        padding: 0px 0px 0px 0px;
+    }
+
+    .box-sezioni-col-dx DIV.BgSingleSez:hover {
+        box-shadow: inset 300px 150px 0 0 #e2e2e2;
+        color: #e3e1e1;
+    }
+
+    .search-col-dx {
+        text-align: left;
+    }
+
+    INPUT.search {
+        width: 93% !important;
+    }
+
+    INPUT.btn-procedura {
+        margin: 0px 0px 0px -8px;
+    }
+
+    INPUT.btn-search {
+        margin: -2px 0px 0px -12px;
+    }
+
+    DIV.titleSezCX {
+        font-size: 26px;
+        /*text-align: center;*/
+    }
+
+    .tooltip {
+        position: relative;
+        display: block;
+        /* border-bottom: 1px dotted black; */
+    }
+
+    DIV.BloccoConsulazionePub DIV.SezConsulazionePub {
+        width: 98%;
+        float: left;
+        margin: 10px 0 10px 8px;
+    }
+}
+
+@media screen and (max-width: 570px) {
+
+    DIV.boxServiziWebGisVAS {
+        float: none;
+        width: 100%;
+    }
+
+    DIV.boxServiziWebGisVIA {
+        float: none;
+        width: 100%;
+    }
+
+    .container {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+
+    DIV#boxMacroAree {
+        width: 100%;
+    }
+
+        DIV#boxMacroAree DIV.ContainerCircle {
+            width: 50%;
+            margin-top: 8px;
+            float: left;
+        }
+
+    .col-md-cx {
+        width: 100%;
+        float: none;
+    }
+
+    DIV#boxEvidenza {
+        text-align: center;
+    }
+
+    .col-md-cx DIV#boxEvidenza DIV.boxNews {
+        width: 100%;
+        float: none;
+        margin: 6px 0px 0px 0px;
+    }
+
+    .col-md-dx {
+        width: 100%;
+        float: none;
+        margin-top: 29px;
+		border:1px solid red;
+    }
+
+    .content {
+        padding: 0px 0px 0px 0px;
+    }
+
+    .box-sezioni-col-dx DIV.BgSingleSez:hover {
+        box-shadow: inset 300px 150px 0 0 #e2e2e2;
+        color: #e3e1e1;
+    }
+
+    .search-col-dx {
+        text-align: center;
+    }
+
+    INPUT.search {
+        width: 88% !important;
+    }
+
+    INPUT.btn-procedura {
+        margin: 0px 0px 0px -10px;
+    }
+
+    DIV.titleSezCX {
+        font-size: 18px;
+        /*text-align: center;*/
+    }
+
+    .blueLine {
+        border-bottom: 1px solid #0c5785;
+    }
+
+    .tooltip {
+        position: relative;
+        display: block;
+        /* border-bottom: 1px dotted black; */
+    }
+
+    .tooltip {
+        position: relative;
+        display: block;
+        /* border-bottom: 1px dotted black; */
+    }
+
+    DIV.BloccoConsulazionePub DIV.SezConsulazionePub {
+        width: 98%;
+        float: left;
+        margin: 10px 0 10px 8px;
+    }
+
+    DIV.BloccoConsulazionePub DIV.boxTextVIA {
+        width: 71%;
+    }
+
+    DIV.BloccoConsulazionePub DIV.SezConsulazionePub DIV.textVIA A {
+        font-size: 11px;
+    }
+
+    DIV.BloccoConsulazionePub DIV.SezConsulazionePub DIV.titleVIA {
+        font-size: 13px;
+    }
+
+    .box-sezioni-col-dx DIV#HatSez {
+        height: 31px;
+        padding: 5px 0 0px 5px;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        font-weight: 600;
+        font-size: 17px;
+        color: #FFFFFF;
+        background-color: #0c5785;
+        text-transform: uppercase;
+    }
+
+    .col-md-dx DIV.title-search {
+        text-align: left;
+    }
+
+    .box-sezioni-col-dx DIV.BgSingleSez DIV.sezPad {
+        padding: 17px 0px 0px 5px;
+    }
+
+    .box-sezioni-col-dx DIV.BgSingleSez A.nameSez {
+        font-size: 15px;
+    }
+
+    DIV.BloccoConsulazionePub DIV.SezConsulazionePub DIV.dateVIA SPAN {
+        font-size: 10px;
+    }
+
+    DIV.BloccoConsulazionePub DIV.SezConsulazionePub DIV.dateVIA {
+        font-size: 10px;
+    }
+
+    DIV#boxMacroAree DIV.ContainerCircle DIV.txtCircle {
+        text-align: center;
+        margin-top: 5px;
+    }
+}

@@ -1,0 +1,64 @@
+
+
+DIV#container_button_slider DIV.line H1 {
+    font-size: 27px;
+}
+
+DIV#titleSite {
+    float: right;
+}
+
+    DIV#titleSite H1 {
+        font-size: 21px;
+        margin-top: 23px;
+    }
+
+        DIV#titleSite H1 STRONG {
+            white-space: nowrap;
+        }
+
+@media only screen and (max-width: 1200px) and (min-width: 1025px) {
+    DIV#titleSite {
+    }
+
+        DIV#titleSite H1 {
+            font-size: 17px;
+            text-align: right;
+        }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+    DIV#titleSite {
+        width: 63%;
+    }
+
+        DIV#titleSite H1 {
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 0px;
+            text-align: right;
+        }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+    DIV#container_button_slider DIV.line H1 {
+        font-size: 23px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    DIV#container_button_slider DIV.line H1 {
+        font-size: 24px;
+    }
+
+    DIV#titleSite H1 {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 570px) {
+    DIV#container_button_slider DIV.line H1 {
+        font-size: 22px;
+    }
+}

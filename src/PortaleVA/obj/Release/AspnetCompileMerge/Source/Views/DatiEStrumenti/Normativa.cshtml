@@ -1,0 +1,111 @@
+﻿@model VAPortale.Models.DatiEstrumentiTabModel
+@using VALib.Domain.Entities.DatiAmbientali
+
+@{
+    ViewBag.Title = Model.VoceMenu.GetNome();
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+
+<div class="line_small_title">
+    <h2>@Model.VoceMenu.GetNome()</h2>
+</div>
+<div class="clear"></div>
+
+@if (CultureHelper.GetCurrentCultureShortName().Equals("it", StringComparison.InvariantCultureIgnoreCase))
+{
+    <p>
+        Sono forniti i principali riferimenti normativi che disciplinano le valutazioni
+        ambientali (VAS e VIA) a livello internazionale, europeo e nazionale.
+    </p>
+}
+else
+{
+    <p>
+        Main international, European and national normative references related to environmental
+        assessments (SEA and EIA )
+    </p>
+}
+
+@{ Html.RenderAction("PartialTab", "DatiEStrumenti", new { elencoID = Model.Elenco.ID, voce = Model.VoceMenu.Voce }); }
+
+<div class="tab-content sezioneTabelle">
+    <h3>@DizionarioService.RICERCA_TitoloRicerca</h3>
+    <div class="areaRicerca modelloEsteso">
+        @using (Html.BeginForm("Normativa", "DatiEStrumenti", FormMethod.Get))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(m => m.NomeElenco)
+            <div class="bgInput">
+                <div class="tema ie9">
+                    <label for="Testo">@DizionarioService.RICERCA_LabelTesto</label>
+                    @Html.TextBoxFor(m => m.Testo, new { @class = "cerca" })
+                    <input type="image" class="btn-search" alt="@DizionarioService.RICERCA_BottoneEsegui" src="@Url.VAContent("button_search.png?v=4")" />&nbsp;
+                </div>
+            </div>
+        }
+    </div>
+
+    <br /><br />
+
+    <div class="table-responsive">
+        <table class="table Normativa">
+            <thead>
+                <tr>
+                    <th>@DizionarioService.GRIGLIA_ColonnaTitolo</th>
+                    <th>@DizionarioService.GRIGLIA_ColonnaArgomento</th>
+                    <th>@DizionarioService.GRIGLIA_ColonnaDimensione</th>
+                    <th><span class="hidden">@DizionarioService.TOOLTIP_Metadato</span></th>
+                    <th><span class="hidden">@DizionarioService.METADATO_LabelDocumento</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (DocumentoCondivisione d in Model.Risorse)
+                {
+                    <tr>
+                        <td>@d.Titolo</td>
+                        <td>@d.Soggetto</td>
+                        <td>
+                            @Html.Raw(d.Dimensione.HasValue ? string.Format("{0} kB", d.Dimensione.Value) : "-")
+                        </td>
+                        <td>
+                            <a title="@DizionarioService.TOOLTIP_Metadato" href="@Url.Action("MetadatoRisorsaCondivisione", new { id = d.ID})" class="icona-metadato"></a>
+                        </td>
+                        <td>
+                            <a class="@DatiAmbientaliUtils.CssClassForIDTipoContenutoRisorsa(d.TipoContenutoRisorsa.ID)" title="download @d.Titolo" href="@d.GetUrl()">@d.TipoContenutoRisorsa.Nome</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="area_sotto_tabella">
+        <div class="buttonBackground">
+            @Html.VaEsporta(x => Url.Action("Normativa", x))
+        </div>
+        <div class="paginatore">
+            @Html.VaPaginatore(Model.Pagina, Model.DimensionePagina, Model.TotaleRisultati, "pagina", x => Url.Action("Normativa", x))
+        </div>
+        <div class="visualizza_pagina"></div>
+    </div>
+
+</div>
+@if (CultureHelper.GetCurrentCultureShortName().Equals("it", StringComparison.InvariantCultureIgnoreCase))
+{
+    <p>
+        <em>
+            L'unica fonte ufficiale degli atti normativi forniti è la Gazzetta Ufficiale dell'Unione
+            Europea per la normativa comunitaria e la Gazzetta Ufficiale della Repubblica Italiana
+            per la normativa nazionale.
+        </em>
+    </p>
+}
+else
+{
+    <p>
+        <em>
+            The only official source of the acts provided is the Official Journal of the European Union
+            for EU regulations and the Official Journal of the Italian Republic for national regulations.
+        </em>
+    </p>
+}

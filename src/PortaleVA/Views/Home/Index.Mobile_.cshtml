@@ -1,0 +1,143 @@
+﻿@model VAPortale.Models.HomeIndexModel
+
+@{
+    ViewBag.Title = "Home";
+}
+
+        @{ Html.RenderAction("Carosello", "Home"); }
+
+
+<div class="container">
+    @{Html.RenderPartial("MacroAree");}
+
+    <!------------ Blocco centrale sezione IN EVIDENZA ---------------->
+    <div class="col-md-cx">
+        <div class="titleSezCX">@DizionarioService.HOME_inEvidenza</div>
+        <div id="boxEvidenza">
+
+            @{ int c = 0;}
+
+            @foreach (WidgetCorrelato widget in Model.Widget.Where(w => w.Widget.Tipo == TipoWidget.InEvidenza).Take(4).ToList())
+            {
+                Html.RenderAction("Widget", "Shared", new { widget = widget.Widget });
+                c++;
+                if ((c % 2) == 0)
+                {
+                    <text><div class="clear"></div></text>
+                }
+            }
+
+        </div>
+    </div>
+
+
+    <div class="col-md-dx">
+        <div class="search-col-dx">
+
+
+            @using (Html.BeginForm("ViaVas", "Ricerca", FormMethod.Get))
+            {
+
+                <div class="title-search">@DizionarioService.HOME_LabelRicercaOrizzontale</div>
+                    <label for="ricercaOrizzontale" style="display:none">@DizionarioService.HOME_LabelRicercaOrizzontale</label>
+                    <input type="text" name="Testo" id="ricercaOrizzontale" class="search" />
+                    <input type="image" class="btn-search" alt="@DizionarioService.RICERCA_BottoneEsegui" src="@Url.VAContent("button_search.png")" />
+
+            }
+            <br />
+
+
+
+            <div class="title-search">@DizionarioService.RICERCA_LabelCodiceProcedura</div>
+            <label for="codiceProcedura" style="display:none">Codice Procedura</label>
+
+
+            @using (Html.BeginForm("CercaOggettoPerViperaID", "Oggetti", FormMethod.Post, new { id = "form-cercaIdVipera", @class = "cercaWidget cerca" }))
+            {
+                <div class="form-group">
+                    <label for="input-cercaIdVipera" style="display:none">@DizionarioService.RICERCA_LabelTesto</label>
+                    @if (CultureHelper.GetCurrentCultureShortName().Equals("it", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        <input type="text" name="viperaID" value="@UrlData[0]" id="input-cercaIdVipera" class="search vipera it" />
+                    }
+                    else
+                    {
+                        <input type="text" name="viperaID" value="@UrlData[0]" id="input-cercaIdVipera" class="search vipera en" />
+                    }
+                    <input type="hidden" name="macroTipoOggettoID" value="" />
+                    <input type="submit" class="btn-procedura" value="@DizionarioService.RICERCA_BottoneEsegui" />
+                </div>
+
+                        <p id="span-messaggio" style="display: none"></p>
+            }
+            <br />
+
+
+        </div>
+
+        <div class="box-sezioni-col-dx">
+            <div id="HatSez">Sezioni</div>
+
+            @foreach (WidgetCorrelato widget in Model.Widget.Where(w => w.Widget.Tipo == TipoWidget.Sezione))
+            {
+                Html.RenderAction("Widget", "Shared", new { widget = widget.Widget });
+            }
+
+        </div>
+
+    </div>
+
+    <div class="clear"></div>
+
+    <!---------------Blocco in consultazione pubblica---------------------->
+    <div class="BloccoConsulazionePub">
+        <div class="titleSezCX blueLine">in consultazione</div>
+
+        @{ Html.RenderAction("ElencoOggetti", "Home", new { Oggetti = Model.OggettiVIA, TipoElenco = TipoElencoEnum.HomeOggettiVia, MacroTipoOggetto = MacroTipoOggettoEnum.Via }); }
+        @{ Html.RenderAction("ElencoOggetti", "Home", new { Oggetti = Model.OggettiVAV, TipoElenco = TipoElencoEnum.HomeOggettiAssoggettabilitaVia, MacroTipoOggetto = MacroTipoOggettoEnum.Via }); }
+        @{ Html.RenderAction("ElencoOggetti", "Home", new { Oggetti = Model.OggettiVAS, TipoElenco = TipoElencoEnum.HomeOggettiVas, MacroTipoOggetto = MacroTipoOggettoEnum.Vas }); }
+
+        <div class="clear"></div>
+    </div>
+</div>
+</div>
+
+<script type="text/javascript">
+    var formCerca = null;
+    var spanMessaggio = null;
+
+    $(function () {
+    formCerca = $("#form-cercaIdVipera");
+    spanMessaggio = $("#span-messaggio");
+
+    formCerca.submit(function () {
+            $.post(formCerca.attr("action"),
+                    formCerca.serialize(),
+                    function (data) {
+            if (data != null) {
+
+                if (data[0] > 0) {
+                    var url = '@Url.Action("Info", "Oggetti", new { id = -1 })';
+                    url = url.replace("-1", data[0]);
+                    window.top.location.href = url;
+                }
+                else {
+                    spanMessaggio.text(data[1]);
+                    spanMessaggio.show('fast');
+                }
+            }
+        },
+                    "json"
+                );
+
+        return false;
+    });
+
+    formCerca.find(".btn").click(function () {
+        formCerca.submit();
+        return false;
+    });
+
+});
+</script>
+<noscript><!--Caricamento libreria per il form Cerca --></noscript>

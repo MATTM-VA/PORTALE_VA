@@ -1,0 +1,56 @@
+﻿@model VAPortale.Models.SharedMenuNavigazioneModel
+<div id="menuServizio" class="navbar navbar-default">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header collapsed">
+        <button type="button" class="navbar-toggle">
+            <span class="icon-bar">&nbsp;</span>
+            <span class="icon-bar">&nbsp;</span>
+            <span class="icon-bar">&nbsp;</span>
+            <span class="sr-only">Toggle navigation</span>
+        </button>
+       <!-- <a class="navbar-brand visible-xs" href="#">@DizionarioService.SITO_TestoMenuServizio</a> -->
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="menuServizioLinks">
+        <ul class="nav navbar-nav">
+        @foreach (VoceMenu voce in Model.VociMenu)
+        {
+            string cssClass = "";
+
+            if (voce.Voce.Equals(Model.NomeVoce, StringComparison.OrdinalIgnoreCase))
+            {
+                cssClass = "active";
+            }
+
+            if (voce.Editabile)
+            {
+            <li class="@cssClass"><a title="@voce.GetDescrizione()" href="@Url.RouteUrl("PaginaStatica", new { nomeSezione = voce.Sezione, nomeVoce = voce.Voce })">@voce.GetNome()</a></li>
+            }
+            else
+            {
+            <li class="@cssClass"><a title="@voce.GetDescrizione()" href="@Url.Action(voce.Voce, voce.Sezione)">@voce.GetNome()</a></li>
+            }
+        }
+            <li>
+                <a href="http://www.minambiente.it" class="external" title="www.minambiente.it">www.minambiente.it</a>
+            </li>
+        </ul>
+        @using (Html.BeginForm("CercaSito", "Home", FormMethod.Get, new { @class = "navbar-form navbar-right cerca" }))
+        {
+            <div class="form-group">
+            <label for="input-ricerca-sito" style="display:none">@DizionarioService.RICERCA_LabelTesto</label>
+            @if (CultureHelper.GetCurrentCultureShortName().Equals("it", StringComparison.InvariantCultureIgnoreCase))
+            {
+                <input type="text" class="form-control it" name="testo" id="input-ricerca-sito" />
+            }
+            else
+            {
+                <input type="text" class="form-control en" name="testo" id="input-ricerca-sito" />
+            }
+            <input type="submit" class="btn btn-default btn-cerca" value="@DizionarioService.RICERCA_BottoneEsegui" />
+            </div>
+        }
+    </div>
+    <!-- /.navbar-collapse -->
+</div>

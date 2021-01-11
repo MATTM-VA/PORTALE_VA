@@ -1,0 +1,323 @@
+.icona-mappa-interattiva, .icona-metadato, .icona-scarica-provvedimento, .icona-calendario, .icona-dettagli-progetto, .icona-documentazione-tecnico-amm, .icona-documentazione-tecnico-amm-none, .icona-google-earth, .icona-info-progetto, .icona-wms, .icona-localizzatore, .icona-mail, .icona-sintesi-non-tecnica, .icona-dettaglio-procedura, .icona-descrizione-progetto, .icona-localizzatoreViaVasCorso, .icona-wms-wfs  {
+	width: 22px;
+    height: 22px;
+	font-size:0!important;
+    line-height: 0;
+	display:inline-block;
+	overflow:hidden;
+	text-indent: 9999px;
+}
+
+.icona-mdb, .icona-pdf, .icona-png, .icona-tif, .icona-web, .icona-zip, .icona-avi, .icona-doc, .icona-dwf,
+.icona-dwg, .icona-excel, .icona-gelab, .icona-generica, .icona-jpg,
+.icona-7z,.icona-bmp, .icona-dxf, .icona-gif, .icona-mdi, .icona-msg, .icona-msg.png,
+.icona-ppsx, .icona-ppt, .icona-rar, .icona-tif, .icona-tiff, .icona-txt, .icona-xlsx {
+	width: 22px;
+    height: 22px;
+	display: block;
+	text-indent:-9999px;
+	display:inline-block;
+	overflow:hidden;
+}
+
+.icona-mappa-interattiva{
+	background-image: url('images/icona-mappa-interattiva.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-mdb{
+	background-image: url('images/icona-mdb.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-metadato{
+	background-image: url('images/icona-metadato.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-pdf{
+	background-image: url('images/icona-pdf.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-png{
+	background-image: url('images/icona-png.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-scarica-provvedimento{
+	background-image: url('images/icona-scarica-provvedimento.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-tif{
+	background-image: url('images/icona-tif.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-web{
+	background-image: url('images/icona-web.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+/*.icona-wms{
+	background-image: url('images/icona-wms.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}*/
+
+.icona-zip{
+	background-image: url('images/icona-zip.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-avi{
+	background-image: url('images/icona-avi.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-calendario{
+	background-image: url('images/icona-calendario.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-dettagli-progetto{
+	background-image: url('images/icona-dettagli-progetto.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-doc{
+	background-image: url('images/icona-doc.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-documentazione-tecnico-amm{
+	background-image: url('images/icona-documentazione-tecnico-amm.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-documentazione-tecnico-amm-none{
+    background-image: url('images/icona-documentazione-tecnico-amm-none.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+    border-left: 0px solid #FFF!important;
+}
+
+
+.icona-dwf{
+	background-image: url('images/icona-dwf.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-dwg{
+	background-image: url('images/icona-dwg.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-excel{
+	background-image: url('images/icona-excel.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-gelab{
+	background-image: url('images/icona-zip.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-generica{
+	background-image: url('images/icona-generica.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-google-earth{
+	background-image: url('images/icon_google_earth.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-info-progetto{
+	background-image: url('images/icon_info.png'); 
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-jpg{
+	background-image: url('images/icona-jpg.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-localizzatore{
+	background-image: url('images/icon_small_map.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-localizzatoreViaVasCorso {
+    background-image: url('images/icon_mappa_interattiva.png');
+    background-repeat: no-repeat;
+    /*background-position: 1px 2px;*/
+    /* background-position: center center; */
+	background-position:top left;
+}
+    A.icona-localizzatoreViaVasCorso {
+        /*padding: 3px 10px 12px 25px;*//* icona in sez. procedure-ViaVasInCorso */
+    }
+
+
+.icona-wms-wfs {
+    background-image: url('images/icon_wms_wfs.png');
+    background-repeat: no-repeat;
+	background-position:top left;
+}
+
+.icona-mail{
+	background-image: url('images/icona-mail.png');
+	background-repeat:no-repeat;
+	background-position: center center;
+}
+
+.icona-sintesi-non-tecnica{
+	background-image: url('images/icon_small_download.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-testo{padding-left:25px; text-indent:0; width:100%; vertical-align: middle; line-height: 1.428571429; font-size:13px;}
+
+.icona-margine{margin:0 5px 0 0;}
+
+.icona-dettaglio-procedura{
+	background-image: url('images/icona-dettaglio-procedura.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-descrizione-progetto{
+	background-image: url('images/icon_small_info.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-dettaglio-procedura:hover{cursor:pointer;}
+
+
+
+
+
+.icona-7z{
+	background-image: url('images/icona-7z.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+
+.icona-bmp{
+	background-image: url('images/icona-bmp.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-dwfx{
+	background-image: url('images/icona-dwfx.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-dxf{
+	background-image: url('images/icona-dxf.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-gif{
+	background-image: url('images/icona-gif.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-mdi{
+	background-image: url('images/icona-mdi.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-msg{
+	background-image: url('images/icona-msg.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-P7M{
+	background-image: url('images/icona-P7M.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-ppsx{
+	background-image: url('images/icona-ppsx.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-ppt{
+	background-image: url('images/icona-ppt.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-rar{
+	background-image: url('images/icona-rar.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-tif{
+	background-image: url('images/icona-tif.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-tiff{
+	background-image: url('images/icona-tiff.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-txt{
+	background-image: url('images/icona-txt.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+.icona-xlsx{
+	background-image: url('images/icona-xlsx.png');
+	background-repeat:no-repeat;
+	background-position:top left;
+}
+
+
+
+
+
+
+

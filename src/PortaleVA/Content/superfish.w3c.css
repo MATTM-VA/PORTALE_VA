@@ -1,0 +1,105 @@
+/*** ESSENTIAL STYLES ***/
+.sf-menu, .sf-menu * {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.sf-menu li {
+	position: relative;
+	white-space: nowrap;
+	-webkit-transition: background .2s;
+	transition: background .2s;
+	z-index:9999;
+}
+.sf-menu ul {
+	position: absolute;
+	display: none;
+	top: 100%;
+	left: 0;
+	z-index:9999;
+}
+.sf-menu li:hover > ul,
+.sf-menu li.sfHover > ul {
+	display: block;
+}
+
+.sf-menu a {
+	display: block;
+	position: relative;
+}
+.sf-menu ul ul {
+	top: 0;
+	left: 100%;
+}
+
+
+/*** DEMO SKIN ***/
+.sf-menu ul {
+	background-color:#104b72;
+}
+.sf-menu a {
+	text-decoration: none;
+}
+
+.sf-menu ul li {
+}
+
+.sf-menu ul li a {
+	color: #fff;
+	font-weight:normal;
+	font-size:12px;
+	text-transform:none;
+	padding: 13px 25px;
+}
+
+#menuPrincipaleLinks .sf-menu ul li{float:none; border-bottom:1px solid #0e3e59}
+
+.sf-menu ul ul li {
+	background:#104b72;
+}
+
+#menuPrincipaleLinks .sf-menu ul li a:hover, #menuPrincipale .sf-menu ul li:hover {
+	background:#0d4663;
+	text-decoration: underline;
+}
+
+.sf-menu li:hover,
+.sf-menu li.sfHover {
+	background: #0D4663;
+	-webkit-transition: none;
+	transition: none;
+}
+
+/*** arrows (for all except IE7) **/
+.sf-arrows .sf-with-ul {
+	padding-right: 2.5em;
+}
+/* styling for both css and generated arrows */
+.sf-arrows .sf-with-ul:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 1em;
+	margin-top: -3px;
+	height: 0;
+	width: 0;
+}
+.sf-arrows > li > .sf-with-ul:focus:after,
+.sf-arrows > li:hover > .sf-with-ul:after,
+.sf-arrows > .sfHover > .sf-with-ul:after {
+}
+/* styling for right-facing arrows */
+.sf-arrows ul .sf-with-ul:after {
+	margin-top: -5px;
+	margin-right: -3px;
+	border-color: transparent;
+	border-left-color: rgba(255,255,255,.5);
+}
+.sf-arrows ul li > .sf-with-ul:focus:after,
+.sf-arrows ul li:hover > .sf-with-ul:after,
+.sf-arrows ul .sfHover > .sf-with-ul:after {
+	border-left-color: white;
+}
+
+
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

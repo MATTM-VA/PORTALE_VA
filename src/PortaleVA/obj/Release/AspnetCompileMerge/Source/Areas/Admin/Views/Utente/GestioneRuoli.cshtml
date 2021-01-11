@@ -1,0 +1,60 @@
+﻿@model VAPortale.Areas.Admin.Models.GestioneRuoliModel
+
+@{
+    ViewBag.Title = "GestioneRuoli";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Gestione Ruoli utente: @Model.Utente.NomeUtente</h2> 
+
+   <h2>@Html.ActionLink("Scheda Utente", "ModificaUtente", new { id = Model.UtenteID })</h2> 
+
+    <div id="corpo" class="contenuto">
+        <input type="hidden" id="utenteId" value="@Model.UtenteID" />
+        <table class="edita principale">
+
+            @foreach (VALib.Domain.Entities.Membership.RuoloUtente ru in Model.RuoliUtente)
+            {
+                <tr>
+                    <th class="obbligatorio">
+                        @Html.Label(ru.Nome)
+                    </th>
+                    <th>
+                        <input type="checkbox" name="chk-ruolo" data-ruoloid="@ru.RuoloUtenteID"
+                               @Html.Raw(Model.Utente.RuoliUtente.Any(x => x.RuoloUtenteID == ru.RuoloUtenteID) ? "checked" : "")
+                               @Html.Raw((ru.Codice.Equals(VALib.Domain.Entities.Membership.RuoloUtenteCodici.GestoreUtenti) && Model.UtenteCorrente) ? "disabled" : "") />
+                        <span name="span-aggiornato" style="color:green;display:none">  Aggiornato</span>
+                    </th>
+
+                </tr>
+            }
+
+        </table>
+    </div>
+
+    <script>
+        $(function () {
+            var chkRuolo = $("[name='chk-ruolo']");
+
+            chkRuolo.change(function () {
+                var chk = $(this);
+                var utenteID = $("#utenteId").val();
+                var ruoloUtenteID = chk.data("ruoloid");
+                var aggiungi = chk.prop("checked");
+
+                $.post(
+                    "@Url.Action("AggiornaPermesso","Utente")",
+                    { utenteID: utenteID, ruoloUtenteID: ruoloUtenteID, aggiungi: aggiungi },
+                    function (result) {
+                        if (result.status == "Ok") {
+                            chk.siblings("[name='span-aggiornato']").show().delay(2000).fadeOut(300);
+                        }
+                        else {
+                            alert(result.message);
+                        }
+                    },
+                    "json"
+               );
+            });
+        });
+    </script>

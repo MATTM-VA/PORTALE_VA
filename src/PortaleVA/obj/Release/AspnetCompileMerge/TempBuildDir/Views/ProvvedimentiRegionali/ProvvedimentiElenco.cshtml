@@ -1,0 +1,130 @@
+﻿@model VAPortale.Models.ProcedureProvvedimentiElencoModel
+
+@{
+    ViewBag.Title = Model.VoceMenu.GetNome();
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";    
+}
+
+@if (CultureHelper.GetCurrentCultureShortName().Equals("it", StringComparison.InvariantCultureIgnoreCase))
+{
+    <script src="@Url.VAScript("jquery-ui-datepicker-it.js")"></script>
+}
+<script>
+
+    $(function () {
+        $("#input-dataDa").datepicker({
+            dateFormat: 'dd-mm-yy',
+            showOn: "both",
+            buttonImage: "@Url.VAContent("icona-calendario.png?v=4")",
+            buttonImageOnly: true,
+            buttonText: '@DizionarioService.TOOLTIP_TooltipSelezionaData'
+        });
+        $("#input-dataA").datepicker({
+            dateFormat: 'dd-mm-yy',
+            showOn: "both",
+            buttonImage: "@Url.VAContent("icona-calendario.png?v=4")",
+            buttonImageOnly: true,
+            buttonText: '@DizionarioService.TOOLTIP_TooltipSelezionaData'
+        });
+    });
+</script>
+
+<div class="line_small_title">
+    <h2>@Model.VoceMenu.GetNome()</h2>
+</div>
+<div class="clear"></div>
+
+<div class="areaRicerca modelloEsteso">
+    @using (Html.BeginForm(Model.VoceMenu.Voce, "ProvvedimentiRegionali", FormMethod.Get))
+    {
+        @Html.AntiForgeryToken()
+        <div class="bgInput">
+            <div class="testo_ricerca ie9">
+                <label for="input-dataDa">@DizionarioService.RICERCA_LabelSceltaDataDa</label>
+                @Html.TextBoxFor(m => m.DataDa, new { @id = "input-dataDa", @class = "scegliData" })&nbsp;&nbsp;
+                <label for="input-dataA">@DizionarioService.RICERCA_LabelSceltaDataA</label>
+                @Html.TextBoxFor(m => m.DataA, new { @id = "input-dataA", @class = "scegliData" })&nbsp;&nbsp;
+
+                <label for="select-procedura">@DizionarioService.RICERCA_LabelSceltaProcedura</label>
+                <select name="proceduraID" id="select-procedura" class="cerca">
+                    @foreach (SelectListItem i in Model.ProcedureSelectList)
+                    {
+                        <option value="@i.Value">@i.Text</option>
+                    }
+                </select>
+
+            </div>
+            <div class="testo_ricerca ie9">
+                
+                <label for="select-settore">@DizionarioService.OGGETTO_LabelTipologia</label>
+                <select name="TipologiaID" class="cerca" id="select-settore">
+                    @foreach (SelectListItem i in Model.CategorieInstallazioneSelectList)
+                    {
+                        <option value="@i.Value">@i.Text</option>
+                    }
+                </select>
+                &nbsp;&nbsp;           
+                <label for="Testo">@DizionarioService.RICERCA_LabelTesto</label>
+                @Html.TextBoxFor(m => m.Testo, new { @class = "cerca" })
+                <input type="image" class="btn-search" alt="@DizionarioService.RICERCA_BottoneEsegui" src="@Url.VAContent("button_search.png?v=4")" />
+            </div>
+        </div>
+    }
+</div>
+
+<h3 class="risultati">@DizionarioService.RICERCA_TitoloRisultatiProvvedimenti (@Model.TotaleRisultati)</h3>
+<div class="table-responsive">
+    <table class="table ElencoProvvedimentiAiaRegionali">
+        <tr>
+            <th>@DizionarioService.GRIGLIA_ColonnaOggettoAia</th>
+            <th>@DizionarioService.GRIGLIA_ColonnaGestore</th>
+            <th>@DizionarioService.OGGETTO_LabelTipologia</th>
+            <th>@DizionarioService.RICERCA_LabelSceltaProcedura</th>
+            <th>@DizionarioService.GRIGLIA_LabelProv</th>
+            <th>@DizionarioService.GRIGLIA_LabelNumProvvedimento</th>
+            <th><span class="hidden" style="width:25px;">Info</span></th>           
+            <th><span class="hidden" style="width:25px;">download</span></th>
+        </tr>
+        @foreach (Provvedimento p in Model.Risorse)
+        {
+            <tr>
+                <td>@p.GetNomeProgetto()</td>
+                <td>@p.Proponente</td>
+                <td>
+                    @if (p.CategoriaImpianto != null)
+                    {
+                        @p.CategoriaImpianto.GetNome()
+                    }
+                </td>
+               
+                <td>
+                    @if (p.Procedura != null)
+                    {
+                        @p.Procedura.GetNome()
+                    }
+                </td>
+                
+                <td>@p.Prov</td>
+                <td>
+                @if (@p.Data != null)
+                {
+                    @p.Data.Value.ToString(CultureHelper.GetDateFormat())
+                }
+                <div class="nowrap">@p.NumeroProtocollo</div></td>
+                
+                <td><a href="@Url.Action("InfoAiaRegionale", "Oggetti", new { id = p.OggettoID })" class="icona-info-progetto" title="@string.Format(DizionarioService.TOOLTIP_InfoOggetto, p.TipoOggetto.GetNome())">@string.Format(DizionarioService.TOOLTIP_InfoOggetto, p.TipoOggetto.GetNome())</a></td>               
+                <td><a href="@Url.VAProvvedimentoRegionale(p.ID)" class="icona-zip" title="@DizionarioService.TOOLTIP_TooltipProvvedimento">@DizionarioService.TOOLTIP_TooltipProvvedimento</a></td>
+            </tr>
+
+        }
+    </table>
+</div>
+
+<div class="area_sotto_tabella">
+    <div class="buttonBackground"></div>
+    <div class="paginatore">
+        @Html.VaPaginatore(Model.Pagina, Model.DimensionePagina, Model.TotaleRisultati, "pagina", x => Url.Action(Model.Azione, x))
+    </div>
+    <div class="visualizza_pagina"></div>
+</div>
+

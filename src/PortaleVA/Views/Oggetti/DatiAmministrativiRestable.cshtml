@@ -1,0 +1,64 @@
+﻿@model VAPortale.Models.OggettiDatiAmministrativiModel
+@{
+    var CustomFilter = new { f = Request.QueryString.Get("f"), nf = Request.QueryString.Get("nf"), da = Request.QueryString.Get("da") };
+}
+@if (Model.DatiAmministrativi.Count() > 0)
+{
+    <h3>@DizionarioService.OGGETTO_TitoloScegliProcedura</h3>
+
+    <div class="table-responsive">
+        <table class="table DatiAmministrativiResTable">
+            <thead>
+                <tr>
+                    <th>@DizionarioService.GRIGLIA_ColonnaProcedura</th>
+                    <th>@DizionarioService.RICERCA_LabelCodiceProcedura</th>
+                    <th>@DizionarioService.GRIGLIA_ColonnaDataAvvio</th>
+                    <th>@DizionarioService.GRIGLIA_ColonnaStatoProcedura</th>
+                    <th style="width:5px; text-align:center;"> </th>
+                    <th style="width:5px; text-align:center;"> </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (ProceduraCollegata procedura in Model.ProcedureCollegate)
+                {
+                    
+
+                    <tr class="trProcedura">
+                        <td>@procedura.Procedura.GetNome()</td>
+                        <td>@procedura.ViperaAiaID</td>
+                        <td>@procedura.Data.Value.ToString(CultureHelper.GetDateFormat())</td>
+                        <td>@procedura.StatoProcedura.GetNome()</td>
+                        <td class="procedura" style="text-align:center;">
+                            <a class="icona-dettaglio-procedura" title="@DizionarioService.OGGETTO_LabelDettagliProcedura">@DizionarioService.OGGETTO_LabelDettagliProcedura</a>
+                        </td>
+                        <td class="alignCenter">
+                            @if (procedura.NumeroDocumenti > 0)
+                            {
+                                <a class="icona-documentazione-tecnico-amm" title="@DizionarioService.OGGETTO_LabelTabDocumentazione"
+                                   href="@Url.Action("Documentazione", new { id = Model.OggettoID, oggettoProceduraID = procedura.OggettoProceduraID })">@DizionarioService.OGGETTO_LabelTabDocumentazione</a>
+                            }
+                            else
+                            {
+                                <div class="icona-documentazione-tecnico-amm-none" title="@DizionarioService.OGGETTO_TestoDocumentazioneNonDisponibile"></div>
+                            }
+                        </td>
+                    </tr>
+                    if (!string.IsNullOrEmpty(procedura.ViperaAiaID))
+                    {
+                        <tr class="datiAmministrativi" style="display: none">
+                            <td>@DizionarioService.RICERCA_LabelCodiceProcedura (ID_VIP/ID_MATTM)</td>
+                            <td colspan="5">@procedura.ViperaAiaID</td>
+                        </tr>
+                    }
+                    foreach (ValoreDatoAmministrativo valoreDatoAmministrativo in Model.DatiAmministrativi.Where(x => x.OggettoProceduraID == procedura.OggettoProceduraID))
+                    {
+                        <tr class="datiAmministrativi" style="display: none">
+                            <td>@valoreDatoAmministrativo.DatoAmministrativo.GetNome():</td>
+                            <td colspan="5">@valoreDatoAmministrativo.GetValore()</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+}

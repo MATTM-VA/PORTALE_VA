@@ -1,0 +1,132 @@
+﻿@model VAPortale.Models.OggettiInfoViaModel
+@{
+    ViewBag.Title = string.Format("{0} - {1}", Model.Oggetto.GetNome(), Model.VoceMenu.GetNome());
+    //Layout = "~/Views/Shared/_LayoutInternoLargo.cshtml";
+
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+
+<div class="line_small_title">
+    <h2>@Model.Oggetto.GetNome()</h2>
+</div>
+<div class="clear"></div>
+
+<br />
+
+<!-- Tab content -->
+
+<h3>@DizionarioService.OGGETTO_TitoloInformazioniGenerali</h3>
+<p>
+    <strong>@DizionarioService.OGGETTO_LabelOpera</strong>: @Model.Oggetto.Opera.GetNome()
+</p>
+<p>
+    <strong>@Model.Oggetto.TipoOggetto.GetNome()</strong>: @Model.Oggetto.GetNome()
+</p>
+@if (!string.IsNullOrWhiteSpace(Model.Oggetto.GetDescrizione()))
+{
+    <p>
+        <strong>@DizionarioService.OGGETTO_LabelDescrizione</strong>: @Model.Oggetto.GetDescrizione()
+    </p>
+}
+@{
+    EntitaCollegata entita = Model.Oggetto.EntitaCollegate.FirstOrDefault(x => x.Ruolo.Enum == RuoloEntitaEnum.Proponente);
+}
+@if (entita != null)
+{
+    <p>
+        <strong>@entita.Ruolo.GetNome()</strong>: @entita.Entita.Nome
+    </p>
+}
+<p>
+    <strong>@DizionarioService.OGGETTO_LabelTipologiaOpera</strong>: @Model.Oggetto.Opera.Tipologia.GetNome()
+</p>
+@if (!string.IsNullOrWhiteSpace(Model.Oggetto.Cup))
+{
+    <p>
+        <strong>@DizionarioService.OGGETTO_LabelCup:</strong> @Model.Oggetto.Cup
+    </p>
+}
+@foreach (LinkCollegato l in Model.Oggetto.LinkCollegati)
+{
+    <p>
+        <strong>@l.Tipo.GetNome():</strong>&nbsp;<a href="@l.Link.Indirizzo" class="external" title="@l.Link.Descrizione">@l.Link.Descrizione</a>
+    </p>
+}
+@if (Model.Oggetto.ScadenzaPresentazioneOsservazioni.HasValue)
+{
+    <p>
+        <strong>@DizionarioService.OGGETTO_LabelScadenzaOsservazioni:</strong> <strong class="evidenza">@Model.Oggetto.ScadenzaPresentazioneOsservazioni.Value.ToString(CultureHelper.GetDateFormat())</strong>
+        <a href="@Url.RouteUrl("PaginaStatica", new { nomeSezione = "Procedure", nomeVoce = "InvioOsservazioni" })" class="icona-mail" title="@DizionarioService.TOOLTIP_TooltipInvioOsservazioni">
+            mail
+        </a>
+    </p>
+}
+@if (Model.Oggetto.AltriOggetti.Count > 0)
+{
+    <p>
+        <strong>@DizionarioService.OGGETTO_LabelAltriProgetti:</strong>&nbsp;<a style="cursor: pointer;" class="strong1" title="Espandi/comprimi la visualizzazione degli altri progetti per la stessa Opera">@DizionarioService.OGGETTO_LabelEspandiComprimi</a>
+    </p>
+
+    <div id="elencoProgettiID" class="table-responsive" style="display: none;">
+        <!-- style="display: none;"-->
+        <table class="table InfoVia">
+            <thead>
+                <tr>
+                    <th>@DizionarioService.GRIGLIA_ColonnaOggettoVia</th>
+                    <th>@DizionarioService.GRIGLIA_ColonnaProponente</th>
+                    <th>@DizionarioService.GRIGLIA_ColonnaProcedura</th>
+                    <th><span class="hidden">Info</span></th>
+                    <th><span class="hidden">Doc</span></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (OggettoElenco oggetto in Model.Oggetto.AltriOggetti)
+                {
+                    <tr>
+                        <td>@oggetto.GetNome()</td>
+                        <td>@oggetto.Proponente</td>
+                        <td>@oggetto.Procedura.GetNome()</td>
+                        <td>
+                            <a href="@Url.VAOggettoInfo(oggetto.ID)" class="icona-info-progetto" title="@string.Format(DizionarioService.TOOLTIP_InfoOggetto, oggetto.TipoOggetto.GetNome())">
+                                @string.Format(DizionarioService.TOOLTIP_InfoOggetto, oggetto.TipoOggetto.GetNome())
+                            </a>
+                        </td>
+                        <td>
+                            <a href="@Url.VAOggettoDocumentazione(oggetto.ID, oggetto.OggettoProceduraID)" class="icona-documentazione-tecnico-amm" 
+                               title="@string.Format(DizionarioService.TOOLTIP_Documentazione, "")" 
+                               >
+                                @string.Format(DizionarioService.TOOLTIP_Documentazione, "")
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+        <script>
+            $(document).ready(
+                function () {
+                    $('.strong1').click(
+                    function () {
+                        $('#elencoProgettiID').toggle('slow');
+                        if ($("#bottoneElencoProgetti").hasClass("piuBtn")) {
+                            $("#bottoneElencoProgetti").addClass("menoBtn");
+                            $("#bottoneElencoProgetti").removeClass("piuBtn");
+                        }
+                        else {
+                            $("#bottoneElencoProgetti").removeClass("menoBtn");
+                            $("#bottoneElencoProgetti").addClass("piuBtn");
+                        }
+                    });
+                });
+        </script>
+}
+
+<!-- Territori interessati -->
+@{ Html.RenderPartial("Territori", Model.TerritoriModel); }
+
+<!-- Iter amministrativi -->
+@{ Html.RenderAction("DatiAmministrativiRestable", "Oggetti", new { model = Model.DatiAmministrativiModel }); }
+@*</div>*@
+<!-- fine Tab-->

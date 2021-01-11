@@ -1,0 +1,369 @@
+﻿@model VAPortale.Areas.Admin.Models.NotiziaEditaModel
+@{
+    ViewBag.Title = "Notizia";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section head{
+    <script src="@Url.Content("~/Scripts/tinymce/tinymce.min.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        var trIT
+        var trEN
+        var btnCambiaLingua
+        $(function () {
+            trIT = $(".tr-it");
+            trEN = $(".tr-en");
+            btnCambiaLingua = $("#btn-switchLanguage");
+
+            btnCambiaLingua.click(function () {
+                trIT.toggle();
+                trEN.toggle();
+            });
+        });
+    </script>
+}
+<div id="corpo" class="contenuto">
+    <h2>
+        @Html.ActionLink("Notizia", "Index", "Notizia", null, new { @class = "sezione" })
+        / <span>
+            @if (Model.ID != 0)
+            {
+                @Model.Titolo_IT
+            }
+            else
+            {
+                <text>Nuova notizia</text>
+            }
+        </span>
+    </h2>
+    @if (Model.ID != 0)
+    {
+        <div class="switchers">
+            @using (Html.BeginForm("EditaPubblicato", "Notizia", new { id = Model.Notizia.ID }, FormMethod.Post, new { id = "form-edita-pubblicato" }))
+            {
+                @Html.Hidden("EditaPubblicato", !Model.Notizia.Pubblicata)
+                <p class="switch @Html.BooleanToString(Model.Notizia.Pubblicata, "si", "no")">
+                    pubblicato <a href="#" class="switcher"><span class="si">Si</span> <span class="no">
+                        NO</span></a></p>
+            }
+            @using (Html.BeginForm("EditaStato", "Notizia", new { id = Model.Notizia.ID }, FormMethod.Post, new { id = "form-edita-stato" }))
+            {
+                <p>stato
+                    @Html.DropDownListFor(m => m.StatoNotizia, Model.StatiSelectList)
+                </p>
+            
+            }
+        </div>
+        <div class="riepilogo">
+            <script type="text/javascript">
+                var formPubblicato = null;
+                var formStato = null;
+
+                $(function () {
+                    formStato = $("#form-edita-stato");
+                    formPubblicato = $("#form-edita-pubblicato");
+
+                    formPubblicato.submit(function () {
+                        $.post(formPubblicato.attr("action"),
+                            formPubblicato.serialize(),
+                            function (data) {
+                                if (data != null) {
+
+                                    //if (data.length == 2 || (data.length > 2 && data[2] == true)) {
+                                    if (data.length == 3 && data[2] != "error") {
+                                        if (data[0] == true) {
+                                            formPubblicato.find(".switch").removeClass("no").addClass("si");
+                                            formPubblicato.find("input[name='EditaPubblicato']").val("False");
+                                        }
+                                        else {
+                                            formPubblicato.find(".switch").removeClass("si").addClass("no");
+                                            formPubblicato.find("input[name='EditaPubblicato']").val("True");
+                                        }
+
+                                        $("#data-ultima-modifica-field").text(data[1]);
+
+                                        if (data[2] != "ok") {
+                                            $("#messages-dialog-content").append("<p>" + data[2] + "</p>");
+                                            $("#messages-dialog").dialog("open");
+                                        }
+                                    }
+                                    else {
+                                        alert(data[3]);
+                                    }
+                                }
+                            },
+                            "json"
+                        );
+
+                        return false;
+                    });
+
+                    formStato.submit(function () {
+                        $.post(formStato.attr("action"),
+                            formStato.serialize(),
+                            function (data) {
+                                if (data != null) {
+                                    var messages = JSON.parse(data[2]);
+                                    //alert(messages[0]);
+                                    //alert(messages.);
+                                    if (messages[0] == "ok") {
+                                        if (data[0] == true) {
+                                            formPubblicato.find(".switch").removeClass("no").addClass("si");
+                                            formPubblicato.find("input[name='EditaPubblicato']").val("False");
+                                        }
+                                        else {
+                                            formPubblicato.find(".switch").removeClass("si").addClass("no");
+                                            formPubblicato.find("input[name='EditaPubblicato']").val("True");
+                                        }
+
+                                        $("#data-ultima-modifica-field").text(data[1]);
+                                    }
+                                    else if (messages[0] == "validation errors") {
+
+                                        $.each(messages, function (key, value) {
+                                            $("#messages-dialog-content").append("<p>" + value + "</p>");
+                                        });
+
+                                        $("#messages-dialog").dialog("open");
+                                    }
+                                    else {
+                                        alert(data[3]);
+                                    }
+                                }
+                            },
+                            "json"
+                        );
+
+                        return false;
+                    });
+
+                    formPubblicato.find(".switcher").click(function () {
+
+                        formPubblicato.submit();
+                        return false;
+                    });
+
+                    $("#StatoNotizia").change(function () {
+                        formStato.submit();
+                        return false;
+                    });
+                });
+
+
+
+                $(function () {
+
+                });
+            </script>
+            <div class="boxData">
+                <p>
+                    Inserimento: @Model.Notizia.DataInserimento.ToString("dd/MM/yyyy HH:mm")</p>
+                <p>
+                    Ultima Modifica: @Model.Notizia.DataUltimaModifica.ToString("dd/MM/yyyy HH:mm")</p>
+            </div>
+        </div>
+    }
+    <div>
+        <input type="button" name="cambia lingua" value="cambia lingua" id="btn-switchLanguage" />
+        @if (Model.ID > 0)
+        {
+            @Html.ActionLink("Clona la notizia (immagine e categoria)", "Crea", "Notizia", new { immagineID = Model.ImmagineID, categoriaNotiziaID = Model.CategoriaNotiziaID }, new { @class = "pulsante attivo" })
+        }
+    </div>
+    @using (Html.BeginForm("Edita", "Notizia", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.ID)
+
+        <table class="edita principale">
+            <tr class="tr-it">
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.Titolo_IT)
+                </th>
+                <th>
+                    @Html.TextBoxFor(m => m.Titolo_IT)
+                </th>
+            </tr>
+            <tr class="tr-en" style="display: none">
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.Titolo_EN)
+                </th>
+                <th>
+                    @Html.TextBoxFor(m => m.Titolo_EN)
+                </th>
+            </tr>
+            <tr class="tr-it">
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.TitoloBreve_IT)
+                </th>
+                <th>
+                    @Html.TextBoxFor(m => m.TitoloBreve_IT)
+                </th>
+            </tr>
+            <tr class="tr-en" style="display: none">
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.TitoloBreve_EN)
+                </th>
+                <th>
+                    @Html.TextBoxFor(m => m.TitoloBreve_EN)
+                </th>
+            </tr>
+            <tr class="tr-it">
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.Abstract_IT)
+                </th>
+                <th>
+                    @Html.TextAreaFor(m => m.Abstract_IT)
+                </th>
+            </tr>
+            <tr class="tr-en" style="display: none">
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.Abstract_EN)
+                </th>
+                <th>
+                    @Html.TextAreaFor(m => m.Abstract_EN)
+                </th>
+            </tr>
+            <tr class="tr-it">
+                <th class="obbligatorio" colspan="2">
+                    @Html.LabelFor(m => m.Testo_IT)
+                </th>
+            </tr>
+            <tr class="tr-it">
+                <th colspan="2">
+                    @Html.TextAreaFor(m => m.Testo_IT, new { style = "width: 100%; height: 600px;", @class = "TestoIT" })
+                    @{ Html.RenderAction("EditaTestoEditorNotiziaAvanzato", "Shared", new { selectorClass = "TestoIT", lang = CultureHelper._it }); }
+                </th>
+            </tr>
+            <tr class="tr-en" style="display: none">
+                <th class="obbligatorio" colspan="2">
+                    @Html.LabelFor(m => m.Testo_EN)
+                </th>
+            </tr>
+            <tr class="tr-en" style="display: none">
+                <th colspan="2">
+                    @Html.TextAreaFor(m => m.Testo_EN, new { style = "width: 100%; height: 600px;", @class = "TestoEN" })
+                    @{ Html.RenderAction("EditaTestoEditorNotiziaAvanzato", "Shared", new { selectorClass = "TestoEN", lang = CultureHelper._en }); }
+                </th>
+            </tr>
+        </table>
+        <script type="text/javascript">
+            
+        </script>
+        <div class="side">
+            <div class="publishing">
+                @Html.ValidationSummary()
+                <input type="submit" name="EditaSalva" value="Salva" />
+                @if (Model.ID != 0)
+                {
+                    @Html.ActionLink("Annulla", "Edita", null, new { @class = "pulsante" })
+                    <input type="button" class="shared-dialog-elimina-button" value="Elimina" />
+                }
+                <p class="avviso">
+                    I campi in rosso sono obbligatori</p>
+            </div>
+            <table class="edita">
+                <tr>
+                    <th class="obbligatorio">
+                        @Html.LabelFor(m => m.Data)
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.TextBoxFor(m => m.Data, "{0:dd/MM/yyyy}")
+                    </th>
+                </tr>
+                <tr>
+                    <th class="obbligatorio">
+                        @Html.LabelFor(m => m.CategoriaNotiziaID)
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DropDownListFor(m => m.CategoriaNotiziaID, Model.CategorieSelectList)
+                    </th>
+                </tr>
+                @*<tr>
+                    <th class="obbligatorio">
+                        @Html.LabelFor(m => m.inEvidenza)
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                  
+                        <input @(Convert.ToBoolean(Model.inEvidenza) == true ? "checked='checked'" : string.Empty)
+                            id="inEvidenza" name="inEvidenza"
+                            type="checkbox" />
+                    </th>
+                </tr>*@
+
+                <tr>
+                    <th class="obbligatorio">
+                        @Html.LabelFor(m => m.ImmagineID)
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DropDownListFor(m => m.ImmagineID, Model.ImmaginiSelectList)
+                    </th>
+                </tr>
+            </table>
+        </div>
+        
+    }
+    @if (Model.ID != 0)
+    {
+        <div id="shared-elimina-dialog" title="Eliminazione Notizia">
+            @using (Html.BeginForm("Elimina", "Notizia", new { id = Model.ID }, FormMethod.Post))
+            {
+                <text>La Notizia verrà eliminata e non sarà più recuperabile. Procedere con l'eliminazione?</text>
+            }
+        </div>
+
+        <div id="messages-dialog" title="Messaggi">
+            <div id="messages-dialog-content"></div>
+        </div>
+
+        <script type="text/javascript">
+            $(function () {
+                $("#shared-elimina-dialog").dialog({
+                    resizable: false, 
+                    autoOpen: false,
+                    height: 200,
+                    width: 400,
+                    modal: true,
+                    buttons: {
+                        "Conferma": function () {
+                            var dlg = $(this);
+
+                            dlg.find("form").submit();
+                            dlg.dialog("close");
+                        },
+                        "Annulla": function () {
+                            var dlg = $(this);
+                            dlg.dialog("close");
+                        }
+                    }
+                });
+
+                $("#messages-dialog").dialog({
+                    resizable: false,
+                    autoOpen: false,
+                    height: 500,
+                    width: 400,
+                    modal: true,
+                    buttons: {
+                        "ok": function () {
+                            var dlg = $(this);
+                            $("#messages-dialog-content").empty();
+                            dlg.dialog("close");
+                        }
+                    }
+                });
+
+                $(".shared-dialog-elimina-button").click(function () {
+                    $("#shared-elimina-dialog").dialog("open");
+                });
+            });
+
+        </script>
+    }
+</div>

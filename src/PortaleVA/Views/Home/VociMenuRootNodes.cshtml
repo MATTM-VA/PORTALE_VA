@@ -1,0 +1,31 @@
+﻿@model VAPortale.Models.VociMenuTreeViewModel
+<ul>
+    @foreach (VoceMenu voce in Model.VociMenu)
+    {
+        if (voce.Link)
+        {
+            if (voce.Editabile)
+            {
+            <li>
+                <a href="@Url.RouteUrl("PaginaStatica", new { nomeSezione = voce.Sezione, nomeVoce = voce.Voce })" title="@voce.GetDescrizione()">@voce.GetNome()</a>
+                @{ Html.RenderAction("VociMenuChildNodes", "Home", new { genitoreID = voce.ID }); }
+            </li>
+            }
+            else
+            {
+            <li>
+                <a href="@Url.Action(voce.Voce, voce.Sezione)" title="@voce.GetDescrizione()">@voce.GetNome()</a>
+                @{ Html.RenderAction("VociMenuChildNodes", "Home", new { genitoreID = voce.ID }); }
+            </li>
+            }
+        }
+        else
+        {
+        <li>
+        <span title="@voce.GetDescrizione()">@voce.GetNome()</span>
+        @{ Html.RenderAction("VociMenuChildNodes", "Home", new { genitoreID = voce.ID }); }
+        </li>
+        }
+        
+    }
+</ul>

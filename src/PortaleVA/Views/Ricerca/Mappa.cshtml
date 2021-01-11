@@ -1,0 +1,194 @@
+﻿@model VAPortale.Models.RicercaViaSpazialeModel
+
+<div class="areaRicerca modelloEsteso ricercaSpaziale">
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=drawing&key=****codice_api_key_****">
+    </script>
+
+   
+    @using (Html.BeginForm("ViaSpaziale", "Ricerca", FormMethod.Get, new { id = "ricercaSpaziale" }))
+    {
+        @Html.AntiForgeryToken()
+        <!-- Impostazioni Mappa -->
+        <div>
+            @Html.HiddenFor(m => m.MapCenter)
+            @Html.HiddenFor(m => m.MapZoom)
+        </div>
+        <div><span id="messaggio"></span></div>
+
+        <div class="mappaTerritori">
+            <div id="map_canvas"></div>
+            <div class="pulsantiCoordinate">
+                <input type="button" class="pulsanteSeleziona" value="@DizionarioService.RICERCA_BottoneSeleziona" id="btnDrawRectangle" />
+                <input type="image" class="btn-search" alt="@DizionarioService.RICERCA_BottoneEsegui" src="@Url.VAContent("button_search.png?v=4")" />
+            </div>
+            <div class="coordinate">
+                <p><label for="YMax">@DizionarioService.RICERCA_LabelLatNord</label> @Html.EditorFor(m => m.YMax)</p>
+                <p><label for="XMax">@DizionarioService.RICERCA_LabelLongEst</label> @Html.EditorFor(m => m.XMax)</p>
+                <p><label for="YMin">@DizionarioService.RICERCA_LabelLatSud</label> @Html.EditorFor(m => m.YMin)</p>
+                <p><label for="XMin">@DizionarioService.RICERCA_LabelLongOvest</label> @Html.EditorFor(m => m.XMin)</p>
+                <p><span class="infoSeleziona">@DizionarioService.RICERCA_NotaRicercaSpaziale</span></p>
+            </div>
+        </div>
+    }
+</div>
+<!-- Impostazioni Mappa -->
+<script>
+    // Global variables
+    var mapOptions;
+    var rectOptions;
+
+    var map;
+    var drawingManager;
+    var rectangle;
+
+    var selectedShape;
+
+    var tXMax, tXMin, tYMax, tYMin;
+    var hMapCenter;
+    var hMapZoom;
+
+    function init() {
+
+        mapOptions = {
+            'zoom': parseInt(hMapZoom.val()),
+            'center': new google.maps.LatLng(hMapCenter.val().split("|")[0], hMapCenter.val().split("|")[1]),
+            'mapTypeId': google.maps.MapTypeId.ROADMAP,
+            'disableDefaultUI': true,
+            'zoomControl': true,
+            'zoomControlOptions': {
+                'style': google.maps.ZoomControlStyle.SMALL
+            }
+        };
+
+        rectOptions = {
+            strokeColor: "#fd5908",
+            fillColor: "#f9ccb5",
+            editable: true,
+            draggable: true
+        };
+
+        map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+        google.maps.event.addListener(map, 'center_changed', saveCenter);
+        google.maps.event.addListener(map, 'zoom_changed', saveZoom);
+        setRectangle();
+    }
+
+    $(document).ready(function () {
+
+        tXMax = $("#XMax");
+        tXMin = $("#XMin");
+        tYMax = $("#YMax");
+        tYMin = $("#YMin");
+        hMapCenter = $("#MapCenter");
+        hMapZoom = $("#MapZoom");
+
+        if (tYMax.val() == "0" && tXMin.val() == "0" && tYMin.val() == "0" && tXMax.val() == "0") {
+            tYMax.val("");
+            tXMax.val("");
+            tYMin.val("");
+            tXMin.val("");
+        }
+
+        $("#btnDrawRectangle").click(function () {
+            resetMap();
+            startDrawing();
+        });
+
+        $("#btnResetMap").click(function () {
+            resetMap();
+        });
+
+        $("#ricercaSpaziale").submit(function () {
+            if (rectangle == null) {
+                $("#messaggio").text("E' necessario effettuare una selezione!!");
+                return false;
+            }
+        });
+    });
+
+    function startDrawing() {
+        drawingManager = new google.maps.drawing.DrawingManager({
+            drawingMode: google.maps.drawing.OverlayType.RECTANGLE,
+            drawingControl: false,
+            rectangleOptions: rectOptions
+        });
+
+        drawingManager.setMap(map);
+
+        google.maps.event.addListener(drawingManager, 'rectanglecomplete', function (r) {
+            rectangle = r;
+            google.maps.event.addListener(r, 'bounds_changed', getCoordinates);
+            r.setEditable(true);
+            getCoordinates.apply(r);
+            drawingManager.setDrawingMode(null);
+            //setSelection(rectangle);
+        });
+
+    }
+
+    function resetMap() {
+        if (rectangle) {
+            rectangle.setMap(null);
+            rectangle = null;
+        }
+        if (drawingManager) {
+            drawingManager.setMap(null);
+            drawingManager = null;
+        }
+
+        // delete shape
+        //setSelection(rectangle);
+        //deleteSelectedShape();
+
+        // enable drawing
+        //if (drawingManager) {
+        //    drawingManager.setMap(map);
+        //}
+
+        // reset values in fields
+        tYMax.val("");
+        tXMax.val("");
+        tYMin.val("");
+        tXMin.val("");
+
+        $("#messaggio").text("");
+    }
+
+    function getCoordinates() {
+        var latLngBounds = new google.maps.LatLngBounds(
+            this.getBounds().getNorthEast(),
+            this.getBounds().getSouthWest()
+        );
+
+        //Calcolo xMax, xMin, yMax, yMin
+        var ne = latLngBounds.getNorthEast();
+        var sw = latLngBounds.getSouthWest();
+
+        tYMax.val(Math.max(ne.lat(), sw.lat()));
+        tXMax.val(Math.max(ne.lng(), sw.lng()));
+        tYMin.val(Math.min(ne.lat(), sw.lat()));
+        tXMin.val(Math.min(ne.lng(), sw.lng()));
+    }
+ 
+
+    function saveCenter() {
+        hMapCenter.val(map.getCenter().lat() + '|' + map.getCenter().lng());
+    }
+
+    function saveZoom() {
+        hMapZoom.val(map.getZoom());
+    }
+
+    function setRectangle() {
+        if (tYMax.val() != "" && tXMin.val() != "" && tYMin.val() != "" && tXMax.val() != "") {
+            rectangle = new google.maps.Rectangle({
+                map: map,
+                editable: true
+            });
+            rectangle.setOptions(rectOptions);
+            rectangle.setBounds(new google.maps.LatLngBounds(new google.maps.LatLng(tYMax.val(), tXMin.val()), new google.maps.LatLng(tYMin.val(), tXMax.val())));
+            google.maps.event.addListener(rectangle, 'bounds_changed', getCoordinates);
+        }
+    }
+    google.maps.event.addDomListener(window, 'load', init);
+</script>

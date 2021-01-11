@@ -1,0 +1,116 @@
+﻿@*
+    *************************************************************************************
+    ************* PortaleVA - Portale delle valutazioni ambientali VAS-VIA **************
+    *************************************************************************************
+
+    Copyright MATTM Ministero dell'Ambiente e della Tutela del Territorio e del Mare
+    Concesso in licenza a norma dell'EUPL(la "Licenza"), versione 1.2;
+*@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="@CultureHelper.GetCurrentCultureShortName()" lang="@CultureHelper.GetCurrentCultureShortName()">
+<head>
+    <meta charset="utf-8">
+    <title>@ViewBag.Title - @DizionarioService.SITO_TitoloParte1 - @DizionarioService.SITO_TitoloParte2</title>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" href="@Url.VAContent("favicon.gif?v=4")" type="image/gif" />
+    <link rel="shortcut icon" href="@Url.VAContent("images/favicon.ico?v=4")" />
+    <link href="@Url.VAContent("ui-custom/jquery-ui-1.10.4.custom.min.css?v=4")" rel="stylesheet" type="text/css" />
+    <link href="@Url.VAContent("jquery-treeview.css?v=4")" rel="stylesheet" />
+
+    <script src="@Url.VAScript("jquery.js?v=4")"></script>
+    <script src="@Url.VAScript("scripts.js?v=4")"></script>
+
+    <!--[if IE 8]>
+        <link href="@Url.VAContent("ie8.css?v=4")" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <!--[if IE 9]>
+        <link href="@Url.VAContent("ie9.css?v=4")" rel="stylesheet" type="text/css" />
+    <![endif]-->
+     <link href="@Url.VAContent("icone.css?v=4")" rel="stylesheet" type="text/css" />
+    <link href="@Url.VAContent("StyleFront.css?v=4")" rel="stylesheet" type="text/css" />
+    <link href="@Url.VAContent("tipTap.css?v=4")" rel="stylesheet" type="text/css" />
+    <link href="@Url.VAContent(String.Format("{0}.css?v=4", CultureHelper.GetCurrentCultureShortName()))" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    @*<div id="debug"></div>*@
+    <div class="container-secondo-livello">
+        <header class="content-header">
+            <div id="line">
+                <div id="logo"><a href="@Url.VASite( CultureHelper.GetCurrentCultureInfo().ToString())"><img src="@Url.VAContent("logo_min_ambiente.png?v=4")" class="img-responsive"  alt="Logo MATTM"></a></div>
+                <div id="titleSite">
+                    <h1>@Html.Raw(DizionarioService.SITO_TitoloParte1): <strong>@DizionarioService.SITO_TitoloParte2</strong></h1>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            @{ Html.RenderAction("SelezioneLingua", "Shared"); }
+
+            @{ Html.RenderAction("MenuNavigazione", "Shared"); }
+
+            <div style="clear:both"></div>
+        </header>
+        <div id="sito">
+            <div class="row content interna">
+                <div class="col-md-9">
+                    <div class="sezione">
+                        @{ Html.RenderAction("Breadcrumbs", "Shared"); }
+                    </div>
+                    <div class="corpo">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @{ Html.RenderAction("MenuNavigazioneFooter", "Shared"); }
+
+    </div>
+
+    <script src="@Url.VAScript("jquery-ui-1.10.4.custom.min.js?v=4")"></script>
+    <script src="@Url.VAScript("modernizr.min.js?v=4")"></script>
+    <script src="@Url.VAScript("jquery.cookiesdirective.js?v=4")"></script>
+    <script src="@Url.VAScript("jquery.cookie.js?v=4")"></script>
+    <script src="@Url.VAScript("jquery.treeview.js?v=4")"></script>
+    <script src="@Url.VAScript("jquery.tipTip.minified.js?v=4")"></script>
+    
+
+    <script>
+        $(document).ready(function () {
+            $.cookiesDirective({
+                privacyPolicyUri: '/it-IT/ps/Home/PrivacyPolicy',
+                explicitConsent: false, // false allows implied consent
+                position: 'top', // top or bottom of viewport
+                duration: 3, // display time in seconds
+                limit: 0, // limit disclosure appearances, 0 is forever
+                message: 'Questo sito utilizza cookie di terze parti per una migliore navigazione. Chiudendo questo banner o accedendo a un qualunque elemento sottostante del sito acconsenti all&#39;uso dei cookie.  Per maggiori dettagli consulta l&#39;', // customise the disclosure message
+                cookieScripts: null, // disclose cookie settings scripts
+                scriptWrapper: function () { }, // wrapper function for cookie setting scripts
+                fontFamily: 'helvetica', // font style for disclosure panel
+                fontColor: '#fff', // font color for disclosure panel
+                fontSize: '13px', // font size for disclosure panel
+                backgroundColor: '#000', // background color of disclosure panel
+                backgroundOpacity: '80', // opacity of disclosure panel
+                linkColor: '#fff', // link color in disclosure panel
+                buttonText: 'Chiudi',
+                privacyPolicyLinkText: "Informativa relativa all&#39;uso dei cookie",
+            });
+        });
+    </script>
+    <script>
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', '***_codice_account_***']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+
+</body>
+</html>

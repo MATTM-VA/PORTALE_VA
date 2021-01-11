@@ -1,0 +1,50 @@
+﻿@model VAPortale.Models.RicercaAiaInstallazioneModel
+@using VALib.Web.Mvc
+
+@{
+    ViewBag.Title = Model.VoceMenu.GetDescrizione();
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+
+<div class="line_small_title">
+    <h2>@Model.VoceMenu.GetDescrizione()</h2>
+</div>
+<div class="clear"></div>
+
+
+<div class="areaRicerca modelloEsteso">
+    @using (Html.BeginForm("AiaInstallazione", "Ricerca", FormMethod.Get))
+    {
+        @Html.AntiForgeryToken()    
+        <div class="bgInput">
+            <div class="testo_ricerca ie9">
+                <label for="select-settore">@DizionarioService.RICERCA_LabelSceltaTipologia</label>
+                <select name="TipologiaID" class="cerca" id="select-settore">
+                @foreach (SelectListItem i in Model.TipologieSelectList)
+                {
+                    <option value="@i.Value">@i.Text</option>
+                }
+                </select>
+            </div>
+            <div class="tema ie9">
+                <label for="input-ricerca-settore">@DizionarioService.RICERCA_LabelTesto</label>
+                <input type="text" name="testo" id="input-ricerca-settore" class="cerca" />
+                <input type="image" class="btn-search" alt="@DizionarioService.RICERCA_BottoneEsegui" src="@Url.VAContent("button_search.png?v=4")" />
+            </div>
+        </div>
+    }
+</div>
+
+<h3 class="risultati">@DizionarioService.RICERCA_LabelSceltaOggettiAia (@Model.TotaleRisultati)</h3>
+
+@{ Html.RenderPartial("GrigliaRisultatiOggetti", new Tuple<List<OggettoElenco>, MacroTipoOggettoEnum, bool>(Model.Oggetti, MacroTipoOggettoEnum.Aia, false)); }
+
+<div class="area_sotto_tabella">
+    <div class="buttonBackground">
+        @Html.VaEsporta(x => Url.Action("AiaInstallazione", x))
+    </div>
+    <div class="paginatore">
+        @Html.VaPaginatore(Model.Pagina, Model.DimensionePagina, Model.TotaleRisultati, "pagina", x => Url.Action("AiaInstallazione", x))
+    </div>
+    <div class="visualizza_pagina"></div>
+</div>

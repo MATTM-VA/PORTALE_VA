@@ -1,0 +1,103 @@
+﻿@model VAPortale.Models.SharedMenuNavigazioneModel
+@{
+    //string footerClass = "navbar navbar-default";
+    string currentCulture = "it-IT";
+
+    if (CultureHelper.IsCurrentCulture(CultureHelper._en))
+    {
+        //footerClass = "navbar navbar-default footerEN";
+        currentCulture = "en-GB";
+    }
+
+    int c = 0;
+
+}
+
+<footer>
+    <div class="box_footer_full_width">
+        <div class="area_cinque_sez f-dr-jsb">
+            <div class="size_box">
+                <p><a href="http://www.minambiente.it/" target="_blank">
+                        <img src="@Url.VAContent("logo_min_ambiente_footer.png?v=4")" alt="Logo MATTM" />
+                    </a>
+                </p>
+                <p><a href="http://www.governo.it/" target="_blank">
+                        <img src="@Url.VAContent("logo_gov_footer.png?v=4")" alt="www.governo.it" />
+                    </a>
+                </p>
+            </div>
+
+
+            @foreach (VALib.Domain.Entities.UI.VoceMenu voce in Model.VociMenu.Where(x => x.GenitoreID == 0))
+            {
+                string classeActive = voce.Sezione.Equals(Model.NomeSezione, StringComparison.InvariantCultureIgnoreCase) ? "active" : "";
+
+                if (voce.GenitoreID == 0 && (voce.ID != 1 && voce.ID != 52))
+                {
+                    c++;
+                    
+                      var  divA = "<div class=\"size_box\">";
+                      var  divC = "</div>";
+
+                    if (c != 4 && c!= 6)
+                    {
+                        @Html.Raw(divA)
+                    }
+                    
+
+                    if (voce.Link)
+                    {
+                        if (voce.Editabile)
+                        {
+                                    <a href="@Url.RouteUrl("PaginaStatica", new { nomeSezione = voce.Sezione, nomeVoce = voce.Voce, lang = currentCulture })">@voce.GetNome()</a>
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action(voce.Voce, voce.Sezione, new { lang = currentCulture })">@voce.GetNome()</a>
+                                }
+                            }
+                            else
+                            {
+                                <div class="lineTitleBox">
+                                    <h1><span>@voce.GetNome()</span></h1>
+                                </div>
+
+                            }
+                            if (Model.VociMenu.Exists(x => x.GenitoreID == voce.ID))
+                            {
+                                <div class="clear"></div>
+                                <ul class="menuFooter">
+                                    @foreach (VALib.Domain.Entities.UI.VoceMenu subVoce in Model.VociMenu.Where(x => x.GenitoreID == voce.ID))
+                                    {
+                                        if (subVoce.Editabile)
+                                        {
+                                            <li><a href="@Url.RouteUrl("PaginaStatica", new { nomeSezione = subVoce.Sezione, nomeVoce = subVoce.Voce, lang = currentCulture })">@subVoce.GetNome()</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li>@Html.ActionLink(subVoce.GetNome(), subVoce.Voce, subVoce.Sezione, new { lang = currentCulture }, null)</li>
+                                        }
+                                    }
+                                </ul>
+                    }
+
+                    if (c !=3 && c != 5)
+                    {
+                        @Html.Raw(divC)
+                    }
+                    
+                }
+            }
+
+
+            <div class="size_box">
+                <div class="pad_Html_validator">
+                    <span><a href="https://validator.w3.org" target="_blank" title="CSS validatore"><img src="@Url.VAContent("css_validator.png?v=4")" width="29" height="41" alt="CSS validatore" /></a></span>
+                    <span><a href="https://validator.w3.org" target="_blank" title="HMTL5 validatore"><img src="@Url.VAContent("html5_validator.png?v=4")" width="29" height="41"  alt="HMTL5 validatore"/></a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btFooterSection">Copyright M.A.T.T.M 2017. Tutti i diritti riservati</div>
+</footer>
+

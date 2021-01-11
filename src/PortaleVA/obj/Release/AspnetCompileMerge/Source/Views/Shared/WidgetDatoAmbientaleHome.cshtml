@@ -1,0 +1,40 @@
+﻿@model VAPortale.Models.SharedWidgetDatoAmbientaleHomeModel
+@{ int c = 1; }
+<div class="widget">
+    <h4 class="titolo">
+    @if (Model.VoceMenu != null)
+    {
+        <a href="@Url.Action(Model.VoceMenu.Voce, Model.VoceMenu.Sezione)">@Model.Titolo</a>
+    }
+    else
+    {
+        @Model.Titolo
+    }
+    </h4>
+    <div class="box">
+    @foreach (DatoAmbientaleHome n in Model.DatiAmbientali)
+    {
+        string cssClass = "media";
+        Immagine img = n.Immagine;
+
+        if (c == Model.NumeroElementi)
+        {
+            cssClass = "media ultimo";
+        }
+        <div class="@Html.Raw(cssClass)">
+            @if (img != null)
+            {
+            <a href="@n.Link" title="@n.GetTitolo()" class="foto pull-left">
+                <img width="99" height="71" alt="@img.GetNome()" src="@Url.VAImmagine(img.ID)" class="media-object" />
+            </a>
+            }
+            <div class="media-body">
+                <h4 class="media-heading">
+                    <a href="@n.Link" class="external">@n.GetTitolo()</a>
+                </h4>
+            </div>
+        </div>
+        c++;
+    }
+    </div>
+</div>

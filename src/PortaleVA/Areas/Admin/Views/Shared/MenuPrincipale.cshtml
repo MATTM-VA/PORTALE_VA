@@ -1,0 +1,23 @@
+﻿@model VAPortale.Areas.Admin.Models.MenuPrincipaleModel
+
+<ul class="menu-principale">
+        @foreach (VAPortale.Models.Support.LinkItem item in Model.ListaLink)
+        {
+            switch (item.Text)
+            {
+                case "Widget":
+                    <li>@Html.ActionLink(item.Text, "Index", item.Url, new { tipoWidget = TipoWidget.InEvidenza }, null)</li>
+                    break;
+                case "ResetCache":
+                    <li style=" background-color:#cc0000">@Html.ActionLink("Reset cache", "EliminaCache", item.Url)</li>
+                    break;
+                default:
+                    {
+                        <li>@Html.ActionLink(item.Text, "Index", item.Url)</li>
+                        break;
+                    }
+            }
+            
+        }
+    </ul>
+

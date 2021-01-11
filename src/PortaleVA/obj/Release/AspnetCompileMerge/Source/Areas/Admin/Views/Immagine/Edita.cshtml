@@ -1,0 +1,147 @@
+﻿@model VAPortale.Areas.Admin.Models.ImmagineEditaModel
+
+@{
+    ViewBag.Title = "Edita";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div id="corpo" class="contenuto">
+    <h2>
+        @Html.ActionLink("Immagine", "Index", "Immagine", null, new { @class = "sezione" }) /
+        <span>
+            @if (Model.ID != 0)
+            {
+                @Model.EditaNome_IT
+            }
+            else
+            {
+                <text>Nuova Immagine</text>
+            }
+        </span>
+    </h2>
+    @if (Model.ID != 0)
+    {
+        <div>
+            @Html.ActionLink("Scheda", "Edita", "Immagine", new { id = Model.ID }, new { @class = "pulsante attivo" })
+            @Html.ActionLink("Formati", "EditaFormati", "Immagine", new { id = Model.ID }, new { @class = "pulsante attivo" })
+            @if (Model.ID > 0 && Model.MostraLinkInserimentoNotizia)
+            {
+                @Html.ActionLink("Inserisci una notizia con questa immagine", "Crea", "Notizia", new { immagineID = Model.ID }, new { @class = "pulsante attivo" })
+            }
+        </div>
+        <div class="riepilogo">
+            <div class="boxData">
+                <p> Inserimento:  @Model.Immagine.DataInserimento.ToString("dd/MM/yyyy HH:mm")</p>
+                <p> Ultima Modifica: @Model.Immagine.DataUltimaModifica.ToString("dd/MM/yyyy HH:mm")</p>
+            </div>
+        </div>
+    }
+    @using (Html.BeginForm("Edita", "Immagine", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <table class="edita principale">
+            <tr>
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.EditaNome_IT)
+                </th>
+                <td class="titolo">
+                    @Html.TextBoxFor(m => m.EditaNome_IT, new { @class = "larghezza-max" })
+                </td>
+            </tr>
+            <tr>
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.EditaNome_EN)
+                </th>
+                <td class="titolo">
+                    @Html.TextBoxFor(m => m.EditaNome_EN, new { @class = "larghezza-max" })
+                </td>
+            </tr>
+        </table>
+        <div class="side">
+            <div class="publishing">
+                @Html.ValidationSummary()
+                <input type="submit" name="EditaSalva" value="Salva" />
+                @if (Model.ID != 0)
+                {
+                    @Html.ActionLink("Annulla", "Edita", null, new { @class = "pulsante" })
+                    <input type="button" class="shared-dialog-elimina-button" value="Elimina" />
+                }
+                <p class="avviso">
+                    I campi in rosso sono obbligatori
+                </p>
+            </div>
+            <table class="edita">
+                @if (Model.ID != 0)
+                {
+                    <tr>
+                        <th class="obbligatorio">
+                            @Html.LabelFor(m => m.EditaFileImmagine)
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="@Url.VAImmagine(Model.ID)" target="_blank"> @Model.Immagine.NomeFile</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        @* Qui è per uploadare una nuova immagine *@
+                        <td>
+                            <input name="EditaFileImmagine" id="EditaFileImmagine" type="file" />
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    <tr>
+                        <th class="obbligatorio">
+                            @Html.LabelFor(m => m.EditaFileImmagine)
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input name="EditaFileImmagine" id="EditaFileImmagine" type="file" />
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+
+    }
+    @if (Model.ID != 0)
+    {
+        <div id="shared-elimina-dialog" title="Eliminazione Immagine">
+            @using (Html.BeginForm("Elimina", "Immagine", new { id = Model.ID }, FormMethod.Post))
+            {
+                <text>La immagine e tutti i formati associati verranno eliminati e non saranno più recuperabili.
+                    Procedere con l'eliminazione?</text>
+            }
+        </div>
+
+        <script>
+            $(function () {
+                $("#shared-elimina-dialog").dialog({
+                    autoOpen: false,
+                    height: 200,
+                    width: 400,
+                    modal: true,
+                    buttons: {
+                        "Conferma": function () {
+                            var dlg = $(this);
+
+                            dlg.find("form").submit();
+
+                            dlg.dialog("close");
+                        },
+                        "Annulla": function () {
+                            var dlg = $(this);
+                            dlg.dialog("close");
+                        }
+                    }
+                });
+
+                $(".shared-dialog-elimina-button").click(function () {
+                    $("#shared-elimina-dialog").dialog("open");
+                });
+            });
+
+        </script>
+    }
+</div>

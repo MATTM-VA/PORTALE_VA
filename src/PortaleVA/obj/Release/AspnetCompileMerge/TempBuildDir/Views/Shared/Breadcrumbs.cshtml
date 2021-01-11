@@ -1,0 +1,42 @@
+﻿@model VAPortale.Models.SharedBreadcrumbsModel
+<!-- Breadcrums -->
+
+<div class="content-toolbar">
+    <span class="breadcrumbApertura">@DizionarioService.SITO_LabelBreadcrumbs: </span>
+    <ol class="breadcrumb">
+        @foreach (VoceMenu voce in Model.Genitori)
+        {
+            string cssClass = "";
+
+            if (Model.Voce.ID == voce.ID)
+            {
+                cssClass = "active";
+            }
+            <li class="@cssClass">
+            @if (voce.ID != Model.Voce.ID)
+            {
+                if (voce.Link)
+                {
+                    if (voce.Editabile)
+                    {
+                    <a title="@voce.GetDescrizione()" href="@Url.RouteUrl("PaginaStatica", new { nomeSezione = voce.Sezione, nomeVoce = voce.Voce })">@voce.GetNome() /</a>
+                    }
+                    else
+                    {
+                    <a title="@voce.GetDescrizione()" href="@Url.Action(voce.Voce, voce.Sezione)">@voce.GetNome() /</a>
+                    }
+                }
+                else
+                {
+                    @voce.GetNome() <text>/</text>   
+                }
+            }
+            else
+            {
+                @voce.GetNome() <text>/</text>
+}
+            </li>
+        }
+    </ol>
+</div>
+<!-- fine Breadcrums -->

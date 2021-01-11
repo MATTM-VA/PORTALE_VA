@@ -1,0 +1,120 @@
+﻿@model VAPortale.Models.ProcedureProvvedimentiElencoModel
+
+@{
+    ViewBag.Title = Model.VoceMenu.GetNome();
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+
+    string intestazioneColonnaOggetto = "";
+
+    if (Model.TipoProvvedimento.Area.ID == 1) { intestazioneColonnaOggetto = DizionarioService.GRIGLIA_ColonnaOggettoVas; }
+    else if (Model.TipoProvvedimento.Area.ID == 2) { intestazioneColonnaOggetto = DizionarioService.GRIGLIA_ColonnaOggettoVia; }
+    else if (Model.TipoProvvedimento.Area.ID == 3) { intestazioneColonnaOggetto = DizionarioService.GRIGLIA_ColonnaOggettoVia; }
+    else if (Model.TipoProvvedimento.Area.ID == 4) { intestazioneColonnaOggetto = DizionarioService.GRIGLIA_ColonnaOggettoAia; }
+
+}
+
+@if (CultureHelper.GetCurrentCultureShortName().Equals("it", StringComparison.InvariantCultureIgnoreCase))
+{
+    <script src="@Url.VAScript("jquery-ui-datepicker-it.js")"></script>
+}
+<script>
+
+    $(function () {
+        $("#input-dataDa").datepicker({
+            dateFormat: 'dd-mm-yy',
+            showOn: "both",
+            buttonImage: "@Url.VAContent("icona-calendario.png?v=4")",
+            buttonImageOnly: true,
+            buttonText: '@DizionarioService.TOOLTIP_TooltipSelezionaData'
+        });
+        $("#input-dataA").datepicker({
+            dateFormat: 'dd-mm-yy',
+            showOn: "both",
+            buttonImage: "@Url.VAContent("icona-calendario.png?v=4")",
+            buttonImageOnly: true,
+            buttonText: '@DizionarioService.TOOLTIP_TooltipSelezionaData'
+        });
+    });
+</script>
+
+<div class="line_small_title">
+    <h2>@Model.VoceMenu.GetNome()</h2>
+</div>
+<div class="clear"></div>
+
+<br />
+
+@if (Model.TipoProvvedimento.ID == 6)
+{
+    if (CultureHelper.GetCurrentCultureShortName().Equals("it", StringComparison.InvariantCultureIgnoreCase))
+    {
+        <p>
+            La procedura di verifica di attuazione, che conclude il processo di valutazione delle opere strategiche di preminente interesse nazionale, si compone di una FASE 1 finalizzata alla verifica della congruità del progetto esecutivo al progetto definitivo e al rispetto delle prescrizioni dettate  inerenti agli aspetti progettuali e di una FASE 2 finalizzata al monitoraggio degli effetti ambientali dell’opera e al rispetto delle prescrizioni da attuare nelle fasi di costruzione ed esercizio.
+            <br />Durante le due fasi possono essere emanati più provvedimenti.
+        </p>
+    }
+    else
+    {
+        <p>
+            The EIA Follow-up, which concludes the impact assessment of strategic projects of  major national interest, consists of  PHASE 1, aimed at verifying the adequacy of the final construction design to the final draft and the compliance with the prescriptions laid down regarding the design aspects, and  PHASE 2, aimed at monitoring the environmental effects of the project and at fulfilling the prescriptions to be implemented during the construction and operation phases.
+            <br />During the two phases more decisions can be issued.
+        </p>
+    }
+}
+
+<div class="areaRicerca modelloEsteso">
+    @using (Html.BeginForm(Model.VoceMenu.Voce, "Procedure", FormMethod.Get))
+    {
+        @Html.AntiForgeryToken()
+        <div class="bgInput">
+            <div class="testo_ricerca ie9">
+                <label for="input-dataDa">@DizionarioService.RICERCA_LabelSceltaDataDa</label>
+                @Html.TextBoxFor(m => m.DataDa, new { @id = "input-dataDa", @class = "scegliData" })&nbsp;&nbsp;
+                <label for="input-dataA">@DizionarioService.RICERCA_LabelSceltaDataA</label>
+                @Html.TextBoxFor(m => m.DataA, new { @id = "input-dataA", @class = "scegliData" })&nbsp;&nbsp;
+
+
+                <label for="Testo">@DizionarioService.RICERCA_LabelTesto</label>
+                @Html.TextBoxFor(m => m.Testo, new { @class = "cerca" })
+                <input type="image" class="btn-search" alt="@DizionarioService.RICERCA_BottoneEsegui" src="@Url.VAContent("button_search.png?v=4")" />
+            </div>
+        </div>
+    }
+</div>
+
+<h3 class="risultati">@DizionarioService.RICERCA_TitoloRisultatiProvvedimenti (@Model.TotaleRisultati)</h3>
+<div class="table-responsive">
+    <table class="table ElencoProvvedimenti">
+        <tr>
+            <th>@intestazioneColonnaOggetto</th>
+            <th>@(Model.TipoProvvedimento.Area.ID == 4 ? DizionarioService.GRIGLIA_ColonnaGestore : DizionarioService.GRIGLIA_ColonnaProponente)</th>
+            <th>@DizionarioService.GRIGLIA_ColonnaDataENumero</th>
+            <th>@DizionarioService.GRIGLIA_ColonnaEsito</th>
+            <th><span class="hidden" style="width:25px;">Info</span></th>
+            <th><span class="hidden" style="width:25px;">Doc</span></th>
+            <th><span class="hidden" style="width:25px;">download</span></th>
+        </tr>
+        @foreach (Provvedimento p in Model.Risorse)
+        {
+            <tr>
+                <td>@p.GetNomeProgetto()</td>
+                <td>@p.Proponente</td>
+                <td>@p.Data.Value.ToString(CultureHelper.GetDateFormat()) <div class="nowrap">@p.NumeroProtocollo</div></td>
+                <td>@p.Esito</td>
+                <td><a href="@Url.Action("Info", "Oggetti", new { id = p.OggettoID })" class="icona-info-progetto" title="@string.Format(DizionarioService.TOOLTIP_InfoOggetto, p.TipoOggetto.GetNome())">@string.Format(DizionarioService.TOOLTIP_InfoOggetto, p.TipoOggetto.GetNome())</a></td>
+                <td><a href="@Url.VAOggettoDocumentazione(p.OggettoID, p.OggettoProceduraID)" class="icona-documentazione-tecnico-amm" title="@string.Format(DizionarioService.TOOLTIP_Documentazione, "")">@string.Format(DizionarioService.TOOLTIP_Documentazione, "")</a></td>
+                <td><a href="@Url.VAProvvedimento(p.ID)" class="icona-zip" title="@DizionarioService.TOOLTIP_TooltipProvvedimento">@DizionarioService.TOOLTIP_TooltipProvvedimento</a></td>
+            </tr>
+
+        }
+    </table>
+</div>
+
+<div class="area_sotto_tabella">
+    <div class="buttonBackground"></div>
+    <div class="paginatore">
+        @Html.VaPaginatore(Model.Pagina, Model.DimensionePagina, Model.TotaleRisultati, "pagina", x => Url.Action(Model.Azione, x))
+    </div>
+    <div class="visualizza_pagina"></div>
+</div>
+

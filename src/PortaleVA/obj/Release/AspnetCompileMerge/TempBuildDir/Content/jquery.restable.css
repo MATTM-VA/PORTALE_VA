@@ -1,0 +1,44 @@
+/* Table */
+ul.tabletolist {
+	border: 1px solid #ddd;font-size: 13px;
+}
+
+.corpo ul.tabletolist li{margin:0;}
+
+/* Table with no row headers */
+ul.tabletolist.nrh {
+	border-bottom: 2px solid #ddd;
+}
+/* Table with no row headers columns */
+ul.tabletolist.nrh > li  {
+    border-top: 2px solid #ddd;
+}
+/* Table defaults */
+ul.tabletolist, ul.tabletolist ul {
+  padding:0 !important;margin:0 !important;list-style:none !important;
+}
+/* Table titles */
+ul.tabletolist > li .titles {
+    background-color: #104b72;display:block;color:#fff;padding:7px 7px 7px 15px;font-weight:800; font-size:13px;
+}
+/* Table rows */
+ul.tabletolist ul > li {
+    font-weight:200;border-bottom:1px solid #ddd;padding:10px;
+}
+/* Table rows hover */
+ul.tabletolist ul > li:hover {
+    background-color: #efefef
+}
+/* Table last child row */
+ul.tabletolist ul > li:last-child {
+    border-bottom:none;
+}
+/* Table row header */
+ul.tabletolist ul > li .row_headers {
+    font-size:13px;
+	font-weight:bold;
+}
+/* Table row data */
+ul.tabletolist ul > li .row_data {
+  font-size:13px; margin-top:5px;
+}

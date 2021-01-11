@@ -1,0 +1,51 @@
+﻿@model VAPortale.Areas.Admin.Models.CaroselloIndexModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="contenuto">
+    <h2>
+        @Html.ActionLink("Carosello", "Index", null, new { @class = "sezione" })/
+    <span>Elenco Elementi carosello</span>
+</h2>
+<div>
+    @Html.ActionLink("Nuovo Elemento", "Crea", null, new { @class = "pulsante" })
+</div>
+@*    <div class="cerca">
+        @using (Html.BeginForm("Index", "Notizia", FormMethod.Get))
+        {
+            <span>
+                @Html.LabelFor(m => m.Pubblicato)
+                @Html.DropDownListFor(m => m.Pubblicato, Model.BooleanSelectList)
+            </span>
+            <span>
+                @Html.LabelFor(m => m.Testo)
+                @Html.TextBoxFor(m => m.Testo)
+            </span>
+            <input type="submit" value="Cerca" />
+        }
+
+    </div> *@
+<table>
+    <thead>
+        <tr>
+            <th>Data</th>
+            <th>Titolo</th>
+            <th>Pubblicato</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (OggettoCarosello oggetto in Model.OggettiCarosello)
+            {
+            <tr class="@(oggetto.Pubblicato ? "pubblico" : "")">
+                <td>@oggetto.Data.ToString("dd/MM/yyyy")</td>
+                <td>@Html.ActionLink(oggetto.Nome_IT, "Edita", new { id = oggetto.ID })</td>
+                <td>@Html.BooleanToString(oggetto.Pubblicato, "si", "no")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+</div>

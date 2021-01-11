@@ -1,0 +1,182 @@
+﻿@model VAPortale.Areas.Admin.Models.DatoAmbientaleHomeEditaModel
+@{
+    ViewBag.Title = "Elemento dati ambientali home";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div id="corpo" class="contenuto">
+    <h2>
+        @Html.ActionLink("Elementi dati ambientali home", "Index", "DatoAmbientaleHome", null, new { @class = "sezione" }) /
+
+        <span>
+        @if (Model.ID != 0)
+        {
+            @Model.EditaTitolo_IT
+        }
+        else
+        {
+            <text>Nuovo elemento dati ambientali home</text>
+        }
+        </span>
+    </h2>    
+    @if (Model.ID != 0)
+{
+    <div class="switchers">
+        @using (Html.BeginForm("EditaPubblicato", "DatoAmbientaleHome", new { id = Model.DatoAmbientaleHome.ID }, FormMethod.Post, new { id = "form-edita-pubblicato" }))
+        {
+            @Html.Hidden("EditaPubblicato", !Model.DatoAmbientaleHome.Pubblicato)
+            <p class="switch @Html.BooleanToString(Model.DatoAmbientaleHome.Pubblicato, "si", "no")">
+                pubblicato <a href="#" class="switcher"><span class="si">Si</span> <span class="no">
+                    NO</span></a></p>
+        }
+    </div>
+    <div class="riepilogo">
+        <script>
+            var formPubblicato = null;
+
+            $(function () {
+                formPubblicato = $("#form-edita-pubblicato");
+
+                formPubblicato.submit(function () {
+                    $.post(formPubblicato.attr("action"),
+                            formPubblicato.serialize(),
+                            function (data) {
+                                if (data != null) {
+
+                                    if (data.length == 2 || (data.length > 2 && data[2] == true)) {
+                                        if (data[0] == true) {
+                                            formPubblicato.find(".switch").removeClass("no").addClass("si");
+                                            formPubblicato.find("input[name='EditaPubblicato']").val("False");
+                                        }
+                                        else {
+                                            formPubblicato.find(".switch").removeClass("si").addClass("no");
+                                            formPubblicato.find("input[name='EditaPubblicato']").val("True");
+                                        }
+
+                                        $("#data-ultima-modifica-field").text(data[1]);
+                                    }
+                                    else {
+                                        alert(data[3]);
+                                    }
+                                }
+                            },
+                            "json"
+                        );
+
+                    return false;
+                });
+
+                formPubblicato.find(".switcher").click(function () {
+
+                    formPubblicato.submit();
+                    return false;
+                });
+            });
+        </script>
+
+     <div class="boxData">
+        <p> Inserimento:  @Model.DatoAmbientaleHome.DataInserimento.ToString("dd/MM/yyyy HH:mm")</p>
+        <p> Ultima Modifica: @Model.DatoAmbientaleHome.DataUltimaModifica.ToString("dd/MM/yyyy HH:mm")</p>
+    </div>
+
+
+        </div>
+    }
+
+    @using (Html.BeginForm("Edita", "DatoAmbientaleHome", FormMethod.Post))
+    {
+        <table class="edita principale">
+             <tr class="it">
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.EditaTitolo_IT)
+                </th>
+                <th>
+                    @Html.TextBoxFor(m => m.EditaTitolo_IT)
+                </th>
+            </tr>
+             <tr class="en">
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.EditaTitolo_EN)
+                </th>
+                <th>
+                    @Html.TextBoxFor(m => m.EditaTitolo_EN)
+                </th>
+            </tr>
+             <tr class="en">
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.EditaLink)
+                </th>
+                <th>
+                    @Html.TextBoxFor(m => m.EditaLink)
+                </th>
+            </tr>
+        </table>
+        <script>
+            
+        </script>
+        <div class="side">
+            <div class="publishing">
+                @Html.ValidationSummary()
+                <input type="submit" name="EditaSalva" value="Salva" />
+                @if (Model.ID != 0)
+                {
+                    @Html.ActionLink("Annulla", "Edita", null, new { @class = "pulsante" })
+                    <input type="button" class="shared-dialog-elimina-button" value="Elimina" />
+                }
+                <p class="avviso">
+                    I campi in rosso sono obbligatori</p>
+            </div>
+            <table class="edita">
+                    <tr>
+                        <th class="obbligatorio">
+                            @Html.LabelFor(m => m.EditaImmagineID)
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.DropDownListFor(m => m.EditaImmagineID, Model.ImmaginiSelectList)
+                        </th>
+                    </tr>
+            </table>
+        </div>
+        
+    }
+    @if (Model.ID != 0)
+    {
+        <div id="shared-elimina-dialog" title="Eliminazione Dato Ambientale Home">
+            @using (Html.BeginForm("Elimina", "DatoAmbientaleHome", new { id = Model.ID }, FormMethod.Post))
+            {
+                <text>L'elemento verrà eliminato e non sarà più recuperabile.
+                Procedere con l'eliminazione?</text>
+            }
+        </div>
+
+        <script>
+            $(function () {
+                $("#shared-elimina-dialog").dialog({
+                    autoOpen: false,
+                    height: 200,
+                    width: 400,
+                    modal: true,
+                    buttons: {
+                        "Conferma": function () {
+                            var dlg = $(this);
+
+                            dlg.find("form").submit();
+
+                            dlg.dialog("close");
+                        },
+                        "Annulla": function () {
+                            var dlg = $(this);
+                            dlg.dialog("close");
+                        }
+                    }
+                });
+
+                $(".shared-dialog-elimina-button").click(function () {
+                    $("#shared-elimina-dialog").dialog("open");
+                });
+            });
+
+        </script>
+    }
+</div>

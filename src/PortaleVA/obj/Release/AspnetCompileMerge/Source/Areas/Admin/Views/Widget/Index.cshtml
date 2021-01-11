@@ -1,0 +1,52 @@
+﻿@model VAPortale.Areas.Admin.Models.WidgetIndexModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="contenuto">
+    <h2>@Html.ActionLink("Widget", "Index", null, new { @class = "sezione" })
+        / <span>Elenco Widget</span></h2>
+    <div>
+        @Html.ActionLink("Nuovo Widget notizia", "Crea", null,  new { @class = "pulsante" }) - 
+        @Html.ActionLink("Nuovo Widget Embed", "CreaEmbed", null, new { @class = "pulsante" }) 
+        @Html.ActionLink("Nuovo Widget inEvidenza", "CreaInEvidenza", null, new { @class = "pulsante" })
+        @Html.ActionLink("Nuovo Widget Sezione", "CreaSezione", null, new { @class = "pulsante" })
+
+    </div>
+    <div class="cerca">
+        @using (Html.BeginForm("Index", "Widget", FormMethod.Get))
+        {
+            <span>
+                @Html.LabelFor(m => m.Testo)
+                @Html.TextBoxFor(m => m.Testo)
+            </span>
+            <span>
+                @Html.LabelFor(m => m.TipoWidget)
+                @Html.DropDownListFor(m => m.TipoWidget, Model.TipoWidgetSelectList)
+            </span>
+            <input type="submit" value="Cerca" />
+        }
+        
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Titolo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Widget widget in Model.Widget)
+            {
+            <tr>
+                <td>@Html.ActionLink(widget.Nome_IT, Model.EditaActionName, new { id = widget.ID })</td>
+            </tr>
+            }
+        </tbody>
+        </table>
+                <div class="corpo">
+
+    @Html.VaPaginatore(Model.Pagina, Model.DimensionePagina, Model.TotaleRisultati, "pagina", x => Url.Action("Index", x))
+</div>
+</div>

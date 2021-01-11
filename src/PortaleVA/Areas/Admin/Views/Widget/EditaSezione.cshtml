@@ -1,0 +1,193 @@
+﻿@model VAPortale.Areas.Admin.Models.WidgetSezioneEditaModel
+@using VALib.Web
+@{
+    ViewBag.Title = "EditaSezione";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section head{
+    <script src="@Url.Content("~/Scripts/tinymce/tinymce.min.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            var lang = 'it';
+            $("#btn-switchLanguage").click(function () {
+                lang = lang == 'it' ? 'en' : 'it';
+                var vl = $('input[name=SelezioneLinkVoce]:checked').val();
+                var l = '.tr-' + lang;
+                $(".tr-it,.tr-en,.tr-link,.tr-voce").hide();
+                $(l).show();
+                if (vl == 'voce') { $('.tr-link').hide(); $(l + '.tr-voce').show(); }
+                if (vl == 'link') { $('.tr-voce').hide(); $(l + '.tr-link').show(); }
+            });
+            $('input[name=SelezioneLinkVoce]').on('change', function () {
+                var v = $(this).val();
+                var l = '.tr-' + lang;
+                if (v == 'link') {
+                    $(l+'.tr-link').show();
+                    $(l+'.tr-voce').hide();
+                } else if (v == 'voce') {
+                    $(l+'.tr-link').hide();
+                    $(l+'.tr-voce').show();
+                }
+            });
+        });
+    </script>
+}
+<div id="corpo" class="contenuto">
+    <h2>
+        @Html.ActionLink("Widget", "Index", "Widget", null, new { @class = "sezione" }) /
+
+        <span>
+            @if (Model.ID != 0)
+            {
+                @Model.Widget.Nome_IT
+            }
+            else
+            {
+                <text>Nuovo Widget Sezione</text>
+            }
+        </span>
+    </h2>
+    @if (Model.ID != 0)
+    {
+        <div class="riepilogo">
+
+            <div class="boxData">
+                <p> Inserimento:  @Model.Widget.DataInserimento.ToString("dd/MM/yyyy HH:mm")</p>
+                <p> Ultima Modifica: @Model.Widget.DataUltimaModifica.ToString("dd/MM/yyyy HH:mm")</p>
+            </div>
+
+
+        </div>
+    }
+    <div>
+        <input type="button" name="cambia lingua" value="cambia lingua" id="btn-switchLanguage" />
+    </div>
+    @using (Html.BeginForm("EditaSezione", "Widget", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.ID)
+
+        <table class="edita principale">
+
+
+            <tr class="tr-it">
+                <th class="obbligatorio" width="20%">
+                    @Html.LabelFor(m => m.EditaNome_IT)
+                </th>
+                <th>
+                    @Html.TextBoxFor(m => m.EditaNome_IT)
+                </th>
+            </tr>
+            <tr class="tr-en" style="display: none">
+                <th class="obbligatorio" width="20%">
+                    @Html.LabelFor(m => m.EditaNome_EN)
+                </th>
+                <th>
+                    @Html.TextBoxFor(m => m.EditaNome_EN)
+                </th>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center;">
+                    Voce di menu @Html.RadioButtonFor(m => m.SelezioneLinkVoce, "voce")
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    Link diretto @Html.RadioButtonFor(m => m.SelezioneLinkVoce, "link")
+                </td>
+            </tr>
+            <tr class="tr-link tr-it" style="display:@(Model.SelezioneLinkVoce.Equals("link")?"":"none");">
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.EditaLinkIT)
+                </th>
+                <th>
+                    @Html.TextBoxFor(m => m.EditaLinkIT, new { style = "width: 98%;" })
+                </th>
+            </tr>
+            <tr class="tr-link tr-en" style="display:none;">
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.EditaLinkEN)
+                </th>
+                <th>
+                    @Html.TextBoxFor(m => m.EditaLinkEN, new { style = "width: 98%;" })
+                </th>
+            </tr>
+            <tr class="tr-voce tr-it tr-en" style="display:@(Model.SelezioneLinkVoce.Equals("voce")?"":"none");">
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.EditaVoceMenuID)
+                </th>
+                <th>
+                    @Html.DropDownListFor(m => m.EditaVoceMenuID, Model.VociMenuSelectList, new { style = "width: 100%;" })
+                </th>
+            </tr>
+            <tr>
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.IconeList)
+                </th>
+                <td class="alignCenter">
+                    @foreach (String fn in Model.IconeList)
+                    {
+                        <span class="Icona">
+                            <img src="@(UrlUtility.VADomain+fn)" />
+                            @Html.RadioButtonFor(m => m.EditaIcona, fn)
+                        </span>
+                    }
+                </td>
+            </tr>
+        </table>
+        <script type="text/javascript">
+
+        </script>
+        <div class="side">
+            <div class="publishing">
+                @Html.ValidationSummary()
+                <input type="submit" name="EditaSalva" value="Salva" />
+                @if (Model.ID != 0)
+                {
+                    @Html.ActionLink("Annulla", "EditaSezione", null, new { @class = "pulsante" })
+                    <input type="button" class="shared-dialog-elimina-button" value="Elimina" />
+                }
+                <p class="avviso">
+                    I campi in rosso sono obbligatori
+                </p>
+            </div>
+        </div>
+
+    }
+    @if (Model.ID != 0)
+    {
+        <div id="shared-elimina-dialog" title="Eliminazione Widget">
+            @using (Html.BeginForm("Elimina", "Widget", new { id = Model.ID }, FormMethod.Post))
+            {
+                <text>Il widget verrà eliminato e non sarà più recuperabile.
+                    Procedere con l'eliminazione?</text>
+            }
+        </div>
+
+        <script type="text/javascript">
+            $(function () {
+                $("#shared-elimina-dialog").dialog({
+                    autoOpen: false,
+                    height: 200,
+                    width: 400,
+                    modal: true,
+                    buttons: {
+                        "Conferma": function () {
+                            var dlg = $(this);
+
+                            dlg.find("form").submit();
+
+                            dlg.dialog("close");
+                        },
+                        "Annulla": function () {
+                            var dlg = $(this);
+                            dlg.dialog("close");
+                        }
+                    }
+                });
+
+                $(".shared-dialog-elimina-button").click(function () {
+                    $("#shared-elimina-dialog").dialog("open");
+                });
+            });
+
+        </script>
+    }
+</div>

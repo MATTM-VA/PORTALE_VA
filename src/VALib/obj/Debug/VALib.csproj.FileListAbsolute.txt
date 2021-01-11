@@ -1,0 +1,104 @@
+\\serio.anciteloa.local\C$\LAVORO\PROGETTI SEGUITI\PROGETTI MATTM\Sinva_sln_Dump_20170315\Sinva_sln_Dump_20170315\VALib\bin\Debug\VALib.dll
+\\serio.anciteloa.local\C$\LAVORO\PROGETTI SEGUITI\PROGETTI MATTM\Sinva_sln_Dump_20170315\Sinva_sln_Dump_20170315\VALib\bin\Debug\VALib.pdb
+\\serio.anciteloa.local\C$\LAVORO\PROGETTI SEGUITI\PROGETTI MATTM\Sinva_sln_Dump_20170315\Sinva_sln_Dump_20170315\VALib\bin\Debug\ElogToolkit.dll
+\\serio.anciteloa.local\C$\LAVORO\PROGETTI SEGUITI\PROGETTI MATTM\Sinva_sln_Dump_20170315\Sinva_sln_Dump_20170315\VALib\bin\Debug\Microsoft.Web.Infrastructure.dll
+\\serio.anciteloa.local\C$\LAVORO\PROGETTI SEGUITI\PROGETTI MATTM\Sinva_sln_Dump_20170315\Sinva_sln_Dump_20170315\VALib\bin\Debug\System.Web.Helpers.dll
+\\serio.anciteloa.local\C$\LAVORO\PROGETTI SEGUITI\PROGETTI MATTM\Sinva_sln_Dump_20170315\Sinva_sln_Dump_20170315\VALib\bin\Debug\System.Web.Mvc.dll
+\\serio.anciteloa.local\C$\LAVORO\PROGETTI SEGUITI\PROGETTI MATTM\Sinva_sln_Dump_20170315\Sinva_sln_Dump_20170315\VALib\bin\Debug\System.Web.Razor.dll
+\\serio.anciteloa.local\C$\LAVORO\PROGETTI SEGUITI\PROGETTI MATTM\Sinva_sln_Dump_20170315\Sinva_sln_Dump_20170315\VALib\bin\Debug\System.Web.WebPages.Deployment.dll
+\\serio.anciteloa.local\C$\LAVORO\PROGETTI SEGUITI\PROGETTI MATTM\Sinva_sln_Dump_20170315\Sinva_sln_Dump_20170315\VALib\bin\Debug\System.Web.WebPages.dll
+\\serio.anciteloa.local\C$\LAVORO\PROGETTI SEGUITI\PROGETTI MATTM\Sinva_sln_Dump_20170315\Sinva_sln_Dump_20170315\VALib\bin\Debug\System.Web.WebPages.Razor.dll
+\\serio.anciteloa.local\C$\LAVORO\PROGETTI SEGUITI\PROGETTI MATTM\Sinva_sln_Dump_20170315\Sinva_sln_Dump_20170315\VALib\bin\Debug\ElogToolkit.pdb
+\\serio.anciteloa.local\C$\LAVORO\PROGETTI SEGUITI\PROGETTI MATTM\Sinva_sln_Dump_20170315\Sinva_sln_Dump_20170315\VALib\bin\Debug\ElogToolkit.xml
+\\serio.anciteloa.local\C$\LAVORO\PROGETTI SEGUITI\PROGETTI MATTM\Sinva_sln_Dump_20170315\Sinva_sln_Dump_20170315\VALib\bin\Debug\System.Web.Helpers.xml
+\\serio.anciteloa.local\C$\LAVORO\PROGETTI SEGUITI\PROGETTI MATTM\Sinva_sln_Dump_20170315\Sinva_sln_Dump_20170315\VALib\bin\Debug\System.Web.Mvc.xml
+\\serio.anciteloa.local\C$\LAVORO\PROGETTI SEGUITI\PROGETTI MATTM\Sinva_sln_Dump_20170315\Sinva_sln_Dump_20170315\VALib\bin\Debug\System.Web.Razor.xml
+\\serio.anciteloa.local\C$\LAVORO\PROGETTI SEGUITI\PROGETTI MATTM\Sinva_sln_Dump_20170315\Sinva_sln_Dump_20170315\VALib\bin\Debug\System.Web.WebPages.xml
+\\serio.anciteloa.local\C$\LAVORO\PROGETTI SEGUITI\PROGETTI MATTM\Sinva_sln_Dump_20170315\Sinva_sln_Dump_20170315\VALib\bin\Debug\System.Web.WebPages.Deployment.xml
+\\serio.anciteloa.local\C$\LAVORO\PROGETTI SEGUITI\PROGETTI MATTM\Sinva_sln_Dump_20170315\Sinva_sln_Dump_20170315\VALib\bin\Debug\System.Web.WebPages.Razor.xml
+\\serio.anciteloa.local\C$\LAVORO\PROGETTI SEGUITI\PROGETTI MATTM\Sinva_sln_Dump_20170315\Sinva_sln_Dump_20170315\VALib\obj\Debug\VALib.csprojResolveAssemblyReference.cache
+\\serio.anciteloa.local\C$\LAVORO\PROGETTI SEGUITI\PROGETTI MATTM\Sinva_sln_Dump_20170315\Sinva_sln_Dump_20170315\VALib\obj\Debug\VALib.dll
+\\serio.anciteloa.local\C$\LAVORO\PROGETTI SEGUITI\PROGETTI MATTM\Sinva_sln_Dump_20170315\Sinva_sln_Dump_20170315\VALib\obj\Debug\VALib.pdb
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Debug\VALib.dll
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Debug\VALib.pdb
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Debug\ElogToolkit.dll
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Debug\System.Web.Helpers.dll
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Debug\System.Web.Mvc.dll
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Debug\System.Web.Razor.dll
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Debug\System.Web.WebPages.dll
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Debug\System.Web.WebPages.Razor.dll
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Debug\ElogToolkit.pdb
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Debug\ElogToolkit.xml
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Debug\System.Web.Helpers.xml
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Debug\System.Web.Mvc.xml
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Debug\System.Web.Razor.xml
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Debug\System.Web.WebPages.xml
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\inetpub\wwwroot\VA_SVIL\VALib\bin\Debug\System.Web.WebPages.Razor.xml
+C:\inetpub\wwwroot\VA_SVIL\VALib\obj\Debug\VALib.dll
+C:\inetpub\wwwroot\VA_SVIL\VALib\obj\Debug\VALib.pdb
+C:\inetpub\wwwroot\VA_SVIL\VALib\obj\Debug\VALib.csprojResolveAssemblyReference.cache
+C:\inetpub\wwwroot\VA_SVIL2\VALib\bin\Debug\VALib.dll
+C:\inetpub\wwwroot\VA_SVIL2\VALib\bin\Debug\VALib.pdb
+C:\inetpub\wwwroot\VA_SVIL2\VALib\bin\Debug\ElogToolkit.dll
+C:\inetpub\wwwroot\VA_SVIL2\VALib\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\inetpub\wwwroot\VA_SVIL2\VALib\bin\Debug\System.Web.Helpers.dll
+C:\inetpub\wwwroot\VA_SVIL2\VALib\bin\Debug\System.Web.Mvc.dll
+C:\inetpub\wwwroot\VA_SVIL2\VALib\bin\Debug\System.Web.Razor.dll
+C:\inetpub\wwwroot\VA_SVIL2\VALib\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\inetpub\wwwroot\VA_SVIL2\VALib\bin\Debug\System.Web.WebPages.dll
+C:\inetpub\wwwroot\VA_SVIL2\VALib\bin\Debug\System.Web.WebPages.Razor.dll
+C:\inetpub\wwwroot\VA_SVIL2\VALib\bin\Debug\ElogToolkit.pdb
+C:\inetpub\wwwroot\VA_SVIL2\VALib\bin\Debug\ElogToolkit.xml
+C:\inetpub\wwwroot\VA_SVIL2\VALib\bin\Debug\System.Web.Helpers.xml
+C:\inetpub\wwwroot\VA_SVIL2\VALib\bin\Debug\System.Web.Mvc.xml
+C:\inetpub\wwwroot\VA_SVIL2\VALib\bin\Debug\System.Web.Razor.xml
+C:\inetpub\wwwroot\VA_SVIL2\VALib\bin\Debug\System.Web.WebPages.xml
+C:\inetpub\wwwroot\VA_SVIL2\VALib\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\inetpub\wwwroot\VA_SVIL2\VALib\bin\Debug\System.Web.WebPages.Razor.xml
+C:\inetpub\wwwroot\VA_SVIL2\VALib\obj\Debug\VALib.dll
+C:\inetpub\wwwroot\VA_SVIL2\VALib\obj\Debug\VALib.pdb
+C:\inetpub\wwwroot\VA_SVIL2\VALib\obj\Debug\VALib.csprojResolveAssemblyReference.cache
+C:\inetpub\wwwroot\VA\VALib\bin\Debug\VALib.dll
+C:\inetpub\wwwroot\VA\VALib\bin\Debug\VALib.pdb
+C:\inetpub\wwwroot\VA\VALib\bin\Debug\ElogToolkit.dll
+C:\inetpub\wwwroot\VA\VALib\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\inetpub\wwwroot\VA\VALib\bin\Debug\System.Web.Helpers.dll
+C:\inetpub\wwwroot\VA\VALib\bin\Debug\System.Web.Mvc.dll
+C:\inetpub\wwwroot\VA\VALib\bin\Debug\System.Web.Razor.dll
+C:\inetpub\wwwroot\VA\VALib\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\inetpub\wwwroot\VA\VALib\bin\Debug\System.Web.WebPages.dll
+C:\inetpub\wwwroot\VA\VALib\bin\Debug\System.Web.WebPages.Razor.dll
+C:\inetpub\wwwroot\VA\VALib\bin\Debug\ElogToolkit.pdb
+C:\inetpub\wwwroot\VA\VALib\bin\Debug\ElogToolkit.xml
+C:\inetpub\wwwroot\VA\VALib\bin\Debug\System.Web.Helpers.xml
+C:\inetpub\wwwroot\VA\VALib\bin\Debug\System.Web.Mvc.xml
+C:\inetpub\wwwroot\VA\VALib\bin\Debug\System.Web.Razor.xml
+C:\inetpub\wwwroot\VA\VALib\bin\Debug\System.Web.WebPages.xml
+C:\inetpub\wwwroot\VA\VALib\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\inetpub\wwwroot\VA\VALib\bin\Debug\System.Web.WebPages.Razor.xml
+C:\inetpub\wwwroot\VA\VALib\obj\Debug\VALib.dll
+C:\inetpub\wwwroot\VA\VALib\obj\Debug\VALib.pdb
+C:\inetpub\wwwroot\VA\VALib\obj\Debug\VALib.csprojResolveAssemblyReference.cache
+C:\inetpub\wwwroot\VAwebSiteOpen\VALib\bin\Debug\VALib.dll
+C:\inetpub\wwwroot\VAwebSiteOpen\VALib\bin\Debug\VALib.pdb
+C:\inetpub\wwwroot\VAwebSiteOpen\VALib\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\inetpub\wwwroot\VAwebSiteOpen\VALib\bin\Debug\System.Web.Helpers.dll
+C:\inetpub\wwwroot\VAwebSiteOpen\VALib\bin\Debug\System.Web.Mvc.dll
+C:\inetpub\wwwroot\VAwebSiteOpen\VALib\bin\Debug\System.Web.Razor.dll
+C:\inetpub\wwwroot\VAwebSiteOpen\VALib\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\inetpub\wwwroot\VAwebSiteOpen\VALib\bin\Debug\System.Web.WebPages.dll
+C:\inetpub\wwwroot\VAwebSiteOpen\VALib\bin\Debug\System.Web.WebPages.Razor.dll
+C:\inetpub\wwwroot\VAwebSiteOpen\VALib\bin\Debug\ElogToolkit.pdb
+C:\inetpub\wwwroot\VAwebSiteOpen\VALib\bin\Debug\ElogToolkit.xml
+C:\inetpub\wwwroot\VAwebSiteOpen\VALib\bin\Debug\System.Web.Helpers.xml
+C:\inetpub\wwwroot\VAwebSiteOpen\VALib\bin\Debug\System.Web.Mvc.xml
+C:\inetpub\wwwroot\VAwebSiteOpen\VALib\bin\Debug\System.Web.Razor.xml
+C:\inetpub\wwwroot\VAwebSiteOpen\VALib\bin\Debug\System.Web.WebPages.xml
+C:\inetpub\wwwroot\VAwebSiteOpen\VALib\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\inetpub\wwwroot\VAwebSiteOpen\VALib\bin\Debug\System.Web.WebPages.Razor.xml
+C:\inetpub\wwwroot\VAwebSiteOpen\VALib\obj\Debug\VALib.csprojResolveAssemblyReference.cache
+C:\inetpub\wwwroot\VAwebSiteOpen\VALib\obj\Debug\VALib.dll
+C:\inetpub\wwwroot\VAwebSiteOpen\VALib\obj\Debug\VALib.pdb

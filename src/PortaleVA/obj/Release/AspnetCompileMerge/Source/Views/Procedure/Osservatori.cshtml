@@ -1,0 +1,71 @@
+﻿@model VAPortale.Models.ProcedureOsservatoriModel
+
+@{
+    ViewBag.Title = Model.VoceMenu.GetNome();
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+
+}
+
+<div class="line_small_title">
+    <h2>@Model.VoceMenu.GetNome()</h2>
+</div>
+<div class="clear"></div>
+
+<br />
+
+@if (CultureHelper.IsCurrentCulture(CultureHelper._it))
+{
+    <p>
+        Gli <strong class="evidenza">Osservatori ambientali</strong>
+        sono funzionali alla verifica dell'ottemperanza delle prescrizioni contenute nel provvedimento di VIA di talune opere di particolare rilevanza territoriale. La verifica si esplica attraverso il monitoraggio nelle fasi di realizzazione e di primo esercizio dell'opera.
+    </p>
+        <p>Gli Osservatori sono tenuti inoltre a fornire al pubblico elementi di conoscenza ed analisi dello stato quali-quantitativo delle diverse componenti ambientali monitorate.</p>
+        <p>Per garantire quanto previsto dal D.Lgs.152/2006 e s.m.i. in materia di informazione al pubblico sul monitoraggio, in termini di modalità di svolgimento, risultati ed eventuali misure correttive adottate per la mitigazione degli impatti negativi imprevisti, si fornisce l'elenco degli Osservatori ad oggi istituiti o in via di istituzione.</p>
+}
+else if (CultureHelper.IsCurrentCulture(CultureHelper._en))
+{
+    <p><strong class="evidenza">Environmental Observatories</strong> are functional to the compliance assessment of the prescriptions included in the EIA Decision of  projects with national importance. The verification is carried out through the monitoring of the construction phase  and first operational stages of the project. </p>
+        <p>The Observatories are also useful to provide the public for information about the qualitative and quantitative aspects of the different environmental components monitored.</p>
+        <p>In order to ensure the indications provided by legislative Decree 152/2006 and subsequent amendments concerning public information about monitoring, operating methods, results and possible corrective actions to be used for the mitigation of unforeseen negative impacts, a list of the environmental Observatories that are currently operating or are being put in place is made available.</p>
+}
+
+<h3 class="risultati">@DizionarioService.RICERCA_TitoloRisultatiOggettiVia (@Model.Oggetti.Count)</h3>
+
+<div class="table-responsive">
+    <table class="table Osservatori">
+        <tr>
+            <th>@DizionarioService.GRIGLIA_ColonnaOggettoVia</th>
+            <th>@DizionarioService.GRIGLIA_ColonnaProponente</th>
+            <th><span class="hidden">Info</span></th>
+            <th><span class="hidden">Doc</span></th>
+        </tr>
+        @foreach (Tuple<OggettoElenco, LinkCollegato> item in Model.Oggetti)
+            {
+            <tr>
+                <td>@item.Item1.GetNome()</td>
+                <td>@item.Item1.Proponente</td>
+                <td><a href="@Url.VAOggettoInfo(item.Item1.ID)" class="icona-info-progetto" title="@string.Format(DizionarioService.TOOLTIP_InfoOggetto, item.Item1.TipoOggetto.GetNome())">info</a></td>
+                @if (item.Item2 != null)
+                {
+                    <td><a href="@item.Item2.Link.Indirizzo" class="icona-web external" title="@item.Item2.Tipo.GetNome()">@item.Item2.Tipo.GetNome()</a></td>
+                }
+                else
+                {
+                    <td><a href="@Url.VAOggettoDocumentazione(item.Item1.ID, item.Item1.OggettoProceduraID)" class="icona-documentazione-tecnico-amm" 
+                           title="@string.Format(DizionarioService.TOOLTIP_Documentazione,"")"
+                          >@string.Format(DizionarioService.TOOLTIP_Documentazione, item.Item1.TipoOggetto.GetNome())</a></td>
+                }
+            </tr>
+        }
+    </table>
+</div>
+
+<div class="area_sotto_tabella">
+    <div class="buttonBackground">
+        @Html.VaEsporta(x => Url.Action("Osservatori", x))
+    </div>
+    <div class="paginatore">
+    </div>
+    <div class="visualizza_pagina"></div>
+</div>
+

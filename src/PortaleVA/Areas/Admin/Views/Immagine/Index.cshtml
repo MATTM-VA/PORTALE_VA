@@ -1,0 +1,56 @@
+﻿@model VAPortale.Areas.Admin.Models.ImmagineIndexModel
+
+@{
+    ViewBag.Title = "Immagini - VA Admin";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="contenuto">
+    <h2>
+        @Html.ActionLink("Immagine", "Index", null, new { @class = "sezione" }) / <span>Elenco Immagini</span></h2>
+    <div>
+        @Html.ActionLink("Nuova Immagine", "Crea", null, new { @class = "pulsante" })
+    </div>
+    <div class="cerca">
+        @using (Html.BeginForm("Index", "Immagine", FormMethod.Get))
+        {
+            <span>
+                @Html.LabelFor(m => m.Testo)
+                @Html.TextBoxFor(m => m.Testo)
+            </span>
+            <input type="submit" value="Cerca" />
+        }
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                </th>
+                <th>
+                    Data Inserimento
+                </th>
+                <th>
+                    Titolo
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Immagine item in Model.Immagini)
+            {
+                <tr>
+                    <td>
+                        <img src="@Url.VAImmagine((int)item.ID, (int)FormatoImmagineEnum.Thumb)" />
+                    </td>
+                    <td>@item.DataInserimento.ToString("dd/MM/yyyy HH:mm")
+                    </td>
+                    <td>@Html.ActionLink(@item.Nome_IT, "Edita", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+            <div class="corpo">
+
+    @Html.VaPaginatore(Model.Pagina, Model.DimensionePagina, Model.TotaleRisultati, "pagina", x => Url.Action("Index", x))
+    </div>
+</div>

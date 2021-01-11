@@ -1,0 +1,64 @@
+﻿@model VAPortale.Areas.Admin.Models.WebEventsIndexModel
+@using System.Text.RegularExpressions
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+       
+<div class="contenuto">
+    
+    <div>
+        <table width="100%">
+
+            <thead>
+                <tr>
+                    @*<th>Id Evento</th>*@
+                    <th>Data/ora</th>
+                    <th width="30%">URL</th>
+                    <th>IP</th>
+                    <th  width="30%">Evento</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (VALib.Domain.Entities.Contenuti.WebEvent evento in Model.ElencoWebEvents)
+                {
+                    <tr>
+                        @*<td>
+                            @Html.ActionLink(evento.EventID.ToString(), "Dettaglio", new { id = evento.EventID.ToString() })
+                        </td>*@
+                        <td>
+                            @evento.EventTime
+                        </td>
+                        <td width="30%">
+                            @Html.Raw(TruncateAtWord(evento.RequestUrl, 50))
+                        </td>
+                        <td>
+                            @evento.UserHostAddress
+                        </td>
+                        <td width="30%">
+                            @evento.ExceptionMessage
+                        </td>
+                   </tr>
+                }
+            </tbody>
+        </table>
+       
+         @*<div class="corpo">
+            @Html.VaPaginatore(Model.Pagina, Model.DimensionePagina, Model.TotaleRisultati, "pagina", x => Url.Action("Index", x))
+        </div>*@
+
+    </div>
+
+    @functions
+    {
+        public static string TruncateAtWord(string textToTruncate, int length)
+        {
+            if (textToTruncate == null || textToTruncate.Length < length)
+                return textToTruncate;
+                        
+            return Regex.Replace(textToTruncate, ".{"+ length +"}", "$0<br>");
+
+        }
+    }

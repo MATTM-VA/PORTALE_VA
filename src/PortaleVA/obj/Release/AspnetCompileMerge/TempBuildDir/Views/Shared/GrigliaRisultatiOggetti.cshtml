@@ -1,0 +1,55 @@
+﻿@model Tuple<List<OggettoElenco>, MacroTipoOggettoEnum, bool>
+@{
+
+    string intestazioneColonnaOggetto = "";
+    string intestazioneColonnaProcedura = "";
+    string intestazioneColonna = DizionarioService.GRIGLIA_ColonnaProponente;
+
+    switch (Model.Item2)
+    {
+        case MacroTipoOggettoEnum.Via:
+            intestazioneColonnaOggetto = DizionarioService.GRIGLIA_ColonnaOggettoVia;
+            break;
+        case MacroTipoOggettoEnum.Vas:
+            intestazioneColonnaOggetto = DizionarioService.GRIGLIA_ColonnaOggettoVas;
+            break;
+        case MacroTipoOggettoEnum.Aia:
+            intestazioneColonnaOggetto = DizionarioService.RICERCA_LabelSceltaOggettiAia;
+            intestazioneColonna = DizionarioService.GRIGLIA_ColonnaGestore;
+            break;
+        default:
+            break;
+    }
+
+    if (Model.Item3)
+    {
+        intestazioneColonnaProcedura = DizionarioService.GRIGLIA_ColonnaProcedura;
+    }
+    else
+    {
+        intestazioneColonnaProcedura = DizionarioService.GRIGLIA_ColonnaUltimaProcedura;
+    }
+}
+<div class="table-responsive">
+    <table class="table ElencoViaVasRicerca">
+            <tr>              
+                
+                <th>@intestazioneColonnaOggetto</th>
+                <th>@intestazioneColonna</th>
+                <th>@intestazioneColonnaProcedura</th>
+                <th><span class="hidden">Info</span></th>
+                <th><span class="hidden">Doc</span></th>
+            </tr>
+            @foreach (OggettoElenco oggetto in Model.Item1)
+            {
+            <tr>
+                <td>@oggetto.GetNome()</td>
+                <td>@oggetto.Proponente</td>
+                <td>@oggetto.Procedura.GetNome()</td>
+                <td><a href="@Url.VAOggettoInfo(oggetto.ID)" class="icona-info-progetto" title="@string.Format(DizionarioService.TOOLTIP_InfoOggetto, oggetto.TipoOggetto.GetNome())">info</a></td>
+                <td><a href="@Url.VAOggettoDocumentazione(oggetto.ID, oggetto.OggettoProceduraID)" class="icona-documentazione-tecnico-amm" title="@string.Format(DizionarioService.TOOLTIP_Documentazione,"")">@string.Format(DizionarioService.TOOLTIP_Documentazione, oggetto.TipoOggetto.GetNome())</a></td>
+            </tr>
+                
+            }
+        </table>
+    </div>

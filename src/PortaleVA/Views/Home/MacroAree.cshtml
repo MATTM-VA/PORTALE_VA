@@ -1,0 +1,127 @@
+﻿<div id="boxMacroAree">
+
+    <div class="ContainerCircle">
+        <div class="circle-red M-Auto">
+            <div class="circle-1">
+                <a href="@Url.Action("ViaVasInCorso", "Procedure")">
+                    <img src="~/Content/img/icone/provvedimentInCorso.png" title="@DizionarioService.MENU_Procedure">
+                </a>
+            </div>
+        </div>
+        <div class="txtCircle">
+
+
+            @Html.MyActionLink(
+                     @DizionarioService.MENU_Procedure,
+                    "ViaVasInCorso",
+                    "Procedure",
+                    null,      // routeValues
+                    null   // htmlAttributes
+                )
+        </div>
+    </div>
+
+    <div class="ContainerCircle">
+        <div class="circle-purple M-Auto">
+            <div class="circle-2">
+                <a href="@Url.Action("UltimiProvvedimenti", "Comunicazione")">
+                    <img src="~/Content/img/icone/provvedimenti2017.png" title="@DizionarioService.MENU_Provvedimenti">
+                </a>
+            </div>
+        </div>
+        <div class="txtCircle">
+            @Html.MyActionLink(
+                     @DizionarioService.MENU_Provvedimenti,
+                    "UltimiProvvedimenti",
+                    "Comunicazione",
+                    null,      // routeValues
+                    null   // htmlAttributes
+                )
+            @*@Html.ActionLink("Provvedimenti 2017", "Provvedimenti", "Procedure")*@
+        </div>
+    </div>
+
+    <div class="ContainerCircle">
+        <div class="circle-blue M-Auto">
+            <div class="circle-3">
+                <a href="@Url.Action("Cittadino", "Comunicazione")">
+                    <img src="~/Content/img/icone/spazioCittadino.png" title="@DizionarioService.MENU_SpazioCittadino">
+                </a>
+            </div>
+        </div>
+        <div class="txtCircle">
+            @Html.MyActionLink(
+                     @DizionarioService.MENU_SpazioCittadino,    // linkText
+                    "Cittadino",              // actionName
+                    "Comunicazione",          // controllerName
+                    null,      // routeValues
+                    null   // htmlAttributes
+                )
+            @* @Html.ActionLink("Spazio per" + Environment.NewLine +"il cittadino", "Cittadino", "Comunicazione")*@
+        </div>
+    </div>
+
+    <div class="ContainerCircle">
+        <div class="circle-darkRed M-Auto">
+            <div class="circle-4">
+                <a href="@Url.Action("Proponente", "Comunicazione")">
+                    <img src="~/Content/img/icone/spazioProponente.png" title="@DizionarioService.MENU_SpazioProponente">
+                </a>
+            </div>
+        </div>
+        <div class="txtCircle">
+            @Html.MyActionLink(
+                     @DizionarioService.MENU_SpazioProponente,    // linkText
+                    "Proponente",              // actionName
+                    "Comunicazione",          // controllerName
+                    null,      // routeValues
+                    null   // htmlAttributes
+                )
+
+            @*@Html.ActionLink("Spazio per il \nproponente", "Proponente", "Comunicazione")*@
+        </div>
+    </div>
+
+    <div class="ContainerCircle">
+        <div class="circle-ochre M-Auto">
+            <div class="circle-5">
+                <a href="@Url.Action("SpecificheTecnicheELineeGuida", "ps/DatiEStrumenti")">
+                    <img src="~/Content/img/icone/specificheTecniche.png" title="@DizionarioService.MENU_Modulistica">
+                </a>
+            </div>
+        </div>
+        <div class="txtCircle">
+            @Html.MyActionLink(
+                     @DizionarioService.MENU_Modulistica,
+                    "SpecificheTecnicheELineeGuida",
+                    "ps/DatiEStrumenti",
+                    null,      // routeValues
+                    null   // htmlAttributes
+                )
+            @*@Html.ActionLink("Specifiche tecniche e Modulistica", "SpecificheTecnicheELineeGuida", "ps/DatiEStrumenti")*@
+        </div>
+    </div>
+
+    <div class="ContainerCircle">
+        <div class="circle-green M-Auto">
+            <div class="circle-6">
+                <a href="@Url.Action("AvvisiAssoggettabilitaVia", "Procedure")">
+                    <img src="~/Content/img/icone/avvisoPubblico.png" title="@DizionarioService.MENU_Avvisi">
+                </a>
+            </div>
+        </div>
+        <div class="txtCircle">
+            @Html.MyActionLink(
+                     @DizionarioService.MENU_Avvisi,
+                    "AvvisiAssoggettabilitaVia",
+                    "Procedure",
+                    null,      // routeValues
+                    null   // htmlAttributes
+                )
+            @* @Html.ActionLink("Avvisi al pubblico", "AvvisiAssoggettabilitaVia", "Procedure")*@
+        </div>
+    </div>
+
+    <div class="clear"></div>
+
+</div>

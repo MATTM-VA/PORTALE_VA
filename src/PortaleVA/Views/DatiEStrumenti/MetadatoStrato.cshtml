@@ -1,0 +1,303 @@
+﻿@model VAPortale.Models.DatiEStrumentiMetadatoStratoModel
+@{
+    ViewBag.Title = string.Format("{0} - {1}", Model.Strato.Titolo, Model.VoceMenu.GetNome());
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+
+<div class="line_small_title">
+    <h2>@Model.VoceMenu.GetNome()</h2>
+</div>
+<div class="clear"></div>
+
+<br />
+<ul class="menuTabMetadati">
+    @foreach (Tuple<string, string> s in Model.Tabs)
+    {
+        <li style="cursor:pointer"><a href="#@s.Item1">@s.Item2</a></li>
+    }
+</ul>
+
+<div class="table-responsive">
+    @if (Model.Strato.Identificazione.Count > 0)
+    {
+        <table class="table Metadato tableTabMetadati" id="Identificazione">
+            <thead>
+                <tr>
+                    <th colspan="2">@DizionarioService.METADATO_SezioneIdentificazione</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Tuple<string, string> t in Model.Strato.Identificazione)
+                {
+                    if (t.Item1.ToLower() != "tabellalink")
+                    {
+                        <tr>
+                            <td>@t.Item1</td>
+                            <td>@t.Item2</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        foreach (StratoMetadatiLink sml in Model.Strato.Links)
+                        {
+                            <tr>
+                                <td>@sml.Denominazione</td>
+                                <td>
+                                    <a href="@sml.LinkUrl" title="@sml.LinkTooltip">@sml.LinkTesto</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    }
+
+    @if (Model.Strato.Classificazione.Count > 0)
+    {
+        <table class="table Metadato tableTabMetadati" id="Classificazione">
+            <thead>
+                <tr>
+                    <th colspan="2">@DizionarioService.METADATO_SezioneClassificazione</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Tuple<string, string> t in Model.Strato.Classificazione)
+                {
+                    <tr>
+                        <td>@t.Item1</td>
+                        <td>@t.Item2</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    }
+    @if (Model.Strato.ParoleChiave.Count > 0)
+    {
+
+        <table class="table Metadato tableTabMetadati" id="ParoleChiave">
+            <thead>
+                <tr>
+                    <th colspan="2">@DizionarioService.METADATO_SezioneParoleChiave</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Tuple<string, string> t in Model.Strato.ParoleChiave)
+                {
+                    <tr>
+                        <td>@t.Item1</td>
+                        <td>@t.Item2</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    @if (Model.Strato.Localizzazione.Count > 0)
+    {
+        <table class="table Metadato tableTabMetadati" id="Localizzazione">
+            <thead>
+                <tr>
+                    <th colspan="2">@DizionarioService.METADATO_SezioneLocalizzazione</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Tuple<string, string> t in Model.Strato.Localizzazione)
+                {
+                    <tr>
+                        <td>@t.Item1</td>
+                        <td>@t.Item2</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    @if (Model.Strato.RiferimentoTemporale.Count > 0)
+    {
+        <table class="table Metadato tableTabMetadati" id="RiferimentoTemporale">
+            <thead>
+                <tr>
+                    <th colspan="2">@DizionarioService.METADATO_SezioneRiferimentoTemporale</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Tuple<string, string> t in Model.Strato.RiferimentoTemporale)
+                {
+                    <tr>
+                        <td>@t.Item1</td>
+                        <td>@t.Item2</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    }
+
+    @if (Model.Strato.Qualita.Count > 0)
+    {
+        <table class="table Metadato tableTabMetadati" id="Qualita">
+            <tbody>
+                <tr>
+                    <th colspan="2">@DizionarioService.METADATO_SezioneQualita</th>
+                </tr>
+                @foreach (Tuple<string, string> t in Model.Strato.Qualita)
+                {
+                    <tr>
+                        <td>@t.Item1</td>
+                        <td>@t.Item2</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    }
+
+    @if (Model.Strato.SistemaRiferimento.Count > 0)
+    {
+        <table class="table Metadato tableTabMetadati" id="SistemaRiferimento">
+            <tbody>
+                <tr>
+                    <th colspan="2">@DizionarioService.METADATO_SezioneSistemaRiferimento</th>
+                </tr>
+                @foreach (Tuple<string, string> t in Model.Strato.SistemaRiferimento)
+                {
+                    <tr>
+                        <td>@t.Item1</td>
+                        <td>@t.Item2</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    @if (Model.Strato.Conformita.Count > 0)
+    {
+        <table class="table Metadato tableTabMetadati" id="Conformita">
+            <tbody>
+                <tr>
+                    <th colspan="2">@DizionarioService.METADATO_SezioneConformita</th>
+                </tr>
+                @foreach (Tuple<string, string> t in Model.Strato.Conformita)
+                {
+                    <tr>
+                        <td>@t.Item1</td>
+                        <td>@t.Item2</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    @if (Model.Strato.Vincoli.Count > 0)
+    {
+        <table class="table Metadato tableTabMetadati" id="Vincoli">
+            <tbody>
+                <tr>
+                    <th colspan="2">@DizionarioService.METADATO_SezioneVincoli</th>
+                </tr>
+                @foreach (Tuple<string, string> t in Model.Strato.Vincoli)
+                {
+                    <tr>
+                        <td>@t.Item1</td>
+                        <td>@t.Item2</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    @if (Model.Strato.Responsabili.Count > 0)
+    {
+        <table class="table Metadato tableTabMetadati" id="Responsabili">
+            <tbody>
+                <tr>
+                    <th colspan="2">@DizionarioService.METADATO_SezioneResponsabili</th>
+                </tr>
+                @foreach (Tuple<string, string> t in Model.Strato.Responsabili)
+                {
+                    <tr>
+                        <td>@t.Item1</td>
+                        <td>@t.Item2</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    }
+    @if (Model.Strato.Distribuzione.Count > 0)
+    {
+
+        <table class="table Metadato tableTabMetadati" id="Distribuzione">
+            <tbody>
+                <tr>
+                    <th colspan="2">@DizionarioService.METADATO_SezioneDistribusione</th>
+                </tr>
+                @foreach (Tuple<string, string> t in Model.Strato.Distribuzione)
+                {
+                    <tr>
+                        <td>@t.Item1</td>
+                        <td>@t.Item2</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    @if (Model.Strato.Metadati.Count > 0)
+    {
+        <table class="table Metadato tableTabMetadati" id="Metadati">
+            <tbody>
+                <tr>
+                    <th colspan="2">@DizionarioService.METADATO_SezioneMetadati</th>
+                </tr>
+                @foreach (Tuple<string, string> t in Model.Strato.Metadati)
+                {
+                    <tr>
+                        <td>@t.Item1</td>
+                        <td>@t.Item2</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    }
+
+</div>
+
+<script>
+    /*** Sezione Metadatai Tab ***/
+    $(document).ready(function () {
+
+        var selezionato = null;
+
+        $(".tableTabMetadati").css("display", "none");
+
+        $(".tableTabMetadati").first().css("display", "table");
+
+        $(".menuTabMetadati li a").first().addClass("attivo");
+
+        $(".menuTabMetadati li a").each(function () {
+            $(this).attr("alt", $(this).attr("href"));
+            $(this).removeAttr("href");
+        });
+
+        $(".menuTabMetadati li a").click(function () {
+            $(".menuTabMetadati li a").removeClass("attivo");
+            $(this).addClass("attivo");
+            selezionato = $(this).attr("alt");
+            $(".tableTabMetadati").css("display", "none");
+            $(selezionato).css("display", "table");
+            $(selezionato).css("opacity", "0");
+            $(selezionato).animate({
+                opacity: 1
+            }, 500, function () {
+                // Animation complete.
+
+            });
+
+        });
+    });
+
+</script>

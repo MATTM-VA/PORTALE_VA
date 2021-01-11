@@ -1,0 +1,23 @@
+﻿@model VAPortale.Models.OggettiTerritoriModel
+
+<h3>@DizionarioService.OGGETTO_TitoloTerritori</h3>
+@if (!string.IsNullOrWhiteSpace(Model.LinkLocalizzazione))
+{
+
+    <a href="@Model.LinkLocalizzazione" title="@DizionarioService.TOOLTIP_TooltipLocalizzazione" class="external pull-right">
+        @if (Model.ImmagineLocalizzazione)
+        {
+           
+            <img src="@Url.VAImmagineLocalizzazione(Model.OggettoID)" class="localizzatore" alt="@DizionarioService.TOOLTIP_TooltipLocalizzazione" width="200" height="130" />
+        }
+        else
+        {
+            @DizionarioService.TOOLTIP_TooltipLocalizzazione
+        }
+    </a>
+
+}
+<p><strong>@DizionarioService.OGGETTO_LabelRegioni:</strong> @Model.Regioni</p>
+<p><strong>@DizionarioService.OGGETTO_LabelProvince:</strong> @Model.Province</p>
+<p><strong>@DizionarioService.OGGETTO_LabelComuni:</strong> @Model.Comuni</p>
+<p><strong>@DizionarioService.OGGETTO_LabelMari:</strong> @Model.AreeMarine</p>

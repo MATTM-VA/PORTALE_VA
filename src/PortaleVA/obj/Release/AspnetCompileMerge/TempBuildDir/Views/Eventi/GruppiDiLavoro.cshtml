@@ -1,0 +1,41 @@
+﻿@model VAPortale.Models.OggettoEventiModel
+@using VAPortale.Models
+@if (Model.Eventi.Count() > 0)
+{
+    String lblGdl = Model.Eventi.First().TipoEvento.GetNome();
+
+    <h3>Scegli il Gruppo di lavoro</h3>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@lblGdl</th>
+                    <th>Data Inizio</th>
+                    <th>Data Fine</th>
+                    <th style="width:30px; text-align:center;"> </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (EventoModel e in Model.Eventi)
+                {
+                    <tr class="trProcedura">
+                        <td>@e.Evento.GetNome()</td>
+                        <td>@(e.Evento.DataInizio == null ? "" : e.Evento.DataInizio.Value.ToString(CultureHelper.GetDateFormat()))</td>
+                        <td>@(e.Evento.DataFine == null ? "" : e.Evento.DataFine.Value.ToString(CultureHelper.GetDateFormat()))</td>
+                        <td class="procedura" style="text-align:center;">
+                            <a class="icona-documentazione-tecnico-amm" title="@DizionarioService.OGGETTO_LabelTabDocumentazione"
+                               href="@Url.Action("Documentazione", new { id = e.Evento.ID })">@DizionarioService.OGGETTO_LabelTabDocumentazione</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+
+
+
+
+

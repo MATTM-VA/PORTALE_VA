@@ -1,0 +1,22 @@
+﻿@model VAPortale.Models.OggettiRaggruppamentiTreeViewModel
+<ul id="navigation" class="tree_@Model.OggettoProceduraID">
+    @foreach (Raggruppamento r in Model.Raggruppamenti)
+    {
+        string cssClass = "";
+        if (r.ID == Model.RaggruppamentoID)
+        {
+            cssClass = "selected";
+        }
+        <li>
+        @if (r.HaFigli)
+        {
+        <span>@r.GetNome()</span>
+            { Html.RenderAction("RaggruppamentiChildNodes", "Oggetti", new { oggettoProceduraID = Model.OggettoProceduraID, genitoreID = r.ID, raggruppamentoID = Model.RaggruppamentoID }); }
+        }
+        else
+        {
+        <span class="leaf @cssClass" data-raggruppamentoid="@r.ID">@r.GetNome()</span>
+        }
+    </li>
+    }
+</ul>

@@ -1,0 +1,61 @@
+﻿@model VAPortale.Areas.Admin.Models.VariabileIndexModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="contenuto">
+    <h2>
+    <span>Elenco Variabili</span>
+</h2>
+<div>
+    @*@Html.ActionLink("Nuova Notizia", "Crea", new { immagineID = Model.DefaultImmagineID }, new { @class = "pulsante" })*@
+</div>
+@*<div class="cerca">
+    @using (Html.BeginForm("Index", "Notizia", FormMethod.Get))
+    {
+        <span>
+            @Html.LabelFor(m => m.Pubblicato)
+            @Html.DropDownListFor(m => m.Pubblicato, Model.BooleanSelectList)
+        </span>
+        <span>
+            @Html.LabelFor(m => m.Testo)
+            @Html.TextBoxFor(m => m.Testo)
+        </span>
+        <span>
+            @Html.LabelFor(m => m.CategoriaNotiziaID)
+            @Html.DropDownListFor(m => m.CategoriaNotiziaID, Model.CategoriaSelectList)
+        </span>
+        <span>
+            @Html.LabelFor(m => m.Stato)
+            @Html.DropDownListFor(m => m.Stato, Model.StatoSelectList)
+        </span>
+        <input type="submit" value="Cerca" />
+    }
+
+</div>*@
+<table>
+    <thead>
+        <tr>
+            <th width="50">Chiave</th>
+            <th>Valore</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Variabile variabile in Model.Variabili)
+        {
+            <tr>
+                <td>@variabile.Chiave</td>
+                <td>
+                    <form action="@Url.Action("Edita")" method="post">
+                        <input type="hidden" name="chiave" value="@variabile.Chiave" />
+                        <input type="text" name="valore" value="@variabile.Valore" style="width:550px;" maxlength="1024" />
+                        <input type="submit" value="modifica" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

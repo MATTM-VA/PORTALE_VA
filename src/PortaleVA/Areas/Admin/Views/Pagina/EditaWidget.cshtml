@@ -1,0 +1,180 @@
+﻿@model VAPortale.Areas.Admin.Models.PaginaEditaWidgetModel
+
+@{
+    ViewBag.Title = "EditaWidget";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+
+    Boolean isHome = Model.ID == 1;
+    String sTW = "TipoWidget";
+    Dictionary<String, int[]> dTW = new Dictionary<string, int[]> {
+        {"Standard", new int[] { 0,1,2,3,4} },
+        {"HpEvidenza", new int[] { 5} },
+        {"HpSezione", new int[] { 6} }
+    };
+    Dictionary<int, String> dEW = new Dictionary<int, string>
+    {
+        {(int)TipoWidget.Notizie, "Edita" },
+        {(int)TipoWidget.Embed, "EditaEmbed" },
+        {(int)TipoWidget.InEvidenza, "EditaInEvidenza" },
+        {(int)TipoWidget.Sezione, "EditaSezione" }
+    };
+}
+<script type="text/javascript">
+
+    $(function () {
+
+        $("#contenuti-list, #contenuti-correlati").sortable({
+            connectWith: ".risultati",
+            helper: "clone",
+            opacity: 0.5,
+            revert: true,
+            update: function (e, ui) {
+                var dstUL = ui.item.closest('ul');
+                var liCls = /(?:^|\s)(TipoWidget\d+)(?:\s|$)/.exec(ui.item.attr("class"))[1];
+                !dstUL.hasClass(liCls) && dstUL.hasClass('contenuti-correlati') && $(this).sortable("cancel");
+                dstUL.attr('id') == 'contenuti-list' && sortWidgetList(dstUL);
+            }
+        }).disableSelection();
+
+        function sortWidgetList(dstUL) {
+            dstUL.children('li').sort(function (a, b) {
+                var twA = $(a).find('EM').html().toLowerCase();
+                var twB = $(b).find('EM').html().toLowerCase();
+                var txtA = $(a).find('SPAN').html().toLowerCase();
+                var txtB = $(b).find('SPAN').html().toLowerCase();
+                return (twA + txtA > twB + txtB ? 1 : -1);
+            }).appendTo(dstUL);
+        }
+
+        sortWidgetList($('UL#contenuti-list'));
+
+       
+    });
+
+</script>
+<div id="corpo" class="contenuto">
+    <h2>
+        @Html.ActionLink("Pagine", "Index", "Pagina", null, new { @class = "sezione" }) /
+        <span>@Model.VoceMenu.GetNome("it")</span>
+    </h2>
+    <div class="riepilogo">
+        @if (Model.VoceMenu.WidgetAbilitati)
+        {
+            <div>
+                @if (Model.Pagina != null)
+                {
+                    @Html.ActionLink("Scheda", "Edita", "Pagina", new { id = Model.ID }, new { @class = "pulsante attivo" })
+                }
+                @Html.ActionLink("Widget", "EditaWidget", "Pagina", new { id = Model.ID }, new { @class = "pulsante attivo" })
+            </div>
+        }
+        @if (Model.Pagina != null)
+        {
+            <div class="boxData">
+                <p> Inserimento:  @Model.Pagina.DataInserimento.ToString("dd/MM/yyyy HH:mm")</p>
+                <p> Ultima Modifica: @Model.Pagina.DataUltimaModifica.ToString("dd/MM/yyyy HH:mm")</p>
+            </div>
+        }
+
+    </div>
+    <div class="fotoCorrelate">
+        <div class="colonna1">
+            <h3>
+                Widget Correlati
+            </h3>
+            @using (Html.BeginForm())
+            {
+                @Html.HiddenFor(m => m.ID)
+                <input type="submit" value="Salva" />
+
+                <fieldset>
+                    <legend>Barra laterale</legend>
+                    <ul id="contenuti-correlati" class="contenuti-correlati risultati @String.Join(" ",dTW["Standard"].Select(x=> sTW + x).ToArray())">
+                        @foreach (WidgetCorrelato item in Model.WidgetCorrelati.Where(x => !new TipoWidget[] { TipoWidget.Sezione, TipoWidget.InEvidenza }.Contains(x.Widget.Tipo)))
+                        {
+                            String clsTW = sTW + (int)item.Widget.Tipo;
+                            <li class="contenuti-correlati-move risultato @clsTW">
+                                @*<input type="button" class="remove pulsante" value="Elimina" />*@
+                                <a href="@(dEW.ContainsKey((int)item.Widget.Tipo) ? Url.Action(dEW[(int)item.Widget.Tipo], "Widget", new { id = item.WidgetID }) : "")" class="pulsante attivo @(dEW.ContainsKey((int)item.Widget.Tipo)?"":"hidden")">Modifica il widget</a>
+                                @Html.Hidden("EditaWidget", item.WidgetID)
+                                <span>@item.Widget.Nome_IT</span>
+                                <em>(@Enum.GetName(typeof(TipoWidget), item.Widget.Tipo))</em>
+                            </li>
+                        }
+                    </ul>
+                </fieldset>
+
+                if (isHome)
+                {
+                    <fieldset>
+                        <legend>HP Evidenza</legend>
+                        <ul id="contenuti-correlati" class="contenuti-correlati risultati @String.Join(" ", dTW["HpEvidenza"].Select(x => sTW + x).ToArray())">
+                            @foreach (WidgetCorrelato item in Model.WidgetCorrelati.Where(x => x.Widget.Tipo == TipoWidget.InEvidenza))
+                            {
+                                String clsTW = sTW + (int)item.Widget.Tipo;
+                                <li class="contenuti-correlati-move risultato @clsTW">
+                                    @*<input type="button" class="remove pulsante" value="Elimina" />*@
+                                    <a href="@(dEW.ContainsKey((int)item.Widget.Tipo) ? Url.Action(dEW[(int)item.Widget.Tipo], "Widget", new { id = item.WidgetID }) : "")" class="pulsante attivo @(dEW.ContainsKey((int)item.Widget.Tipo)?"":"hidden")">Modifica il widget</a>
+                                    @Html.Hidden("EditaWidget", item.WidgetID)
+                                    <span>@item.Widget.Nome_IT</span>
+                                    <em>(@Enum.GetName(typeof(TipoWidget), item.Widget.Tipo))</em>
+                                </li>
+                            }
+                        </ul>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>HP Sezione</legend>
+                        <ul id="contenuti-correlati" class="contenuti-correlati risultati @String.Join(" ", dTW["HpSezione"].Select(x => sTW + x).ToArray())">
+                            @foreach (WidgetCorrelato item in Model.WidgetCorrelati.Where(x => x.Widget.Tipo == TipoWidget.Sezione))
+                            {
+                                String clsTW = sTW + (int)item.Widget.Tipo;
+                                <li class="contenuti-correlati-move risultato @clsTW">
+                                    @*<input type="button" class="remove pulsante" value="Elimina" />*@
+                                    <a href="@(dEW.ContainsKey((int)item.Widget.Tipo) ? Url.Action(dEW[(int)item.Widget.Tipo], "Widget", new { id = item.WidgetID }) : "")" class="pulsante attivo @(dEW.ContainsKey((int)item.Widget.Tipo)?"":"hidden")">Modifica il widget</a>
+                                    @Html.Hidden("EditaWidget", item.WidgetID)
+                                    <span>@item.Widget.Nome_IT</span>
+                                    <em>(@Enum.GetName(typeof(TipoWidget), item.Widget.Tipo))</em>
+                                </li>
+                            }
+                        </ul>
+                    </fieldset>
+                }
+            }
+        </div>
+    </div>
+    <div id="foto-dialog">
+        <div>
+            <div class="colonna2">
+                <h3>Elenco Widget</h3>
+                <div>
+                    @if (Model.Widget.Count() == 0)
+                    {
+                        <p class="contenuti-dialog-msg-norisultato">
+                            Nessun widget presente.
+                        </p>
+                    }
+                    <ul id="contenuti-list" class="risultati">
+                        @foreach (Widget item in Model.Widget
+                .Where(x => !Model.WidgetCorrelati.Select(y => y.WidgetID).Contains(x.ID))
+                .Where(x => isHome ? true : !dTW["HpEvidenza"].Concat(dTW["HpSezione"]).Contains((int)x.Tipo))
+            )
+                        {
+                            String clsTW = sTW + (int)item.Tipo;
+                            <li class="contenuti-list-add risultato @clsTW">
+                                @*<input type="button" class="remove pulsante" value="Elimina" />*@
+                                <a href="@(dEW.ContainsKey((int)item.Tipo) ? Url.Action(dEW[(int)item.Tipo], "Widget", new { id = item.ID }) : "")" class="pulsante attivo @(dEW.ContainsKey((int)item.Tipo)?"":"hidden")">Modifica il widget</a>
+                                @Html.Hidden("EditaWidget", item.ID)
+                                <span>@item.Nome_IT</span>
+                                <em>(@Enum.GetName(typeof(TipoWidget), item.Tipo))</em>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>

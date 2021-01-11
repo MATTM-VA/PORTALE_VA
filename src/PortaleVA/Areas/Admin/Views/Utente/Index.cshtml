@@ -1,0 +1,47 @@
+﻿@model VAPortale.Areas.Admin.Models.UtenteIndexModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+<div class="contenuto">
+    <h2>
+        @Html.ActionLink("Utenti", "Index", null, new { @class = "sezione" }) /
+        <span>Elenco Utenti</span>
+    </h2>
+    <div>
+        @Html.ActionLink("Nuovo Utente", "CreaUtente", null, new { @class = "pulsante" })
+    </div>
+
+    <div>
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Nome Utente</th>
+                    <th>Nominativo</th>
+                    <th>Abilitato</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (VALib.Domain.Entities.Membership.Utente utente in Model.Utenti)
+                {
+                    <tr>
+                        <td>
+                           
+                            @Html.ActionLink(utente.NomeUtente, "ModificaUtente", new { id = utente.ID })
+                        </td>
+                        <td>
+                            @utente.Cognome @utente.Nome
+                        </td>
+                        <td>
+                            @Html.BooleanToString(utente.Abilitato, "si", "no")
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

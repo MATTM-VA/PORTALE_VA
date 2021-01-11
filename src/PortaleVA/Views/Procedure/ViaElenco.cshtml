@@ -1,0 +1,79 @@
+﻿@model VAPortale.Models.ProcedureElencoModel
+
+@{
+    ViewBag.Title = Model.VoceMenu.GetNome();
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+
+}
+
+<div class="line_small_title">
+    <h2>@Model.Procedura.GetNome()</h2>
+</div>
+<div class="clear"></div>
+
+<br />
+
+<div class="areaRicerca modelloEsteso">
+    @using (Html.BeginForm("ViaElenco", "Procedure", FormMethod.Get))
+    {
+        @Html.AntiForgeryToken()
+        <div class="bgInput">
+            <div class="testo_ricerca ie9">
+
+                <label for="Testo">@DizionarioService.RICERCA_LabelTesto</label>
+                @Html.TextBoxFor(m => m.Testo, new { @class = "cerca" })
+                <input type="image" class="btn-search" alt="@DizionarioService.RICERCA_BottoneEsegui" src="@Url.VAContent("button_search.png?v=4")" />
+            </div>
+        </div>
+    }
+</div>
+
+
+<h3 class="risultati">@DizionarioService.RICERCA_TitoloRisultatiOggettiVia (@Model.TotaleRisultati)</h3>
+
+<div class="table-responsive">
+    <table class="table ElencoViaVas">
+        <tr>
+            <th>@DizionarioService.GRIGLIA_ColonnaOggettoVia</th>
+            <th>@DizionarioService.GRIGLIA_ColonnaProponente</th>
+            <th>@DizionarioService.GRIGLIA_ColonnaDataAvvio</th>
+            <th>@DizionarioService.GRIGLIA_ColonnaStatoProcedura</th>
+            <th><span class="hidden">Info</span></th>
+            <th><span class="hidden">Doc</span></th>
+        </tr>
+        @foreach (OggettoElencoProcedura o in Model.Oggetti)
+            {
+            <tr>
+                <td>@o.GetNome()</td>
+                <td>@o.Proponente</td>
+                <td>@o.Data.ToString(CultureHelper.GetDateFormat())</td>
+                <td>
+                    @if (o.StatoProcedura != null)
+                    {
+                        @o.StatoProcedura.GetNome()
+                    }
+                    else
+                    {
+                        <text>-</text>
+                    }
+                </td>
+                <td><a href="@Url.VAOggettoInfo(o.ID)" class="icona-info-progetto" title="@string.Format(DizionarioService.TOOLTIP_InfoOggetto, o.TipoOggetto.GetNome())">info</a></td>
+                <td><a href="@Url.VAOggettoDocumentazione(o.ID, o.OggettoProceduraID)" class="icona-documentazione-tecnico-amm" 
+                       title="@string.Format(DizionarioService.TOOLTIP_Documentazione,"")"
+                       >@string.Format(DizionarioService.TOOLTIP_Documentazione, o.TipoOggetto.GetNome())</a></td>
+            </tr>
+
+        }
+    </table>
+</div>
+
+<div class="area_sotto_tabella">
+    <div class="buttonBackground">
+        @Html.VaEsporta(x => Url.Action("ViaElenco", x))
+    </div>
+    <div class="paginatore">
+        @Html.VaPaginatore(Model.Pagina, Model.DimensionePagina, Model.TotaleRisultati, "pagina", x => Url.Action("ViaElenco", x))
+    </div>
+    <div class="visualizza_pagina"></div>
+</div>
+

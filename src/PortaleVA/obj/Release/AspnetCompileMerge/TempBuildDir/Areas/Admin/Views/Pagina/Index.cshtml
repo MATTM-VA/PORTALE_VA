@@ -1,0 +1,45 @@
+﻿@model VAPortale.Areas.Admin.Models.PaginaIndexModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="contenuto">
+    <h2>
+        @Html.ActionLink("Pagine sito", "Index", null, new { @class = "sezione" }) /
+    <span>Elenco Pagine</span>
+</h2>
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>Sezione</th>
+            <th>Voce</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Tuple<VoceMenu, int?, string, PaginaStatica> v in Model.VociMenu)
+            {
+            <tr>
+                <td>
+                    @if (v.Item1.Editabile || v.Item4 != null)
+                    {
+                        @Html.ActionLink(v.Item3, v.Item3, new { id = v.Item1.ID })
+                    }
+                </td>
+                <td>
+                    @if (v.Item1.WidgetAbilitati)
+                    {
+                        @Html.ActionLink("Widget", "EditaWidget", new { id = v.Item1.ID })
+                    }
+                </td>
+                <td>@v.Item1.Sezione</td>
+                <td>@v.Item1.Voce&nbsp;-&nbsp;@v.Item1.GetNome("it")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+</div>

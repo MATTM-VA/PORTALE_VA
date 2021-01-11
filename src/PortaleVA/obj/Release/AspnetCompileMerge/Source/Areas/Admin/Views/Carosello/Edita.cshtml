@@ -1,0 +1,251 @@
+﻿@model VAPortale.Areas.Admin.Models.CaroselloEditaModel
+@{
+    ViewBag.Title = "Elemento carosello";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div id="corpo" class="contenuto">
+    <h2>
+        @Html.ActionLink("Elementi carosello", "Index", "Carosello", null, new { @class = "sezione" }) /
+
+        <span>
+            @if (Model.ID != 0)
+            {
+                @Model.EditaNome_IT
+            }
+            else
+            {
+                <text>Nuovo elemento carosello</text>
+            }
+        </span>
+    </h2>
+    @if (Model.ID != 0)
+    {
+        <div class="switchers">
+            @using (Html.BeginForm("EditaPubblicato", "Carosello", new { id = Model.OggettoCarosello.ID }, FormMethod.Post, new { id = "form-edita-pubblicato" }))
+            {
+                @Html.Hidden("EditaPubblicato", !Model.OggettoCarosello.Pubblicato)
+                <p class="switch @Html.BooleanToString(Model.OggettoCarosello.Pubblicato, "si", "no")">
+                    pubblicato <a href="#" class="switcher">
+                        <span class="si">Si</span> <span class="no">
+                            NO
+                        </span>
+                    </a>
+                </p>
+            }
+        </div>
+        <div class="riepilogo">
+            <script>
+                var formPubblicato = null;
+
+                $(function () {
+                    formPubblicato = $("#form-edita-pubblicato");
+
+                    formPubblicato.submit(function () {
+                        $.post(formPubblicato.attr("action"),
+                                formPubblicato.serialize(),
+                                function (data) {
+                                    if (data != null) {
+
+                                        if (data.length == 2 || (data.length > 2 && data[2] == true)) {
+                                            if (data[0] == true) {
+                                                formPubblicato.find(".switch").removeClass("no").addClass("si");
+                                                formPubblicato.find("input[name='EditaPubblicato']").val("False");
+                                            }
+                                            else {
+                                                formPubblicato.find(".switch").removeClass("si").addClass("no");
+                                                formPubblicato.find("input[name='EditaPubblicato']").val("True");
+                                            }
+
+                                            $("#data-ultima-modifica-field").text(data[1]);
+                                        }
+                                        else {
+                                            alert(data[3]);
+                                        }
+                                    }
+                                },
+                                "json"
+                            );
+
+                        return false;
+                    });
+
+                    formPubblicato.find(".switcher").click(function () {
+
+                        formPubblicato.submit();
+                        return false;
+                    });
+                });
+            </script>
+
+            <div class="boxData">
+                <p> Inserimento:  @Model.OggettoCarosello.DataInserimento.ToString("dd/MM/yyyy HH:mm")</p>
+                <p> Ultima Modifica: @Model.OggettoCarosello.DataUltimaModifica.ToString("dd/MM/yyyy HH:mm")</p>
+            </div>
+
+
+        </div>
+    }
+
+    @using (Html.BeginForm("Edita", "Carosello", FormMethod.Post))
+    {
+        <table class="edita principale">
+            <tr>
+                <th class="obbligatorio">@Html.LabelFor(m => m.EditaTipoContenutoID)</th>
+                <th class="obbligatorio">
+                    Oggetto @Html.RadioButtonFor(m => m.EditaTipoContenutoID, ContenutoOggettoCaroselloTipo.Oggetto)
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    Notizia @Html.RadioButtonFor(m => m.EditaTipoContenutoID, ContenutoOggettoCaroselloTipo.Notizia)
+                </th>
+            </tr>
+            <tr>
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.EditaContenutoID)
+                </th>
+                <th>
+                    @Html.TextBoxFor(m => m.EditaContenutoID)
+                </th>
+            </tr>
+            <tr class="it">
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.EditaNome_IT)
+                </th>
+                <th>
+                    @Html.TextBoxFor(m => m.EditaNome_IT)
+                </th>
+            </tr>
+            <tr class="en">
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.EditaNome_EN)
+                </th>
+                <th>
+                    @Html.TextBoxFor(m => m.EditaNome_EN)
+                </th>
+            </tr>
+            <tr class="it">
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.EditaDescrizione_IT)
+                </th>
+                <th>
+                    @Html.TextAreaFor(m => m.EditaDescrizione_IT)
+                </th>
+            </tr>
+            <tr class="en">
+                <th class="obbligatorio">
+                    @Html.LabelFor(m => m.EditaDescrizione_EN)
+                </th>
+                <th>
+                    @Html.TextAreaFor(m => m.EditaDescrizione_EN)
+                </th>
+            </tr>
+            <tr>
+                <th class="nonobbligatorio">
+                    @Html.LabelFor(m => m.EditaLinkProgettoCartografico)
+                </th>
+                <th>
+                    @Html.TextBoxFor(m => m.EditaLinkProgettoCartografico)
+                </th>
+            </tr>
+        </table>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var baseurl = '@Url.VAImmagine(0)';
+                var currentImgID = '@Model.EditaImmagineID';
+                $("SELECT#EditaImmagineID").change(function () {
+                    var ImgID = this.value;
+                    $("IMG#Anteprima").attr('src', baseurl.replace('0', ImgID));
+                    $("A.editaformato").css('display', ImgID != currentImgID ? 'none' : '');
+                })
+            })
+        </script>
+        <div class="side">
+            <div class="publishing">
+                @Html.ValidationSummary()
+                <input type="submit" name="EditaSalva" value="Salva" />
+                @if (Model.ID != 0)
+                {
+                    @Html.ActionLink("Annulla", "Edita", null, new { @class = "pulsante" })
+                    <input type="button" class="shared-dialog-elimina-button" value="Elimina" />
+                }
+                <p class="avviso">
+                    I campi in rosso sono obbligatori
+                </p>
+            </div>
+            <table class="edita">
+                <tr>
+                    <th class="obbligatorio">
+                        @Html.LabelFor(m => m.EditaData)
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.TextBoxFor(m => m.EditaData, "{0:dd/MM/yyyy}")
+                    </th>
+                </tr>
+                <tr>
+                    <th class="obbligatorio">
+                        @Html.LabelFor(m => m.EditaImmagineID)
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DropDownListFor(m => m.EditaImmagineID, Model.ImmaginiSelectList)
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        @{String ImgLink = Model.ImmagineMasterID != null ? Url.VAImmagine((int)Model.ImmagineMasterID) : "";}
+                        <img id="Anteprima" src="@ImgLink" width="297" />
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        @if (Model.ImmagineMasterID != null)
+                        {
+                            <a href="@Url.Action("EditaFormati", "Immagine", new { id = Model.ImmagineMasterID, formatoImmagineID = (int)FormatoImmagineEnum.CaroselloHome })"
+                               class="pulsante attivo editaformato">Edita immagine della notizia</a>
+                        }
+                    </th>
+                </tr>
+            </table>
+        </div>
+                            }
+    @if (Model.ID != 0)
+    {
+        <div id="shared-elimina-dialog" title="Eliminazione Immagine">
+            @using (Html.BeginForm("Elimina", "Carosello", new { id = Model.ID }, FormMethod.Post))
+            {
+                <text>L'elemento verrà eliminato e non sarà più recuperabile.
+                    Procedere con l'eliminazione?</text>
+            }
+        </div>
+
+        <script>
+            $(function () {
+                $("#shared-elimina-dialog").dialog({
+                    autoOpen: false,
+                    height: 200,
+                    width: 400,
+                    modal: true,
+                    buttons: {
+                        "Conferma": function () {
+                            var dlg = $(this);
+
+                            dlg.find("form").submit();
+
+                            dlg.dialog("close");
+                        },
+                        "Annulla": function () {
+                            var dlg = $(this);
+                            dlg.dialog("close");
+                        }
+                    }
+                });
+
+                $(".shared-dialog-elimina-button").click(function () {
+                    $("#shared-elimina-dialog").dialog("open");
+                });
+            });
+
+        </script>
+    }
+</div>

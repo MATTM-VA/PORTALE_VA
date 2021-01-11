@@ -1,0 +1,18 @@
+﻿@model VAPortale.Models.ProcedureAttributiPartialTabModel
+
+<ul class="nav nav-tabs">
+    @foreach (Attributo a in Model.Attributi)
+    {
+        string cssClass = "";
+
+        if (a.ID == Model.Attributo.ID)
+        {
+            cssClass = "active";
+        }
+        <li class="@Html.Raw(cssClass)">
+            <a title="@a.GetNome()" href="@Url.Action(Model.Voce, "Procedure", new { nomeAttributo = a.GetNome("IT") })">
+            @a.GetNome()
+            </a>
+        </li>
+    }
+</ul>

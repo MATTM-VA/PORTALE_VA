@@ -1,0 +1,72 @@
+﻿@model VAPortale.Areas.Admin.Models.CreaUtenteModel
+
+@{
+    ViewBag.Title = "CreaUtente";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section head {
+    <script src="@Url.VAScript("jquery.validate.min.js")"></script>
+    <script src="@Url.VAScript("jquery.validate.unobtrusive.min.js")"></script>
+}
+<div id="corpo" class="contenuto">
+    @if (Model.UtenteRegistrato)
+    {
+        <p>
+            L'utente è stato registrato ed è stata inviata una mail per il primo accesso
+        </p>
+    }
+    else
+    {
+
+        <h2>Crea Utente</h2>
+        
+        using (Html.BeginForm("CreaUtente", "Utente", FormMethod.Post))
+        {
+
+
+
+            <table class="edita principale">
+                <tr>
+                    <th class="obbligatorio">
+                        @Html.LabelFor(m => m.Nome)
+                    </th>
+                    <th>
+                        @Html.TextBoxFor(m => m.Nome)
+                        @Html.ValidationMessageFor(m => m.Nome)
+                    </th>
+                </tr>
+                <tr>
+                    <th class="obbligatorio">
+                        @Html.LabelFor(m => m.Cognome)
+                    </th>
+                    <th>
+                        @Html.TextBoxFor(m => m.Cognome)
+                        @Html.ValidationMessageFor(m => m.Cognome)
+                    </th>
+                </tr>
+                <tr>
+                    <th class="obbligatorio">
+                        @Html.LabelFor(m => m.Email)
+                    </th>
+                    <th>
+                        @Html.TextBoxFor(m => m.Email)
+                        @Html.ValidationMessageFor(m => m.Email)
+                    </th>
+                </tr>
+             
+            </table>
+            <div class="side">
+                <div class="publishing">
+                    @Html.ValidationSummary()
+                    <input type="submit" name="Crea" value="Crea" />
+
+
+                </div>
+
+            </div>
+
+
+        }
+    }
+</div>

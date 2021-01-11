@@ -1,0 +1,45 @@
+﻿@model VAPortale.Models.HomeFeedModel
+
+@{
+    ViewBag.Title = Model.VoceMenu.GetNome();
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+
+<div class="line_small_title">
+    <h2>@Model.VoceMenu.GetNome()</h2>
+</div>
+<div class="clear"></div>
+
+
+<div>
+    @if (CultureHelper.IsCurrentCulture(CultureHelper._it))
+    {
+        <p>
+            Il portale delle Valutazioni Ambientali mette a disposizione i feed RSS (Really Simple Syndication) per le notizie pubblicate nell'area <strong>Comunic-Azione</strong>.
+        </p>
+            <p>
+                Sottoscrivendo i feed Internet Explorer o Firefox si potranno ricevere le anteprime dei contenuti pubblicati nelle diverse sezioni direttamente dal programma utilizzato per navigare.
+            </p>
+            <p>
+                Se si utilizzano altri browser (Chrome, Safari, ecc.) è necessario scaricare ed installare dei programmi specifici o plug-in noti come feed reader o aggregatori.
+            </p>
+    }
+    else if (CultureHelper.IsCurrentCulture(CultureHelper._en))
+    {
+        <p>
+            The EIA-SEA Portal provides RSS (Really Simple Syndication) feeds to the news available in the <strong>Communic-Action</strong> section.
+        </p>
+            <p>
+                By subscribing to feeds with Internet Explorer or Firefox you will receive previews of the contents published in the various sections directly from the browser.
+            </p>
+            <p>
+                If using other browsers (Chrome, Safari, etc.), specific programs or plug-ins, known as feed readers or aggregators, are free to download.
+            </p>
+    }
+    <ul>
+        <li>@Html.ActionLink(EnumUtility.CategoriaNotiziaToString(CategoriaNotiziaEnum.EventiENotizie), "Notizie", "Feed", new { categoria = CategoriaNotiziaEnum.EventiENotizie }, new { @class = "External" })</li>
+        <li>@Html.ActionLink(EnumUtility.CategoriaNotiziaToString(CategoriaNotiziaEnum.LaDirezioneInforma), "Notizie", "Feed", new { categoria = CategoriaNotiziaEnum.LaDirezioneInforma }, new { @class = "External" })</li>
+        <li>@Html.ActionLink(EnumUtility.CategoriaNotiziaToString(CategoriaNotiziaEnum.AreaGiuridica), "Notizie", "Feed", new { categoria = CategoriaNotiziaEnum.AreaGiuridica }, new { @class = "External" })</li>
+        <li>@Html.ActionLink(EnumUtility.CategoriaNotiziaToString(CategoriaNotiziaEnum.UltimiProvvedimenti), "Notizie", "Feed", new { categoria = CategoriaNotiziaEnum.UltimiProvvedimenti }, new { @class = "External" })</li>
+    </ul>
+</div>

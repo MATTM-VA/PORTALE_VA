@@ -1,0 +1,168 @@
+﻿@model VAPortale.Models.RicercaAiaModel
+@{
+    ViewBag.Title = Model.VoceMenu.GetNome();
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+
+<div class="line_small_title">
+    <h2>@Model.VoceMenu.GetDescrizione()</h2>
+</div>
+<div class="clear"></div>
+
+
+<h3>@DizionarioService.RICERCA_TitoloLibera</h3>
+
+<div class="areaRicerca modelloEsteso">
+    @using (Html.BeginForm("AiaLibera", "Ricerca", FormMethod.Get))
+    {
+        @Html.AntiForgeryToken()
+        <div class="bgInput">
+            <div class="tema ie9">
+                <input type="radio" name="t" value="o" id="radio-o" class="checkBox" checked="checked" /><label for="radio-o">@DizionarioService.RICERCA_LabelSceltaOggettiAia</label>
+                <input type="radio" name="t" value="d" id="radio-d" class="checkBox" /><label for="radio-d">@DizionarioService.RICERCA_LabelSceltaDocumenti</label>
+            </div>
+            <div class="testo_ricerca ie9">
+                <label for="input-ricerca-libera">@DizionarioService.RICERCA_LabelTesto</label>
+                <input name="Testo" id="input-ricerca-libera" type="text" class="cerca" />
+                <input type="image" class="btn-search" alt="@DizionarioService.RICERCA_BottoneEsegui" src="@Url.VAContent("button_search.png?v=4")" />
+            </div>
+        </div>
+    }
+</div>
+
+<h3>@DizionarioService.RICERCA_TitoloProcedura</h3>
+
+<div class="areaRicerca modelloEsteso">
+    @using (Html.BeginForm("CercaOggettoPerAiaID", "Oggetti", FormMethod.Get, new { id = "form-cercaIdMatt" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="bgInput">
+            <div class="testo_ricerca ie9">
+                <label for="input-cercaIdMatt">@DizionarioService.RICERCA_LabelCodiceProcedura (ID_MATTM)</label>
+                <input type="text" name="AiaID" id="input-cercaIdMatt" class="cerca" />
+                <input type="hidden" name="macroTipoOggettoID" value="3" />               
+                <input type="image" class="btn-search-codice" alt="@DizionarioService.RICERCA_BottoneEsegui" src="@Url.VAContent("button_search_binocular.png?v=4")" />
+                <span id="span-messaggio" style="display: none"></span>
+            </div>
+        </div>
+
+    }
+    @using (Html.BeginForm("AiaProcedura", "Ricerca", FormMethod.Get))
+    {
+        @Html.AntiForgeryToken()
+        <br />
+        <div class="bgInput">
+            <div class="testo_ricerca ie9">
+                <label for="select-procedura">@DizionarioService.RICERCA_LabelSceltaProcedura</label>
+                <select name="proceduraID" id="select-procedura" class="cerca">
+                    @foreach (SelectListItem i in Model.ProcedureSelectList)
+                    {
+                        <option value="@i.Value">@i.Text</option>
+                    }
+                </select>
+            </div>
+            <div class="tema ie9">
+                <label for="input-ricerca-procedura">@DizionarioService.RICERCA_LabelTesto</label>
+                <input type="text" name="testo" id="input-ricerca-procedura" class="cerca" />
+                <input type="image" class="btn-search" alt="@DizionarioService.RICERCA_BottoneEsegui" src="@Url.VAContent("button_search.png?v=4")" />
+            </div>
+        </div>
+    }
+</div>
+
+<script>
+    var formCerca = null;
+    var spanMessaggio = null;
+
+    $(function () {
+        formCerca = $("#form-cercaIdMatt");
+        spanMessaggio = $("#span-messaggio");
+
+        formCerca.submit(function () {
+            $.post(formCerca.attr("action"),
+                    formCerca.serialize(),
+                    function (data) {
+                    
+                        if (data != null) {
+
+                            if (data[0] > 0) {
+
+                                var url = '@Url.Action("Info", "Oggetti", new { id = -1 })';
+                                url = url.replace("-1", data[0]);
+                                ////DEMO
+                                //spanMessaggio.text(data[1]);
+                                //spanMessaggio.show('fast');
+                                window.top.location.href = url;
+                            }
+                            else {
+                                spanMessaggio.text(data[1]);
+                                spanMessaggio.show('fast');
+                            }
+                        }
+                    },
+                    "json"
+                );
+
+            return false;
+        });
+
+        formCerca.find(".btn-search").click(function () {
+            formCerca.submit();
+            return false;
+        });
+
+    });
+</script>
+<noscript><!--Caricamento della libreria per il form cerca--></noscript>
+
+<h3>@DizionarioService.RICERCA_TitoloInstallazione</h3>
+<div class="areaRicerca modelloEsteso">
+    @using (Html.BeginForm("AiaInstallazione", "Ricerca", FormMethod.Get))
+    {
+        @Html.AntiForgeryToken()
+        <div class="bgInput">
+            <div class="testo_ricerca ie9">
+                <label for="select-settore">@DizionarioService.RICERCA_LabelSceltaTipologia</label>
+                <select name="TipologiaID" class="cerca" id="select-settore">
+                    @foreach (SelectListItem i in Model.CategorieInstallazioneSelectList)
+                    {
+                        <option value="@i.Value">@i.Text</option>
+                    }
+                </select>
+            </div>
+            <div class="tema ie9">
+                <label for="input-ricerca-settore">@DizionarioService.RICERCA_LabelTesto</label>
+                <input type="text" name="testo" id="input-ricerca-settore" class="cerca" />
+                <input type="image" class="btn-search" alt="@DizionarioService.RICERCA_BottoneEsegui" src="@Url.VAContent("button_search.png?v=4")" />
+            </div>
+        </div>
+    }
+</div>
+
+
+<h3>@DizionarioService.RICERCA_TitoloTerritorio</h3>
+
+<div class="areaRicerca modelloEsteso">
+    @using (Html.BeginForm("AiaTerritorio", "Ricerca", FormMethod.Get))
+    {
+        @Html.AntiForgeryToken()
+        <div class="bgInput">
+            <div class="testo_ricerca ie9">
+                <label for="select-tipologiaTerritorio">@DizionarioService.RICERCA_LabelSceltaTipologiaTerritorio</label>
+                <select name="tipologiaTerritorioID" id="select-tipologiaTerritorio" class="cerca">
+                    @foreach (SelectListItem i in Model.TipologieTerritorioSelectList)
+                    {
+                        <option value="@i.Value">@i.Text</option>
+                    }
+                </select>
+            </div>
+            <div class="testo_ricerca ie9">
+                <label for="input-ricerca-territorio">@DizionarioService.RICERCA_LabelTesto</label>
+                <input type="text" name="testo" id="input-ricerca-territorio" class="cerca" />
+                <input type="hidden" name="macroTipoOggettoID" value="3" />               
+                <input type="image" class="btn-search" alt="@DizionarioService.RICERCA_BottoneEsegui" src="@Url.VAContent("button_search.png?v=4")" />
+            </div>
+        </div>
+    }
+</div>
+

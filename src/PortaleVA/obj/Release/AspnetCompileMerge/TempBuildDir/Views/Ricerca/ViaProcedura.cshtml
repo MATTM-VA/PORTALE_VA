@@ -1,0 +1,46 @@
+﻿@model VAPortale.Models.RicercaViaProceduraModel
+@using VALib.Web.Mvc
+
+@{
+    ViewBag.Title = Model.VoceMenu.GetDescrizione();
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+
+<div class="line_small_title">
+    <h2>@Model.VoceMenu.GetDescrizione()</h2>
+</div>
+<div class="clear"></div>
+
+<div class="areaRicerca modelloEsteso">
+    @using (Html.BeginForm("ViaProcedura", "Ricerca", FormMethod.Get))
+    {
+        @Html.AntiForgeryToken()
+        <div class="bgInput">
+            <div class="testo_ricerca ie9">
+                <label for="Testo">@DizionarioService.RICERCA_LabelSceltaProcedura</label>
+                @Html.DropDownListFor(m => m.ProceduraID, Model.ProcedureSelectList, new { @class = "cerca" })
+
+            </div>
+            <div class="testo_ricerca ie9">
+                <label for="ProceduraID">@DizionarioService.RICERCA_LabelTesto</label>
+                @Html.TextBoxFor(m => m.Testo, new { @class = "cerca" })
+                <input type="image" class="btn-search" alt="@DizionarioService.RICERCA_BottoneEsegui" src="@Url.VAContent("button_search.png?v=4")" />
+            </div>
+        </div>
+
+    }
+</div>
+
+<h3 class="risultati">@DizionarioService.RICERCA_TitoloRisultatiOggettiVia (@Model.TotaleRisultati)</h3>
+@{ Html.RenderPartial("GrigliaRisultatiOggetti", new Tuple<List<OggettoElenco>, MacroTipoOggettoEnum, bool>(Model.Oggetti, MacroTipoOggettoEnum.Via, true)); }
+
+<div class="area_sotto_tabella">
+    <div class="buttonBackground">
+        @Html.VaEsporta(x => Url.Action("ViaProcedura", x))
+    </div>
+    <div class="paginatore">
+        @Html.VaPaginatore(Model.Pagina, Model.DimensionePagina, Model.TotaleRisultati, "pagina", x => Url.Action("ViaProcedura", x))
+    </div>
+    <div class="visualizza_pagina"></div>
+</div>
+

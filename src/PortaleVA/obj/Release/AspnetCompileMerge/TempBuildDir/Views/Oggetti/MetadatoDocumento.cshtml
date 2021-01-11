@@ -1,0 +1,78 @@
+﻿@model VAPortale.Models.OggettiMetadatoDocumentoModel
+
+@{
+    ViewBag.Title = string.Format("{0} - {1}", Model.Documento.Titolo, Model.VoceMenu.GetNome());
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+
+<div class="line_small_title">
+    <h2>@Model.VoceMenu.GetNome()</h2>
+</div>
+<div class="clear"></div>
+
+<div class="table-responsive">
+    @if (Model.InformazioniGenerali.Rows.Count > 0)
+    {
+        <table class="table Metadato">
+            <tbody>
+                <tr>
+                    <th colspan="2">@DizionarioService.METADATO_TitoloInformazioniGenerali</th>
+                </tr>
+                <tr>
+                    <td>@DizionarioService.METADATO_LabelDocumento</td>
+                    <td>
+                        @*<a title="Download" class="pull-left bt icona-@Model.Documento.TipoFile.Estensione" href="@Url.VADocumentoViaVas(Model.Documento.ID)">Download</a>*@
+                        <a title="@DizionarioService.TOOLTIP_ScaricaDocumento" href="@Url.VADocumentoViaVas(Model.Documento.ID)">@Model.Documento.Titolo</a>
+                    </td>
+                </tr>
+                @foreach (System.Data.DataRow dr in Model.InformazioniGenerali.Rows)
+                {
+                    <tr>
+                        <td>@dr[0]</td>
+                        <td>@dr[1]</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    @if (Model.InformazioniContenuto.Rows.Count > 0)
+    {
+        <table class="table Metadato">
+            <tbody>
+                <tr>
+                    <th colspan="2">@DizionarioService.METADATO_TitoloInformazioniContenuto</th>
+                </tr>
+                @foreach (System.Data.DataRow dr in Model.InformazioniContenuto.Rows)
+                {
+                    <tr>
+                        <td>@dr[0]</td>
+                        <td>@dr[1]</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    @if (Model.Date.Rows.Count > 0)
+    {
+        <table class="table Metadato">
+            <tbody>
+                <tr>
+                    <th colspan="2">@DizionarioService.METADATO_TitoloDate</th>
+                </tr>
+                @foreach (System.Data.DataRow dr in Model.Date.Rows)
+                {
+                  if (Model.Documento.TipoOggetto.MacroTipoOggetto.Enum != MacroTipoOggettoEnum.Aia || dr[0] != DizionarioService.METADATO_LabelDataStesura)
+                  {
+                    <tr>
+                        <td>@dr[0]</td>
+                        <td>@dr[1]</td>
+                    </tr>
+                  }
+
+
+                }
+            </tbody>
+        </table>
+    }
+</div>

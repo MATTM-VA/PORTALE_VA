@@ -1,0 +1,73 @@
+﻿@model VAPortale.Models.CollegamentiVasViaRegioniModel
+
+@{
+    ViewBag.Title = Model.VoceMenu.GetNome();
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+
+<script src="@Url.VAScript("mappa.js?v=4")"></script>
+<link href="@Url.VAContent("cartinaCSSS.css?v=4")" rel="stylesheet" type="text/css" />
+<noscript><!--Caricamento della libreria per la gestione mappa--></noscript>
+
+<div class="line_small_title">
+    <h2>@Model.VoceMenu.GetNome()</h2>
+</div>
+
+<div class="cartinaRegioni clearfix">
+    <div class="Map mapResponsive">
+        <div class="regioniBox sprite_region_all" id="region_map">
+            <div class="sprite_region_all" id="region_map_selected">
+                <img src="@Url.VAContent("cartina-regioni.png?v=4")" usemap="#Map" alt="Cartina delle regioni italiane" />
+            </div>
+        </div>
+    </div>
+    <map name="Map" id="Map">
+        <area shape="poly" coords="112,90,110,85,105,84,103,77,105,74,109,74,113,74,117,74,122,73,127,73,133,74,136,75,136,76,136,83,132,86,127,86,122,85,119,87,113,92" href="javascript:void(window.open('@VariabileService.GetValore("SitoVaRegioneValleDAostaAIA")'));" alt="Valle d'Aosta" />
+        <area shape="poly" coords="139,82,141,75,138,71,143,66,144,64,147,58,147,53,155,47,155,58,160,61,158,74,159,83,163,89,164,94,157,94,154,104,160,108,164,108,167,108,172,116,176,124,178,126,169,124,168,131,159,127,157,133,150,133,146,136,141,142,142,147,137,148,126,147,118,147,113,140,109,135,108,125,110,118,109,115,101,105,112,103,115,93,124,89,130,88,138,87,139,83" href="javascript:void(window.open('@VariabileService.GetValore("SitoVaRegionePiemonteAIA")'));" alt="Piemonte" />
+        <area shape="poly" coords="179,117,174,115,171,106,165,105,160,100,164,97,166,93,164,87,162,75,160,69,164,65,171,73,173,70,172,69,176,62,181,53,181,47,190,51,197,53,203,51,205,57,208,56,208,50,204,48,207,42,209,42,213,45,218,45,221,47,218,51,219,57,217,64,216,72,217,76,223,78,226,76,222,84,223,91,225,95,232,103,243,107,236,112,226,109,221,109,213,105,209,104,202,102,191,104,186,106,183,107,180,113,179,117" href="javascript:void(window.open('@VariabileService.GetValore("SitoVaRegioneLombardiaAIA")'));" alt="Lombardia" />
+        <area shape="poly" coords="224,48,221,43,218,39,220,32,227,32,230,32,234,35,237,35,237,30,245,26,260,26,271,22,272,25,272,30,277,32,280,36,278,38,273,42,270,38,269,43,265,45,259,45,254,46,249,50,246,54,242,54,239,47,232,47,225,48" href="javascript:void(window.open('@VariabileService.GetValore("SitoVaProvinciaAutBolzanoAIA")'));" alt="P.A. Bolzano" />
+        <area shape="poly" coords="232,83,239,81,244,73,247,66,252,66,255,68,256,63,263,59,260,54,260,49,256,49,250,53,247,57,240,57,238,49,234,49,225,49,223,52,223,59,221,66,221,73,222,74,229,73,231,82" href="javascript:void(window.open('@VariabileService.GetValore("SitoVaProvinciaAutonomaTrentoAIA")'));" alt="P.A. Trento" />
+        <area shape="poly" coords="281,115,282,111,279,105,276,104,274,100,274,93,277,88,282,86,284,87,283,91,290,87,295,85,293,81,300,83,296,75,292,75,285,74,279,71,278,65,280,62,279,60,275,57,278,52,282,47,288,44,286,41,280,41,272,43,270,45,264,48,265,52,266,58,266,61,265,63,262,65,261,65,259,70,254,71,252,70,249,72,248,74,245,81,241,82,237,84,234,84,228,80,227,85,227,87,228,95,231,97,232,101,238,103,243,105,247,106,250,111,255,114,264,107,270,111,280,114" href="javascript:void(window.open('@VariabileService.GetValore("SitoVaRegioneVenetoAIA")'));" alt="Veneto" />
+        <area shape="poly" coords="311,80,319,77,326,85,316,74,314,71,312,67,317,60,307,59,308,53,318,46,312,46,300,46,293,43,290,48,287,51,282,54,281,59,283,67,281,67,285,74,292,74,301,74,301,76" href="javascript:void(window.open('@VariabileService.GetValore("SitoVaRegioneFrVeneziaGiuliaAIA")'));" alt="Friuli Venezia Giulia" />
+        <area shape="poly" coords="185,128,192,135,198,134,203,134,212,141,216,142,227,146,231,147,239,147,244,147,247,143,251,143,254,146,258,147,258,151,261,154,267,160,268,161,272,153,278,152,282,152,285,157,289,152,280,147,277,144,274,132,273,114,270,113,259,114,254,117,251,114,246,114,233,114,227,114,215,112,211,107,200,105,191,105,186,109,185,114,182,120" href="javascript:void(window.open('@VariabileService.GetValore("SitoVaRegioneEmiliaRomagnaAIA")'));" alt="Emilia Romagna" />
+        <area shape="poly" coords="125,162,139,162,141,157,145,152,149,148,155,142,160,136,168,136,178,136,186,143,191,147,203,149,198,145,193,140,189,137,183,135,183,133,183,133,175,131,171,127,170,133,167,133,160,133,157,133,153,133,149,137,144,142,145,147,143,148,140,148,136,148,130,157" href="javascript:void(window.open('@VariabileService.GetValore("SitoVaRegioneLiguriaAIA")'));" alt="Liguria" />
+        <area shape="poly" coords="196,136,205,139,210,143,217,147,218,147,221,147,228,147,233,150,242,150,248,146,254,147,256,154,259,162,268,164,271,165,269,172,266,177,270,181,265,186,262,190,264,195,259,202,258,206,255,214,253,215,250,218,242,219,240,219,240,216,239,215,234,209,226,201,227,195,223,193,223,190,221,180,213,174,209,164,211,160,208,153,205,148" href="javascript:void(window.open('@VariabileService.GetValore("SitoVaRegioneToscanaAIA")'));" alt="Toscana" />
+        <area shape="poly" coords="275,164,277,159,272,158,274,153,281,156,285,157,288,158,292,153,294,156,304,162,312,166,315,169,317,177,322,187,323,193,323,193,317,199,308,203,305,202,303,198,301,198,297,192,296,189,290,181,290,174,288,172,285,173,277,171" href="javascript:void(window.open('@VariabileService.GetValore("SitoVaRegioneMarcheAIA")'));" alt="Marche" />
+        <area shape="poly" coords="273,169,270,177,273,182,269,184,266,185,266,192,262,200,263,204,269,206,271,206,275,212,282,215,288,214,290,212,294,206,298,206,300,204,300,201,294,198,291,190,291,187,289,182,288,174,280,173" href="javascript:void(window.open('@VariabileService.GetValore("SitoVaRegioneUmbriaAIA")'));" alt="Umbria" />
+        <area shape="poly" coords="261,205,255,214,252,219,250,219,258,229,260,232,267,238,272,241,274,245,274,247,282,253,287,258,295,261,298,266,303,266,315,267,322,266,324,266,322,259,324,257,327,253,324,245,318,244,312,244,311,243,306,238,301,236,293,231,297,226,302,226,307,229,305,225,301,221,301,216,303,211,307,210,306,206,301,211,297,211,294,212,289,216,283,219,271,212,271,212,268,211" href="javascript:void(window.open('@VariabileService.GetValore("SitoVaRegioneLazioAIA")'));" alt="Lazio" />
+        <area shape="poly" coords="310,211,314,205,318,202,322,199,325,200,329,210,332,216,340,222,347,225,351,229,352,233,346,241,341,241,336,238,331,241,332,244,329,246,323,244,319,243,315,243,312,238,308,236,300,232,300,229,306,231,310,226,307,225,304,221,303,215,306,212" href="javascript:void(window.open('@VariabileService.GetValore("SitoVaRegioneAbruzzoAIA")'));" alt="Abruzzo" />
+        <area shape="poly" coords="329,258,330,253,330,247,333,246,334,241,339,241,341,244,342,246,347,244,351,238,355,233,361,237,362,238,362,243,364,246,362,249,357,250,356,256,358,257,350,259,345,260,342,259,336,258,332,257" href="javascript:void(window.open('@VariabileService.GetValore("SitoVaRegioneMoliseAIA")'));" alt="Molise" />
+        <area shape="poly" coords="364,258,360,253,363,250,365,246,365,241,365,241,375,241,387,238,394,238,395,244,394,246,390,250,388,256,394,260,402,266,412,268,420,275,425,277,431,282,441,290,450,293,453,294,458,299,464,306,469,315,467,320,466,328,458,327,455,320,454,317,451,311,449,309,445,307,439,307,431,303,431,299,426,298,420,299,419,302,416,299,416,296,415,292,408,289,404,290,401,288,400,282,394,281,393,277,392,274,388,271,385,272,381,272,371,274,369,272,369,265,366,264,363,261,364,258" href="javascript:void(window.open('@VariabileService.GetValore("SitoVaRegionePugliaAIA")'));" alt="Puglia" />
+        <area shape="poly" coords="328,260,332,262,334,259,340,261,349,264,357,260,359,260,362,265,364,266,366,266,364,275,373,275,376,277,376,281,372,282,370,288,373,293,375,299,378,304,382,309,382,315,376,319,373,319,364,316,361,312,360,305,359,301,353,293,350,293,344,293,340,293,341,290,337,283,334,283,329,285,325,278,322,272,321,268,326,268" href="javascript:void(window.open('@VariabileService.GetValore("SitoVaRegioneCampaniaAIA")'));" alt="Campania" />
+        <area shape="poly" coords="379,276,383,276,388,274,389,277,389,282,395,282,399,286,400,290,403,293,409,290,411,293,412,294,414,299,416,303,416,307,413,314,413,317,405,315,404,319,403,323,395,324,392,320,386,319,384,319,384,315,385,309,383,302,378,298,377,292,373,286,377,282" href="javascript:void(window.open('@VariabileService.GetValore("SitoVaRegioneBasilicataAIA")'));" alt="Basilicata" />
+        <area shape="poly" coords="382,408,381,400,385,396,389,388,390,381,387,378,391,376,397,376,398,370,398,365,394,360,394,356,394,346,389,338,385,333,385,323,390,323,394,326,400,326,403,325,406,319,409,318,409,324,406,328,409,336,414,337,422,344,425,346,425,354,426,359,427,365,424,366,416,366,409,373,410,377,410,389,403,392,396,399,395,408" href="javascript:void(window.open('@VariabileService.GetValore("SitoVaRegioneCalabriaAIA")'));" alt="Calabria" />
+        <area shape="poly" coords="148,285,154,289,165,285,170,276,182,268,189,277,186,282,192,288,195,294,196,301,188,306,188,314,192,317,191,326,189,337,189,348,187,358,178,356,174,356,170,360,167,366,161,366,152,358,150,349,154,338,154,334,155,333,155,326,152,322,155,314,155,305,151,299,146,293,145,288" href="javascript:void(window.open('@VariabileService.GetValore("SitoVaRegioneSardegnaAIA")'));" alt="Sardegna" />
+        <area shape="poly" coords="288,399,291,403,294,402,296,401,299,401,300,396,304,396,306,396,310,399,314,402,321,405,326,402,332,402,342,402,354,400,359,397,361,401,364,399,367,396,373,391,377,389,375,400,368,410,363,416,361,424,361,432,365,434,366,436,367,443,362,446,362,456,359,461,352,455,341,454,341,445,334,439,323,438,316,434,308,430,299,423,299,420,293,420,289,420,284,416,279,412,281,403" href="javascript:void(window.open('@VariabileService.GetValore("SitoVaRegioneSiciliaAIA")'));" alt="Sicilia" />
+    </map>
+
+    <ul class="menuRegioni">
+        <li><a class="external" href="@VariabileService.GetValore("SitoVaRegioneAbruzzoAIA")">Abruzzo</a></li>
+        <li><a class="external" href="@VariabileService.GetValore("SitoVaRegioneBasilicataAIA")">Basilicata</a></li>
+        <li><a class="external" href="@VariabileService.GetValore("SitoVaRegioneCalabriaAIA")">Calabria</a></li>
+        <li><a class="external" href="@VariabileService.GetValore("SitoVaRegioneCampaniaAIA")">Campania</a></li>
+        <li><a class="external" href="@VariabileService.GetValore("SitoVaRegioneEmiliaRomagnaAIA")">Emilia-Romagna</a></li>
+        <li><a class="external" href="@VariabileService.GetValore("SitoVaRegioneFrVeneziaGiuliaAIA")">Friuli Venezia Giulia</a></li>
+        <li><a class="external" href="@VariabileService.GetValore("SitoVaRegioneLazioAIA")">Lazio</a></li>
+        <li><a class="external" href="@VariabileService.GetValore("SitoVaRegioneLiguriaAIA")">Liguria</a></li>
+        <li><a class="external" href="@VariabileService.GetValore("SitoVaRegioneLombardiaAIA")">Lombardia</a></li>
+        <li><a class="external" href="@VariabileService.GetValore("SitoVaRegioneMarcheAIA")">Marche</a></li>
+        <li><a class="external" href="@VariabileService.GetValore("SitoVaRegioneMoliseAIA")">Molise</a></li>
+        <li><a class="external" href="@VariabileService.GetValore("SitoVaProvinciaAutBolzanoAIA")">P.A. Bolzano</a></li>
+        <li><a class="external" href="@VariabileService.GetValore("SitoVaProvinciaAutonomaTrentoAIA")">P.A. Trento</a></li>
+        <li><a class="external" href="@VariabileService.GetValore("SitoVaRegionePiemonteAIA")">Piemonte</a></li>
+        <li><a class="external" href="@VariabileService.GetValore("SitoVaRegionePugliaAIA")">Puglia</a></li>
+        <li><a class="external" href="@VariabileService.GetValore("SitoVaRegioneSardegnaAIA")">Sardegna</a></li>
+        <li><a class="external" href="@VariabileService.GetValore("SitoVaRegioneSiciliaAIA")">Sicilia</a></li>
+        <li><a class="external" href="@VariabileService.GetValore("SitoVaRegioneToscanaAIA")">Toscana</a></li>
+        <li><a class="external" href="@VariabileService.GetValore("SitoVaRegioneUmbriaAIA")">Umbria</a></li>
+        <li><a class="external" href="@VariabileService.GetValore("SitoVaRegioneValleDAostaAIA")">Valle d'Aosta</a></li>
+        <li><a class="external" href="@VariabileService.GetValore("SitoVaRegioneVenetoAIA")">Veneto</a></li>
+    </ul>
+</div>
+<div class="clear"></div>
+

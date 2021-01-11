@@ -1,0 +1,58 @@
+﻿@model VAPortale.Models.ComunicazioneNotizieModel
+
+@{
+    ViewBag.Title = string.Format("{0} - Valutazioni Ambientali", Model.VoceMenu.GetNome());
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+
+<div class="line_small_title">
+    <h2>@Model.VoceMenu.GetNome()</h2>
+</div>
+<div class="clear"></div>
+
+<div class="areaRicerca modelloEsteso">
+    @using (Html.BeginForm(Model.ActionAttuale, "Comunicazione", FormMethod.Get))
+    {
+        @Html.AntiForgeryToken()
+        <div class="bgInput">
+            <div>
+                <label for="Testo">@DizionarioService.RICERCA_LabelTesto</label>
+                @Html.TextBoxFor(m => m.Testo, new { @class = "cerca" })
+                <input type="image" class="btn-search" alt="@DizionarioService.RICERCA_BottoneEsegui" src="@Url.VAContent("button_search.png?v=4")" />
+            </div>
+        </div>
+    }
+</div>
+
+<h3 class="risultati">@DizionarioService.RICERCA_TitoloRisultatiDatiAmbientali (@Model.TotaleRisultati)</h3>
+@if (Model.Notizie.Count > 0)
+{
+    <ul class="elencoNotizie">
+        @foreach (Notizia notizia in Model.Notizie)
+        {
+            Immagine img = notizia.Immagini.FirstOrDefault(x => x.FormatoImmagine.Enum == FormatoImmagineEnum.ElencoNotizie);
+            <li>
+                @if (img != null)
+                    {
+                    <img src="@Url.VAImmagine(img.ID)" title="@img.GetNome()" alt="@img.GetNome()" class="pull-left" />
+                }
+                <p class="data">@notizia.Data.ToString(CultureHelper.GetDateFormat())</p>
+                <p class="TitNotizie">
+                    @Html.ActionLink(notizia.GetTitolo(), Model.ActionDettaglio, new { id = notizia.ID }, new { title = notizia.GetTitolo() })
+                </p>
+                <p class="testo">@notizia.GetAbstract()</p>
+            </li>
+        }
+    </ul>
+    if (Model.TotaleRisultati > Model.DimensionePagina)
+    {
+
+        <div class="area_sotto_tabella">
+            <div class="buttonBackground"></div>
+            <div class="paginatore">
+                @Html.VaPaginatore(Model.Pagina, Model.DimensionePagina, Model.TotaleRisultati, "pagina", x => Url.Action(Model.ActionAttuale, x))
+            </div>
+            <div class="visualizza_pagina"></div>
+        </div>
+    }
+}

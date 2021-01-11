@@ -1,0 +1,320 @@
+﻿@model VAPortale.Areas.Admin.Models.ImmagineEditaFormatiModel
+
+@{
+    ViewBag.Title = "EditaFormati";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section head {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/imgareaselect/css/imgareaselect-default.css")" />
+    <script src="@Url.Content("~/Scripts/imgareaselect/scripts/jquery.imgareaselect.pack.js")"></script>
+
+}
+<div id="corpo" class="contenuto formatoImmagine">
+    <h2>
+        @Html.ActionLink("Immagine", "Index", "Immagine", null, new { @class = "sezione" }) /
+        <span>@Model.ImmagineMaster.Nome_IT</span>
+    </h2>
+    <div>
+        @Html.ActionLink("Scheda", "Edita", "Immagine", new { id = Model.ID }, new { @class = "pulsante attivo" })
+        @Html.ActionLink("Formati", "EditaFormati", "Immagine", new { id = Model.ID }, new { @class = "pulsante attivo" })
+        @if (Model.ID > 0)
+        {
+            @Html.ActionLink("Inserisci una notizia con questa immagine", "Crea", "Notizia", new { immagineID = Model.ID }, new { @class = "pulsante attivo" })
+        }
+    </div>
+    <div class="riepilogo">
+
+
+        <div class="boxData">
+            <p> Inserimento: @Model.ImmagineMaster.DataInserimento.ToString("dd/MM/yyyy HH:mm") </p>
+            <p> Ultima Modifica: @Model.ImmagineMaster.DataUltimaModifica.ToString("dd/MM/yyyy HH:mm")</p>
+        </div>
+
+
+
+    </div>
+    <div id="formati">
+        <!-- <h3>
+            Formati</h3> -->
+        @foreach (KeyValuePair<FormatoImmagine, Immagine> item in Model.FormatiImmagine)
+        {
+            if (Model.FormatoImmagine != null && item.Key.Enum == Model.FormatoImmagine.Enum)
+            {
+                @* selezionato *@
+                <span>
+                    @Html.ActionLink(item.Key.Nome, "EditaFormati", new { formatoImmagineID = item.Key.ID }, new { @class = "pulsante attivo", title = item.Key.Nome })
+                </span>
+            }
+            else if (item.Value != null)
+            {
+                @* immagine presente *@
+                <span>
+                    @Html.ActionLink(item.Key.Nome, "EditaFormati", new { formatoImmagineID = item.Key.ID }, new { @class = "pulsante presente", title = item.Key.Nome })
+                </span>
+            }
+            else
+            {
+                <span>
+                    @Html.ActionLink(item.Key.Nome, "EditaFormati", new { formatoImmagineID = item.Key.ID, mod = 1 }, new { @class = "pulsante nonpresente", title = item.Key.Nome })
+                </span>
+            }
+        }
+    </div>
+    <div>
+        <div class="editorImmagine">
+            @if (Model.FormatoImmagine == null)
+            {
+                <h3>
+                    Selezionare un formato
+                </h3>
+
+            }
+            else
+            {
+                <!-- <h3>@Model.FormatoImmagine.Nome</h3> -->
+
+                <div class="datiImmagine">
+                    @if (@Model.FormatoImmagine.LarghezzaMin == @Model.FormatoImmagine.LarghezzaMax)
+                    {
+                        <span><strong>Larghezza:</strong> @Model.FormatoImmagine.LarghezzaMin px</span>
+                    }
+                    else
+                    {
+                        <span>
+                            <strong>Larghezza:</strong> @Model.FormatoImmagine.LarghezzaMin px - @Model.FormatoImmagine.LarghezzaMax
+                            px
+                        </span>
+                    }
+                    @if (@Model.FormatoImmagine.AltezzaMin == @Model.FormatoImmagine.AltezzaMax)
+                    {
+                        <span><strong>Altezza:</strong> @Model.FormatoImmagine.AltezzaMin px</span>
+                    }
+                    else
+                    {
+                        <span>
+                            <strong>Altezza:</strong> @Model.FormatoImmagine.AltezzaMin px - @Model.FormatoImmagine.AltezzaMax
+                            px
+                        </span>
+                    }
+                </div>
+                <div>
+                    @if (Model.Modalita == 0)
+                    {
+                        @Html.ActionLink("Attuale", "EditaFormati", new { id = Model.ID, formatoImmagineID = Model.FormatoImmagine.ID }, new { @class = "pulsante attivo" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Attuale", "EditaFormati", new { id = Model.ID, formatoImmagineID = Model.FormatoImmagine.ID }, new { @class = "pulsante" })
+                    }
+
+                    @if (Model.Modalita == 1)
+                    {
+                        @Html.ActionLink("Edita", "EditaFormati", new { id = Model.ID, formatoImmagineID = Model.FormatoImmagine.ID, mod = 1 }, new { @class = "pulsante attivo" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Edita", "EditaFormati", new { id = Model.ID, formatoImmagineID = Model.FormatoImmagine.ID, mod = 1 }, new { @class = "pulsante" })
+                    }
+                </div>
+                if (Model.Modalita == 0)
+                {
+                    <div class="contenitoreImmagine">
+                        @if (@Model.Immagine != null)
+                    {
+                        if (Model.Immagine.Altezza != 0)
+                        {
+                                <img src="@Url.VAImmagine((int)Model.Immagine.ID)" width="@Model.Immagine.Larghezza" height="@Model.Immagine.Altezza" />
+                            }
+                            else
+                            {
+                                <img src="@Url.VAImmagine((int)Model.Immagine.ID)" />
+                            }
+                        }
+                        else
+                        {
+                            <text>Formato non presente.</text>
+                        }
+                    </div>
+                }
+                else if (Model.Modalita == 1)
+                {
+                    <script type="text/javascript">
+                        var ias = null;
+                        var txtW = null;
+                        var txtH = null;
+                        var selWidth = null;
+                        var selHeight = null;
+                        var imgWidth = null;
+                        var imgHeight = null;
+                        var minWidth = @Model.FormatoImmagine.LarghezzaMin;
+                        var maxWidth = @Model.FormatoImmagine.LarghezzaMax;
+                        var minHeight = @Model.FormatoImmagine.AltezzaMin;
+                        var maxHeight = @Model.FormatoImmagine.AltezzaMax;
+
+                        function Init() {
+                            // init variabili globali
+                            var img = $("#img-lavoro");
+                            selWidth = $("#selWidth");
+                            selHeight = $("#selHeight");
+                            txtW = $("#w");
+                            txtH = $("#h");
+                            imgWidth = img.width();
+                            imgHeight = img.height();
+
+                            if (imgWidth < minWidth || imgHeight < minHeight) {
+                                $(".contenitoreImmagine").hide();
+                                $(".contenitoreMessaggio").show();
+                            }
+                            else {
+                                // init plugin
+                                ias =$("#img-lavoro").imgAreaSelect({
+                                    instance: true,
+                                    handles: true,
+                                    persistent: true,
+                                    show: true,
+                                    onSelectEnd: function (img, selection) {
+                                        $("input[name='x1']").val(selection.x1);
+                                        $("input[name='y1']").val(selection.y1);
+                                        $("input[name='x2']").val(selection.x2);
+                                        $("input[name='y2']").val(selection.y2);
+                                    },
+                                    onSelectChange: function (img, selection) {
+                                        if (selection.width < minWidth) {
+                                            selWidth.text(selection.width).css("color", "red");
+                                        }
+                                        else {
+                                            selWidth.text(selection.width).css("color", "inherit");
+                                        }
+
+                                        if (selection.height < minHeight) {
+                                            selHeight.text(selection.height).css("color", "red");
+                                        }
+                                        else {
+                                            selHeight.text(selection.height).css("color", "inherit");
+                                        }
+                                    }
+                                });
+
+                                // init eventi
+                                $("#form-taglia").submit(function () {
+                                    var dosubmit = true;
+                                    var w = parseInt(txtW.val());
+                                    var h = parseInt(txtH.val());
+                                    var selection = ias.getSelection();
+
+                                    if (isNaN(w) && isNaN(h)) {
+                                        alert("Immettere almeno una dimensione.");
+                                        dosubmit = false;
+                                    }
+                                    else if (!isNaN(w) && (w < minWidth || w > maxWidth)) {
+                                        alert("La larghezza non è nei limiti del formato.");
+                                        dosubmit = false;
+                                    }
+                                    else if (!isNaN(h) && (h < minHeight || h > maxHeight)) {
+                                        alert("L'altezza non è nei limiti del formato.");
+                                        dosubmit = false;
+                                    }
+                                    else if (selection.width == 0 || selection.height == 0) {
+                                        alert("Selezionare un'area.");
+                                        dosubmit = false;
+                                    }
+
+                                    return dosubmit;
+                                });
+
+                                $("#w,#h").keyup(function(event) {
+                                    var w = parseInt(txtW.val());
+                                    var h = parseInt(txtH.val());
+
+                                    if (!isNaN(w) && !isNaN(h)) {
+                                        var selection = ias.getSelection();
+                                        ias.setOptions({ aspectRatio: w + ":" + h });
+                                        ias.setSelection(0, 0, w, h);
+                                        ias.update();
+                                    }
+
+                                });
+
+                                // init dimensioni
+                                if (minWidth == maxWidth) {
+                                    txtW.val(minWidth);
+                                    txtW.prop("readonly", true);
+                                }
+
+                                if (minHeight == maxHeight) {
+                                    txtH.val(minHeight);
+                                    txtH.prop("readonly", true);
+                                }
+
+                                if (txtW.prop("readonly") && txtH.prop("readonly")) {
+                                    ias.setOptions({ aspectRatio: minWidth + ":" + minHeight });
+                                    ias.setSelection(0, 0, minWidth, minHeight);
+                                    ias.update();
+                                }
+                                else if (txtW.prop("readonly")) {
+                                    var h = maxHeight;
+                                    if (h > imgHeight) {h = imgHeight;}
+
+                                    ias.setSelection(0, 0, minWidth, h);
+                                    ias.update();
+                                }
+                                else if (txtH.prop("readonly")) {
+                                    var w = maxWidth;
+                                    if (w > imgWidth) {w = imgWidth;}
+
+                                    ias.setSelection(0, 0, w, minHeight);
+                                    ias.update();
+                                }
+                                else {
+                                    var w = maxWidth;
+                                    var h = maxHeight;
+                                    if (w > imgWidth) {w = imgWidth;}
+                                    if (h > imgHeight) {h = imgHeight;}
+
+                                    ias.setSelection(0, 0, w, h);
+                                    ias.update();
+                                }
+                                var s = ias.getSelection();
+                                $("input[name='x1']").val(s.x1);
+                                $("input[name='y1']").val(s.y1);
+                                $("input[name='x2']").val(s.x2);
+                                $("input[name='y2']").val(s.y2);
+                            }
+                        }
+
+                        $( document ).ready(function() {
+                            $("#img-lavoro").on('load',Init);
+                            $("#img-lavoro").get(0).complete && Init();
+                        });
+                    </script>
+
+                    <div class="pannelloFormato dati immagine">
+                        <span>Ritaglio</span><br />
+                        <span><strong>Larghezza:</strong> <span id="selWidth">0</span>px</span><br />
+                        <span><strong>Altezza:</strong> <span id="selHeight">0</span>px</span>
+                    </div>
+                    <div class="contenitoreImmagine">
+                        @using (Html.BeginForm("EditaFormatiTaglia", "Immagine", new { id = Model.ID, formatoImmagineID = Model.FormatoImmagine.ID }, FormMethod.Post, new { id = "form-taglia" }))
+                        {
+                            @Html.Hidden("x1")
+                            @Html.Hidden("y1")
+                            @Html.Hidden("x2")
+                            @Html.Hidden("y2")
+
+                            <span>Dimensioni:</span>
+                            @Html.TextBox("w", null, null, new { style = "width:70px" })
+                            <span>x</span>
+                            @Html.TextBox("h", null, null, new { style = "width:70px" })
+
+                            <input type="submit" value="Taglia e salva" />
+                        }
+                        <img id="img-lavoro" src="@Url.VAImmagineLavoro((int)Model.ImmagineMaster.ID)" />
+                    </div>
+                    <div class="contenitoreMessaggio" style="display: none;">
+                        Immagine non adatta al formato selezionato. Altezza o larghezza troppo piccole.
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>

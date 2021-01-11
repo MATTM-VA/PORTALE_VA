@@ -1,0 +1,39 @@
+﻿@model VAPortale.Areas.Admin.Models.VariabileIndexModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="contenuto">
+    <h2>
+    <span>Elenco Variabili</span>
+</h2>
+<div>
+    
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th width="50">Chiave</th>
+            <th>Valore</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Variabile variabile in Model.Variabili)
+        {
+            <tr>
+                <td>@variabile.Chiave</td>
+                <td>
+                    <form action="@Url.Action("Edita")" method="post">
+                        <input type="hidden" name="chiave" value="@variabile.Chiave" />
+                        <input type="text" name="valore" value="@variabile.Valore" style="width:550px;" maxlength="1024" />
+                        <input type="submit" value="modifica" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,57 @@
+﻿@model VAPortale.Models.ProcedureInCorsoModel
+@{
+    ViewBag.Title = Model.VoceMenu.GetNome();
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+    bool alternateRow = false;
+}
+<h2>@Model.VoceMenu.GetNome()</h2>
+@if (CultureHelper.GetCurrentCultureShortName().Equals("it", StringComparison.InvariantCultureIgnoreCase))
+{
+<p>La reportistica si riferisce alle <strong>procedure in corso</strong> aggiornate in tempo reale.</p>
+}
+else
+{
+<p>Reports refer to <strong>on-going procedures</strong> updated in real time.</p>
+}
+<hr />
+<div class="table-responsive">
+    <table class="table">
+        <tr class="success">
+            <td align="center"><strong>@Model.Totale</strong></td>
+            <td><strong>@DizionarioService.PROCEDURE_TestoIntestazioneTabellaInCorso</strong></td>
+        </tr>
+        @foreach (ConteggioProcedura cp in Model.Righe)
+        {
+        <tr class="@Html.Raw(alternateRow ? "rigaAlternata" : "")">
+            <td align="center"><strong>@cp.Conteggio</strong></td>
+            <td><a title="@cp.Procedura.GetNome()" href="@Url.Action("ViaElenco", new { id = cp.Procedura.ID, parametro = cp.Parametro })">@cp.Procedura.GetNome()</a></td>
+        </tr>
+            alternateRow = !alternateRow;
+        }
+    </table>
+</div>
+<div class="table-responsive">
+    <hr />
+    <table class="table tabellaAdattata">
+        <tr class="success">
+            <td>
+                <a href="@VariabileService.GetValore("ProcedureViaInCorsoUrl")" 
+                    class="icona-localizzatore icona-testo external" title="@DizionarioService.TOOLTIP_TooltipLocalizzazione">
+                    @string.Format(DizionarioService.PROCEDURE_TestoLinkProgettoCartografico, Model.VoceMenu.GetNome())</a>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <a title="@DizionarioService.TOOLTIP_TooltipLocalizzazione" href="@VariabileService.GetValore("ProcedureViaInCorsoUrl")" class="external">
+                    <img class="immagineInterna" src="~/content/images/immagine_viaInCorso.jpg" alt="@string.Format(DizionarioService.PROCEDURE_TestoLinkProgettoCartografico, Model.VoceMenu.GetNome())" />
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
+@section WidgetColumn {
+    @foreach (WidgetCorrelato widget in Model.Widget)
+    {
+        Html.RenderAction("Widget", "Shared", new { widget = widget.Widget });
+    }
+}

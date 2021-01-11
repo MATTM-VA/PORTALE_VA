@@ -1,0 +1,32 @@
+﻿@model VAPortale.Areas.Admin.Models.HomeLoginModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="boxLogin">
+<h2>Login</h2>
+      @using (Html.BeginForm("Login", "Home"))
+{
+          @Html.ValidationSummary(false)
+    <div class="divLogin">
+        <table width="100%" border="0">
+            <tr>
+            <td align="left"><label>Nome utente</label></td>
+            <td align="left">@Html.TextBoxFor(m => m.NomeUtente)</td>
+            </tr>
+            <tr>
+            <td align="left"><label>Password</label></td>
+            <td align="left">@Html.PasswordFor(m => m.Pswd)</td>
+            </tr>
+            <tr>
+            <td align="left">&nbsp;</td>
+            <td align="left"><input type="submit" value="Accedi"  class="submit" /></td>
+            </tr>
+        </table>
+    </div>
+          
+  
+
+}
+</div>

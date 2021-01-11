@@ -1,0 +1,74 @@
+﻿@model VAPortale.Models.RicercaViaVasModel
+@using VALib.Web.Mvc
+
+@{
+    ViewBag.Title = Model.VoceMenu.GetDescrizione();
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+
+    bool alternateRow = false;
+}
+
+<div class="line_small_title">
+    <h2>@Model.VoceMenu.GetDescrizione()</h2>
+</div>
+<div class="clear"></div>
+
+
+<div class="areaRicerca modelloEsteso">
+    @using (Html.BeginForm("ViaVasAia", "Ricerca", FormMethod.Get))
+    {
+        @Html.AntiForgeryToken()
+        <div class="bgInput">
+            <div class="testo_ricerca ie9">
+                <label for="Testo">@DizionarioService.RICERCA_LabelTesto</label>
+                @Html.TextBoxFor(m => m.Testo, new { @class = "cerca" })
+                <input type="image" class="btn-search" alt="@DizionarioService.RICERCA_BottoneEsegui" src="@Url.VAContent("button_search.png?v=4")" />
+
+            </div>
+        </div>
+    }
+</div>
+
+@if (Model.Oggetti != null)
+{
+    <h3 class="risultati">@DizionarioService.RICERCA_TitoloRisultatiDatiAmbientali (@Model.TotaleRisultati)</h3>
+        <div class="table-responsive">
+            <table class="table ElencoViaVasRicercaHome">
+                <tr>
+                    <th>@DizionarioService.GRIGLIA_ColonnaOggettoOrizzontale</th>
+                    <th>@DizionarioService.GRIGLIA_ColonnaProponente/@DizionarioService.GRIGLIA_ColonnaGestore</th>
+                    <th>@DizionarioService.GRIGLIA_ColonnaOggetto</th>
+                    <th>@DizionarioService.RICERCA_LabelCodiceProcedura</th>
+                    <th>@DizionarioService.GRIGLIA_ColonnaUltimaProcedura</th>
+                    <th><span class="hidden">Info</span></th>
+                    <th><span class="hidden">Doc</span></th>
+                </tr>
+                @foreach (OggettoElenco oggetto in Model.Oggetti)
+                {
+                    <tr class="@Html.Raw(alternateRow ? "rigaAlternata" : "")">
+                        <td>@oggetto.GetNome()</td>
+                        <td>@oggetto.Proponente</td>
+                        <td>@oggetto.TipoOggetto.GetNome()</td>
+                        <td>@oggetto.ViperaAiaID</td>
+                        <td>@oggetto.Procedura.GetNome()</td>
+                        <td><a href="@Url.VAOggettoInfo(oggetto.ID)" class="icona-info-progetto" title="@string.Format(DizionarioService.TOOLTIP_InfoOggetto, oggetto.TipoOggetto.GetNome())">info</a></td>
+                        <td><a href="@Url.VAOggettoDocumentazione(oggetto.ID, oggetto.OggettoProceduraID)" class="icona-documentazione-tecnico-amm" title="@string.Format(DizionarioService.TOOLTIP_Documentazione, "")">@string.Format(DizionarioService.TOOLTIP_Documentazione, oggetto.TipoOggetto.GetNome())</a></td>
+                    </tr>
+                    alternateRow = !alternateRow;
+                }
+            </table>
+        </div>
+}
+
+<div class="area_sotto_tabella">
+    <div class="buttonBackground">
+        @if (Model.TotaleRisultati < 20000 && Model.TotaleRisultati > 0)
+        {
+            @Html.VaEsporta(x => Url.Action("ViaVasAia", x))
+        }
+    </div>
+    <div class="paginatore">
+        @Html.VaPaginatore(Model.Pagina, Model.DimensionePagina, Model.TotaleRisultati, "pagina", x => Url.Action("ViaVasAia", x))
+    </div>
+    <div class="visualizza_pagina"></div>
+</div>

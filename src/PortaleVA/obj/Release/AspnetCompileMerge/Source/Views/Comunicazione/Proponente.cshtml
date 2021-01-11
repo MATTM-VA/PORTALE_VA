@@ -1,0 +1,275 @@
+﻿@model VAPortale.Models.ComunicazioneProponenteModel
+@{
+    ViewBag.Title = string.Format("{0} - Valutazioni Ambientali", Model.VoceMenu.GetNome());
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+<div class="line_small_title">
+    <h2>@Model.VoceMenu.GetNome()</h2>
+</div>
+<div class="clear"></div>
+@if (Model.Links != null && Model.Links.Count > 0)
+{
+    <ul class="elencoProponente">
+        @foreach (VoceMenu voce in Model.Links)
+        {
+            <li>
+                @if (voce.Editabile)
+                {
+                    <a href="@Url.RouteUrl("PaginaStatica", new { nomeSezione = voce.Sezione, nomeVoce = voce.Voce })" title="@voce.GetNome()">@voce.GetNome()</a>
+                }
+                else
+                {
+                    <a href="@Url.Action(voce.Voce, voce.Sezione)" title="@voce.GetNome()">@voce.GetNome()</a>
+                }
+            </li>
+        }
+    </ul>
+}
+
+<div style="margin-left:18px;">
+    <img src="/content/images/img_specificheTecnicheModulistiche.png" alt="Specifiche tecniche e modulistica" style="vertical-align:middle;">
+ 
+    <a href="@Url.RouteUrl("PaginaStatica", new { nomeSezione = "DatiEStrumenti", nomeVoce = "Modulistica" })">
+        Specifiche tecniche e modulistica per la presentazione istanze
+    </a>
+ </div>
+
+
+
+        @if (CultureHelper.IsCurrentCulture(CultureHelper._it))
+        {
+            @*<h3>Oneri economici a carico dei proponenti per le procedure di VAS e di VIA di competenza statale </h3>
+            <div class="table-responsive">
+                <table class="table Proponente">
+                    <tr>
+                        <th>Procedura</th>
+                        <th>Oneri economici</th>
+                    </tr>
+                    <tr>
+                        <td>Verifica di Assoggettabilità a VAS</td>
+                        <td>euro 5.000,00</td>
+                    </tr>
+                    <tr>
+                        <td>VAS</td>
+                        <td>
+                            euro 15.000,00<br />
+                            euro 10.000,00 qualora l’istanza di VAS sia stata preceduta da una procedura di verifica di assoggettabilità a VAS.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Verifica di Assoggettabilità a VIA</td>
+                        <td>0,25 per mille del valore dell’opera da realizzare (limite massimo dell’importo di euro 10.000,00)</td>
+                    </tr>
+                    <tr>
+                        <td>Valutazione Impatto Ambientale</td>
+                        <td>0,5 per mille del valore delle opere da realizzare</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Valutazione Impatto Ambientale nell'ambito del Provvedimento
+                            unico in materia ambientale
+                        </td>
+                        <td>0,5 per mille del valore delle opere da realizzare</td>
+                    </tr>
+                    <tr>
+                        <td>Valutazione Impatto Ambientale (Legge Obiettivo 443/2001)</td>
+                        <td>0,5 per mille del valore delle opere da realizzare</td>
+                    </tr>
+                    <tr>
+                        <td>Verifica di Ottemperanza (Legge Obiettivo 443/2001)</td>
+                        <td>euro 25.000,00</td>
+                    </tr>
+                    <tr>
+                        <td>Verifica di Attuazione (Legge Obiettivo 443/2001)</td>
+                        <td>
+                            0,25 per mille del valore dell’opera determinato sulla base del progetto esecutivo. L’importo suddiviso per le annualità è versato entro il 30 gennaio di ogni anno.  Per le opere per le quali, le verifiche di attuazione, risultino già parzialmente effettuate al 6/2/2018 (data di entrata in vigore del decreto n.1 del 4 gennaio 2018),  l’importo è dovuto in proporzione solo per le restanti annualità, o quota parte di esse, per le quali sono ancora da espletare le attività di verifica.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Riesame provvedimenti già emanati VIA</td>
+                        <td>25% di quanto già versato a titolo di 0,5 per mille del valore delle opere da realizzare</td>
+                    </tr>
+                    <tr>
+                        <td>Riesame provvedimenti già emanati VAS</td>
+                        <td>euro 3.000,00</td>
+                    </tr>
+                    <tr>
+                        <td>Riesame di provvedimenti di VIA già emanati e relativi ai progetti di cui alla legge 21 dicembre 2001, n. 443</td>
+                        <td>25% di quanto già versato a titolo di 0,5 per mille del valore delle opere da realizzare.</td>
+                    </tr>
+                </table>
+            </div>*@
+            <h3>Documenti di riferimento per gli oneri economici a carico dei proponenti (VAS, VIA) e dei gestori (AIA)</h3>
+            <div class="table-responsive">
+                <table class="table DocRifProponente">
+                    <tr>
+                        <th>Titolo</th>
+                        <th>Dimensione</th>
+                        <th><span class="hidden">Documento</span></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Decreto interministeriale MATTM-MEF del 4 gennaio 2018, n.1 inerente alle tariffe, da applicare ai proponenti, per le procedure di valutazione ambientale ai sensi dell’art.33 del decreto legislativo 3 aprile 2006, n.152.
+                            (Entrato in vigore il 06/02/2018)
+                        </td>
+                        <td>194 kB</td>
+                        <td>
+                            <a href="http://www.va.minambiente.it/File/DocumentoPortale/164"
+                               title="@DizionarioService.TOOLTIP_ScaricaDocumento"
+                               class="bt icona-pdf external">
+                                @DizionarioService.TOOLTIP_ScaricaDocumento
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Decreto direttoriale n.47 del 2 febbraio 2018 - "Disposizioni concernenti le modalità di versamento degli oneri economici per le procedure di valutazione ambientale (VAS e VIA) di competenza statale e la relativa documentazione da presentare."
+                        </td>
+                        <td>355 kB</td>
+                        <td>
+                            <a href="http://www.va.minambiente.it/File/DocumentoPortale/165"
+                               title="@DizionarioService.TOOLTIP_ScaricaDocumento"
+                               class="bt icona-pdf external">
+                                @DizionarioService.TOOLTIP_ScaricaDocumento
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Decreto  Interministeriale MATTM- MISE - MEF del 6 marzo  2017 , n. 58 .Regolamento recante le modalit&agrave;, anche  contabili, e le tariffe
+                            da  applicare in relazione alle istruttorie AIA ed ai controlli previsti al Titolo III <em>-bis</em> della Parte Seconda, nonch&eacute; i  compensi
+                            spettanti  ai membri della commissione istruttoria di  cui all&#146;&rsquo;articolo  8 -bis .
+                        </td>
+                        <td>355 kB</td>
+                        <td>
+                            <a href="http://www.va.minambiente.it/File/DocumentoPortale/186"
+                               title="@DizionarioService.TOOLTIP_ScaricaDocumento"
+                               class="bt icona-pdf external">
+                                @DizionarioService.TOOLTIP_ScaricaDocumento
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                <h3 class="proponente">Per altre informazioni, approfondimenti o suggerimenti scrivi alla Direzione per le Valutazioni e Autorizzazioni Ambientali</h3>
+            </div>
+        }
+        else if (CultureHelper.IsCurrentCulture(CultureHelper._en))
+        {
+            @*<h3>Tariffs to be paid by the developers for the SEA and EIA procedures under State jurisdiction </h3>
+            <div class="table-responsive">
+                <table class="table Proponente">
+                    <tr>
+                        <th>Procedure</th>
+                        <th>Tarif</th>
+                    </tr>
+                    <tr>
+                        <td>SEA Screening</td>
+                        <td>5,000.00 Euros</td>
+                    </tr>
+                    <tr>
+                        <td>SEA</td>
+                        <td>
+                            15,000.00 Euros<br />
+                            10,000.00 Euros if the SEA procedure has been preceded by a SEA Screening procedure
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>EIA Screening</td>
+                        <td>0.25 per thousand of the value of the work to be carried out (maximum limit of the amount of 10,000.00 Euros)</td>
+                    </tr>
+                    <tr>
+                        <td>EIA</td>
+                        <td>0.5 per thousand of the value of works to be carried out</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Single Environmental Permit
+                        </td>
+                        <td>0.5 per thousand of the value of works to be carried out</td>
+                    </tr>
+                    <tr>
+                        <td>EIA (Strategic works Law 443/2001)</td>
+                        <td>0.5 per thousand of the value of works to be carried out</td>
+                    </tr>
+                    <tr>
+                        <td>EIA compliance (Strategic works Law 443/2001)</td>
+                        <td>25,000.00 Euros</td>
+                    </tr>
+                    <tr>
+                        <td>EIA follow-up (Strategic works Law 443/2001)</td>
+                        <td>
+                            0.25 per thousand of the value of the work, determined according to the final detailed project. The amount divided by the annuity must be paid by the 30th of January of each year. For the works for which the EIA follow-up are already partially carried out starting from the date of 6th of February 2018 (the date of entry into force of the interministerial decree n.1 of 4 January 2018), the amount is due only in proportion to the remaining annual payments, or share part of them, for which the EIA follow-up are still to be carried.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Review of issued EIA Decisions</td>
+                        <td>25% of the amount already paid as 0.5 per thousand of the value of works to be carried out</td>
+                    </tr>
+                    <tr>
+                        <td>Review of issued SEA Decisions</td>
+                        <td>3,000.00 Euros</td>
+                    </tr>
+                    <tr>
+                        <td>Review of issued EIA Decisions (projects under Strategic works Law 443/2001)</td>
+                        <td>25% of the amount already paid as 0.5 per thousand of the value of works to be carried out</td>
+                    </tr>
+                </table>
+            </div>*@
+            <h3>Reference documents for the tariffs to be paid by the developers</h3>
+            <div class="table-responsive">
+                <table class="table DocRifProponente">
+                    <tr>
+                        <th>Title</th>
+                        <th>Dimension</th>
+                        <th><span class="hidden">Document</span></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Interministerial Decree no. 1 of 4 January 2018 - Tariffs to be paid by the developers relating to the environmental assessment procedures under article 33 of Legislative Decree no.152 of 3 April 2006"
+                            (Entered into force on 6 February 2018)
+                        </td>
+                        <td>194 kB</td>
+                        <td>
+                            <a href="http://www.va.minambiente.it/File/DocumentoPortale/164"
+                               title="@DizionarioService.TOOLTIP_ScaricaDocumento"
+                               class="bt icona-pdf external">
+                                @DizionarioService.TOOLTIP_ScaricaDocumento
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+
+                        <td>
+                            Directorial decree no. 47 of 2 February 2018 - "Arrangements for paying the economic burdens for the SEA and EIA procedures under State jurisdiction and documentation to be submitted"
+                        </td>
+                        <td>355 kB</td>
+                        <td>
+                            <a href="http://www.va.minambiente.it/File/DocumentoPortale/165"
+                               title="@DizionarioService.TOOLTIP_ScaricaDocumento"
+                               class="bt icona-pdf external">
+                                @DizionarioService.TOOLTIP_ScaricaDocumento
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Ministry of Environment- Ministry of Economic Development - Ministry of Economy and Finance inter-ministerial Decree no.58 of 6 March 2017. Regulation on the methods, including accounting procedures and the fares to be applied in relation to the IPPC Permit technical assessments and checks provided for in Title III a of Part Two, as well as the remuneration due to the members of the technical assessment committee referred to in Article 8a
+                        </td>
+                        <td>355 kB</td>
+                        <td>
+                            <a href="http://www.va.minambiente.it/File/DocumentoPortale/186"
+                               title="@DizionarioService.TOOLTIP_ScaricaDocumento"
+                               class="bt icona-pdf external">
+                                @DizionarioService.TOOLTIP_ScaricaDocumento
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+
+                <h3>For information, insights and suggestions write to the Ministry of the Environment - Directorate for Environmental Assessments and Authorizations</h3>
+            </div>
+        }
+
+
+        @{ Html.RenderAction("FormContatto", "Comunicazione", new { Tipo = "Proponente" }); }

@@ -1,0 +1,60 @@
+﻿@model VAPortale.Models.OggettiInfoModel
+
+@{
+    ViewBag.Title = string.Format("{0} - Valutazioni Ambientali", "Info");
+    //Layout = "~/Views/Shared/_LayoutInternoLargo.cshtml";
+
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+
+
+<div class="corpo">
+    <div class="line_small_title">
+        <h2>@Model.Oggetto.GetNome()</h2>
+    </div>
+    <div class="clear"></div>
+
+    <br />
+
+    
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs tabProgetto">
+        <li class="active"><a title="@string.Format(DizionarioService.OGGETTO_LabelTabInfo, Model.Oggetto.TipoOggetto.GetNome())" class="infoProgettoTab">@string.Format(DizionarioService.OGGETTO_LabelTabInfo, Model.Oggetto.TipoOggetto.GetNome())</a></li>
+        <li><a href="@Url.Action("Documentazione")" class="documentazioneTab" title="@DizionarioService.OGGETTO_LabelTabDocumentazione">@DizionarioService.OGGETTO_LabelTabDocumentazione</a></li>
+    </ul>
+
+    <!-- Tab content -->
+    <div class="tab-content">
+        <h3>Informazioni generali</h3>
+        
+        <p><strong>Opera</strong>:  Razionalizzazione della rete di trasmissione nazionale ad alta tensione area di Arezzo</p>
+        <p><strong>Progetto</strong>:  @Model.Oggetto.GetNome()</p>
+        @if (!string.IsNullOrWhiteSpace(Model.Oggetto.GetDescrizione()))
+        {
+            <p><strong>Descrizione</strong>:  @Model.Oggetto.GetDescrizione()</p>
+        }
+        @{
+            EntitaCollegata entita = Model.Oggetto.EntitaCollegate.FirstOrDefault(x => x.Ruolo.Enum == RuoloEntitaEnum.Proponente);
+        }
+        @if (entita != null)
+        {
+            <p><strong>@entita.Ruolo.GetNome()</strong>:  @entita.Entita.Nome</p>
+        }
+        <p><strong>Tipologia di opera</strong>:  Elettrodotti</p>
+        @if (Model.Oggetto.ScadenzaPresentazioneOsservazioni.HasValue)
+        {
+            <p><strong>@DizionarioService.ScadenzaOsservazioni:</strong> <strong class="evidenza">@Model.Oggetto.ScadenzaPresentazioneOsservazioni.Value.ToString(CultureHelper.GetDateFormat())</strong> <a href="#" class="bt icona-mail" title="@DizionarioService.TooltipInvioOsservazioni">mail</a></p>
+        }
+        <hr />
+        <!-- Territori interessati -->
+        @{ Html.RenderPartial("Territori", Model.TerritoriModel); }
+        <hr />
+
+        <!-- Iter amministrativi -->
+        @{ Html.RenderAction("DatiAmministrativi", "Oggetti", new { model = Model.DatiAmministrativiModel }); }
+
+
+    </div>
+    <!-- fine Tab-->
+
+</div>

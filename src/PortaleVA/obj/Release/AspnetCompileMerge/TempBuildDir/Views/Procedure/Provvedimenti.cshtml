@@ -1,0 +1,39 @@
+﻿@model VAPortale.Models.ProcedureProvvedimentiModel
+@{
+    ViewBag.Title = Model.VoceMenu.GetNome();
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+    int c = 0;
+}
+<div class="line_small_title">
+    <h2>@Model.VoceMenu.GetNome()</h2>
+</div>    
+<div class="clear"></div>
+@foreach (TabellaConteggioProvvedimenti t in Model.Tabelle)
+{
+    c++;
+    <br /><br />
+<div class="table-responsive">
+    <table class="table Provvedimenti">
+        <thead>
+            <tr>
+                <th>@t.Conteggio</th>
+                <th>@t.Area.GetNome()</th>
+            </tr>
+        </thead>
+            @foreach (ConteggioTipoProvvedimento r in t.Righe.OrderBy(x => x.TipoProvvedimento.Ordine))
+            {
+                <tr>
+                    <td>@r.Conteggio</td>
+                    <td>
+                        <a title="@r.TipoProvvedimento.GetNome()" href="@Url.Action(r.TipoProvvedimento.VoceMenu.Voce, "Procedure")">@r.TipoProvvedimento.GetNome()</a>
+                    </td>
+                </tr>
+            }
+        
+    </table>
+</div>
+    if (c < Model.Tabelle.Count)
+    {
+    
+    }
+}

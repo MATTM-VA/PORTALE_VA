@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row content interna">
+    <div class="col-md-12">
+        <!-- Sezione -->
+        <div class="sezione">
+            @*  SharedBreadcrumbs  *@
+            @{ Html.RenderAction("Breadcrumbs", "Shared"); }
+            <!-- Div corpo -->
+            <div class="corpo @ViewBag.ClasseDocumentazione">
+            @RenderBody()
+            </div>
+			<!-- fine Div corpo -->
+        </div>
+        <!-- fine Sezione -->
+    </div>
+</div>

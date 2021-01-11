@@ -1,0 +1,79 @@
+﻿@model VAPortale.Models.SharedMenuNavigazioneMobileModel
+
+<div id="menuPrincipale" class="navbar navbar-default">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header collapsed">
+        <button type="button" class="navbar-toggle">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar">&nbsp;</span>
+            <span class="icon-bar">&nbsp;</span>
+            <span class="icon-bar">&nbsp;</span>
+        </button>
+       </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="menuPrincipaleLinks">
+        <ul class="nav navbar-nav sf-menu">
+            @foreach (VALib.Domain.Entities.UI.VoceMenu voce in Model.VociMenu.Where(x => x.GenitoreID == 0))
+            {
+                string classeActive = voce.Sezione.Equals(Model.NomeSezione, StringComparison.InvariantCultureIgnoreCase) ? "active" : "";
+                
+                if (voce.GenitoreID == 0)
+                {
+                    <li class="@classeActive">
+                    @if (voce.Link)
+                    {
+                        if (voce.Editabile)
+                        {
+                        <a href="@Url.RouteUrl("PaginaStatica", new { nomeSezione = voce.Sezione, nomeVoce = voce.Voce })">@voce.GetNome()</a>
+                        }
+                        else
+                        {
+                        <a href="@Url.Action(voce.Voce, voce.Sezione)">@voce.GetNome()</a>
+                        }
+                    }
+                    else
+                    {
+                    <span>@voce.GetNome()</span>
+                    }
+                    @if (Model.VociMenu.Exists(x => x.GenitoreID == voce.ID))
+                    {
+                        <ul>
+                        @foreach (VALib.Domain.Entities.UI.VoceMenu subVoce in Model.VociMenu.Where(x => x.GenitoreID == voce.ID))
+                        {
+                            if (subVoce.Editabile)
+                            {
+                                <li><a href="@Url.RouteUrl("PaginaStatica", new { nomeSezione = subVoce.Sezione, nomeVoce = subVoce.Voce })">@subVoce.GetNome()</a></li>
+                            }
+                            else
+                            {
+                                <li>@Html.ActionLink(subVoce.GetNome(), subVoce.Voce, subVoce.Sezione)</li>
+                            }
+                        }
+                        </ul>
+                    }
+                    </li>
+                }
+            } 
+            <li>
+                <span>@DizionarioService.SITO_TestoMenuServizio</span>
+                    <ul>
+                        @foreach (VALib.Domain.Entities.UI.VoceMenu subVoce in Model.VociMenuServizio)
+                        {
+                            if (subVoce.Editabile)
+                            {
+                                <li><a href="@Url.RouteUrl("PaginaStatica", new { nomeSezione = subVoce.Sezione, nomeVoce = subVoce.Voce })">@subVoce.GetNome()</a></li>
+                            }
+                            else
+                            {
+                                <li>@Html.ActionLink(subVoce.GetNome(), subVoce.Voce, subVoce.Sezione)</li>
+                            }
+                        }
+                        <li><a href="http://www.minambiente.it" class="external">www.minambiente.it</a></li>
+                    </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+     @{ Html.RenderAction("SelezioneLingua", "Shared"); }
+</div>

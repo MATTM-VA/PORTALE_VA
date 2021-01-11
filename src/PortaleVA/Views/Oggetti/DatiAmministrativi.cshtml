@@ -1,0 +1,31 @@
+﻿@model VAPortale.Models.OggettiDatiAmministrativiModel
+<h3>@DizionarioService.OGGETTO_TitoloIterAmministrativi</h3>
+@foreach (Tuple<int, Procedura, int?> p in Model.Procedure)
+{
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th colspan="2">
+                    @p.Item2.GetNome()
+                </th>
+            </tr>
+            @if (p.Item3.HasValue)
+            {
+                <tr>
+                    <td style="width:500px;"><strong>@DizionarioService.RICERCA_LabelCodiceProcedura (ID_VIP):</strong></td>
+                    <td>@p.Item3.Value</td>
+                </tr>
+            }
+            @foreach (ValoreDatoAmministrativo v in Model.DatiAmministrativi.OrderBy(x => x.DatoAmministrativo.Ordine))
+            {
+                if (v.OggettoProceduraID == p.Item1 && v.Procedura.ID == p.Item2.ID)
+                {
+                <tr>
+                    <td><strong>@v.DatoAmministrativo.GetNome():</strong></td>
+                    <td>@v.GetValore()</td>
+                </tr>
+                }
+            }
+        </table>
+    </div>
+}

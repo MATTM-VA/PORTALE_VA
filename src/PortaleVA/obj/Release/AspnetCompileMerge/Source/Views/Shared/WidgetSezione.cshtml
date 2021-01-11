@@ -1,0 +1,15 @@
+﻿@model VALib.Domain.Entities.UI.Widget
+@{
+    String Contenuto = Model.GetContenuto();
+}
+
+
+@if (Model.VoceMenu != null)
+{
+    Contenuto = String.Format(Contenuto, Url.Action(Model.VoceMenu.Voce, Model.VoceMenu.Sezione));
+}
+<div class="box_sezione f-dr">
+    @Html.Raw(UrlUtility.VAHtmlReplacePseudoUrls(Contenuto))
+</div>
+
+

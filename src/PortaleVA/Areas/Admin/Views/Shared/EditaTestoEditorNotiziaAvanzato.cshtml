@@ -1,0 +1,21 @@
+﻿@model VAPortale.Areas.Admin.Models.SharedEditorTestoNotiziaAvanzatoModel
+<script type="text/javascript">
+    
+    tinymce.init({
+        selector: "textarea.@Model.SelectorClass", 
+        plugins: [
+        "paste code link image anchor"
+        ],
+        link_list: @Html.Raw(Model.ExternalLinkList),
+        image_list: @Html.Raw(Model.ExternalImageList),
+        
+        toolbar: "code undo redo | paste | bold italic | bullist numlist | anchor link image  ",
+        menubar: false,
+        convert_urls: false, 
+        relative_urls: false, 
+         
+
+    });
+   
+    //</script>
+

@@ -1,0 +1,63 @@
+﻿@model VAPortale.Areas.Admin.Models.NotiziaIndexModel
+@using VALib.Web.Mvc
+@using VALib.Domain.Entities.Contenuti
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="contenuto">
+    <h2>@Html.ActionLink("Notizie", "Index", null, new { @class = "sezione" }) /
+        <span>Elenco Notizie</span></h2>
+    <div>
+        @Html.ActionLink("Nuova Notizia", "Crea", new { immagineID = Model.DefaultImmagineID }, new { @class = "pulsante" })
+    </div>
+    <div class="cerca">
+        @using (Html.BeginForm("Index", "Notizia", FormMethod.Get))
+        {
+            <span>
+                @Html.LabelFor(m => m.Pubblicato)
+                @Html.DropDownListFor(m => m.Pubblicato, Model.BooleanSelectList)
+            </span>
+            <span>
+                @Html.LabelFor(m => m.Testo)
+                @Html.TextBoxFor(m => m.Testo)
+            </span>
+            <span>
+                @Html.LabelFor(m => m.CategoriaNotiziaID)
+                @Html.DropDownListFor(m => m.CategoriaNotiziaID, Model.CategoriaSelectList)
+            </span>
+            <span>
+                @Html.LabelFor(m => m.Stato)
+                @Html.DropDownListFor(m => m.Stato, Model.StatoSelectList)
+            </span>
+            <input type="submit" value="Cerca" />
+        }
+        
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Titolo</th>
+                <th>Categoria</th>
+                <th>Pubblicata</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Notizia notizia in Model.Notizie)
+            {
+            <tr>
+                <td>@notizia.Data.ToString("dd/MM/yyyy")</td>
+                <td>@Html.ActionLink(notizia.Titolo_IT, "Edita", new { id = notizia.ID })</td>
+                <td>@notizia.Categoria.Nome</td>
+                <td>@Html.BooleanToString(notizia.Pubblicata, "si", "no")</td>
+            </tr>
+            }
+        </tbody>
+        </table>
+        <div class="corpo">
+    @Html.VaPaginatore(Model.Pagina, Model.DimensionePagina, Model.TotaleRisultati, "pagina", x => Url.Action("Index", x))
+    </div>
+</div>

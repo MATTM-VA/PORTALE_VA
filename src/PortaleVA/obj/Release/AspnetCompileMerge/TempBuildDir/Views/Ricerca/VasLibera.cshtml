@@ -1,0 +1,97 @@
+﻿@model VAPortale.Models.RicercaLiberaModel
+@using VALib.Web.Mvc
+
+@{
+    ViewBag.Title = Model.VoceMenu.GetDescrizione();
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+
+<div class="line_small_title">
+    <h2>@Model.VoceMenu.GetDescrizione()</h2>
+</div>
+<div class="clear"></div>
+
+
+<div class="areaRicerca modelloEsteso">
+    @using (Html.BeginForm("VasLibera", "Ricerca", FormMethod.Get))
+    {
+        @Html.AntiForgeryToken()
+        <div class="bgInput">
+            <div class="testo_ricerca ie9">
+                @if (Model.T == null)
+                {
+                    @Html.RadioButtonFor(m => m.T, "o", new { @class = "checkBox", id = "o", Checked = "checked" })<label for="o">@DizionarioService.RICERCA_LabelSceltaOggettiVas</label>
+                    @Html.RadioButtonFor(m => m.T, "d", new { @class = "checkBox", id = "d" })<label for="d">@DizionarioService.RICERCA_LabelSceltaDocumenti</label>
+                }
+                else
+                {
+                    @Html.RadioButtonFor(m => m.T, "o", new { @class = "checkBox", id = "o" })<label for="o">@DizionarioService.RICERCA_LabelSceltaOggettiVas</label>
+                    @Html.RadioButtonFor(m => m.T, "d", new { @class = "checkBox", id = "d" })<label for="d">@DizionarioService.RICERCA_LabelSceltaDocumenti</label>
+                }
+            </div>
+            <div class="testo_ricerca ie9">
+                <label for="Testo">@DizionarioService.RICERCA_LabelTesto</label>
+                @Html.TextBoxFor(m => m.Testo, new { @class = "cerca" })
+
+                <input type="image" class="btn-search" alt="@DizionarioService.RICERCA_BottoneEsegui" src="@Url.VAContent("button_search.png?v=4")" />
+            </div>
+        </div>
+    }
+</div>
+
+@if (Model.Oggetti != null)
+{
+    <h3 class="risultati">@DizionarioService.RICERCA_TitoloRisultatiOggettiVas (@Model.TotaleRisultati)</h3>
+    { Html.RenderPartial("GrigliaRisultatiOggetti", new Tuple<List<OggettoElenco>, MacroTipoOggettoEnum, bool>(Model.Oggetti, MacroTipoOggettoEnum.Vas, false)); }
+}
+
+
+@if (Model.Documenti != null)
+{
+    <h3 class="risultati">@DizionarioService.RICERCA_TitoloRisultatiDocumenti (@Model.TotaleRisultati)</h3>
+    <div class="table-responsive">
+        <table class="table ElencoDocumentiRicerca">
+            <tr>
+                <th>@DizionarioService.GRIGLIA_ColonnaDocumento</th>
+                <th>@DizionarioService.GRIGLIA_ColonnaTitolo</th>
+                <th>@DizionarioService.GRIGLIA_ColonnaData</th>
+                <th>@DizionarioService.GRIGLIA_ColonnaScala</th>
+                <th>@DizionarioService.GRIGLIA_ColonnaDimensione</th>
+                <th><span class="hidden">INFO  e procedure</span></th>
+                <th><span class="hidden">Documento allegato</span></th>
+            </tr>
+            @foreach (DocumentoElenco d in Model.Documenti)
+                {
+                <tr>
+                    <td>@d.GetNome()</td>
+                    <td>@d.Titolo</td>
+                    <td>@d.Data.ToString(CultureHelper.GetDateFormat())</td>
+                    <td>@d.Scala</td>
+                    <td>@string.Format("{0} kB", d.Dimensione)</td>
+                    <td>
+                        <a href="@Url.Action("MetadatoDocumento", "Oggetti", new { id = d.ID })" class="icona-metadato" title="@DizionarioService.TOOLTIP_Metadato">@DizionarioService.TOOLTIP_Metadato</a>
+                    </td>
+                    <td>
+                        <a href="@Url.VADocumentoViaVas(d.ID)" title="@DizionarioService.TOOLTIP_ScaricaDocumento" class="bt icona-@d.TipoFile.Estensione">
+                            @DizionarioService.TOOLTIP_ScaricaDocumento
+                        </a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+}
+
+
+<div class="area_sotto_tabella">
+    <div class="buttonBackground">
+        @if (Model.TotaleRisultati < 20000)
+            {
+            @Html.VaEsporta(x => Url.Action("VasLibera", x))
+        }
+    </div>
+    <div class="paginatore">
+        @Html.VaPaginatore(Model.Pagina, Model.DimensionePagina, Model.TotaleRisultati, "pagina", x => Url.Action("VasLibera", x))
+    </div>
+    <div class="visualizza_pagina"></div>
+</div>

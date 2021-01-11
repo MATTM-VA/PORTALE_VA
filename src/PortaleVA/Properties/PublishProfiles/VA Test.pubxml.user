@@ -1,0 +1,2479 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+Questo file viene utilizzato dal processo di pubblicazione/creazione pacchetto del progetto Web. È possibile personalizzare il comportamento del processo
+modificando il file MSBuild. Per ulteriori informazioni su questo argomento, visitare http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>Z:\C_serio\inetpub\wwwroot\vatest</_PublishTargetUrl>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Areas/Admin/Views/Carosello/Edita.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Carosello/Index.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/DatoAmbientaleHome/Edita.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/DatoAmbientaleHome/Index.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/DocumentoPortale/Edita.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/DocumentoPortale/Index.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Events/Index.cshtml">
+      <publishTime>04/19/2019 10:40:57</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Home/CambioPassword.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Home/GestioneRuoli.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Home/Index.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Home/Login.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Home/ResetPassword.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Immagine/Edita.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Immagine/EditaFormati.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Immagine/Index.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Notizia/Edita.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Notizia/Index.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Pagina/Edita.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Pagina/EditaWidget.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Pagina/Index.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Shared/BarraUtente.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Shared/EditaTestoEditorNotiziaAvanzato.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Shared/MenuAdmin.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Shared/MenuPrincipale.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Shared/_LayoutAdmin.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Utente/CreaUtente.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Utente/GestioneRuoli.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Utente/Index.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Utente/ModificaUtente.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Variabile/Index.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Web.config">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Widget/Edita.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Widget/EditaEmbed.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Widget/EditaInEvidenza.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Widget/EditaSezione.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Widget/Index.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>11/30/2017 10:59:35</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>09/16/2019 12:12:42</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>09/16/2019 12:12:42</publishTime>
+    </File>
+    <File Include="bin/ElogToolkit.dll">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="bin/FileHelpers.dll">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="bin/ICSharpCode.SharpZipLib.dll">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="bin/Ionic.Zip.dll">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="bin/Joel.Net.Akismet.dll">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>11/30/2017 10:59:34</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>11/30/2017 10:59:31</publishTime>
+    </File>
+    <File Include="bin/NPOI.dll">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="bin/NPOI.OOXML.dll">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="bin/NPOI.OpenXml4Net.dll">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="bin/NPOI.OpenXmlFormats.dll">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.dll">
+      <publishTime>11/30/2017 10:59:34</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>11/30/2017 10:59:33</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.WebRequest.dll">
+      <publishTime>11/30/2017 10:59:34</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>11/30/2017 10:59:36</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>11/30/2017 10:59:27</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>11/30/2017 10:59:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>11/30/2017 10:59:34</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>11/30/2017 10:59:35</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>11/30/2017 10:59:35</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>11/30/2017 10:59:36</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>11/30/2017 10:59:36</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>11/30/2017 10:59:36</publishTime>
+    </File>
+    <File Include="bin/VALib.dll">
+      <publishTime>09/16/2019 12:10:56</publishTime>
+    </File>
+    <File Include="bin/VAPortale.dll">
+      <publishTime>09/16/2019 12:11:01</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>11/30/2017 10:59:32</publishTime>
+    </File>
+    <File Include="Content/Admin.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/AdminIE7.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/avian.woff">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/avian.woff2">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/avianb-ema.ttf">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/avianb-ema.woff">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/avianb-ema.woff2">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/avianb.woff">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/avianb.woff2">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/bootstrap-ie7.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.w3c.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/cartinaCSSS.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/en.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/flexslider.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/framework/bootstrap-3.2.0-dist/css/bootstrap-theme.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/framework/bootstrap-3.2.0-dist/css/bootstrap-theme.min.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/framework/bootstrap-3.2.0-dist/css/bootstrap.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/framework/bootstrap-3.2.0-dist/css/bootstrap.min.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/framework/bootstrap-3.2.0-dist/css/bootstrap.min.w3c.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/framework/bootstrap-3.2.0-dist/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/framework/bootstrap-3.2.0-dist/js/bootstrap.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/framework/bootstrap-3.2.0-dist/js/bootstrap.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/icone.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ie8.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ie9.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/7z.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/aia.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/arrow-up-down.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/arrows.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/arrow_bottom.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/avi.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/background_head.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/bg_consultazione_pubblica.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/bmp.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/button_open_close.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/button_search.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/button_search_binocular.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cartina-regioni.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cartinaCSSS.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cartinaLight.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/acciaierie.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/aereoporti.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/altri-impianti.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/attivita-mineraria.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/centrali.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/coltivazione-idrocarburi.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/elettrodotti.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/eolici-on-shore.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/eolici.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/eolico-on-shore.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/ferrovie.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/hub.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/impianti-chimici-integrati.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/impianti-geotermici.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/impianti-rifiuti.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/impianti-rigassificazione.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/interporti.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/metanodotti.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/opere-idrauliche.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/ponte-stretto.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/porti.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/prospezione-idrocarburi.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/raffinerie.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/ricerca-idrocarburi.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/risanamento-abientale.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/smaltimento-rifiuti.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/stoccaggio-combustibili.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/strade.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/terminali-marittimi.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/vas.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/cat-icon/via.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/crea_mappa.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/css_validator.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/dot.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/dwf.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/dwfx.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/dwg.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/dxf.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/eng_flag.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/esporta-bg.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/favicon.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/favicon.ico">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/flags.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/foto_1.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/foto_10.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/foto_11.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/foto_12.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/foto_2.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/foto_3.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/foto_4.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/foto_5.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/foto_6.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/foto_7.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/foto_8.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/foto_9.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/gif.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/html5_validator.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/html_validator.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icon-fax.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icon-pec.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icon-posta.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icona-avi.png">
+      <publishTime>01/08/2018 10:17:18</publishTime>
+    </File>
+    <File Include="Content/images/icona-calendario.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icona-dettaglio-procedura.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icona-doc.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icona-documentazione-tecnico-amm-none.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icona-documentazione-tecnico-amm.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icona-dwg.png">
+      <publishTime>01/08/2018 10:17:18</publishTime>
+    </File>
+    <File Include="Content/images/icona-excel.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icona-gelab.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icona-generica.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icona-jpg.png">
+      <publishTime>01/08/2018 10:17:18</publishTime>
+    </File>
+    <File Include="Content/images/icona-mail.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icona-mdb.png">
+      <publishTime>01/08/2018 10:17:18</publishTime>
+    </File>
+    <File Include="Content/images/icona-metadato.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icona-pdf.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icona-png.png">
+      <publishTime>01/08/2018 10:17:18</publishTime>
+    </File>
+    <File Include="Content/images/icona-tif.png">
+      <publishTime>01/08/2018 10:17:18</publishTime>
+    </File>
+    <File Include="Content/images/icona-web.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icona-zip.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/iconeSezioneHP/icon_areaGiuridica.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/iconeSezioneHP/icon_consulatazioni.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/iconeSezioneHP/icon_creaMappa.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/iconeSezioneHP/icon_datiAmbientali.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/iconeSezioneHP/icon_direzione.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/iconeSezioneHP/icon_eventi.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/iconeSezioneHP/icon_osservazioni.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/iconeSezioneHP/icon_provvedimenti.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/iconeSezioneHP/icon_statistiche.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/iconeSezioneHP/logo_ilva.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icon_avvisoAlPubblico.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icon_google_earth.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icon_info.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icon_mappa_interattiva.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icon_procedureCorso.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icon_provvedimenti.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icon_select.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icon_spazioPerIlCittadino.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icon_spazioProponente.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icon_specificheTecnicheModulstiche.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/icon_wms_wfs.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/img.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/imgProva_01g.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/imgProva_02g.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/imgProva_03.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/imgProva_03g.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/imgProva_04g.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/img_sezioni_crea_area_giuridica.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/img_sezioni_crea_dati_ambientali.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/img_sezioni_crea_mappa.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/img_sezioni_eventi.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/img_sezioni_informa.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/img_sezioni_osservazioni.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/img_sezioni_provvedimenti.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/img_sezioni_statistiche.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/img_sezioni_transfrontaliere.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/img_sez_evidenza_area_giuridica.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/img_sez_evidenza_eventi.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/img_sez_evidenza_informa.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/img_sez_evidenza_procedure_corso.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/img_sez_evidenza_provvedimenti.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/img_sez_evidenza_specifiche_tecniche.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/img_specificheTecnicheModulistiche.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/immagine_vas.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/immagine_vasInCorso.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/immagine_via.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/immagine_viaInCorso.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/ita_flag.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/jpg.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/loading.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/localizzatore.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/loghi-dati-ambientali/carta-natura-ISPRA.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/loghi-dati-ambientali/Geoportale-Nazionale.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/loghi-dati-ambientali/ISTAT.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/loghi-dati-ambientali/MISE.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/loghi-dati-ambientali/SITAP-MIBACT.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/loghi-dati-ambientali/VIA-VAS-regioni.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/loghi-dati-ambientali/Vincoli-Rete-MIBACT.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/logoGoverno.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/logoMinistero.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/logo_gov_footer.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/logo_min_ambiente.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/logo_min_ambiente_footer.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/mdb.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/mdi.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/msg.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/P7M.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/png.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/ppsx.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/ppt.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/procedure-via.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/Prova/1358.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/images/Prova/1374.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/images/Prova/262.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/images/rar.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/schemaproceduravas.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/sez_consultazione_icon_download.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/sez_consultazione_icon_info.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/sez_consultazione_icon_map.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/spacer.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/spazio_cittadino_1.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/spazio_cittadino_2.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/spazio_cittadino_3.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/spazio_cittadino_4.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/spazio_cittadino_data1.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/spazio_cittadino_data2.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/spazio_cittadino_data3.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/spazio_cittadino_data4.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/terre_rocce_da_scavo_Copertina.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/terre_rocce_da_scavo_CopertinaInterna.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/testata_gestionale.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/tif.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/tiff.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/treeview-default-line.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/treeview-default.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/txt.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/via_aia_497x315.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/w3c-css.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/w3c-html.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/w3c.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/xlsx.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/images/xxyy.jpg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/img/arrows.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/arrow_download.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/arrow_download_hover.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/avvisoPubblico.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/cartina-regioni.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/cartinaCSSS.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/cerca-orizzontale.jpg">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/cerca-vipera.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/cerca-widget.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/cerca.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/documentazioneTab.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/esporta-bg.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/favicon.gif">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/favicon.ico">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/flags.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/frecce-ordinamento-giu.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/frecce-ordinamento-su.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/frecce-ordinamento.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icon-fax.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icon-pec.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icon-posta.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/avvisoPubblico.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-avi.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-calendario.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-descrizione-progetto.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-dettagli-progetto.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-dettaglio-procedura.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-doc.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-documentazione-tecnico-amm-none.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-documentazione-tecnico-amm.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-dwf.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-dwg.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-excel.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-gelab.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-generica.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-google-earth.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-info-progetto.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-jpg.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-localizzatore.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-mail.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-mappa-interattiva.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-mdb.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-metadato.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-pdf.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-png.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-scarica-provvedimento.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-sintesi-non-tecnica.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-tif.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-web.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-wms.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icona-zip.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icon_areaGiuridica.png">
+      <publishTime>10/03/2017 09:06:42</publishTime>
+    </File>
+    <File Include="Content/img/icone/icon_consulatazioni.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icon_creaMappa.png">
+      <publishTime>10/03/2017 09:48:38</publishTime>
+    </File>
+    <File Include="Content/img/icone/icon_datiAmbientali.png">
+      <publishTime>10/03/2017 09:49:08</publishTime>
+    </File>
+    <File Include="Content/img/icone/icon_direzione.png">
+      <publishTime>10/03/2017 08:58:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icon_eventi.png">
+      <publishTime>10/03/2017 08:56:30</publishTime>
+    </File>
+    <File Include="Content/img/icone/icon_info_carosello.png">
+      <publishTime>10/05/2017 11:40:28</publishTime>
+    </File>
+    <File Include="Content/img/icone/icon_map_carosello.png">
+      <publishTime>10/05/2017 11:40:28</publishTime>
+    </File>
+    <File Include="Content/img/icone/icon_osservazioni.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/icon_provvedimenti.png">
+      <publishTime>10/03/2017 09:49:28</publishTime>
+    </File>
+    <File Include="Content/img/icone/icon_small_download.png">
+      <publishTime>10/03/2017 13:01:52</publishTime>
+    </File>
+    <File Include="Content/img/icone/icon_small_info.png">
+      <publishTime>10/03/2017 13:00:58</publishTime>
+    </File>
+    <File Include="Content/img/icone/icon_small_map.png">
+      <publishTime>10/03/2017 13:02:32</publishTime>
+    </File>
+    <File Include="Content/img/icone/icon_statistiche.png">
+      <publishTime>10/03/2017 09:49:46</publishTime>
+    </File>
+    <File Include="Content/img/icone/provvedimenti2017.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/provvedimentInCorso.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/searchProcedura.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/searchProject.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/spazioCittadino.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/spazioProponente.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icone/specificheTecniche.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/iconeSezioneHP/icon_areaGiuridica.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/iconeSezioneHP/icon_consulatazioni.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/iconeSezioneHP/icon_creaMappa.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/iconeSezioneHP/icon_datiAmbientali.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/iconeSezioneHP/icon_direzione.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/iconeSezioneHP/icon_eventi.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/iconeSezioneHP/icon_osservazioni.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/iconeSezioneHP/icon_provvedimenti.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/iconeSezioneHP/icon_statistiche.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icons.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icon_select.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/icon_small_download.png">
+      <publishTime>10/03/2017 13:01:52</publishTime>
+    </File>
+    <File Include="Content/img/icon_small_info.png">
+      <publishTime>10/03/2017 13:00:58</publishTime>
+    </File>
+    <File Include="Content/img/icon_small_map.png">
+      <publishTime>10/03/2017 13:02:32</publishTime>
+    </File>
+    <File Include="Content/img/icon_via_viabilita.png">
+      <publishTime>10/03/2017 11:17:00</publishTime>
+    </File>
+    <File Include="Content/img/img1.jpg">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/infoProgettoTab.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/invioOsservazioni.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/list-icon.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/menu-responsive-scuro.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/menu-responsive.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/minLogo-mobile.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/minLogo.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/provvedimenti2017.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/provvedimentInCorso.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/searchProcedura.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/searchProject.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/spazioCittadino.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/spazioProponente.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/spazio_cittadino_1.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/spazio_cittadino_2.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/spazio_cittadino_3.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/spazio_cittadino_4.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/spazio_cittadino_data1.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/spazio_cittadino_data2.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/spazio_cittadino_data3.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/spazio_cittadino_data4.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/specificheTecniche.png">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/treeview-default-line.gif">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/img/treeview-default.gif">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/it.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/itc_avant_garde_gothic_lt_book_regular-webfont.woff">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/itc_avant_garde_gothic_lt_book_regular-webfont.woff2">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/itc_avant_garde_gothic_lt_demi_regular-webfont.woff">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/itc_avant_garde_gothic_lt_demi_regular-webfont.woff2">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/jquery-treeview.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/jquery.fancybox.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/jquery.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/jquery.restable.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/OpenSans-Italic-webfont.woff">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/OpenSans-Regular-webfont.woff">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/responsive.css">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/RootContent/robots.txt">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/sottoCarosello.css">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/style-ie7.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/style-ie8.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/style.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/StyleFront.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/style_.css">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/Style_template_smaller.css">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/superfish.css">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/superfish.ie.css">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/superfish.w3c.css">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Content/tipTap.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-custom/images/animated-overlay.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-custom/images/ui-icons_444444_256x240.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-custom/images/ui-icons_555555_256x240.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-custom/images/ui-icons_777777_256x240.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-custom/images/ui-icons_cc0000_256x240.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-custom/images/ui-icons_ffffff_256x240.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-custom/jquery-ui-1.10.4.custom.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-custom/jquery-ui-1.10.4.custom.min.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/animated-overlay.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/ui-bg_diagonals-thick_18_b81900_40x40.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/ui-bg_diagonals-thick_20_666666_40x40.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/ui-bg_flat_10_000000_40x100.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/ui-bg_glass_100_fdf5ce_1x400.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/ui-bg_gloss-wave_35_f6a828_500x100.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/ui-bg_highlight-soft_75_ffe45c_1x100.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/ui-icons_222222_256x240.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/ui-icons_228ef1_256x240.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/ui-icons_454545_256x240.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/ui-icons_888888_256x240.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/ui-icons_ef8c08_256x240.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/ui-icons_ffd27a_256x240.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/images/ui-icons_ffffff_256x240.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/jquery-ui-1.10.4.custom.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/jquery-ui-1.10.4.custom.min.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/jquery-ui-1.10.4.custom.min.ie.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/jquery-ui-1.10.4.custom.min.w3c.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/jquery-ui.min.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-lightness/ui-lightness - collegamento.lnk">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/animated-overlay.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-bg_diagonals-thick_18_b81900_40x40.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-bg_diagonals-thick_20_666666_40x40.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-bg_flat_10_000000_40x100.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-bg_flat_75_cccccc_40x100.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-bg_flat_75_dadada_40x100.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-bg_flat_75_e6e6e6_40x100.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-bg_glass_100_f6f6f6_1x400.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-bg_glass_100_fdf5ce_1x400.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-bg_gloss-wave_35_f6a828_500x100.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-bg_highlight-soft_100_eeeeee_1x100.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-bg_highlight-soft_75_ffe45c_1x100.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-icons_222222_256x240.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-icons_228ef1_256x240.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-icons_454545_256x240.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-icons_888888_256x240.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-icons_ef8c08_256x240.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-icons_ffd27a_256x240.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/images/ui-icons_ffffff_256x240.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/jquery-ui-1.10.4.custom.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/jquery-ui-1.10.4.custom.min.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Content/ui-via/jquery-ui.min.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/Calendar_scheduleHS.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/cerca.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/Collection.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/DataSet.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/Dataset.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/dett.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/doc.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/docx.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/dwf.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/dwfx.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/excel.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/freccia_giu.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/freccia_su.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/Freccie.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/gelab.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/gif.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/IcoExcel.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/icon_google_earth.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/icon_select.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/icon_WMS.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/icoStrato.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/Image.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/Image.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/InteractiveResource.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/InteractiveResource.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/jpeg.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/jpg.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/logo.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/mdb.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/pdf.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/ppt.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/ProgettoCartografico.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/risorse_web.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/scheda.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/scheda.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/search.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/slash.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/Software.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/Sound.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/Sound.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/Text.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/tif.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/tiff.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/txt.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/url.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/web.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/word.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/xls.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/xsl.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="css/img/Icone/zip.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="maintenance.aspx">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>09/16/2019 12:12:39</publishTime>
+    </File>
+    <File Include="Scripts/bowser.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/boxsizing.htc">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/equal_height.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/imgareaselect/css/border-anim-h.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/imgareaselect/css/border-anim-v.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/imgareaselect/css/border-h.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/imgareaselect/css/border-v.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/imgareaselect/css/imgareaselect-animated.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/imgareaselect/css/imgareaselect-default.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/imgareaselect/css/imgareaselect-deprecated.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/imgareaselect/GPL-LICENSE.txt">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/imgareaselect/MIT-LICENSE.txt">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/imgareaselect/scripts/jquery.imgareaselect.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/imgareaselect/scripts/jquery.imgareaselect.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/imgareaselect/scripts/jquery.imgareaselect.pack.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/imgareaselect/scripts/jquery.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.10.4.custom.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-datepicker-it.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.bxslider/html5shiv.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.bxslider/images/bx_loader.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.bxslider/images/controls.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.bxslider/jquery.bxslider.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.bxslider/jquery.bxslider.ie.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.bxslider/jquery.bxslider.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.bxslider/jquery.bxslider.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.bxslider/jquery.bxslider.w3c.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.bxslider/plugins/jquery.easing.1.3.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.bxslider/plugins/jquery.fitvids.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.bxslider/respond.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.cookie.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.cookiesdirective.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.fancybox.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.flexslider.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.restable.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.tipTip.minified.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.treeview.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/mappa.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/menu.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/modernizr.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/plupload/i18n/en.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/plupload/i18n/it.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/plupload/jquery.plupload.queue/css/jquery.plupload.queue.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/plupload/jquery.plupload.queue/img/backgrounds.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/plupload/jquery.plupload.queue/img/buttons-disabled.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/plupload/jquery.plupload.queue/img/buttons.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/plupload/jquery.plupload.queue/img/delete.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/plupload/jquery.plupload.queue/img/done.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/plupload/jquery.plupload.queue/img/error.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/plupload/jquery.plupload.queue/img/throbber.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/plupload/jquery.plupload.queue/img/transp50.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/plupload/jquery.plupload.queue/jquery.plupload.queue.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/plupload/jquery.plupload.queue/jquery.plupload.queue.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/plupload/jquery.ui.plupload/css/jquery.ui.plupload.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/plupload/jquery.ui.plupload/img/loading.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/plupload/jquery.ui.plupload/img/plupload.png">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/plupload/jquery.ui.plupload/jquery.ui.plupload.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/plupload/jquery.ui.plupload/jquery.ui.plupload.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/plupload/moxie.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/plupload/moxie.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/plupload/Moxie.swf">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/plupload/Moxie.xap">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/plupload/plupload.dev.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/plupload/plupload.full.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/plupload/plupload.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/respond.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/scripts.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/jquery.tinymce.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/langs/readme.md">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/license.txt">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/advlist/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/anchor/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/autolink/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/autoresize/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/autosave/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/bbcode/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/charmap/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/code/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/contextmenu/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/directionality/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/emoticons/img/smiley-cool.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/emoticons/img/smiley-cry.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/emoticons/img/smiley-embarassed.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/emoticons/img/smiley-foot-in-mouth.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/emoticons/img/smiley-frown.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/emoticons/img/smiley-innocent.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/emoticons/img/smiley-kiss.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/emoticons/img/smiley-laughing.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/emoticons/img/smiley-money-mouth.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/emoticons/img/smiley-sealed.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/emoticons/img/smiley-smile.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/emoticons/img/smiley-surprised.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/emoticons/img/smiley-tongue-out.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/emoticons/img/smiley-undecided.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/emoticons/img/smiley-wink.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/emoticons/img/smiley-yell.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/emoticons/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/example/dialog.html">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/example/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/example_dependency/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/fullpage/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/fullscreen/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/hr/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/image/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/importcss/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/insertdatetime/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/layer/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/legacyoutput/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/link/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/lists/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/media/moxieplayer.swf">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/media/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/nonbreaking/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/noneditable/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/pagebreak/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/paste/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/preview/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/print/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/save/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/searchreplace/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/spellchecker/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/tabfocus/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/table/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/template/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/textcolor/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/visualblocks/css/visualblocks.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/visualblocks/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/visualchars/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/wordcount/plugin.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/skins/lightgray/content.inline.min.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/skins/lightgray/content.min.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/skins/lightgray/fonts/readme.md">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/skins/lightgray/fonts/tinymce-small.dev.svg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/skins/lightgray/fonts/tinymce-small.eot">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/skins/lightgray/fonts/tinymce-small.svg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/skins/lightgray/fonts/tinymce-small.ttf">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/skins/lightgray/fonts/tinymce-small.woff">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/skins/lightgray/fonts/tinymce.dev.svg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/skins/lightgray/fonts/tinymce.eot">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/skins/lightgray/fonts/tinymce.svg">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/skins/lightgray/fonts/tinymce.ttf">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/skins/lightgray/fonts/tinymce.woff">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/skins/lightgray/img/anchor.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/skins/lightgray/img/loader.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/skins/lightgray/img/object.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/skins/lightgray/img/trans.gif">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/skins/lightgray/skin.ie7.min.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/skins/lightgray/skin.min.css">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/themes/modern/theme.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/tinymce.min.js">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Collegamenti/AIAregionali.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Collegamenti/Regioni.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Comunicazione/ArchivioProvvedimenti.cshtml">
+      <publishTime>09/16/2019 11:15:01</publishTime>
+    </File>
+    <File Include="Views/Comunicazione/Cittadino.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Comunicazione/CittadinoOld.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Comunicazione/Dettaglio.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Comunicazione/FormContatto.cshtml">
+      <publishTime>08/30/2019 10:26:53</publishTime>
+    </File>
+    <File Include="Views/Comunicazione/NotizieElenco.cshtml">
+      <publishTime>09/09/2019 16:33:13</publishTime>
+    </File>
+    <File Include="Views/Comunicazione/Proponente.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Comunicazione/ProponenteOld.cshtml">
+      <publishTime>03/07/2017 08:46:02</publishTime>
+    </File>
+    <File Include="Views/Comunicazione/UltimiProvvedimenti.cshtml">
+      <publishTime>09/09/2019 16:32:57</publishTime>
+    </File>
+    <File Include="Views/DatiEStrumenti/DatiAmbientali.cshtml">
+      <publishTime>09/16/2019 11:18:40</publishTime>
+    </File>
+    <File Include="Views/DatiEStrumenti/MetadatoRisorsa.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/DatiEStrumenti/MetadatoRisorsaCondivisione.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/DatiEStrumenti/MetadatoStrato.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/DatiEStrumenti/Normativa.cshtml">
+      <publishTime>09/16/2019 11:19:29</publishTime>
+    </File>
+    <File Include="Views/DatiEStrumenti/PartialTab.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/DatiEStrumenti/RicercaCatalogo.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/DatiEStrumenti/StudiEIndaginiDiSettore.cshtml">
+      <publishTime>04/17/2019 15:26:57</publishTime>
+    </File>
+    <File Include="Views/DatiEStrumenti/StudiIndaginiPS.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Eventi/Documentazione.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Eventi/GruppiDiLavoro.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Eventi/InfoAIA.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Eventi/RaggruppamentiChildNodes.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Eventi/RaggruppamentiRootNodes.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Eventi/Territori.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Home/Accessibilita.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Home/Carosello.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Home/CercaSito.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Home/ElencoOggetti.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Home/ElencoProvvedimenti.cshtml">
+      <publishTime>02/12/2018 15:14:21</publishTime>
+    </File>
+    <File Include="Views/Home/Feed.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Home/Icone.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>09/16/2019 11:20:57</publishTime>
+    </File>
+    <File Include="Views/Home/Index.Mobile.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Home/Mappa.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Home/VociMenuChildNodes.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Home/VociMenuRootNodes.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Oggetti/DatiAmministrativi.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Oggetti/DatiAmministrativiRestable.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Oggetti/Documentazione.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Oggetti/DocumentazioneVas.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Oggetti/DocumentazioneVia.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Oggetti/DocumentazioneVia_OLD.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Oggetti/Info.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Oggetti/InfoAIA.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Oggetti/InfoAiaRegionale.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Oggetti/InfoVas.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Oggetti/InfoVas_OLD.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Oggetti/InfoVia.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Oggetti/InfoVia_OLD.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Oggetti/MetadatoDocumento.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Oggetti/RaggruppamentiChildNodes.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Oggetti/RaggruppamentiRootNodes.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Oggetti/Territori.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Pagine/Voce.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Procedure/AiaElenco.cshtml">
+      <publishTime>04/17/2019 15:27:05</publishTime>
+    </File>
+    <File Include="Views/Procedure/AvvisiAlPubblico.cshtml">
+      <publishTime>09/16/2019 11:21:38</publishTime>
+    </File>
+    <File Include="Views/Procedure/AvvisiAlPubblicoVia.cshtml">
+      <publishTime>04/17/2019 15:29:22</publishTime>
+    </File>
+    <File Include="Views/Procedure/AvvisiAssoggettabilitaVia.cshtml">
+      <publishTime>09/16/2019 11:23:31</publishTime>
+    </File>
+    <File Include="Views/Procedure/ConsultazioniTransfrontaliere.cshtml">
+      <publishTime>09/16/2019 11:26:29</publishTime>
+    </File>
+    <File Include="Views/Procedure/Grafici.cshtml">
+      <publishTime>05/08/2017 10:17:44</publishTime>
+    </File>
+    <File Include="Views/Procedure/Osservatori.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Procedure/PartialTab.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Procedure/ProcedureInCorso.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Procedure/ProcedureIntegrateECoordinate.cshtml">
+      <publishTime>09/16/2019 11:27:15</publishTime>
+    </File>
+    <File Include="Views/Procedure/Provvedimenti.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Procedure/ProvvedimentiElenco.cshtml">
+      <publishTime>09/16/2019 11:27:50</publishTime>
+    </File>
+    <File Include="Views/Procedure/Statistiche.cshtml">
+      <publishTime>09/16/2019 11:28:55</publishTime>
+    </File>
+    <File Include="Views/Procedure/TestJson.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Procedure/VasElenco.cshtml">
+      <publishTime>09/16/2019 11:29:41</publishTime>
+    </File>
+    <File Include="Views/Procedure/VasInCorso.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Procedure/ViaElenco.cshtml">
+      <publishTime>09/16/2019 11:30:51</publishTime>
+    </File>
+    <File Include="Views/Procedure/ViaInCorso.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Procedure/ViaVasInCorso.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/ProvvedimentiRegionali/ProvvedimentiElenco.cshtml">
+      <publishTime>09/16/2019 11:31:52</publishTime>
+    </File>
+    <File Include="Views/Ricerca/Aia.cshtml">
+      <publishTime>09/16/2019 11:36:55</publishTime>
+    </File>
+    <File Include="Views/Ricerca/AiaInstallazione.cshtml">
+      <publishTime>04/17/2019 15:29:48</publishTime>
+    </File>
+    <File Include="Views/Ricerca/AiaLibera.cshtml">
+      <publishTime>04/17/2019 15:30:02</publishTime>
+    </File>
+    <File Include="Views/Ricerca/AiaProcedura.cshtml">
+      <publishTime>04/17/2019 15:31:38</publishTime>
+    </File>
+    <File Include="Views/Ricerca/AiaTerritorio.cshtml">
+      <publishTime>04/17/2019 15:31:45</publishTime>
+    </File>
+    <File Include="Views/Ricerca/Mappa.cshtml">
+      <publishTime>09/09/2019 15:55:21</publishTime>
+    </File>
+    <File Include="Views/Ricerca/RicercaCodice.cshtml">
+      <publishTime>09/16/2019 11:38:30</publishTime>
+    </File>
+    <File Include="Views/Ricerca/TerritoriChildNodes.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Ricerca/TerritoriRootNodes.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Ricerca/Vas.cshtml">
+      <publishTime>09/16/2019 11:41:47</publishTime>
+    </File>
+    <File Include="Views/Ricerca/VasLibera.cshtml">
+      <publishTime>09/16/2019 11:44:22</publishTime>
+    </File>
+    <File Include="Views/Ricerca/VasProcedura.cshtml">
+      <publishTime>04/17/2019 15:32:55</publishTime>
+    </File>
+    <File Include="Views/Ricerca/VasSettore.cshtml">
+      <publishTime>04/17/2019 15:33:02</publishTime>
+    </File>
+    <File Include="Views/Ricerca/Via.cshtml">
+      <publishTime>09/16/2019 11:45:34</publishTime>
+    </File>
+    <File Include="Views/Ricerca/ViaLibera.cshtml">
+      <publishTime>04/17/2019 15:33:25</publishTime>
+    </File>
+    <File Include="Views/Ricerca/ViaProcedura.cshtml">
+      <publishTime>04/17/2019 15:33:31</publishTime>
+    </File>
+    <File Include="Views/Ricerca/ViaSpaziale.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Ricerca/ViaTerritorio.cshtml">
+      <publishTime>04/17/2019 15:33:38</publishTime>
+    </File>
+    <File Include="Views/Ricerca/ViaTipologia.cshtml">
+      <publishTime>04/17/2019 15:33:44</publishTime>
+    </File>
+    <File Include="Views/Ricerca/ViaVas.cshtml">
+      <publishTime>02/12/2018 13:44:39</publishTime>
+    </File>
+    <File Include="Views/Ricerca/ViaVasAia.cshtml">
+      <publishTime>09/16/2019 11:50:38</publishTime>
+    </File>
+    <File Include="Views/Shared/Breadcrumbs.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Shared/GrigliaRisultatiOggetti.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Shared/MenuNavigazione.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Shared/MenuNavigazioneFooter.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Shared/MenuNavigazioneMobile.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Shared/MenuServizio.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Shared/MenuSezione.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Shared/NotFound.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Shared/SelezioneLingua.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Shared/WidgetAttributi.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Shared/WidgetDatoAmbientaleHome.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Shared/WidgetEmbed.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Shared/WidgetInEvidenza.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Shared/WidgetNotizia.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Shared/WidgetSezione.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.mobile.cshtml">
+      <publishTime>10/12/2017 11:09:49</publishTime>
+    </File>
+    <File Include="Views/Shared/_LayoutInterno.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/Shared/_LayoutInternoLargo.cshtml">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>04/17/2019 15:09:29</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>09/16/2019 12:12:36</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

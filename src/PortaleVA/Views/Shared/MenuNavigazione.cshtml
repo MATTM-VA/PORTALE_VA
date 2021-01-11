@@ -1,0 +1,49 @@
+﻿@model VAPortale.Models.SharedMenuNavigazioneModel
+
+
+<nav id="cssmenu">
+    <div id="menu-button">Menu</div>
+    <ul>
+        @foreach (VALib.Domain.Entities.UI.VoceMenu voce in Model.VociMenu.Where(x => x.GenitoreID == 0))
+        {
+            string classeActive = voce.Sezione.Equals(Model.NomeSezione, StringComparison.InvariantCultureIgnoreCase) && voce.Voce != "Contatti" ? "active" : "";
+
+            if (voce.GenitoreID == 0 && voce.ID != 91)
+            {
+                <li class="@classeActive">
+                    @if (voce.Link)
+                    {
+                        if (voce.Editabile)
+                        {
+                            <a href="@Url.RouteUrl("PaginaStatica", new { nomeSezione = voce.Sezione, nomeVoce = voce.Voce })">@voce.GetNome()</a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action(voce.Voce, voce.Sezione)">@voce.GetNome()</a>
+                        }
+                    }
+                    else
+                    {
+                        <a href="javascript:void(0);"><span>@voce.GetNome()</span></a>
+                    }
+                    @if (Model.VociMenu.Exists(x => x.GenitoreID == voce.ID))
+                    {
+                        <ul>
+                            @foreach (VALib.Domain.Entities.UI.VoceMenu subVoce in Model.VociMenu.Where(x => x.GenitoreID == voce.ID))
+                        {
+                            if (subVoce.Editabile)
+                            {
+                                    <li><a href="@Url.RouteUrl("PaginaStatica", new { nomeSezione = subVoce.Sezione, nomeVoce = subVoce.Voce })">@subVoce.GetNome()</a></li>
+                                }
+                                else
+                                {
+                                    <li>@Html.ActionLink(subVoce.GetNome(), subVoce.Voce, subVoce.Sezione)</li>
+                                }
+                            }
+                        </ul>
+                    }
+                </li>
+            }
+        }
+    </ul>
+</nav>

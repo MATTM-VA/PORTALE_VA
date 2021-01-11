@@ -1,0 +1,45 @@
+﻿@model VAPortale.Models.SharedWidgetAttributiModel
+@{
+    int c = 0;
+    }
+<div class="widget widgetEvidenza">
+@foreach (TipoAttributo t in Model.TipiAttributi)
+{
+    <h4 class="titolo"><a href="@Url.Action(t.VoceMenu.Voce, t.VoceMenu.Sezione)" title="@t.VoceMenu.GetNome()">@t.GetNome()</a></h4>
+    <div class="box elencoWidget">
+    @foreach (Attributo a in Model.Attributi)
+    {
+        if (a.TipoAttributo.ID == t.ID)
+        {
+            int tot = Model.Oggetti.Count(x => x.TipoAttributo.ID == t.ID && x.Attributo.ID == a.ID);
+            string cssClass = "";
+            <div class="media">
+                <div class="media-body">
+                 <h4 class="media-heading">@a.GetNome()</h4>
+                 @foreach (OggettoWidgetAttributo o in Model.Oggetti)
+                 {
+                     if (o.Attributo.ID == a.ID)
+                     {
+                         c++;
+                         if (c == tot)
+                         {
+                             cssClass = "ultimo";
+                         }
+                        <p class="@cssClass">
+                            <a href="@Url.Action("Info", "Oggetti", new { id = o.ID })" title="@o.GetNome()">
+                                @o.GetNome()
+                            </a>
+                        </p>
+                     }
+                 }
+                </div>
+            </div>
+            c = 0;
+
+        }
+    }
+    </div>
+    c = 0;
+
+}
+</div>

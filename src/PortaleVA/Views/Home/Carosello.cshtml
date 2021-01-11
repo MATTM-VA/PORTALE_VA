@@ -1,0 +1,89 @@
+﻿@model VAPortale.Models.HomeCaroselloModel
+
+
+<div class="box_slider">
+
+    <div class="flexslider loading">
+        <ul class="slides">
+
+            @foreach (OggettoCarosello o in Model.Elementi)
+            {
+                if (!o.Contenuto.CategoriaNotizia.Equals(CategoriaNotiziaEnum.OsservatorioILVA))
+                {
+                    /* NOTIZIE */
+
+                    <li>
+                        <a href="@o.LinkContenuto" title="" class="Image">
+                            <img src="@Url.VAImmagine(o.ImmagineID)" alt="@o.GetNome()" />
+                        </a>
+                         <div class="info f-dr-jsb">
+                       
+                            <a href="@o.LinkContenuto" title="Info" class="nome f-dc-jc">@o.GetNome()</a>
+
+                            @if (!string.IsNullOrWhiteSpace(o.LinkProgettoCartografico))
+                            {
+                                <a href="@o.LinkProgettoCartografico" class="localizzazione f-dc-jc" title="@DizionarioService.TOOLTIP_TooltipLocalizzazione" target="_blank">
+                                    <img src="@Url.VAContent("sez_consultazione_icon_map.png?v=4")" alt="@DizionarioService.TOOLTIP_TooltipLocalizzazione">
+                                </a>
+                            }
+                        </div>
+                    </li>
+
+                }
+            }
+        </ul>
+    </div>
+</div>
+
+<div class="box_slider">
+    <div class="flexslider loading">
+        <ul class="slides">
+
+            @foreach (OggettoCarosello o in Model.Elementi)
+            {
+                if (o.Contenuto.CategoriaNotizia.Equals(CategoriaNotiziaEnum.OsservatorioILVA))
+                {
+                    /* NOTIZIE SECONDO BOX */
+
+                    <li>
+                        <a href="@o.LinkContenuto" title="" class="Image">
+                            <img src="@Url.VAImmagine(o.ImmagineID)" alt="@o.GetNome()" />
+                        </a>
+                       
+                        <div class="info f-dr-jsb">
+                             
+
+                            <a href="@o.LinkContenuto" title="Info" class="nome f-dc-jc">@o.GetNome()</a>
+
+                            @if (!string.IsNullOrWhiteSpace(o.LinkProgettoCartografico))
+                            {
+                                <a href="@o.LinkProgettoCartografico" class="localizzazione f-dc-jc" title="@DizionarioService.TOOLTIP_TooltipLocalizzazione" target="_blank">
+                                    <img src="@Url.VAContent("sez_consultazione_icon_map.png?v=4")" alt="@DizionarioService.TOOLTIP_TooltipLocalizzazione">
+                                </a>
+                            }
+                        </div>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+
+
+        <script>
+            $(document).ready(function () {
+                $('.box_slider .flexslider').flexslider({
+                    animation: "slide",
+                    itemWidth: '100%',
+                    animationLoop: false,
+                    pauseOnAction: false,
+                    useCSS: true,
+                    start: function () {
+                        $('.flexslider').removeClass('loading')
+                    }
+                });
+            });
+        </script>
+
+
+    </div>
+ 

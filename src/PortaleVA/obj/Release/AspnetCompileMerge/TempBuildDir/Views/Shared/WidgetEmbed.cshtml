@@ -1,0 +1,18 @@
+﻿@model VALib.Domain.Entities.UI.Widget 
+@{ 
+    string cssClass = "box embed"; 
+     
+    if (!Model.MostraTitolo) 
+    { 
+        cssClass += " noTitolo"; 
+    } 
+} 
+<div class="widget"> 
+@if (Model.MostraTitolo) 
+{  
+<h4 class="titolo">@Model.GetNome()</h4> 
+} 
+<div class="@cssClass"> 
+@Html.Raw(UrlUtility.VAHtmlReplacePseudoUrls(Model.GetContenuto())) 
+</div> 
+</div>

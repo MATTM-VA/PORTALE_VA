@@ -1,0 +1,62 @@
+﻿@model VAPortale.Models.HomeElencoProvvedimentiModel
+<div class="elenco">
+    <h3 class="titolo-elenco">@StringUtils.GetNomeElenco(Model.TipoElenco)</h3>
+    @if (Model.Provvedimenti.Count > 0)
+    {
+        foreach (ProvvedimentoHome provvedimento in Model.Provvedimenti)
+        {
+        <div class="media risorsa">
+            @if (provvedimento.TipoOggetto.MacroTipoOggetto.Enum == MacroTipoOggettoEnum.Via)
+            {
+                if (provvedimento.Tipologia != null && !string.IsNullOrWhiteSpace(provvedimento.Tipologia.FileIcona))
+                {
+                <div class="foto pull-left" title="@provvedimento.Tipologia.GetNome()">
+                    <img class="media-object" src="~/content/images/cat-icon/@provvedimento.Tipologia.FileIcona?v=2" alt="@provvedimento.Tipologia.GetNome()" /></div>
+                }
+                else
+                {
+                <div class="foto pull-left" title="@provvedimento.Tipologia.GetNome()">
+                    <img class="media-object" src="@Url.VAContent("cat-icon/via.png?v=2")" alt="@provvedimento.Tipologia.GetNome()" /></div>
+                }
+            }
+            else if (provvedimento.TipoOggetto.MacroTipoOggetto.Enum == MacroTipoOggettoEnum.Vas)
+            {
+                <div class="foto pull-left" title="VAS">
+                    <img class="media-object" src="@Url.VAContent("cat-icon/vas.png?v=2")" alt="VAS" /></div>
+            }
+            <div class="media-body">
+                <h4 class="media-heading">
+                    @Html.ActionLink(provvedimento.GetNome(), "Info", "Oggetti", new { id = provvedimento.ID }, null)
+                </h4>
+                <div class="row risorsa-footer">
+                    <div class="info col-sm-7">
+                        @DizionarioService.HOME_DataEmissioneProvvedimento: <span class="data">@provvedimento.DataProvvedimento.ToString(CultureHelper.GetDateFormat())</span>
+                    </div>
+                    <div class="azioni col-sm-5">
+                        @if (!string.IsNullOrWhiteSpace(provvedimento.GetDescrizione()))
+                        {
+                            <a title="@provvedimento.GetDescrizione()" class="icona-descrizione-progetto toolTipDialog">
+                                info</a>
+                        }
+                        <a href="@Url.VAProvvedimento(provvedimento.ProvvedimentoID)" class="icona-scarica-provvedimento external" title="@DizionarioService.TOOLTIP_TooltipProvvedimento">
+                            doc</a>
+                        @if (!string.IsNullOrWhiteSpace(provvedimento.LinkLocalizzazione))
+                        {
+                            <a href="@provvedimento.LinkLocalizzazione" class="icona-localizzatore external" title="@DizionarioService.TOOLTIP_TooltipLocalizzazione">
+                                mappa</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+    }
+    else
+    {
+        <div class="media risorsa">
+            <div class="media-body">
+                <p class="nessunElemento">@Model.MessaggioElencoVuoto</p>
+            </div>
+        </div>
+    }
+</div>

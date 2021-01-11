@@ -1,0 +1,93 @@
+﻿@model VAPortale.Models.OggettiInfoAIAModel
+@{
+    ViewBag.Title = string.Format("{0} - {1}", Model.Oggetto.GetNome(), Model.VoceMenu.GetNome());
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+
+<div class="line_small_title">
+    <h2>@Model.Oggetto.GetNome()</h2>
+</div>
+<div class="clear"></div>
+
+
+<h3>@DizionarioService.OGGETTO_TitoloInformazioniGenerali</h3>
+
+<p><strong>@Model.Oggetto.TipoOggetto.GetNome()</strong>: @Model.Oggetto.GetNome()</p>
+
+
+<p><strong>@DizionarioService.OGGETTO_LabelLocalizzazione</strong>: @Model.Oggetto.IndirizzoImpianto</p>
+
+@if (!string.IsNullOrWhiteSpace(Model.Oggetto.GetDescrizione()))
+{
+    <p>
+        <strong>@DizionarioService.OGGETTO_LabelDescrizione</strong>: @Model.Oggetto.GetDescrizione()
+    </p>
+}
+
+<p><strong>@DizionarioService.OGGETTO_LabelTipologia</strong>: @Model.Oggetto.CategoriaImpianto.GetNome()</p>
+
+@if ((Model.Oggetto.AttivitaIPPC[0]).Codice != null)
+{
+    <p>
+        <strong>@DizionarioService.OGGETTO_LabelCatAttivita</strong>:
+
+        @foreach (AttivitaIPPC IPPC in Model.Oggetto.AttivitaIPPC)
+        {
+            @String.Format("{0} - {1}", IPPC.Codice, IPPC.GetNome());<text>;&nbsp;</text>
+        }
+
+    </p>
+}
+
+
+@{
+    EntitaCollegata Gestore = Model.Oggetto.EntitaCollegate.FirstOrDefault(x => x.Ruolo.Enum == RuoloEntitaEnum.Gestore);
+}
+@if (Gestore != null)
+{
+    <p>
+        <strong>@DizionarioService.GRIGLIA_ColonnaGestore</strong>: @Gestore.Entita.Nome
+    </p>
+    if (!String.IsNullOrEmpty(Gestore.Entita.CodiceFiscale))
+    {
+        <p>
+            <strong>@DizionarioService.OGGETTO_LabelCodiceFiscale</strong>: @Gestore.Entita.CodiceFiscale
+        </p>
+    }
+
+}
+
+@foreach (LinkCollegato l in Model.Oggetto.LinkCollegati)
+{
+    <p>
+        <strong>@l.Tipo.GetNome():</strong>&nbsp;<a href="@l.Link.Indirizzo" class="external" title="@l.Link.Descrizione">@l.Link.Descrizione</a>
+    </p>
+}
+
+<p><strong>@DizionarioService.OGGETTO_LabelStatoInstallazione</strong>: @Model.Oggetto.StatoImpianto.GetNome()</p>
+
+
+@foreach (LinkCollegato l in Model.Oggetto.LinkCollegati)
+{
+    <p>
+        <strong>@l.Tipo.GetNome():</strong>&nbsp;<a href="@l.Link.Indirizzo" class="external" title="@l.Link.Descrizione">@l.Link.Descrizione</a>
+    </p>
+}
+
+@if (Model.Oggetto.ScadenzaPresentazioneOsservazioni.HasValue)
+{
+    <p>
+        <strong>@DizionarioService.OGGETTO_LabelScadenzaOsservazioni:</strong> <strong class="evidenza">@Model.Oggetto.ScadenzaPresentazioneOsservazioni.Value.ToString(CultureHelper.GetDateFormat())</strong>
+        <a href="@Url.RouteUrl("PaginaStatica", new { nomeSezione = "Procedure", nomeVoce = "InvioOsservazioni" })" class="bt icona-mail" title="@DizionarioService.TOOLTIP_TooltipInvioOsservazioni">
+            mail
+        </a>
+    </p>
+}
+
+<!-- Territori interessati -->
+@{ Html.RenderPartial("Territori", Model.TerritoriModel); }
+
+<!-- Eventi -->
+@{ Html.RenderAction("ElencoEventi", "Eventi", new { model = Model.EventiModel }); }
+
+

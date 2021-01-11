@@ -1,0 +1,82 @@
+﻿@model VAPortale.Models.ProcedureStatisticheModel
+@{
+    ViewBag.Title = Model.VoceMenu.GetNome();
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+    int c = 0;
+}
+<div class="line_small_title">
+    <h2>@Model.VoceMenu.GetNome()</h2>
+</div>
+<div class="cle"></div>
+<!-- Nav tabs -->
+<!--
+<ul class="nav nav-tabs tabProgetto">
+    <li class="active">
+        <a href="#" title="Statistiche per anno">Statistiche per anno</a>
+    </li>
+    <li>
+        <a title="Grafici e diagrammi" href="@Url.Action("Grafici", "Procedure")">
+            Grafici e diagrammi
+        </a>
+    </li>
+</ul>
+-->
+<!-- Tab content -->
+<!--<div class="tab-content">-->
+<div class="filtro">
+    <div class="bgInput">
+        @using (Html.BeginForm("Statistiche", "Procedure", FormMethod.Get, new { @id = "frmStatistiche" }))
+            {
+            @Html.AntiForgeryToken()
+            <div>
+                <label for="Anno">@DizionarioService.RICERCA_FiltraPerAnno</label>
+                @Html.DropDownListFor(m => m.Anno, Model.AnniSelectList, new { @class = "cerca" })
+            </div>
+        }
+    </div>
+</div>
+@foreach (TabellaStatisticheProcedure t in Model.Tabelle.Where(x => x.AmbitoProcedura.ID != 4 || Model.Anno >= 2018))
+{
+    c++;
+    <br /><br />
+    <div class="table-responsive">
+        <table class="table Statistiche">
+
+            <thead>
+                <tr>
+                    <th>@t.AmbitoProcedura.GetNome()</th>
+                    @if (Model.AnnoCorrente)
+                    {
+                        <th>@DizionarioService.SITO_InCorso</th>
+                    }
+                    <th>@DizionarioService.SITO_Avviate</th>
+                    <th>@DizionarioService.SITO_Concluse</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (StatisticheProcedura r in t.Righe)
+                {
+                    <tr>
+                        <td>
+                            <div>@r.Procedura.GetNome()</div>
+                        </td>
+                        @if (Model.AnnoCorrente)
+                        {
+                            <td class="alignCenter" style="width:100px;">
+                                <a title="@r.Procedura.GetNome()" href="@Url.Action("Report", "Procedure", new { proceduraID = r.Procedura.ID, anno = Model.Anno.Value, mto = (int)r.Procedura.MacroTipoOggettoEnum, tipo = 1 })">@r.InCorso</a>
+                            </td>
+                        }
+                        <td class="alignCenter" style="width:100px;">
+                            <a title="@r.Procedura.GetNome()" href="@Url.Action("Report", "Procedure", new { proceduraID = r.Procedura.ID, anno = Model.Anno.Value, mto = (int)r.Procedura.MacroTipoOggettoEnum, tipo = 2 })">@r.Avviate</a>
+                        </td>
+                        <td class="alignCenter" style="width:100px;">
+                            <a title="@r.Procedura.GetNome()" href="@Url.Action("Report", "Procedure", new { proceduraID = r.Procedura.ID, anno = Model.Anno.Value, mto = (int)r.Procedura.MacroTipoOggettoEnum, tipo = 3 })">@r.Concluse</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

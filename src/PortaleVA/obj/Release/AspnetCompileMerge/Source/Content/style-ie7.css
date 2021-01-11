@@ -1,0 +1,79 @@
+#menuPrincipale .lang a {
+	padding: 0;
+}
+
+.bx-wrapper {z-index:-1;}
+
+.content.home{margin-top:20px;}
+
+#menuServizio li a { padding:0 15px; margin-top:15px; border-right: 1px solid #054d6c;}
+
+.cerca .form-control{float:left;}
+.cerca .form-group {float:left;}
+.btn-cerca { display:block; float:left; font-size:0; line-height:0;}
+
+.navbar{z-index:9999;}
+.content.interna{padding:15px 40px 25px 15px;}
+.content.home{}
+
+.breadcrumb a {padding:0 7px; border-right:1px solid #CCC;}
+.breadcrumb li {padding:3px;}
+.content-toolbar{margin-left:0;}
+
+.tab-content{clear:both;}
+.tabProgetto{height:45px;}
+.nav-tabs>li.active, .nav-tabs>li:hover{background-color:#ececec;}
+
+.ricerca .btn{border:none; padding:3px; vertical-align:middle; margin-top:2px;}
+input, select{vertical-align:middle;}
+hr{display:block;}
+
+.sezione{border:hidden; border-color:transparent;}
+
+.cercaWidget .btn-cerca{font-size:0; line-height:0; margin:3px 0;}
+
+.cercaWidgetBox .cercaWidget{margin-left:0;}
+
+.bx-wrapper .bx-pager .bx-pager-item{
+	display: block;
+	float:left;
+}
+
+.bx-wrapper .bx-pager{width:auto;}
+
+.bx-controls{text-align:center;  margin-right:50%; margin-top:-20px;}
+
+.bx-wrapper .bx-viewport{background:#fff !important;}
+
+.icona-mappa-interattiva, .icona-metadato, .icona-scarica-provvedimento, .icona-calendario, .icona-dettagli-progetto, .icona-documentazione-tecnico-amm,.icona-google-earth, .icona-info-progetto, .icona-wms, .icona-localizzatore, .icona-mail, .icona-sintesi-non-tecnica{
+	
+	text-indent: 0;
+	font-size:0;
+}
+
+.ricercaOrizzontale input#ricercaOrizzontale {
+min-width: 370px;
+}
+
+.ricercaOrizzontale .btn-cerca{display:inline; float:none;}
+
+@media screen and(min-width:1200px){
+.carosello .bx-controls-direction a{right:450px !important;}
+.bx-wrapper .bx-pager{width:auto;}
+}
+
+@media screen and (min-width:992px) and (max-width: 1200px){
+    .carosello .bx-controls-direction a{right:350px !important;}
+    .bx-wrapper .bx-pager{width:auto;}
+}
+
+@media screen and (min-width: 991px) {
+.col-md-8 { width:64% !important;}
+.col-md-4 { width:30% !important;}
+.col-md-9{width: 73% !important;}
+.col-md-3{padding:0;}
+
+.col-sm-7{width: 50% !important;}
+.col-sm-5{width: 40% !important;}
+   
+}

@@ -1,0 +1,15 @@
+.sf-menu a {
+	zoom: 1; /* IE7 */
+}
+.sf-menu li.sfHover {
+	/* only transition out, not in */
+}
+.sf-arrows .sf-with-ul {
+	*padding-right: 1em; /* no CSS arrows for IE7 (lack pseudo-elements) */
+}
+.sf-arrows > .sfHover > .sf-with-ul:after {
+	border-top-color: white; /* IE8 fallback colour */
+}
+.sf-arrows ul .sf-with-ul:after {
+	border-left-color: #dFeEFF; /* edit this to suit design (no rgba in IE8) */
+}

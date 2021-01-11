@@ -1,0 +1,19 @@
+﻿@model VAPortale.Models.ComunicazioneDettaglioModel
+
+@{
+    ViewBag.Title = string.Format("{0} - {1}", Model.Notizia.GetTitolo(), Model.VoceMenu.GetNome());
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+    Immagine img = Model.Notizia.Immagini.FirstOrDefault(x => x.FormatoImmagine.Enum == FormatoImmagineEnum.DettaglioNotizie);
+}
+<div class="dettaglioArticolo">
+<h2>@Model.Notizia.GetTitolo()</h2>
+    <div>
+        @if (img != null)
+        {
+            <img class="pull-left" width="250" height="167" src="@Url.VAImmagine(img.ID)" title="@img.GetNome()" alt="@img.GetNome()" />
+        }
+        <p class="data">@Model.Notizia.Data.ToString(CultureHelper.GetDateFormat())</p>
+        
+        <div class="testo">@Html.Raw(VALib.Web.UrlUtility.VAHtmlReplacePseudoUrls(Model.Notizia.GetTesto())) </div>
+    </div>
+</div>

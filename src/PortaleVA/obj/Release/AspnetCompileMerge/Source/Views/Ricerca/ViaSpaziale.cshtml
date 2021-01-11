@@ -1,0 +1,30 @@
+﻿@model VAPortale.Models.RicercaViaSpazialeModel
+@using VALib.Web.Mvc
+
+@{
+    ViewBag.Title = Model.VoceMenu.GetDescrizione();
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+
+<div class="line_small_title">
+    <h2>@Model.VoceMenu.GetDescrizione()</h2>
+</div>
+<div class="clear"></div>
+
+
+@{ Html.RenderAction("Mappa", "Ricerca", Model); }
+
+
+<h3 class="risultati">@DizionarioService.RICERCA_TitoloRisultatiOggettiVia (@Model.TotaleRisultati)</h3>
+@{ Html.RenderPartial("GrigliaRisultatiOggetti", new Tuple<List<OggettoElenco>, MacroTipoOggettoEnum, bool>(Model.Oggetti, MacroTipoOggettoEnum.Via, false)); }
+
+<br /><br />
+<div class="area_sotto_tabella">
+    <div class="buttonBackground">
+        @Html.VaEsporta(x => Url.Action("ViaSpaziale", x))
+    </div>
+    <div class="paginatore">
+        @Html.VaPaginatore(Model.Pagina, Model.DimensionePagina, Model.TotaleRisultati, "pagina", x => Url.Action("ViaSpaziale", x))
+    </div>
+    <div class="visualizza_pagina"></div>
+</div>

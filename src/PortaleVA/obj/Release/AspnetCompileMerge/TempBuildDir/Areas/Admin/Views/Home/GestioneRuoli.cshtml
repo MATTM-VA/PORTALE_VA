@@ -1,0 +1,22 @@
+﻿@model VAPortale.Areas.Admin.Models.GestioneRuoliModel
+
+@{
+    ViewBag.Title = "GestioneRuoli";
+}
+
+<h2>Gestione Ruoli</h2>
+
+@Html.BeginForm("GestioneRuoli", "Home", FormMethod.Post){
+
+    <div>
+        <table>
+            @foreach (string i in Model.RuoliUtente.Keys)
+            {
+                <tr>
+                    <td>@Html.Label(i)</td>
+                    <td>@Html.CheckBoxFor(m => m.RuoliUtente[i])</td>
+                </tr>
+            }
+        </table>
+    </div>
+}

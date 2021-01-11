@@ -1,0 +1,156 @@
+﻿@model VAPortale.Models.ComunicazioneProponenteModel
+@{
+    ViewBag.Title = string.Format("{0} - Valutazioni Ambientali", Model.VoceMenu.GetNome());
+    Layout = "~/Views/Shared/_LayoutInterno.cshtml";
+}
+<div class="line_small_title">
+    <h2>@Model.VoceMenu.GetNome()</h2>
+</div>
+<div class="clear"></div>
+@if (Model.Links != null && Model.Links.Count > 0)
+{
+    <ul class="elencoProponente">
+        @foreach (VoceMenu voce in Model.Links)
+        {
+            <li>
+                @if (voce.Editabile)
+                {
+                    <a href="@Url.RouteUrl("PaginaStatica", new { nomeSezione = voce.Sezione, nomeVoce = voce.Voce })" title="@voce.GetNome()">@voce.GetNome()</a>
+                }
+                else
+                {
+                    <a href="@Url.Action(voce.Voce, voce.Sezione)" title="@voce.GetNome()">@voce.GetNome()</a>
+                }
+            </li>
+        }
+    </ul>
+}
+
+<div style="margin-left:18px;">
+    <img src="/content/images/img_specificheTecnicheModulistiche.png" alt="Specifiche tecniche e modulistica" style="vertical-align:middle;">
+ 
+    <a href="@Url.RouteUrl("PaginaStatica", new { nomeSezione = "DatiEStrumenti", nomeVoce = "Modulistica" })">
+        Specifiche tecniche e modulistica per la presentazione istanze
+    </a>
+ </div>
+
+
+
+        @if (CultureHelper.IsCurrentCulture(CultureHelper._it))
+        {
+           
+            <h3>Documenti di riferimento per gli oneri economici a carico dei proponenti (VAS, VIA) e dei gestori (AIA)</h3>
+            <div class="table-responsive">
+                <table class="table DocRifProponente">
+                    <tr>
+                        <th>Titolo</th>
+                        <th>Dimensione</th>
+                        <th><span class="hidden">Documento</span></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Decreto interministeriale MATTM-MEF del 4 gennaio 2018, n.1 inerente alle tariffe, da applicare ai proponenti, per le procedure di valutazione ambientale ai sensi dell’art.33 del decreto legislativo 3 aprile 2006, n.152.
+                            (Entrato in vigore il 06/02/2018)
+                        </td>
+                        <td>194 kB</td>
+                        <td>
+                            <a href="http://www.va.minambiente.it/File/DocumentoPortale/164"
+                               title="@DizionarioService.TOOLTIP_ScaricaDocumento"
+                               class="bt icona-pdf external">
+                                @DizionarioService.TOOLTIP_ScaricaDocumento
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Decreto direttoriale n.47 del 2 febbraio 2018 - "Disposizioni concernenti le modalità di versamento degli oneri economici per le procedure di valutazione ambientale (VAS e VIA) di competenza statale e la relativa documentazione da presentare."
+                        </td>
+                        <td>355 kB</td>
+                        <td>
+                            <a href="http://www.va.minambiente.it/File/DocumentoPortale/165"
+                               title="@DizionarioService.TOOLTIP_ScaricaDocumento"
+                               class="bt icona-pdf external">
+                                @DizionarioService.TOOLTIP_ScaricaDocumento
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Decreto  Interministeriale MATTM- MISE - MEF del 6 marzo  2017 , n. 58 .Regolamento recante le modalit&agrave;, anche  contabili, e le tariffe
+                            da  applicare in relazione alle istruttorie AIA ed ai controlli previsti al Titolo III <em>-bis</em> della Parte Seconda, nonch&eacute; i  compensi
+                            spettanti  ai membri della commissione istruttoria di  cui all&#146;&rsquo;articolo  8 -bis .
+                        </td>
+                        <td>355 kB</td>
+                        <td>
+                            <a href="http://www.va.minambiente.it/File/DocumentoPortale/186"
+                               title="@DizionarioService.TOOLTIP_ScaricaDocumento"
+                               class="bt icona-pdf external">
+                                @DizionarioService.TOOLTIP_ScaricaDocumento
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                <h3 class="proponente">Per altre informazioni, approfondimenti o suggerimenti scrivi alla Direzione per le Valutazioni e Autorizzazioni Ambientali</h3>
+            </div>
+        }
+        else if (CultureHelper.IsCurrentCulture(CultureHelper._en))
+        {
+           
+            <h3>Reference documents for the tariffs to be paid by the developers</h3>
+            <div class="table-responsive">
+                <table class="table DocRifProponente">
+                    <tr>
+                        <th>Title</th>
+                        <th>Dimension</th>
+                        <th><span class="hidden">Document</span></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Interministerial Decree no. 1 of 4 January 2018 - Tariffs to be paid by the developers relating to the environmental assessment procedures under article 33 of Legislative Decree no.152 of 3 April 2006"
+                            (Entered into force on 6 February 2018)
+                        </td>
+                        <td>194 kB</td>
+                        <td>
+                            <a href="http://www.va.minambiente.it/File/DocumentoPortale/164"
+                               title="@DizionarioService.TOOLTIP_ScaricaDocumento"
+                               class="bt icona-pdf external">
+                                @DizionarioService.TOOLTIP_ScaricaDocumento
+                            </a>
+                        </td>
+
+                    </tr>
+                    <tr>
+
+                        <td>
+                            Directorial decree no. 47 of 2 February 2018 - "Arrangements for paying the economic burdens for the SEA and EIA procedures under State jurisdiction and documentation to be submitted"
+                        </td>
+                        <td>355 kB</td>
+                        <td>
+                            <a href="http://www.va.minambiente.it/File/DocumentoPortale/165"
+                               title="@DizionarioService.TOOLTIP_ScaricaDocumento"
+                               class="bt icona-pdf external">
+                                @DizionarioService.TOOLTIP_ScaricaDocumento
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Ministry of Environment- Ministry of Economic Development - Ministry of Economy and Finance inter-ministerial Decree no.58 of 6 March 2017. Regulation on the methods, including accounting procedures and the fares to be applied in relation to the IPPC Permit technical assessments and checks provided for in Title III a of Part Two, as well as the remuneration due to the members of the technical assessment committee referred to in Article 8a
+                        </td>
+                        <td>355 kB</td>
+                        <td>
+                            <a href="http://www.va.minambiente.it/File/DocumentoPortale/186"
+                               title="@DizionarioService.TOOLTIP_ScaricaDocumento"
+                               class="bt icona-pdf external">
+                                @DizionarioService.TOOLTIP_ScaricaDocumento
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+
+                <h3>For information, insights and suggestions write to the Ministry of the Environment - Directorate for Environmental Assessments and Authorizations</h3>
+            </div>
+        }
+
+
+        @{ Html.RenderAction("FormContatto", "Comunicazione", new { Tipo = "Proponente" }); }
