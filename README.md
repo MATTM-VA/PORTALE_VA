@@ -1,5 +1,5 @@
-﻿# Portale VAS-VIA-AIA - Portale delle valutazioni e autorizzazioni ambientali VAS-VIA-AIA 
-Il Portale VAS-VIA-AIA rappresenta il punto di accesso unico a tutte le procedure di valutazione e autorizzazione ambientale relative a piani, programmi, progetti e installazioni di competenza statale disciplinate dalla Parte II del decreto legislativo 152/2006.
+﻿# Portale VAS-VIA-AIA - Portale delle valutazioni e autorizzazioni ambientali 
+Il Portale VAS-VIA-AIA rappresenta il punto di accesso unico a tutte le procedure statali di valutazione e autorizzazione ambientale relative a piani, programmi, progetti e installazioni di competenza statale disciplinate dalla Parte Seconda del Decreto Legislativo 152/2006.
 
 
 
@@ -16,10 +16,9 @@ redazione degli studi ambientali.
  
  
 * docs
-   documentazione sull'installazione e l'utilizzo del portale delle valutazioni e autorizzazioni ambientali VAS-VIA-AIA
-
+   documentazione sull'installazione e l'utilizzo del Portale VAS-VIA-AIA
 * src
-    sorgenti e struttura delle cartelle per il Portale VAS-VIA-AIA
+    sorgenti e struttura di cartelle della piattaforma PAT
 
 
 
@@ -34,8 +33,8 @@ redazione degli studi ambientali.
  
 
 
-## Licenza Portale VAS-VIA-AIA - Portale delle valutazioni e autorizzazioni ambientali VAS-VIA-AIA 
-Copyright Ministero dell'Ambiente e della Tutela del Territorio e del Mare
+## Licenza Portale VAS-VIA-AIA - Portale delle valutazioni e autorizzazioni ambientali 
+Copyright Ministero dell'Ambiente e della Tutela del Territorio e del Mare 
 
 Concesso in licenza a norma dell'EUPL (la "Licenza"), versione 1.2;
  
