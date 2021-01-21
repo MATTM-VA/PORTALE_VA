@@ -1,0 +1,66 @@
+publiccodeYmlVersion: '0.2'
+categories:
+  - application-development
+  - content-management
+logo: src/PortaleVA/Content/Images/logo_min_ambiente.png
+dependsOn:
+  open:
+    - name: PORTALE VA
+      optional: false
+      version: ''
+      versionMax: ''
+      versionMin: ''
+description:
+  it:
+    features:
+      - ricerca piani e programmi VAS
+      - ricerca progetti VIA
+      - ricerca installazioni AIA
+      - procedure in corso relative a piani, programmi, progetti e installazioni 
+      - consultazione dati ambientali di livello nazionale e regionale
+      - reportistica delle procedure in corso aggiornate in tempo reale
+    genericName: Portale valutazioni ambientali VAS-VIA-AIA
+    longDescription: |
+      Il nuovo Portale VAS-VIA-AIA rappresenta il punto di accesso unico a tutte
+      le procedure di valutazione e autorizzazione ambientale relative a piani,
+      programmi, progetti e installazioni di competenza statale disciplinate
+      dalla Parte Seconda del decreto legislativo 152/2006.
+      Il portale fornisce informazioni in tempo reale sullo stato di avanzamento
+      delle valutazioni ambientali in corso, informazioni amministrative e documenti
+      tecnici riguardanti i progetti e i piani/programmi in valutazione, gli atti
+      conclusivi emanati dal 1989 ad oggi, statistiche e dati di sintesi delle valutazioni concluse,
+      guide operative, indicazioni tecniche e modulistica, dati e informazioni sullo stato
+      dell’ambiente utili alla redazione degli studi ambientali.
+    shortDescription: Portale delle valutazioni ambientali VAS-VIA-AIA
+developmentStatus: stable
+it:
+  riuso:
+    codiceIPA:
+  conforme:
+    gdpr: false
+    lineeGuidaDesign: false
+    misureMinimeSicurezza: false
+    modelloInteroperabilita: true
+  countryExtensionVersion: '0.2'
+  piattaforme:
+    anpr: false
+    cie: false
+    pagopa: false
+    spid: false
+legal:
+  license: EUPL-1.2
+  mainCopyrightOwner: MATTM
+  repoOwner: MATTM
+localisation:
+  availableLanguages:
+    - it
+    - en
+  localisationReady: true
+maintenance:
+  type: internal
+name: Portale delle valutazioni ambientali VAS-VIA-AIA
+platforms:
+  - web
+releaseDate: '2019-12-30'
+softwareType: standalone/web
+url: 'https://github.com/MATTM-VA/PORTALE_VA'
